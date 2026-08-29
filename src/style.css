@@ -1,0 +1,93 @@
+
+:root {
+    --text-primary: #ffffff;
+    --text-secondary: #8f9cae;
+    --neon-blue: #00f2fe;
+}
+
+.lang-active {
+    color: var(--neon-blue);
+    text-shadow: 0 0 8px rgba(0, 242, 254, 0.4);
+    font-weight: 700;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 75px;
+    z-index: 100;
+    background: rgba(8, 9, 12, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0, 242, 254, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3rem;
+}
+
+.nav-logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--text-primary);
+}
+
+.nav-logo {
+    height: 38px;
+    width: auto;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 242, 254, 0.2);
+}
+
+.nav-brand {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    background: linear-gradient(135deg, #ffffff 40%, var(--neon-blue) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+nav {
+    display: flex; /* Yatay Diz */
+    gap: 2rem; /* 1rem = 16px */
+}
+
+/* Navbar Section*/
+.nav-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    font-weight: 500;
+    position: relative;
+    padding: 6px 0;
+    transition: color 0.3s ease; /* Hover efektini yavaşlat */
+}
+
+.nav-link:hover {
+    color: var(--neon-blue);
+}
+
+/* Altına çizgi gelme efekti */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1.5px;
+    background-color: var(--neon-blue);
+    transition: width 0.3s ease;
+    box-shadow: 0 0 5px var(--neon-blue);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
