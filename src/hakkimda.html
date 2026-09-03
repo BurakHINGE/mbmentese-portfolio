@@ -25,21 +25,248 @@
         </nav>
     </header>
 
-    <!-- HAKKIMDA BÖLÜMÜ -->
-    <section id="hakkimda">
-        <div class="about-card">
-            <div class="corner top-left"></div>
-            <div class="corner top-right"></div>
-            <div class="corner bottom-left"></div>
-            <div class="corner bottom-right"></div>
+        <!-- HAKKIMDA BÖLÜMÜ -->
+        <section id="hakkimda" class="multi-card-layout">
+        
+            <!-- HİKAYE VE HEDEFLER -->
+            <div class="about-card narrative-card">
+                <!-- Neon Köşeler -->
+                <div class="corner top-left"></div>
+                <div class="corner top-right"></div>
+                <div class="corner bottom-left"></div>
+                <div class="corner bottom-right"></div>
+    
+                <h2 data-translate="aboutTitle">Hakkımda</h2>
+                <div class="about-divider"></div>
+                <p class="about-text">
+                    Marmara Üniversitesi Bilgisayar Mühendisliği öğrencisi olarak, özellikle yapay zeka ve makine öğrenmesi alanlarında yenilikçi çözümler üretmeye odaklanıyorum. Yerel tabanlı RAG sistemleri geliştirmekten, veri mimarileri kurmaya kadar yapay zekanın arka planındaki mimariyle ilgileniyorum.
+                </p>
+                <p class="about-text">
+                    Amacım, karmaşık problemleri çözen otonom asistanlar ve akıllı yazılımlar tasarlamak. Teorik altyapımı hackathonlar ve sektör odaklı projelerle pratiğe dökmeye, öğrendiklerimle somut ürünler ortaya koymaya devam ediyorum.
+                </p>
+            </div>
+    
+        <!-- TEKNİK BİLGİLER VE CV -->
+        <div class="terminal-style">
 
-            <h2 data-translate="aboutTitle">Hakkımda</h2>
-            <div class="about-divider"></div>
-            <p class="about-text">Marmara Üniversitesi Bilgisayar Mühendisliği 2. sınıf öğrencisiyim. Yapay zeka odaklı yazılım geliştirme ile 
-                ilgileniyorum. Aktif olarak öğreniyor, öğrendiklerimi projelere döküyorum.
-            </p>
+            <!-- EĞİTİM BÖLÜMÜ -->
+            <div class="cv-section">
+                <h3 class="cv-title">EĞİTİM</h3>
+                
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <h4>Marmara Üniversitesi – Bilgisayar Mühendisliği</h4>
+                    </div>
+                    <div class="cv-meta">Eylül 2024 – 2029 (beklenen) · %100 İngilizce · İstanbul</div>
+                    <p class="cv-desc">2. sınıf öğrencisiyim. Genel not ortalamam: 3.05 / 4.00.<br><br>Yazılım mimarileri, makine öğrenmesi ve yapay zeka sistemlerine odaklanıyorum. Bu alanlar ile ilgili dersler alıyorum.</p>
+                </div>
+            </div>
+
+            <!-- TEKNİK BECERİLER BÖLÜMÜ -->
+            <div class="cv-section">
+                <h3 class="cv-title">TEKNİK BECERİLER</h3>
+                
+                <div class="skill-category">
+                    <h4>Yapay Zeka & Veri</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">RAG Sistemleri</span>
+                        <span class="skill-tag">Makine Öğrenmesi</span>
+                        <span class="skill-tag">Embeddings</span>
+                        <span class="skill-tag">Microsoft Foundry Local</span>
+                        <span class="skill-tag">SQLite</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Programlama Dilleri & Kütüphaneler</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">C</span>
+                        <span class="skill-tag">JavaFX</span>
+                        <span class="skill-tag">HTML / CSS</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Siber Güvenlik & Sistem</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Kali Linux</span>
+                        <span class="skill-tag">Terminal / Bash</span>
+                        <span class="skill-tag">PowerShell</span>
+                        <span class="skill-tag">Wireshark</span>
+                        <span class="skill-tag">OSINT / CTF</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Araçlar & Metodolojiler</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Git & GitHub</span>
+                        <span class="skill-tag">CI/CD Süreçleri</span>
+                        <span class="skill-tag">Agile / Scrum</span>
+                        <span class="skill-tag">Microsoft Excel</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Deneyimler -->
+            <div class="cv-section">
+                <h3 class="cv-title">Deneyim</h3>
+                
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <h4>Microsoft AI Innovators - Yapay Zeka Yazılım Geliştirme ● Gönüllü Stajyer</h4>
+                    </div>
+                    <div class="cv-meta">Temmuz - Ağustos 2026 · Uzaktan</div>
+                    <p class="cv-desc">Microsoft AI Innovators Yaz Stajı kapsamında, internet bağlantısı gerektirmeyen, gizlilik odaklı bir RAG tabanlı yapay zeka asistanı geliştirdim.<br>
+                    Proje SQLite üzerinden vektör arama ve phi-3.5-mini slm modelini bir araya getirerek ortalama 0.5-1.5 saniyede yanıt üretebiliyordu.<br>
+                    Geliştirme sürecinde Microsoft Foundry Local ile Python kullandım.</p>
+                </div>
+
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <h4>SyberTÜRK - Siber Güvenlik ● Gönüllü Stajyer</h4>
+                    </div>
+                    <div class="cv-meta">Temmuz - Ağustos 2025 · Uzaktan</div>
+                    <p class="cv-desc">SyberTÜRK'te siber güvenlik stajyeri olarak, gerçek sistemler üzerinde keşif ve zafiyet analizi çalışmaları yaptım. Wireshark, Burp Suite ve Bettercap gibi araçları kullanarak 5'ten fazla sistemde temel sızma testleri gerçekleştirdim.<br>
+                    Linux komut satırı ve PowerShell ile sistem yönetimi görevlerini otomatikleştirdim ve Active Directory yapıları üzerine araştırmalar yürüttüm.<br>
+                    Bu staj, güvenlik odaklı düşünme biçimimi ve sistemleri saldırgan bakış açısıyla değerlendirme becerimi geliştirdi.</p>
+                </div>
+
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <h4>Marmara Üniversitesi Siber Güvenlik Kulübü ● Yönetim Kurulu Sekreteri</h4>
+                    </div>
+                    <div class="cv-meta">Mayıs 2025 - Mayıs 2026 · İstanbul (Yönetim Kurulu Sekreteri)</div>
+                    <div class="cv-meta">Mayıs 2026 - Devam Ediyor · İstanbul (Akademi Komitesi Başkanı)</div>
+                    <p class="cv-desc">Marmara Üniversitesi Siber Güvenlik Kulübü'nde Yönetim Kurulu Sekreteri olarak görev alıyorum. Bu süreçte 20'den fazla atölye ve eğitim etkinliğinin organizasyonunda yer aldım ve yaklaşık 20 kişilik çekirdek bir topluluğun bir arada tutulmasına katkı sağladım. Bu deneyim, hem organizasyon hem de topluluk yönetimi konusunda bana önemli beceriler kazandırdı.<br>
+                    Şu an ise aktif olarak Akademi Komitesi Başkanı olarak görev alıyorum. Çeşitli çalışmalar, projeler ve blogların gerçekleştirilmesini yönetiyorum.</p>
+                </div>
+
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <h4>Marmara Üniversitesi Sosyal Teknoloji Kulübü ● Oyun Geliştiricisi</h4>
+                    </div>
+                    <div class="cv-meta">Kasım 2025 - Ağustos 2026 · İstanbul</div>
+                    <p class="cv-desc">Sosyal Teknoloji Kulübü bünyesinde, 15-20 kişiden oluşan bir ekiple Unity tabanlı bir oyun projesi geliştiriyorum.<br>
+                    Haftalık Agile/Scrum sprintleriyle ilerleyen bu projede Git/GitHub üzerinden ekip içi iş birliği ve versiyon kontrolü süreçlerini de aktif olarak yürütüyorum.<br>
+                    Bu deneyim bana büyük bir ekipte agile metodolojilerle çalışmanın pratik yönlerini öğretti.</p>
+                </div>
+            </div>
+
+            <!-- KURSLAR VE BOOTCAMP BÖLÜMÜ -->
+            <div class="cv-section">
+                <h3 class="cv-title">BOOTCAMP & KURSLAR</h3>
+                
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <h4>KOMTAŞ & İstanbul Data Science Academy ● AI Explorer Bootcamp'26</h4>
+                    </div>
+                    <div class="cv-meta">Temmuz - Ağustos 2026 · Uzaktan</div>
+                    <p class="cv-desc">KOMTAS ve İstanbul Data Science Academy iş birliğiyle düzenlenen AI Explorer Summer Bootcamp'26 programına katıldım.<br>
+                    Bu yoğun eğitim sürecinde üretken yapay zeka, büyük dil modelleri (LLM), agentic ai ve makine öğrenmesinin temelleri üzerine hem teorik hem uygulamalı çalışmalar gerçekleştirdim.<br>
+                    Bootcamp, yapay zeka alanındaki güncel yaklaşımları pratik projelerle pekiştirme fırsatı sundu.</p>
+                </div>
+
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <h4>MultiGroup Community ● Agentic AI Development with Google ADK & MCP</h4>
+                    </div>
+                    <div class="cv-meta">Mart - Mayıs 2026 · Uzaktan</div>
+                    <p class="cv-desc">MultiGroup Community tarafından düzenlenen 6 farklı modülden oluşan "Agentic AI Development with Google ADK & MCP" eğitim serisini tamamladım.<br>
+                    Bu eğitimlerde Google'ın Agent Development Kit aracını, Model Context Protocol standardını ve RAG tabanlı bilgi motorları kurma yaklaşımlarını öğrendim.<br>
+                    Program, ajan tabanlı yapay zeka sistemleri geliştirme konusundaki bilgimi somut araçlarla genişletmeme yardımcı oldu.</p>
+                </div>
+            </div>
+
+            <!-- SERTİFİKALAR BÖLÜMÜ -->
+            <div class="cv-section">
+                <h3 class="cv-title">Sertifikalar</h3>
+                
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <h4>AI Explorer Summer Bootcamp'26</h4>
+                    </div>
+                    <div class="cv-meta">KOMTAS & İstanbul Data Science Academy · Ağustos 2026</div>
+                    <p class="cv-desc">Generative AI, LLM, Agentic AI ve makine öğrenmesi temelleri.</p>
+                </div>
+
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <h4>Agentic AI Development with Google ADK & MCP</h4>
+                    </div>
+                    <div class="cv-meta">MultiGroup Community · 2026</div>
+                    <p class="cv-desc">Google Agent Development Kit, MCP ve RAG tabanlı bilgi motorları.</p>
+                </div>
+
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <h4>GitHub Foundations</h4>
+                    </div>
+                    <div class="cv-meta">GitHub · devam ediyor</div>
+                    <p class="cv-desc">Git/GitHub temelleri, iş birliği araçları ve Actions.</p>
+                </div>
+
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <h4>Microsoft AI Innovators Summer Internship'26</h4>
+                    </div>
+                    <div class="cv-meta">Microsoft · Ağustos 2026</div>
+                </div>
+
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <h4>SyberTÜRK Staj Sertifikası</h4>
+                    </div>
+                    <div class="cv-meta">SyberTÜRK · Ağustos 2025</div>
+                </div>
+
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <h4>Web Uygulama Güvenliği Eğitimi</h4>
+                    </div>
+                    <div class="cv-meta">Siber Kulüpler Birliği · 2025</div>
+                    <p class="cv-desc">Yaygın web zafiyetleri ve güvenli kod yazımı.</p>
+                </div>
+
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <h4>Excel Sertifikası</h4>
+                    </div>
+                    <div class="cv-meta">Emre Akyüz (Udemy) · Mart 2026</div>
+                </div>
+
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <h4>Unity Oyun Geliştirme Motoru Sertifikası</h4>
+                    </div>
+                    <div class="cv-meta">BTK Akademi · Aralık 2025</div>
+                </div>
+
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <h4>QBronze</h4>
+                    </div>
+                    <div class="cv-meta">QWorld · Ağustos 2026</div>
+                    <p class="cv-desc">Kuantum bilişime giriş: kübit, süperpozisyon, temel algoritmalar.</p>
+                </div>
+
+                <div class="cv-item">
+                    <div class="cv-item-header">
+                        <h4>QPrep</h4>
+                    </div>
+                    <div class="cv-meta">QWorld · Ağustos 2026</div>
+                    <p class="cv-desc">Kuantum bilişim için lineer cebir ve matematiksel altyapı.</p>
+                </div>
+                
+            </div>
+
         </div>
-    </section>
+
+
+        </section>
+    
 
     <script src="script.js"></script>
 </body>
