@@ -326,3 +326,187 @@ h1 {
 }
 
 
+/* =========================================
+   HAKKIMDA - CV & YETENEKLER STİLLERİ
+   ========================================= */
+
+   .about-card.terminal-style {
+    max-width: 850px; 
+    padding: 3.5rem 3.5rem;
+    text-align: left; 
+}
+
+/* --- YENİ ZAMAN ÇİZELGESİ (TIMELINE) YAPISI --- */
+
+.cv-section {
+    position: relative;
+    padding-left: 32px; /* Çizgi ve noktalar için yer açıyoruz */
+    margin-bottom: 4rem;
+}
+
+.cv-section:last-child {
+    margin-bottom: 0;
+}
+
+/* Arkadaki Sürekli Dikey Çizgi (Neon Track) */
+.cv-section::before {
+    content: '';
+    position: absolute;
+    top: 10px; /* Başlığın hizasından başlar */
+    bottom: 0; /* Bölüm sonuna kadar uzanır */
+    left: 8px; /* Çizginin yatay hizası */
+    width: 2px;
+    background: linear-gradient(to bottom, var(--neon-blue) 0%, rgba(0, 242, 254, 0.05) 100%); 
+    box-shadow: 0 0 8px rgba(0, 242, 254, 0.4);
+}
+
+/* Başlık Stili: [ EĞİTİM ] ve [ TEKNİK BECERİLER ] */
+.cv-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.5rem;
+    color: var(--neon-blue);
+    letter-spacing: 0.15em;
+    margin-bottom: 2.5rem;
+    position: relative; /* Node hizalaması için önemli */
+    display: flex;
+    align-items: center;
+    text-shadow: 0 0 10px rgba(0, 242, 254, 0.3);
+}
+
+/* Ana Başlık Node'u (İçi boş, parlayan Elmas) */
+.cv-title::before {
+    content: '';
+    position: absolute;
+    left: -30px; /* Çizginin tam merkezine oturtur */
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg); /* Döndürerek elmas yapar */
+    width: 12px;
+    height: 12px;
+    background: #000; /* Arkadaki çizgiyi gizler */
+    border: 2px solid var(--neon-blue);
+    box-shadow: 0 0 10px var(--neon-blue), inset 0 0 5px var(--neon-blue);
+    z-index: 2;
+}
+
+/* Alt Öğeler (Eğitimler ve Yetenek Kategorileri) */
+.cv-item, .skill-category {
+    position: relative;
+    margin-bottom: 2.5rem;
+}
+
+.cv-item:last-child, .skill-category:last-child {
+    margin-bottom: 1rem;
+}
+
+/* Alt Öğe Node'ları (İçi dolu parlayan yuvarlaklar) */
+.cv-item::before, .skill-category::before {
+    content: '';
+    position: absolute;
+    left: -28px; /* Çizginin tam merkezine oturtur */
+    top: 6px; /* H4 başlığının ilk satırıyla hizalar */
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--neon-blue);
+    box-shadow: 0 0 8px var(--neon-blue);
+    z-index: 2;
+}
+
+.cv-item-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.cv-item-header h4 {
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    font-weight: 600;
+    margin: 0;
+    letter-spacing: 0.02em;
+}
+
+.cv-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.cv-desc {
+    color: #cbd5e1;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* --- YETENEKLER BÖLÜMÜ STİLLERİ --- */
+
+.skill-category h4 {
+    font-size: 1.3rem; 
+    color: var(--text-primary);
+    margin-bottom: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.15); 
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+/* Teknik Etiket (Badge) Stilleri */
+.skill-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--neon-blue);
+    background: rgba(0, 242, 254, 0.03);
+    border: 1px solid rgba(0, 242, 254, 0.2);
+    padding: 6px 14px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+/* Yetenek etiketleri üzerine gelindiğinde parlama efekti */
+.skill-tag:hover {
+    background: rgba(0, 242, 254, 0.1);
+    border-color: rgba(0, 242, 254, 0.6);
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.15);
+    transform: translateY(-2px);
+    color: #ffffff;
+}
+
+/* --- MULTI-CARD (ÇİFT KART) YAPISI --- */
+#hakkimda.multi-card-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem; 
+    padding-top: 140px; 
+    padding-bottom: 80px;
+}
+
+.about-card.narrative-card,
+.about-card.terminal-style {
+    width: 90%;
+    max-width: 850px;
+    margin: 0; 
+}
+
+.about-card.narrative-card {
+    padding: 3.5rem 3.5rem;
+}
+
+.terminal-style {
+    width: 90%;
+    max-width: 850px;
+    margin: 0;
+    padding: 0 3.5rem; /* Üstteki kartla aynı iç boşluğu verdik ki metinler alt alta aynı hizada başlasın */
+    text-align: left;
+    background: transparent; /* Arka plan yok */
+    border: none; /* Çerçeve yok */
+    box-shadow: none; /* Gölge yok */
+}
