@@ -510,3 +510,145 @@ h1 {
     border: none; /* Çerçeve yok */
     box-shadow: none; /* Gölge yok */
 }
+
+/* --- PROJELER BAŞLIK STİLLERİ --- */
+.projects-container {
+    width: 100%;
+    max-width: 950px;
+    margin: 0 auto;
+    /* Başlığı yukarı çekmek için padding-top değerini 100px'den 50px'e düşürdük */
+    padding-top: 50px; 
+}
+
+.section-title-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    /* Kartların yerini sabit tutmak için margin-bottom değerini 3rem'den 6rem'e çıkardık */
+    margin-bottom: 6rem; 
+}
+
+.title-bracket {
+    color: var(--text-secondary);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 2rem; /* 1.5rem'den 2rem'e çıkardık ki başlıkla uyumlu büyüsün */
+    opacity: 0.5;
+    letter-spacing: -2px;
+}
+
+.cv-title.centered-title {
+    font-size: 2.5rem; /* Başlığı büyütmek için bu satırı ekledik (İstersen 3rem de yapabilirsin) */
+    margin-bottom: 0;
+    text-shadow: 0 0 15px rgba(0, 242, 254, 0.5); 
+}
+
+
+.cv-title.centered-title::before {
+    display: none; 
+}
+
+/* --- PROJELER GRID & KART YAPISI --- */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.project-card {
+    background: rgba(8, 9, 12, 0.6);
+    border: 1px solid rgba(0, 242, 254, 0.15); /* Çerçeveyi hafif transparan yaptık */
+    border-radius: 0; /* Köşeleri keskinleştirmek için yuvarlaklığı kaldırdık */
+    padding: 2rem;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    position: relative; /* Köşe çizgileri için gerekli */
+}
+
+/* Fütüristik Köşe Çizgileri (Sol Üst ve Sağ Alt) */
+.project-card::before,
+.project-card::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border-color: var(--neon-blue);
+    border-style: solid;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+/* Sol Üst Köşe */
+.project-card::before {
+    top: -1px;
+    left: -1px;
+    border-width: 2px 0 0 2px;
+}
+
+/* Sağ Alt Köşe */
+.project-card::after {
+    bottom: -1px;
+    right: -1px;
+    border-width: 0 2px 2px 0;
+}
+
+/* Üzerine gelindiğinde animasyon */
+.project-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(0, 242, 254, 0.4);
+    box-shadow: 0 0 25px rgba(0, 242, 254, 0.1);
+    background: rgba(8, 9, 12, 0.8);
+}
+
+/* Üzerine gelindiğinde köşelerin uzaması efekti */
+.project-card:hover::before,
+.project-card:hover::after {
+    width: 40px;
+    height: 40px;
+    filter: drop-shadow(0 0 8px rgba(0, 242, 254, 0.6)); 
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.project-header h3 {
+    color: #ffffff;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.project-header i {
+    font-size: 1.5rem;
+    opacity: 0.8;
+}
+
+.project-desc {
+    color: #cbd5e1;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.project-link-text {
+    color: var(--neon-blue);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    font-weight: 500;
+    align-self: flex-end;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.project-card:hover .project-link-text {
+    opacity: 1;
+}
+
