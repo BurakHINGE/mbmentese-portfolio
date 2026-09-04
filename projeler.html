@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <!-- Buradaki tüm meta etiketleri, fontlar ve CSS linkin index.html ile birebir aynı kalacak -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeler | Mehmet Burak Menteşe</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Diğer head etiketlerini de ekle... -->
+</head>
+<body>
+    <!-- Navbar aynen kalıyor ki diğer sayfalara geçilebilsin -->
+    <header>
+        <a href="index.html" class="nav-logo-container">
+            <img src="Assets/favicon.png" alt="Website Logo" class="nav-logo">
+            <span class="nav-brand">Mehmet Burak Menteşe</span>
+        </a>
+        <nav>
+            <a href="index.html" class="nav-link" data-translate="home">Ana Sayfa</a>
+            <a href="hakkimda.html" class="nav-link" data-translate="about">Hakkımda</a>
+            <a href="projeler.html" class="nav-link" data-translate="projects">Projeler</a>
+            <a href="blog.html" class="nav-link" data-translate="blog">Blog</a>
+            <a href="iletisim.html" class="nav-link" data-translate="contact me">İletişim</a>
+            <span id="lang-tr" class="lang-active">TR</span><span class="lang-separator">/</span><span id="lang-en">EN</span>
+        </nav>
+    </header>
+
+    <section id="projeler-sayfasi">
+        <div class="projects-container">
+            <!-- Özel Fütüristik Başlık -->
+            <div class="section-title-wrapper">
+                <span class="title-bracket">&lt;&lt;</span>
+                <h1 class="cv-title centered-title">PROJELER</h1>
+                <span class="title-bracket">&gt;&gt;</span>
+            </div>            
+    
+            <!-- 2'li Grid Kart Yapısı -->
+            <div class="projects-grid">
+                
+                <!-- Proje 1 -->
+                <a href="projeler/local-RAG-assistant.html" class="project-card">
+                    <div class="project-header">
+                        <h3>Yerel RAG Asistanı</h3>
+                        <i class="icon-ai">🧠</i> 
+                    </div>
+                    <p class="project-desc">Kişisel belgelerden bilgi çıkaran, Python ve SQLite kullanılarak geliştirilmiş yerel barındırılan yapay zeka asistanı CLI aracı.</p>
+                    <span class="project-link-text">Detayları İncele ➔</span>
+                </a>
+
+    
+                <!-- Proje 2 -->
+                <a href="projeler/ghosthunter/" class="project-card">
+                    <div class="project-header">
+                        <h3>GhostHunterINC</h3>
+                        <i class="icon-game">🎮</i>
+                    </div>
+                    <p class="project-desc">Oyun motoru (Unity vb.) kullanılmadan, tamamen sıfırdan standart editörlerde Java ve JavaFX ile kodlanmış interaktif bağımsız oyun.</p>
+                    <span class="project-link-text">Detayları İncele ➔</span>
+                </a>
+    
+                <!-- Proje 3 -->
+                <a href="projeler/zar-simülatörü/" class="project-card">
+                    <div class="project-header">
+                        <h3>Zar Simülatörü v2.1.0</h3>
+                        <i class="icon-terminal">💻</i>
+                    </div>
+                    <p class="project-desc">Özelleştirilebilir zar yüzleri ve olasılık dağılımı görselleştirmesi sunan konsol tabanlı algoritmik Java programı.</p>
+                    <span class="project-link-text">Detayları İncele ➔</span>
+                </a>
+    
+                <!-- Proje 4 -->
+                <a href="projeler/marmara-siber/" class="project-card">
+                    <div class="project-header">
+                        <h3>Siber Kulüp Web Arayüzü</h3>
+                        <i class="icon-web">🌐</i>
+                    </div>
+                    <p class="project-desc">Marmara Siber web sitesi için akordeon tarzı dinamik SSS bölümü ve fonksiyonel arayüz geliştirmeleri.</p>
+                    <span class="project-link-text">Detayları İncele ➔</span>
+                </a>
+    
+            </div>
+        </div>
+    </section>
+    
+    <script src="script.js"></script>
+</body>
+</html>
