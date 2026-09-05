@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <!-- Buradaki tüm meta etiketleri, fontlar ve CSS linkin index.html ile birebir aynı kalacak -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog | Mehmet Burak Menteşe</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Diğer head etiketlerini de ekle... -->
 </head>
 <body>
-    <!-- Navbar aynen kalıyor ki diğer sayfalara geçilebilsin -->
+    <!-- Navbar -->
     <header>
-        <a href="hero.html" class="nav-logo-container">
+        <a href="index.html" class="nav-logo-container">
             <img src="Assets/favicon.png" alt="Website Logo" class="nav-logo">
             <span class="nav-brand">Mehmet Burak Menteşe</span>
         </a>
         <nav>
-            <a href="hero.html" class="nav-link" data-translate="home">Ana Sayfa</a>
+            <a href="index.html" class="nav-link" data-translate="home">Ana Sayfa</a>
             <a href="hakkimda.html" class="nav-link" data-translate="about">Hakkımda</a>
             <a href="projeler.html" class="nav-link" data-translate="projects">Projeler</a>
             <a href="blog.html" class="nav-link" data-translate="blog">Blog</a>
@@ -25,6 +23,63 @@
         </nav>
     </header>
 
+    <section id="blog-sayfasi">
+        <!-- Projeler ile tamamen aynı CSS sınıflarını kullanıyoruz -->
+        <div class="projects-container">
+            <!-- Özel Fütüristik Başlık -->
+            <div class="section-title-wrapper">
+                <span class="title-bracket">&lt;&lt;</span>
+                <h1 class="cv-title centered-title">BLOG</h1>
+                <span class="title-bracket">&gt;&gt;</span>
+            </div>            
+    
+            <!-- 2'li Grid Kart Yapısı -->
+            <div class="projects-grid">
+                
+                <!-- Blog Yazısı 1 -->
+                <a href="blog/agentic-ai-notlari.html" class="project-card">
+                    <div class="project-header">
+                        <h3>Agentic AI ve RAG Sistemleri</h3>
+                        <i class="icon-ai">📝</i> 
+                    </div>
+                    <p class="project-desc">AI Explorer Bootcamp ve MultiGroup eğitimlerimde edindiğim notlar; büyük dil modelleri, SQLite ve otonom ajanların çalışma mantığı.</p>
+                    <span class="project-link-text">Okumaya Başla ➔</span>
+                </a>
+    
+                <!-- Blog Yazısı 2 -->
+                <a href="blog/unity-kullanmadan-oyun-yapmak.html" class="project-card">
+                    <div class="project-header">
+                        <h3>Sıfırdan Oyun Geliştirmek</h3>
+                        <i class="icon-game">🎮</i>
+                    </div>
+                    <p class="project-desc">Oyun motoru kullanmadan, standart kod editörleri üzerinde sadece Java ve JavaFX ile interaktif oyun mekanikleri tasarlama rehberi.</p>
+                    <span class="project-link-text">Okumaya Başla ➔</span>
+                </a>
+    
+                <!-- Blog Yazısı 3 -->
+                <a href="blog/siber-guvenlik-ve-ctf.html" class="project-card">
+                    <div class="project-header">
+                        <h3>CTF Çözümleri & Güvenlik</h3>
+                        <i class="icon-terminal">🛡️</i>
+                    </div>
+                    <p class="project-desc">Marmara Siber Kulübü'ndeki çalışmalarım, web uygulama güvenliği eğitimleri ve terminal araçları üzerine edindiğim pratik ipuçları.</p>
+                    <span class="project-link-text">Okumaya Başla ➔</span>
+                </a>
+    
+                <!-- Blog Yazısı 4 -->
+                <a href="blog/eu4-angevin-rehberi.html" class="project-card">
+                    <div class="project-header">
+                        <h3>EU4: Angevin Krallığı Rehberi</h3>
+                        <i class="icon-web">👑</i>
+                    </div>
+                    <p class="project-desc">İngiltere ile oynarken Crown of Ireland Act parlamento politikasını geçirme ve tarihi Angevin Krallığı'nı kurma stratejileri.</p>
+                    <span class="project-link-text">Okumaya Başla ➔</span>
+                </a>
+    
+            </div>
+        </div>
+    </section>
+    
     <script src="script.js"></script>
 </body>
 </html>
