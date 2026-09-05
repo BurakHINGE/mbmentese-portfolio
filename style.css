@@ -517,7 +517,7 @@ h1 {
     max-width: 950px;
     margin: 0 auto;
     /* Başlığı yukarı çekmek için padding-top değerini 100px'den 50px'e düşürdük */
-    padding-top: 50px; 
+    padding-top: 25px; 
 }
 
 .section-title-wrapper {
@@ -621,9 +621,16 @@ h1 {
 
 .project-header h3 {
     color: #ffffff;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     font-weight: 600;
     margin: 0;
+    transition: color 0.3s ease; /* Renk geçişinin aniden değil, yumuşak olmasını sağlar */
+}
+
+/* Karta fareyle gelindiğinde başlığın turkuaz (neon blue) olması */
+.project-card:hover .project-header h3 {
+    color: var(--neon-blue);
+    text-shadow: 0 0 8px rgba(0, 242, 254, 0.4); /* İstersen başlığa da hafif bir parlama ekleyebiliriz */
 }
 
 .project-header i {
