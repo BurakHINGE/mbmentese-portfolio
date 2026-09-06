@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- SEO Meta Etiketleri -->
     <title>Yerel RAG Asistanı | Projeler | Mehmet Burak Menteşe</title>
     <meta name="description" content="Kişisel belgelerden bilgi çıkaran, Python ve SQLite kullanılarak geliştirilmiş, yerel barındırılan otonom yapay zeka asistanı ve CLI aracı.">
-    <meta name="keywords" content="Yerel RAG, Python, SQLite, CLI, Yapay Zeka, Mehmet Burak Menteşe, Proje">
     
-    <!-- Sadece 1 üst klasöre çıkıyoruz (../) -->
+    <!-- 2 üst klasöre çıkıyoruz -->
     <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- HEADER & NAVBAR -->
     <header>
-        <!-- Favicon ve linkler 1 üst klasöre (../) göre ayarlandı ve hero.html -> index.html yapıldı -->
         <a href="../../index.html" class="nav-logo-container">
             <img src="../../Assets/favicon.png" alt="Website Logo" class="nav-logo">
             <span class="nav-brand">Mehmet Burak Menteşe</span>
@@ -29,12 +29,242 @@
         </nav>
     </header>
 
-    <main style="margin-top: 150px; padding: 2rem;">
-        <h1>Yerel RAG Asistanı</h1>
-        <p>Proje detayları, ekran görüntüleri ve GitHub linkleri buraya gelecek...</p>
-    </main>
+        <!-- PROJE DETAY BÖLÜMÜ -->
+        <section id="project-detail" class="project-single-layout">
+            <div class="project-top-nav">
+                <a href="../../projeler.html" class="back-link">
+                    <i class="fa-solid fa-arrow-left-long"></i> Tüm Projelere Dön
+                </a>
+            </div>
+    
+            <!-- 1. ÜST ODAK ALANI (HERO) -->
+            <div class="project-hero">
+    
+            <div class="hero-title-wrapper">
+                <h1 class="project-main-title">YEREL RAG ASİSTANI</h1>
+            </div>
+            
+            <div class="skill-tags justify-center">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">SQLite</span>
+                <span class="skill-tag">Microsoft Foundry Local</span>
+                <span class="skill-tag">phi-3.5-mini</span>
+            </div>
 
-    <!-- JS yolu da 1 üst klasör olarak belirlendi -->
+            <p class="project-hero-desc">
+                İnternet bağlantısı gerektirmeyen, kişisel belgelerinizden saniyeler içinde bilgi çıkaran gizlilik odaklı yapay zeka CLI aracı.
+            </p>
+
+            <a href="https://github.com/BurakHINGE" target="_blank" class="neon-btn">
+                <i class="fa-brands fa-github"></i> Kaynak Kodları İncele
+            </a>
+        </div>
+
+        <!-- BÖLÜCÜ ÇİZGİ -->
+        <div class="about-divider" style="margin: 3rem 0 4rem 0;"></div>
+
+        <!-- ANA İÇERİK ALANI -->
+        <div class="project-content">
+
+            <!-- 2. HİKAYE VE ÖNE ÇIKAN ÖZELLİKLER -->
+            <div class="project-bento-box" style="margin-top: 0; margin-bottom: 5rem;">
+                
+                <!-- Hikaye Kartı -->
+                <div class="bento-card full-width">
+                    <div class="bento-header">
+                        <i class="fa-solid fa-crosshairs"></i>
+                        <h3>Çıkış Noktası ve Kapsam</h3>
+                    </div>
+                    <p class="bento-text">
+                        Microsoft AI Innovators Yaz Stajı programı sürecinde geliştirdiğim bu proje, tamamen yerel donanım üzerinde çalışan otonom bir asistan oluşturma fikriyle doğdu. Dış servislere (API) veri göndermeden, kullanıcının kendi bilgisayarındaki belgeler üzerinde sorgulama yapabilmesini sağlıyor.
+                    </p>
+                </div>
+                
+                <!-- Öne Çıkan 4 Özellik (İç içe Grid yapısı ile kaymaları önledik) -->
+                 <div class="feature-grid full-width">
+                    <div class="bento-card" style="padding: 1.5rem; text-align: center;">
+                        <i class="fa-solid fa-wifi" style="font-size: 2rem; color: var(--neon-blue); margin-bottom: 1rem;"></i>
+                        <h4 class="bento-card-title">%100 Çevrimdışı</h4>
+                        <p class="bento-text" style="font-size: 0.9rem;">Tüm model ve veritabanı lokalde çalışır, buluta veri gitmez.</p>
+                    </div>
+                    
+                    <div class="bento-card" style="padding: 1.5rem; text-align: center;">
+                        <i class="fa-solid fa-bullseye" style="font-size: 2rem; color: var(--neon-blue); margin-bottom: 1rem;"></i>
+                        <h4 class="bento-card-title">Sıfır Halüsinasyon</h4>
+                        <p class="bento-text" style="font-size: 0.9rem;">Sıkı sistem promptu sayesinde bilgi yoksa uydurmaz, dürüst cevap verir.</p>
+                    </div>
+                    
+                    <div class="bento-card" style="padding: 1.5rem; text-align: center;">
+                        <i class="fa-solid fa-bolt" style="font-size: 2rem; color: var(--neon-blue); margin-bottom: 1rem;"></i>
+                        <h4 class="bento-card-title">Yüksek Hız</h4>
+                        <p class="bento-text" style="font-size: 0.9rem;">0.5 - 1.5 saniye arasında son derece hızlı yanıt süresi.</p>
+                    </div>
+                    
+                    <div class="bento-card" style="padding: 1.5rem; text-align: center;">
+                        <i class="fa-solid fa-shield-halved" style="font-size: 2rem; color: var(--neon-blue); margin-bottom: 1rem;"></i>
+                        <h4 class="bento-card-title">Tam Gizlilik</h4>
+                        <p class="bento-text" style="font-size: 0.9rem;">Belgeleriniz asla cihaz dışına çıkmaz, tamamen güvendedir.</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- 3. MİMARİ DİYAGRAMI -->
+            <div class="bento-section-title">
+                <h2><i class="fa-solid fa-sitemap" style="color: var(--neon-blue);"></i> Veri Akışı ve Mimari</h2>
+            </div>
+            
+            <div class="image-container" style="margin-bottom: 5rem;">
+                <div class="corner top-left"></div>
+                <div class="corner top-right"></div>
+                <div class="corner bottom-left"></div>
+                <div class="corner bottom-right"></div>
+                <div style="width: 100%; aspect-ratio: 21/9; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.4); border-radius: 4px; border: 1px dashed rgba(0, 242, 254, 0.3);">
+                    <p style="color: var(--text-secondary); font-family: 'JetBrains Mono', monospace;">[ Mimari Akış Diyagramı Görseli Buraya Gelecek ]</p>
+                </div>
+            </div>
+
+            <!-- 4. ZIG-ZAG BÖLÜM 1: Teknik Detaylar -->
+            <div class="bento-section-title">
+                <h2><i class="fa-solid fa-microchip" style="color: var(--neon-blue);"></i> Teknik Altyapı</h2>
+            </div>
+            
+            <div class="zigzag-row" style="margin-bottom: 5rem;">
+                <div class="zigzag-text">
+                    <!-- Ayrık Mini Kartlar -->
+                    <div class="mini-card-container">
+                        <div class="mini-card">
+                            <i class="fa-solid fa-brain"></i>
+                            <div class="mini-card-content">
+                                <h4>Model Seçimi & Üretim</h4>
+                                <p>Sohbet (Chat) üretiminde <strong>phi-3.5-mini</strong>, metinleri vektörlere çevirme (Embedding) işleminde ise <strong>qwen3-embedding-0.6b</strong> kullanıldı.</p>
+                            </div>
+                        </div>
+
+                        <div class="mini-card">
+                            <i class="fa-solid fa-database"></i>
+                            <div class="mini-card-content">
+                                <h4>Vektör Veritabanı & Arama</h4>
+                                <p>Harici bir sunucu yerine gömülü SQLite kullanıldı. Vektör eşleştirmeleri <strong>Cosine Similarity</strong> algoritmasıyla doğrudan veritabanında hesaplanıyor.</p>
+                            </div>
+                        </div>
+
+                        <div class="mini-card">
+                            <i class="fa-solid fa-gear"></i>
+                            <div class="mini-card-content">
+                                <h4>Veri İşleme (Ingestion)</h4>
+                                <p>Belgeler önce parçalara (chunk) ayrılır, qwen3 ile vektörize edilir ve sorgulanmaya hazır şekilde SQLite tablosuna indekslenir.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="zigzag-image image-container">
+                    <div class="corner top-left"></div>
+                    <div class="corner top-right"></div>
+                    <div class="corner bottom-left"></div>
+                    <div class="corner bottom-right"></div>
+                    <img src="../../Assets/rag-architecture.png" alt="Teknik Mimari Görseli" class="project-img" style="aspect-ratio: 4/3; object-fit: cover;">
+                </div>
+            </div>
+            
+            <!-- 5. ZIG-ZAG BÖLÜM 2: Demo ve Metrikler (Ters Düzen) -->
+            <div class="zigzag-row zigzag-reverse" style="margin-bottom: 5rem;">
+                <div class="zigzag-text bento-card" style="margin: 0;">
+                    <div class="bento-header">
+                        <i class="fa-solid fa-stopwatch"></i>
+                        <h3>Performans Metrikleri</h3>
+                    </div>
+                    <p class="bento-text" style="margin-bottom: 1rem;">
+                        Apple Silicon çipleri üzerinde yapılan canlı CLI testlerinde, farklı sorgu tipleri için elde edilen ortalama çıkarım (inference) süreleri:
+                    </p>
+                    <ul class="styled-list">
+                        <li><strong>Doğrudan Bilgi Çıkarımı:</strong> ~0.74 saniye</li>
+                        <li><strong>Mantıksal Çıkarım (Deduction):</strong> ~1.09 saniye</li>
+                        <li><strong>Bağlam Dışı Reddetme (Refusal):</strong> ~0.38 saniye</li>
+                    </ul>
+                </div>
+                
+                <div class="zigzag-image image-container">
+                    <div class="corner top-left"></div>
+                    <div class="corner top-right"></div>
+                    <div class="corner bottom-left"></div>
+                    <div class="corner bottom-right"></div>
+                    <img src="../../Assets/rag-cli-screenshot.png" alt="CLI Kullanım GIF'i" class="project-img" style="aspect-ratio: 4/3; object-fit: cover;">
+                </div>
+            </div>
+
+            <!-- 6. ZORLUKLAR VE ÖĞRENİLENLER -->
+            <div class="bento-card full-width" style="margin-bottom: 5rem;">
+                <div class="bento-header">
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <h3>Karşılaşılan Zorluklar ve Trade-off'lar</h3>
+                </div>
+                <ul class="styled-list">
+                    <li><strong>Neden SQLite?</strong> ChromaDB veya Milvus gibi çözümler yerine SQLite kullanmak, sistemin sadece standart kütüphanelerle "tak-çalıştır" (plug & play) seviyesinde hafif olmasını sağladı. Ancak bu, çok büyük ölçekli vektör aramalarında hızdan bir miktar feragat etmek (trade-off) anlamına geliyordu. Lokal kullanım için bu denge idealdi.</li>
+                    <li><strong>Model Kısıtlamaları:</strong> phi-3.5-mini gibi küçük dil modelleri (SLM) karmaşık promptlara bazen halüsinasyonla yanıt verebiliyordu. Context pencerelerini daraltarak ve RAG promptlarını çok daha spesifik hale getirerek bu sorunu aştım.</li>
+                </ul>
+            </div>
+
+            <!-- 7. KURULUM VE KULLANIM -->
+            <div class="bento-section-title">
+                <h2><i class="fa-solid fa-code" style="color: var(--neon-blue);"></i> Kurulum ve Çalıştırma</h2>
+            </div>
+            
+            <div class="terminal-code-block" style="margin-bottom: 5rem;">
+                <div class="terminal-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                    <span class="terminal-title">bash</span>
+                </div>
+                <pre><code># Depoyu klonlayın ve klasöre girin
+git clone https://github.com/BurakHINGE/LocalRagAssistant.git
+cd LocalRagAssistant
+
+# Sanal ortam oluşturun ve aktif edin (macOS/Linux)
+python3 -m venv venv
+source venv/bin/activate
+
+# Gerekli kütüphaneleri yükleyin
+pip install -r requirements.txt
+
+# Belgeleri vektörize edip SQLite'a kaydedin (Ingestion)
+python3 ingest.py
+
+# Asistanı başlatın
+python3 app.py</code></pre>
+            </div>
+
+            <!-- ALT CTA VE PROJELER ARASI GEÇİŞ -->
+            <div class="project-bottom-nav-container">
+                
+                <h3 class="cta-title">Projeyi İncelemeye Hazır Mısınız?</h3>
+                <a href="https://github.com/BurakHINGE" target="_blank" class="neon-btn cta-btn">
+                    <i class="fa-brands fa-github"></i> Kaynak Kodları İncele
+                </a>
+
+                <!-- Sadece Sonraki Proje Linki (İlk proje olduğu için sağa yaslıyoruz) -->
+                <div class="project-pagination" style="justify-content: flex-end;">
+                    
+                    <!-- Sağ: Sonraki Proje (GhostHunter) -->
+                    <a href="../ghost-hunter/index.html" class="pagination-link next">
+                        <span class="pagination-text">
+                            <span class="pagination-label">Sonraki Proje</span>
+                            <span class="pagination-title">GhostHunterINC</span>
+                        </span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+    <!-- JS BAĞLANTISI -->
     <script src="../../script.js"></script>
 </body>
 </html>
