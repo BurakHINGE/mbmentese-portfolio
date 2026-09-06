@@ -659,3 +659,545 @@ h1 {
     opacity: 1;
 }
 
+
+/* --- PROJE DETAY SAYFASI ÖZEL STİLLERİ --- */
+
+/* Neon GitHub Butonu */
+.neon-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 32px;
+    background: rgba(0, 242, 254, 0.05);
+    color: var(--neon-blue);
+    border: 1px solid var(--neon-blue);
+    border-radius: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.1);
+}
+
+.neon-btn:hover {
+    background: rgba(0, 242, 254, 0.15);
+    transform: translateY(-4px);
+    box-shadow: 0 0 25px rgba(0, 242, 254, 0.4);
+    color: #ffffff;
+}
+
+/* --- PROJE GÖRSELLERİ STİLLERİ --- */
+.image-gallery {
+    display: flex;
+    flex-direction: column; /* Görselleri alt alta şık bir şekilde dizer */
+    gap: 3rem; /* Görseller arası boşluk */
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+    background: rgba(8, 9, 12, 0.5); /* Hafif transparan arkaplan */
+    border: 1px solid rgba(0, 242, 254, 0.15); /* İnce neon çerçeve */
+    border-radius: 8px;
+    padding: 12px; /* Çerçeve ile görsel arasında hoş bir boşluk bırakır */
+    box-shadow: 0 0 30px rgba(0, 242, 254, 0.05);
+}
+
+.project-img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    display: block;
+    opacity: 0.85; /* Sitenin karanlık temasına uyum için hafif soluk durur */
+    filter: grayscale(20%); /* Çok hafif renksizleştirerek sinematik hava katar */
+    transition: all 0.4s ease;
+}
+
+/* Görselin üzerine fareyle gelince netleşip parlaması */
+.image-container:hover .project-img {
+    opacity: 1;
+    filter: grayscale(0%);
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
+}
+
+
+/* --- YENİ PROJE DETAY SAYFASI DÜZENİ --- */
+.project-single-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 150px; /* Navbar'ın altında rahat bir boşluk */
+    padding-bottom: 100px;
+}
+
+.project-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 800px;
+    width: 90%;
+}
+
+.project-main-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.05em;
+    background: linear-gradient(135deg, #ffffff 30%, #a5b4fc 70%, var(--neon-blue) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
+}
+
+.justify-center {
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.project-hero-desc {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: #cbd5e1;
+    margin-bottom: 2.5rem;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+}
+
+.project-content {
+    width: 90%;
+    max-width: 850px;
+    /* Soldaki neon çizginin çok kenara yapışmaması için hafif bir iç boşluk */
+    padding: 0 1rem; 
+}
+
+/* --- YENİ BAŞLIK (HERO) PARLAMASI --- */
+.hero-title-wrapper {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+.hero-title-wrapper::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--neon-blue), transparent);
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.6);
+}
+
+/* --- BENTO BOX (GRID KART) TASARIMI --- */
+.project-bento-box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    width: 90%;
+    max-width: 1050px;
+    margin: 4rem auto 0 auto;
+}
+
+.full-width {
+    grid-column: 1 / -1;
+}
+
+.bento-card {
+    background: rgba(8, 9, 12, 0.6);
+    border: 1px solid rgba(0, 242, 254, 0.15);
+    border-radius: 16px;
+    padding: 2.5rem;
+    backdrop-filter: blur(10px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 242, 254, 0.03);
+}
+
+/* Kartın üst kısmından akan neon animasyon çizgisi */
+.bento-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--neon-blue);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+    box-shadow: 0 0 10px var(--neon-blue);
+}
+
+.bento-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(0, 242, 254, 0.4);
+    background: rgba(8, 9, 12, 0.8);
+    box-shadow: 0 10px 30px rgba(0, 242, 254, 0.15);
+}
+
+.bento-card:hover::before {
+    transform: scaleX(1);
+}
+
+.bento-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 1.5rem;
+    color: var(--neon-blue);
+    font-size: 1.5rem;
+}
+
+.bento-header h3 {
+    color: #fff;
+    margin: 0;
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.bento-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+    filter: drop-shadow(0 0 10px rgba(0, 242, 254, 0.4));
+}
+
+.bento-card-title {
+    color: #fff;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.bento-text {
+    color: #cbd5e1;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.bento-section-title {
+    text-align: center;
+    margin: 2rem 0 0.5rem 0;
+}
+
+.bento-section-title h2 {
+    font-size: 2rem;
+    color: #fff;
+    letter-spacing: 0.05em;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Telefonlar için (Mobil Uyum) */
+@media (max-width: 768px) {
+    .project-bento-box {
+        grid-template-columns: 1fr; /* Mobilde kartları alt alta dizer */
+    }
+}
+
+/* --- ZIG-ZAG LAYOUT (Yan Yana Görüntü) --- */
+.zigzag-row {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    margin-bottom: 5rem;
+}
+
+.zigzag-text, .zigzag-image {
+    flex: 1; /* Yarı yarıya alan paylaşımı */
+}
+
+/* Ters çevrilmiş satır (Resim Solda, Metin Sağda) */
+.zigzag-reverse {
+    flex-direction: row-reverse;
+}
+
+/* Şık Liste Tasarımı (Zorluklar ve Teknik Detaylar için) */
+.styled-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.styled-list li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 1.2rem;
+    color: #cbd5e1;
+    line-height: 1.6;
+}
+
+.styled-list li::before {
+    content: '▹'; /* Havalı bir ok işareti */
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--neon-blue);
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.styled-list li strong {
+    color: #fff;
+}
+
+/* --- TERMINAL KOD BLOĞU (Kurulum İçin) --- */
+.terminal-code-block {
+    background: rgba(13, 17, 23, 0.95); /* Koyu VS Code tarzı arkaplan */
+    border: 1px solid rgba(0, 242, 254, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.terminal-header {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.terminal-title {
+    color: #8f9cae;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    margin-left: 15px;
+}
+
+.terminal-code-block pre {
+    margin: 0;
+    padding: 1.5rem;
+    overflow-x: auto;
+}
+
+.terminal-code-block code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #a5b4fc; /* Kod rengi */
+    display: block;
+}
+
+/* MOBİL UYUM (Telefonlarda Zig-Zag'ı alt alta dizer) */
+@media (max-width: 900px) {
+    .zigzag-row, .zigzag-reverse {
+        flex-direction: column;
+        gap: 2rem;
+    }
+}
+
+/* --- AYRIK MİNİ KARTLAR (Zig-Zag İçi) --- */
+.mini-card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Kartlar arası boşluk */
+    margin-top: 1.5rem;
+}
+
+.mini-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 12px 0 12px 20px;
+    border-left: 3px solid var(--neon-blue);
+    /* Hafiften kaybolan transparan arka plan efekti */
+    background: linear-gradient(90deg, rgba(0, 242, 254, 0.05) 0%, transparent 100%);
+    border-radius: 0 8px 8px 0;
+    transition: all 0.3s ease;
+}
+
+.mini-card:hover {
+    background: linear-gradient(90deg, rgba(0, 242, 254, 0.1) 0%, transparent 100%);
+    transform: translateX(5px); /* Üzerine gelince hafif sağa kayma efekti */
+}
+
+.mini-card i {
+    font-size: 1.4rem;
+    color: var(--neon-blue); /* İkon rengi */
+    margin-top: 2px;
+}
+
+.mini-card-content h4 {
+    color: #ffffff;
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+.mini-card-content p {
+    color: #cbd5e1;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* --- 4'LÜ ÖZELLİK KARTLARI İÇİN 2x2 GRID DÜZENİ --- */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+/* Telefon ve Tabletler için Mobil Uyum */
+@media (max-width: 768px) {
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- GERİ DÖN LİNKİ (Proje Detay) --- */
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    margin-bottom: 2rem; /* Başlıkla arasındaki boşluk */
+    transition: all 0.3s ease;
+    opacity: 0.8;
+}
+
+.back-link:hover {
+    color: var(--neon-blue);
+    opacity: 1;
+    transform: translateX(-5px); /* Fareyle gelince hafifçe sola, geriye doğru kayar */
+    text-shadow: 0 0 8px rgba(0, 242, 254, 0.4);
+}
+
+/* --- ÜST GERİ DÖN LİNKİ --- */
+.project-top-nav {
+    width: 90%;
+    max-width: 1050px;
+    margin: 0 auto 1rem auto; /* Başlıkla arasındaki boşluğu iyice kıstık */
+    text-align: left; /* Bağımsız ve sola yaslı */
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(0, 242, 254, 0.85); /* Canlı Cyan tonu, tıklanabilir hissi verir */
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.back-link:hover {
+    color: var(--neon-blue);
+    transform: translateX(-5px);
+    text-shadow: 0 0 8px rgba(0, 242, 254, 0.6);
+}
+
+/* --- ALT CTA VE PROJE NAVİGASYONU --- */
+.project-bottom-nav-container {
+    width: 100%;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cta-title {
+    color: #fff;
+    margin-bottom: 1.5rem;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.cta-btn {
+    margin-bottom: 4rem; /* Buton ile alt navigasyon barı arasındaki boşluk */
+}
+
+.project-pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-top: 1px solid rgba(0, 242, 254, 0.15); /* İnce bir çizgi ile yukarıdan ayrılır */
+    padding-top: 2rem;
+}
+
+.pagination-link {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    background: rgba(8, 9, 12, 0.4);
+    padding: 15px 25px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+}
+
+.pagination-link:hover {
+    background: rgba(8, 9, 12, 0.8);
+    border-color: rgba(0, 242, 254, 0.3);
+    transform: translateY(-3px); /* Yukarı kalkma efekti */
+    box-shadow: 0 5px 15px rgba(0, 242, 254, 0.08);
+}
+
+.pagination-link i {
+    font-size: 1.2rem;
+    color: rgba(0, 242, 254, 0.7);
+    transition: all 0.3s ease;
+}
+
+.pagination-link:hover i {
+    color: var(--neon-blue);
+}
+
+.pagination-link.prev:hover i {
+    transform: translateX(-5px); /* Sol ok geriye gider */
+}
+
+.pagination-link.next:hover i {
+    transform: translateX(5px); /* Sağ ok ileriye gider */
+}
+
+.pagination-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.pagination-link.next .pagination-text {
+    text-align: right; /* Sağdaki linkin metni sağa dayalı */
+}
+
+.pagination-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+}
+
+.pagination-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.1rem;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* Telefonlar için (Alt alta dizilirler) */
+@media (max-width: 650px) {
+    .project-pagination {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .pagination-link {
+        width: 100%;
+        justify-content: center;
+    }
+    .pagination-link.next .pagination-text {
+        text-align: left;
+    }
+    .pagination-link.next {
+        flex-direction: row-reverse;
+    }
+}
