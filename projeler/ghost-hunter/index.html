@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- SEO Meta Etiketleri -->
-    <title>GhostHunterINC | Projeler | Mehmet Burak Menteşe</title>
-    <meta name="description" content="Herhangi bir oyun motoru kullanmadan, sıfırdan JavaFX tabanlı bir ekip oyun projesi.">
-    <meta name="keywords" content="Oyun, Ghost Hunter, JavaFX, Java, Ghost, Hunter, 2D, Mehmet Burak Menteşe, Proje">
+    <title>GhostHunter | Projeler | Mehmet Burak Menteşe</title>
+    <meta name="description" content="Oyun motoru kullanılmadan, tamamen sıfırdan Java 21 ve JavaFX ile geliştirilmiş interaktif 2D bağımsız korku oyunu.">
     
-    <!-- Sadece 1 üst klasöre çıkıyoruz (../) -->
+    <!-- 2 üst klasöre çıkıyoruz -->
     <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- HEADER & NAVBAR -->
     <header>
         <a href="../../index.html" class="nav-logo-container">
             <img src="../../Assets/favicon.png" alt="Website Logo" class="nav-logo">
@@ -28,10 +29,205 @@
         </nav>
     </header>
 
-    <main style="margin-top: 150px; padding: 2rem;">
-        <h1>GhostHunterINC</h1>
-        <p>Proje detayları, ekran görüntüleri ve GitHub linkleri buraya gelecek...</p>
-    </main>
+    <!-- PROJE DETAY BÖLÜMÜ -->
+    <section id="project-detail" class="project-single-layout">
+        
+        <!-- YENİ: Sola Yaslı, Canlı Renkli Üst Navigasyon -->
+        <div class="project-top-nav">
+            <a href="../../projeler.html" class="back-link">
+                <i class="fa-solid fa-arrow-left-long"></i> Tüm Projelere Dön
+            </a>
+        </div>
+
+        <!-- 1. ÜST ODAK ALANI (HERO) -->
+        <div class="project-hero">
+            <div class="hero-title-wrapper">
+                <h1 class="project-main-title">GHOSTHUNTER INC.</h1>
+            </div>
+            
+            <div class="skill-tags justify-center">
+                <span class="skill-tag">Java 21</span>
+                <span class="skill-tag">JavaFX</span>
+                <span class="skill-tag">OOP</span>
+                <span class="skill-tag">2D Game Dev</span>
+                <span class="skill-tag">Co-op Development</span>
+            </div>
+
+            <p class="project-hero-desc">
+                Hazır bir oyun motoru kullanılmadan, tamamen sıfırdan kodlanmış 2D hayalet avlama ve hayatta kalma oyunu.
+            </p>
+        </div>
+
+        <div class="about-divider" style="margin: 3rem 0 4rem 0;"></div>
+
+        <!-- ANA İÇERİK ALANI -->
+        <div class="project-content">
+
+            <!-- 2. HİKAYE VE ÖNE ÇIKAN ÖZELLİKLER -->
+            <div class="project-bento-box" style="margin-top: 0; margin-bottom: 5rem;">
+                
+                <!-- Hikaye Kartı -->
+                <div class="bento-card full-width">
+                    <div class="bento-header">
+                        <i class="fa-solid fa-ghost"></i>
+                        <h3>Çıkış Noktası ve Kapsam</h3>
+                    </div>
+                    <p class="bento-text">
+                        Bir üniversite projesi olarak temelleri atılan GhostHunter, zamanla orijinal kapsamını aşarak uzun soluklu bir oyun geliştirme serüvenine dönüştü. Amacımız sadece eğlenceli bir oyun yapmak değil; OOP (Nesne Yönelimli Programlama) prensiplerini kullanarak, dışarıdan hazır bir oyun motoruna bağımlı kalmadan kendi oyun mekaniklerimizi sıfırdan inşa etmekti.
+                    </p>
+                </div>
+                
+                <!-- Öne Çıkan 4 Özellik (2x2 Grid) -->
+                <div class="feature-grid full-width">
+                    
+                    <div class="bento-card" style="padding: 1.5rem; text-align: center;">
+                        <i class="fa-solid fa-eye-slash" style="font-size: 2rem; color: var(--neon-blue); margin-bottom: 1rem;"></i>
+                        <h4 class="bento-card-title">Görünmez Tehditler</h4>
+                        <p class="bento-text" style="font-size: 0.9rem;">2D harita üzerinde gezinirken, çıplak gözle görülemeyen hayaletleri tespit etme mekaniği.</p>
+                    </div>
+                    
+                    <div class="bento-card" style="padding: 1.5rem; text-align: center;">
+                        <i class="fa-solid fa-gun" style="font-size: 2rem; color: var(--neon-blue); margin-bottom: 1rem;"></i>
+                        <h4 class="bento-card-title">Tarayıcı Silah (Scan Gun)</h4>
+                        <p class="bento-text" style="font-size: 0.9rem;">Hayaletleri tarayıp silahın içine çekerek yok etmeye dayalı özel bir savaş (combat) sistemi.</p>
+                    </div>
+                    
+                    <div class="bento-card" style="padding: 1.5rem; text-align: center;">
+                        <i class="fa-solid fa-arrow-trend-up" style="font-size: 2rem; color: var(--neon-blue); margin-bottom: 1rem;"></i>
+                        <h4 class="bento-card-title">Dinamik Zorluk</h4>
+                        <p class="bento-text" style="font-size: 0.9rem;">Bölümler ilerledikçe farklılaşan ve zorlaşan yeni hayalet türleri ile sürekli artan aksiyon.</p>
+                    </div>
+                    
+                    <div class="bento-card" style="padding: 1.5rem; text-align: center;">
+                        <i class="fa-solid fa-users-gear" style="font-size: 2rem; color: var(--neon-blue); margin-bottom: 1rem;"></i>
+                        <h4 class="bento-card-title">Takım Çalışması</h4>
+                        <p class="bento-text" style="font-size: 0.9rem;">Çoklu geliştirici ortamında (Co-op Dev) task ve branch yönetimi ile profesyonel ilerleme.</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- 3. ZIG-ZAG BÖLÜM 1: Teknik Detaylar -->
+            <div class="bento-section-title">
+                <h2><i class="fa-solid fa-microchip" style="color: var(--neon-blue);"></i> Teknik Altyapı</h2>
+            </div>
+            
+            <div class="zigzag-row" style="margin-bottom: 5rem;">
+                <div class="zigzag-text">
+                    <div class="mini-card-container">
+                        <div class="mini-card">
+                            <i class="fa-solid fa-rotate"></i>
+                            <div class="mini-card-content">
+                                <h4>Oyun Döngüsü (Game Loop)</h4>
+                                <p>Fizik güncellemelerini ve kare hızını (FPS) senkronize eden özel bir Thread mimarisi yazıldı.</p>
+                            </div>
+                        </div>
+
+                        <div class="mini-card">
+                            <i class="fa-solid fa-layer-group"></i>
+                            <div class="mini-card-content">
+                                <h4>Grafik ve Arayüz</h4>
+                                <p>İnteraktif menüler, buton tasarımları ve sprite render işlemleri Java 21'in modern yapısıyla JavaFX üzerinden sağlandı.</p>
+                            </div>
+                        </div>
+
+                        <div class="mini-card">
+                            <i class="fa-solid fa-expand"></i>
+                            <div class="mini-card-content">
+                                <h4>Çarpışma Tespiti (Collision)</h4>
+                                <p>2D uzayda karakter, silah atışları ve çevre etkileşimleri için bounding-box algoritmaları sıfırdan geliştirildi.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="zigzag-image image-container">
+                    <div class="corner top-left"></div>
+                    <div class="corner top-right"></div>
+                    <div class="corner bottom-left"></div>
+                    <div class="corner bottom-right"></div>
+                    <img src="../../Assets/ghosthunter-demo.png" alt="GhostHunter Oyun İçi Görüntü" class="project-img" style="aspect-ratio: 4/3; object-fit: cover;">
+                </div>
+            </div>
+
+            <!-- 4. EKİP BÖLÜMÜ -->
+            <div class="bento-card full-width" style="margin-bottom: 5rem;">
+                <div class="bento-header">
+                    <i class="fa-solid fa-users"></i>
+                    <h3>Geliştirici Ekip (Core Developers)</h3>
+                </div>
+                <p class="bento-text" style="margin-bottom: 2rem;">
+                    Projenin mimarisi, tasarımı ve kodlanması sürecinde birlikte çalıştığım, oyunun büyümesinde kilit rol oynayan ekip arkadaşlarım:
+                </p>
+                
+                <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+                    <div class="mini-card" style="flex: 1; min-width: 200px;">
+                        <i class="fa-solid fa-laptop-code"></i>
+                        <div class="mini-card-content">
+                            <h4 style="margin: 0; padding-top: 4px;">Mehmet Burak Menteşe</h4>
+                        </div>
+                    </div>
+                    <div class="mini-card" style="flex: 1; min-width: 200px;">
+                        <i class="fa-solid fa-laptop-code"></i>
+                        <div class="mini-card-content">
+                            <h4 style="margin: 0; padding-top: 4px;">Mehmet Veli Kayıklı</h4>
+                        </div>
+                    </div>
+                    <div class="mini-card" style="flex: 1; min-width: 200px;">
+                        <i class="fa-solid fa-laptop-code"></i>
+                        <div class="mini-card-content">
+                            <h4 style="margin: 0; padding-top: 4px;">Eyüp Turhan</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. ZORLUKLAR VE ÖĞRENİLENLER -->
+            <div class="bento-card full-width" style="margin-bottom: 5rem;">
+                <div class="bento-header">
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <h3>Karşılaşılan Zorluklar ve Kararlar</h3>
+                </div>
+                <ul class="styled-list">
+                    <li><strong>Motor Kullanmama Kararı:</strong> Sahneler arası geçiş, sprite yönetimi ve düşman (hayalet) yapay zekasının arka plandaki mantığını kavramak için standart editörlerde Java/JavaFX kullanmayı tercih ettik. Bu durum, geliştirme süresini uzatsa da temel programlama ve OOP mantığını kavramak adına çok değerli bir deneyim oldu.</li>
+                    <li><strong>Performans Optimizasyonu:</strong> JavaFX esasen masaüstü form uygulamaları için tasarlandığından, ekranı sürekli yenileyen bir oyun döngüsünde bellek yönetimini (Garbage Collection) sızıntısız bir şekilde ayarlamak, objeleri anlık oluşturmak yerine havuzlama (object pooling) mantığına yaklaşmak teknik olarak öğretici bir meydan okumaydı.</li>
+                </ul>
+            </div>
+
+            <!-- ALT CTA VE PROJELER ARASI GEÇİŞ -->
+            <div class="project-bottom-nav-container">
+                
+                <h3 class="cta-title">Hayalet Avına Hazır Mısınız?</h3>
+                <a href="https://github.com/BurakHINGE" target="_blank" class="neon-btn cta-btn">
+                    <i class="fa-brands fa-github"></i> Kaynak Kodları İncele
+                </a>
+
+                <!-- Önceki ve Sonraki Proje Linkleri -->
+                <div class="project-pagination">
+                    
+                    <!-- Sol: Önceki Proje -->
+                    <a href="../local-RAG-assistant/index.html" class="pagination-link prev">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        <span class="pagination-text">
+                            <span class="pagination-label">Önceki Proje</span>
+                            <span class="pagination-title">Yerel RAG Asistanı</span>
+                        </span>
+                    </a>
+                    
+                    <!-- Sağ: Sonraki Proje -->
+                    <a href="../zar-simülatörü/index.html" class="pagination-link next">
+                        <span class="pagination-text">
+                            <span class="pagination-label">Sonraki Proje</span>
+                            <span class="pagination-title">Zar Simülatörü v2.1.0</span>
+                        </span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
 
     <script src="../../script.js"></script>
 </body>
