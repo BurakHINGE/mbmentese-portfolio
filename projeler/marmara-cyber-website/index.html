@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Marmara Cyber Web Sitesi | Projeler | Mehmet Burak Menteşe</title>
+    <meta name="description" content="Marmara Üniversitesi Siber Güvenlik Kulübü için geliştirilmiş; çoklu dil desteği, terminal arayüzü ve hiyerarşik yönetim şemasına sahip modern web platformu.">
+    
+    <!-- 2 üst klasöre çıkıyoruz -->
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- HEADER & NAVBAR -->
+    <header>
+        <a href="../../index.html" class="nav-logo-container">
+            <img src="../../Assets/favicon.png" alt="Website Logo" class="nav-logo">
+            <span class="nav-brand">Mehmet Burak Menteşe</span>
+        </a>
+        <nav>
+            <a href="../../index.html" class="nav-link">Ana Sayfa</a>
+            <a href="../../hakkimda.html" class="nav-link">Hakkımda</a>
+            <a href="../../projeler.html" class="nav-link">Projeler</a>
+            <a href="../../blog.html" class="nav-link">Blog</a>
+            <a href="../../iletisim.html" class="nav-link">İletişim</a>
+            <span id="lang-tr" class="lang-active">TR</span><span class="lang-separator">/</span><span id="lang-en">EN</span>
+        </nav>
+    </header>
+
+    <!-- PROJE DETAY BÖLÜMÜ -->
+    <section id="project-detail" class="project-single-layout">
+        
+        <!-- Sola Yaslı, Canlı Renkli Üst Navigasyon -->
+        <div class="project-top-nav">
+            <a href="../../projeler.html" class="back-link">
+                <i class="fa-solid fa-arrow-left-long"></i> Tüm Projelere Dön
+            </a>
+        </div>
+
+        <!-- 1. ÜST ODAK ALANI (HERO) -->
+        <div class="project-hero">
+            <div class="hero-title-wrapper">
+                <h1 class="project-main-title">MARMARA CYBER</h1>
+            </div>
+            
+            <div class="skill-tags justify-center">
+                <span class="skill-tag">HTML5 / CSS3</span>
+                <span class="skill-tag">Vanilla JavaScript</span>
+                <span class="skill-tag">Multi-Language (TR/EN)</span>
+                <span class="skill-tag">UI/UX Design</span>
+            </div>
+
+            <p class="project-hero-desc">
+                Marmara Üniversitesi Siber Güvenlik Kulübü için sıfırdan geliştirilen; terminal temalı status bar, dinamik dil desteği ve hiyerarşik ekip yapısına sahip resmi web platformu.
+            </p>
+
+            <a href="https://marmaracyber.com" target="_blank" class="neon-btn" style="margin-top: 1rem;">
+                <i class="fa-solid fa-globe"></i> Canlı Siteyi Ziyaret Et
+            </a>
+        </div>
+
+        <div class="about-divider" style="margin: 3rem 0 4rem 0;"></div>
+
+        <!-- ANA İÇERİK ALANI -->
+        <div class="project-content">
+
+            <!-- 2. HİKAYE VE ÖNE ÇIKAN ÖZELLİKLER -->
+            <div class="project-bento-box" style="margin-top: 0; margin-bottom: 5rem;">
+                
+                <!-- Hikaye Kartı -->
+                <div class="bento-card full-width">
+                    <div class="bento-header">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <h3>Çıkış Noktası ve Kapsam</h3>
+                    </div>
+                    <p class="bento-text">
+                        Marmara Cyber, kulübün kurumsal kimliğini yansıtmak, etkinlikleri duyurmak ve öğrencilere siber güvenlik alanında rehberlik etmek amacıyla hayata geçirildi. Tasarım aşamasında klasik şablonlardan kaçınılarak tamamen siberpunk ve terminal estetiğine odaklanıldı. Ziyaretçilerin siteyi hem Türkçe hem İngilizce deneyimleyebilmesi için harici kütüphane kullanmadan tamamen saf JavaScript ile dinamik bir çeviri (i18n) altyapısı kuruldu.
+                    </p>
+                </div>
+                
+                <!-- Öne Çıkan 4 Özellik (2x2 Grid) -->
+                <div class="feature-grid full-width">
+                    
+                    <div class="bento-card" style="padding: 1.5rem; text-align: center;">
+                        <i class="fa-solid fa-terminal" style="font-size: 2rem; color: var(--neon-blue); margin-bottom: 1rem;"></i>
+                        <h4 class="bento-card-title">Terminal Arayüzü</h4>
+                        <p class="bento-text" style="font-size: 0.9rem;">AES-256 şifreleme göstergeleri ve canlı sistem durumu simülasyonu.</p>
+                    </div>
+                    
+                    <div class="bento-card" style="padding: 1.5rem; text-align: center;">
+                        <i class="fa-solid fa-language" style="font-size: 2rem; color: var(--neon-blue); margin-bottom: 1rem;"></i>
+                        <h4 class="bento-card-title">Dinamik Dil Desteği</h4>
+                        <p class="bento-text" style="font-size: 0.9rem;">Sayfa yenilenmeden anlık Türkçe ve İngilizce (TR/EN) geçiş mekanizması.</p>
+                    </div>
+                    
+                    <div class="bento-card" style="padding: 1.5rem; text-align: center;">
+                        <i class="fa-solid fa-sitemap" style="font-size: 2rem; color: var(--neon-blue); margin-bottom: 1rem;"></i>
+                        <h4 class="bento-card-title">Hiyerarşik Ekip Şeması</h4>
+                        <p class="bento-text" style="font-size: 0.9rem;">Başkan, başkan yardımcısı ve komite başkanlarının kademeli olarak sergilendiği yapı.</p>
+                    </div>
+                    
+                    <div class="bento-card" style="padding: 1.5rem; text-align: center;">
+                        <i class="fa-solid fa-envelope-circle-check" style="font-size: 2rem; color: var(--neon-blue); margin-bottom: 1rem;"></i>
+                        <h4 class="bento-card-title">Güvenli İletişim</h4>
+                        <p class="bento-text" style="font-size: 0.9rem;">Formspree entegrasyonu, XSS koruması ve honeypot tabanlı bot engelleme katmanı.</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- 3. ZIG-ZAG BÖLÜM 1: Teknik Detaylar -->
+            <div class="bento-section-title">
+                <h2><i class="fa-solid fa-microchip" style="color: var(--neon-blue);"></i> Teknik Altyapı ve Özellikler</h2>
+            </div>
+            
+            <div class="zigzag-row" style="margin-bottom: 5rem;">
+                <div class="zigzag-text">
+                    <div class="mini-card-container">
+                        <div class="mini-card">
+                            <i class="fa-solid fa-code"></i>
+                            <div class="mini-card-content">
+                                <h4>Vanilla JS & i18n</h4>
+                                <p>Ekstra ağır kütüphaneler kullanılmadan, tamamen saf JavaScript ile yazılmış anahtar-değer tabanlı çeviri mimarisi.</p>
+                            </div>
+                        </div>
+
+                        <div class="mini-card">
+                            <i class="fa-solid fa-list-check"></i>
+                            <div class="mini-card-content">
+                                <h4>Akordiyon S.S.S.</h4>
+                                <p>Kulübe yeni katılanların en sık sorduğu soruları yanıtlayan, pürüzsüz açılıp kapanan dinamik Sıkça Sorulan Sorular bileşeni.</p>
+                            </div>
+                        </div>
+
+                        <div class="mini-card">
+                            <i class="fa-solid fa-shield-dog"></i>
+                            <div class="mini-card-content">
+                                <h4>Güvenlik Önlemleri</h4>
+                                <p>İletişim formunda girdi sanitizasyonu (HTML entity encoding) ve spam koruması için gizli honeypot alanları yer alıyor.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="zigzag-image image-container">
+                    <div class="corner top-left"></div>
+                    <div class="corner top-right"></div>
+                    <div class="corner bottom-left"></div>
+                    <div class="corner bottom-right"></div>
+                    <img src="../../Assets/marmaracyber-demo.png" alt="Marmara Cyber Arayüz Görünümü" class="project-img" style="aspect-ratio: 4/3; object-fit: cover;">
+                </div>
+            </div>
+
+            <!-- 4. ZORLUKLAR VE ÖĞRENİLENLER -->
+            <div class="bento-card full-width" style="margin-bottom: 5rem;">
+                <div class="bento-header">
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <h3>Mimari Kararlar ve Zorluklar</h3>
+                </div>
+                <ul class="styled-list">
+                    <li><strong>Saf JavaScript ile Dil Yönetimi:</strong> React veya Vue gibi büyük frameworkler yerine projenin hızlı yüklenmesi ve statik barındırmaya (hosting) tam uyum sağlaması için tüm çoklu dil altyapısı vanilla JavaScript sözlük objeleriyle optimize edildi.</li>
+                    <li><strong>Responsive Tasarım Dengesi:</strong> Fütüristik cam efekti (glassmorphism) ve hiyerarşik yönetim kartlarının mobil cihazlarda (özellikle dar ekranlarda) bozulmadan dikey akışa geçmesi için CSS Grid ve Flexbox kombinasyonları titizlikle ayarlandı.</li>
+                </ul>
+            </div>
+
+            <!-- ALT CTA VE PROJELER ARASI GEÇİŞ -->
+            <div class="project-bottom-nav-container">
+                
+                <h3 class="cta-title">Canlı Platformu İnceleyin</h3>
+                <a href="https://marmaracyber.com" target="_blank" class="neon-btn cta-btn">
+                    <i class="fa-solid fa-globe"></i> Marmara Cyber Web Sitesi
+                </a>
+
+                <!-- Önceki ve Sonraki Proje Linkleri (Son proje olduğu için sadece Önceki var) -->
+                <div class="project-pagination" style="justify-content: flex-start;">
+                    
+                    <!-- Sol: Önceki Proje (Library System) -->
+                    <a href="../library-management/index.html" class="pagination-link prev">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        <span class="pagination-text">
+                            <span class="pagination-label">Önceki Proje</span>
+                            <span class="pagination-title">Library OOP System</span>
+                        </span>
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <script src="../../script.js"></script>
+</body>
+</html>
