@@ -173,4 +173,29 @@ function createEnhancedStarfield() {
     animate();
 }
 
+// Kod bloklarını kopyalama işlevi
+function copyCode(button) {
+    // Butonun bulunduğu terminal header'ını bul
+    const header = button.parentElement;
+    // Header'dan sonra gelen <pre><code> etiketindeki metni al
+    const code = header.nextElementSibling.innerText;
+    
+    // Panoya kopyala
+    navigator.clipboard.writeText(code).then(() => {
+        // Butonun görselini 'Kopyalandı' olarak değiştir
+        const originalText = button.innerHTML;
+        button.innerHTML = '<i class="fa-solid fa-check"></i> Copied';
+        button.classList.add('copied');
+        
+        // 2 saniye sonra eski haline döndür
+        setTimeout(() => {
+            button.innerHTML = originalText;
+            button.classList.remove('copied');
+        }, 2000);
+    }).catch(err => {
+        console.error('Kopyalama başarısız oldu', err);
+    });
+}
+
+
 document.addEventListener('DOMContentLoaded', createEnhancedStarfield);
