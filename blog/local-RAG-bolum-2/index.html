@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local RAG Asistanı Geliştirmek (Bölüm 2) | Blog | Mehmet Burak Menteşe</title>
+    <meta name="description" content="Microsoft Foundry Local ve SQLite kullanarak kendi verilerinizle çalışan offline bir yapay zeka (Local RAG) ajanının veri parçalama (chunking), arama (retrieval) ve CLI sohbet altyapısının geliştirilmesi.">
+    
+    <!-- CSS ve Fontlar (Inter fontu eklendi) -->
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <a href="../../index.html" class="nav-logo-container">
+            <img src="../../Assets/favicon.png" alt="Website Logo" class="nav-logo">
+            <span class="nav-brand">Mehmet Burak Menteşe</span>
+        </a>
+        <nav>
+            <a href="../../index.html" class="nav-link" data-translate="home">Ana Sayfa</a>
+            <a href="../../hakkimda.html" class="nav-link" data-translate="about">Hakkımda</a>
+            <a href="../../projeler.html" class="nav-link" data-translate="projects">Projeler</a>
+            <a href="../../blog.html" class="nav-link" data-translate="blog">Blog</a>
+            <a href="../../iletisim.html" class="nav-link" data-translate="contact me">İletişim</a>
+            <span id="lang-tr" class="lang-active">TR</span><span class="lang-separator">/</span><span id="lang-en">EN</span>
+        </nav>
+    </header>
+
+    <section id="blog-detail" class="project-single-layout">
+        
+        <!-- ÜST NAVİGASYON (Geri Dönüş) -->
+        <div class="project-top-nav blog-content-width">
+            <a href="../../blog.html" class="back-link">
+                <i class="fa-solid fa-arrow-left-long"></i> Tüm Yazılara Dön
+            </a>
+        </div>
+
+        <!-- YAZI BAŞLIĞI (HERO) - Sola Yaslı & Sabit Çizgili -->
+        <div class="project-hero blog-content-width hero-left-aligned">
+            <div class="hero-title-wrapper fixed-underline">
+                <h1 class="project-main-title">Local RAG Asistanı Geliştirmek: Microsoft Foundry ile Bölüm 2</h1>
+            </div>
+            
+            <div class="blog-meta-info">
+                <span class="meta-item"><i class="fa-regular fa-calendar-alt"></i> 17 Eylül 2026</span>
+                <span class="meta-item"><i class="fa-solid fa-database"></i> Data Ingestion & Retrieval</span>
+                <span class="meta-item"><i class="fa-regular fa-clock"></i> 6 dk okuma</span>
+            </div>
+        </div>
+
+        <!-- İÇERİK DÜZENİ (TOC + Makale) -->
+        <div class="blog-layout-grid blog-content-width">
+            
+            <!-- STICKY TOC (İçindekiler) -->
+            <aside class="blog-toc">
+                <h4 class="toc-title"><i class="fa-solid fa-list-ul"></i> İçindekiler</h4>
+                <nav class="toc-nav">
+                    <a href="#on-soz">Yazı Hakkında Ön Söz</a>
+                    <a href="#phase-2">Phase 2: Veri Fırlatma Problemi</a>
+                    <a href="#adim-1">Adım 1: Chunking</a>
+                    <a href="#adim-2">Adım 2: Kosinüs Benzerliği</a>
+                    <a href="#adim-3">Adım 3: Agent ile Sohbet</a>
+                </nav>
+            </aside>
+
+            <!-- MAKALENİN KENDİSİ -->
+            <article class="blog-article-content reading-optimized">
+                
+                <h2 id="on-soz"><i class="fa-solid fa-hand-spock" style="color: var(--neon-blue);"></i> Yazı Hakkında Ön Söz</h2>
+                <p class="lead-text">
+                    Tekrardan selam dostum, yazı serimizin ilk bölümünde “Yapay zeka uydurmasın (halüsinasyon görmesin) ve verilerim cihazımdan dışarı çıkmasın” diyerek Local RAG mimarisine sağlam bir giriş yapmıştık.
+                </p>
+                <p>
+                    Cümleleri 1024 boyutlu matematiksel vektörlere (embeddings) çevirmeyi başarmış, bunları saklayacağımız sunucusuz SQLite veritabanımızı kurmuş ve modelimizi İngilizce komutlarla yola getirmiştik.
+                </p>
+                <p>
+                    Bu bölümde ise <strong>Phase 2'ye (Proje Geliştirme)</strong> geçiyoruz ve motorlara gerçek yakıtı dolduruyoruz: Agent’imize elimizdeki notları okutacak, içinde akıllıca arama yapmasını sağlayacak ve nihayetinde onunla terminal üzerinden canlı canlı sohbet edeceğiz. Hazırsan başlayalım!
+                </p>
+
+                <div class="about-divider" style="margin: 3rem 0; width: 60px;"></div>
+
+                <h2 id="phase-2"><i class="fa-solid fa-network-wired" style="color: var(--neon-blue);"></i> Phase 2: Koca Bir Dosyayı Yapay Zekaya Neden Doğrudan Fırlatmıyoruz?</h2>
+                <p>
+                    Kodların içine dalmadan önce durup bir düşünelim. Elimizde Siber Güvenlik Kulübü’nün tüm yıllık planlarını, CTF yarışmalarının detaylarını ve toplantı notlarını içeren koca bir metin dosyası var. Aklınıza ilk olarak şu gelebilir: <em>“Eee madem local modelimiz çalışıyor, vereyim metnin tamamını (Prompt olarak), içinden okuyup cevaplasın.”</em>
+                </p>
+                <p>
+                    Ne yazık ki işler öyle yürümüyor. Tıpkı bizim gibi, yapay zeka modellerinin de bir “kısa süreli hafıza” sınırı (buna <strong>Context Window</strong> diyoruz) vardır. Ona tek seferde koca bir kitabı verirseniz, ya sistem hafıza sınırına takılıp hata verir ya da metnin başını unutup sadece son sayfaları hatırlar. Üstelik her soruda o devasa kitabı baştan aşağı okutmak cihazınızı (özellikle offline ortamda CPU/NPU kullanıyorken) inanılmaz yorar ve cevap süresini dakikalara çıkarır. Fakat bizim o kadar süremiz yok!
+                </p>
+
+                <div class="blog-quote-box" style="margin-bottom: 3.5rem;">
+                    <i class="fa-solid fa-lightbulb quote-icon"></i>
+                    <p>İşte tam bu noktada çok daha zekice bir sisteme ihtiyacımız var: Dosyaları öyle bir işlemeliyiz ki, ben <em>“Kulübün eğitimleri ne zaman?”</em> diye sorduğumda sistem koca dosyayı okumakla vakit kaybetmesin; gidip sadece eğitim saatlerinin yazdığı o minik paragrafı bulsun ve sadece o parçayı modele kopyalama kağıdı olarak cevaplasın.</p>
+                </div>
+                
+                <p>Bu durum kulağa daha hoş geliyor değil mi? Gelin öyleyse bu hoş durumu nasıl kodladığımıza adım adım bakalım!</p>
+
+                <div class="about-divider" style="margin: 3rem 0; width: 60px;"></div>
+
+                <h2 id="adim-1"><i class="fa-solid fa-scissors" style="color: var(--neon-blue);"></i> Adım 1: Chunking (Veriyi Küçülterek Verme)</h2>
+                <p>
+                    Yapay zekanın bilgiyi sindirebilmesi için onu anlamlı ve küçük parçalara (chunk) bölmemiz gerekir.
+                </p>
+                <p>
+                    Bu işlemi otomatikleştirmek için projemizde <code>docs</code> adında bir klasör oluşturduk ve içine uzunca bir "Siber Güvenlik Kulübü Notları" metni koyduk. Ardından yazdığımız <code>ingest.py</code> kodu ile bu metni boşluk satırlarına göre paragraflara ayırdık.
+                </p>
+                <p>
+                    Kodumuz, her bir paragrafı Foundry Local’in <code>qwen3-embedding-0.6b</code> modeline gönderip vektörlere çevirdi ve ilk bölümde kurduğumuz SQLite veritabanına yığınla (batch) kaydetti. Asistanımızın hafızasını tek bir komutla, doğru porsiyonlarla doldurduk!
+                </p>
+
+                <!-- KOD BLOĞU (Kopyala Butonu Eklendi) -->
+                <div class="terminal-code-block" style="margin: 2rem 0;">
+                    <div class="terminal-header">
+                        <div style="display: flex; gap: 6px; align-items: center;">
+                            <div style="width: 12px; height: 12px; border-radius: 50%; background: #ff5f56;"></div>
+                            <div style="width: 12px; height: 12px; border-radius: 50%; background: #ffbd2e;"></div>
+                            <div style="width: 12px; height: 12px; border-radius: 50%; background: #27c93f;"></div>
+                            <span class="terminal-title">ingest.py</span>
+                        </div>
+                        <button class="copy-code-btn" onclick="copyCode(this)"><i class="fa-regular fa-copy"></i> Copy</button>
+                    </div>
+                    <pre><code># ingest.py dosyamızın parçalama (chunk) fonksiyonu
+def chunk_text(text):
+    # Metni çift satır boşluklarına göre böler (Her bir paragrafı ayırır)
+    paragraphs = text.split('\n\n')
+    # Çok kısa olan veya boş kalan parçaları filtreleyip temizleriz
+    chunks = [p.strip() for p in paragraphs if len(p.strip()) > 10]
+    return chunks</code></pre>
+                </div>
+
+                <p style="color: var(--text-secondary); font-family: 'JetBrains Mono'; font-size: 0.9rem;">
+                    Terminalden örnek çalıştırma ve çıktı görseli:
+                </p>
+
+                <!-- GÖRSEL 1 -->
+                <div class="image-gallery" style="margin: 1.5rem 0 3rem 0;">
+                    <div class="image-container">
+                        <div class="corner top-left"></div>
+                        <div class="corner top-right"></div>
+                        <div class="corner bottom-left"></div>
+                        <div class="corner bottom-right"></div>
+                        <img src="../../Assets/blog/chunking-output.png" alt="Veri Parçalama (Chunking) Çıktısı" class="project-img">
+                    </div>
+                    <div style="text-align: center; color: var(--text-secondary); font-family: 'JetBrains Mono'; font-size: 0.85rem; margin-top: 10px;">
+                        <i class="fa-solid fa-expand"></i> Press enter or click to view image in full size
+                    </div>
+                </div>
+
+                <h2 id="adim-2"><i class="fa-solid fa-compass-drafting" style="color: var(--neon-blue);"></i> Adım 2: Kosinüs Benzerliği ve Arama Motoru Yapmak (Retrieval)</h2>
+                <p>
+                    Verileri küçük parçalar halinde kaydettik ama ben asistana <em>“Eğitimler nerede yapılıyor?”</em> diye sorduğumda, sistem o veritabanından doğru paragrafı nasıl bulacak?
+                </p>
+                <p>
+                    İşte burada harika bir geometri devreye giriyor: <strong>Kosinüs Benzerliği (Cosine Similarity)</strong>.
+                </p>
+                <p>
+                    Sistem benim sorduğum soruyu da 1024 boyutlu bir vektöre çeviriyor. Sonra bu vektör ile veritabanındaki her bir paragrafın vektörü arasındaki açıyı ölçüyor. Matematiksel olarak birbirine en çok benzeyen (açısı en dar, skoru 1'e en yakın olan) parçayı çekip alıyor.
+                </p>
+                <p>
+                    Yazdığımız <code>retrieve.py</code> koduyla bunu test ettiğimizde, sistemin <em>"Salı ve Perşembe günleri Mühendislik Fakültesi laboratuvarlarında yapılmaktadır"</em> cümlesini saniyeler içinde <strong>0.6261</strong> gibi yüksek bir skorla en tepeye çıkardığını gördük.
+                </p>
+
+                <p style="color: var(--text-secondary); font-family: 'JetBrains Mono'; font-size: 0.9rem;">
+                    Terminalden örnek çalıştırma ve çıktı görseli:
+                </p>
+
+                <!-- GÖRSEL 2 -->
+                <div class="image-gallery" style="margin: 1.5rem 0 3rem 0;">
+                    <div class="image-container">
+                        <div class="corner top-left"></div>
+                        <div class="corner top-right"></div>
+                        <div class="corner bottom-left"></div>
+                        <div class="corner bottom-right"></div>
+                        <img src="../../Assets/blog/retrieval-output.png" alt="Kosinüs Benzerliği Arama Çıktısı" class="project-img">
+                    </div>
+                    <div style="text-align: center; color: var(--text-secondary); font-family: 'JetBrains Mono'; font-size: 0.85rem; margin-top: 10px;">
+                        <i class="fa-solid fa-expand"></i> Press enter or click to view image in full size
+                    </div>
+                </div>
+
+                <h2 id="adim-3"><i class="fa-solid fa-robot" style="color: var(--neon-blue);"></i> Adım 3: Tüm Adımları Birleştirme ve Agent’imiz ile Sohbet</h2>
+                <p>
+                    Elimizde harika çalışan iki ayrı modül var:
+                </p>
+                <ul class="styled-list" style="margin-bottom: 1.5rem;">
+                    <li>Sorumuza en uygun metin parçasını saniyeler içinde bulan arama motorumuz (<code>qwen3</code>).</li>
+                    <li>Sadece verdiğimiz o minik metne bakarak cevap üreten sohbet modelimiz (<code>phi-3.5-mini</code>).</li>
+                </ul>
+                <p>
+                    Son adımda <code>app.py</code> dosyasını oluşturarak bu iki sistemi tek bir terminal arayüzünde (CLI) birleştirdik. Sürekli çalışan bir döngü kurduk. Mantık kusursuz işliyor: Ben soruyu soruyorum, arama motoru koca dosyayı değil sadece en alakalı not parçasını buluyor, bu notu İngilizce system prompt’umuzun içine yerleştirip sohbet modeline veriyor. Model de halüsinasyon görmeden, sadece benim verdiğim nota bakarak bana Türkçe ve net bir cevap üretiyor.
+                </p>
+
+                <p style="color: var(--text-secondary); font-family: 'JetBrains Mono'; font-size: 0.9rem;">
+                    Terminalden örnek çalıştırma ve çıktı görseli:
+                </p>
+
+                <!-- GÖRSEL 3 -->
+                <div class="image-gallery" style="margin: 1.5rem 0 2.5rem 0;">
+                    <div class="image-container">
+                        <div class="corner top-left"></div>
+                        <div class="corner top-right"></div>
+                        <div class="corner bottom-left"></div>
+                        <div class="corner bottom-right"></div>
+                        <img src="../../Assets/blog/cli-chat-output.png" alt="CLI Sohbet Arayüzü Çıktısı" class="project-img">
+                    </div>
+                    <div style="text-align: center; color: var(--text-secondary); font-family: 'JetBrains Mono'; font-size: 0.85rem; margin-top: 10px;">
+                        <i class="fa-solid fa-expand"></i> Press enter or click to view image in full size
+                    </div>
+                </div>
+
+                <div class="about-divider" style="margin: 4rem 0; width: 60px;"></div>
+
+                <h2><i class="fa-solid fa-flag-checkered" style="color: var(--neon-blue);"></i> İkinci Phase’in Sonu ve Sırada Ne Var?</h2>
+                <p>
+                    Gördüğünüz gibi, hiçbir bulut servisine veri göndermeden, tamamen cihazımızın kaynaklarıyla kendi kişisel notlarımızı okuyan ve sorularımıza mantıklı cevaplar veren bir Offline AI Agent geliştirmeyi başardık! Üstelik bu “parçalama ve bulma” taktiği sayesinde sistemi inanılmaz hızlı ve kararlı hale getirdik.
+                </p>
+                <p>
+                    Serinin 3. ve son bölümünde (Phase 3), asistanımızı acımasızca test edecek, onu köşeye sıkıştırmaya çalışacak ve projemizin belgelendirmesini yaparak bu 6 haftalık serüveni noktalayacağız.
+                </p>
+                
+            </article>
+        </div>
+
+        <!-- YAZI NAVİGASYONU -->
+        <div class="project-bottom-nav-container blog-content-width" style="margin-top: 4rem;">
+            <div class="project-pagination">
+                
+                <a href="../local-rag-bolum-1/index.html" class="pagination-link prev">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span class="pagination-text">
+                        <span class="pagination-label">Önceki Yazı</span>
+                        <span class="pagination-title">Local RAG (Bölüm 1)</span>
+                    </span>
+                </a>
+
+                <a href="../../blog.html" class="pagination-link next">
+                    <span class="pagination-text">
+                        <span class="pagination-label">Geri Dön</span>
+                        <span class="pagination-title">Tüm Makaleler</span>
+                    </span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+        </div>
+
+    </section>
+
+    <script src="../../script.js"></script>
+</body>
+</html>
