@@ -1201,3 +1201,247 @@ h1 {
         flex-direction: row-reverse;
     }
 }
+
+/* =========================================
+   BLOG YAZISI (ARTICLE) STİLLERİ
+   ========================================= */
+
+   .blog-meta-info {
+    display: flex;
+    gap: 1.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-top: 1rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(0, 242, 254, 0.1);
+    width: 100%;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.meta-item i {
+    color: var(--neon-blue);
+}
+
+.blog-article-content {
+    width: 90%;
+    max-width: 850px;
+    margin: 3rem auto 0 auto;
+}
+
+/* Makale İçi Paragraflar */
+.blog-article-content p {
+    color: #cbd5e1;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    text-align: justify;
+}
+
+/* Giriş Cümlesi Büyütme */
+.lead-text {
+    font-size: 1.25rem !important;
+    color: #ffffff !important;
+    font-weight: 500;
+}
+
+/* Makale İçi Başlıklar */
+.blog-article-content h2 {
+    font-size: 1.8rem;
+    color: #ffffff;
+    margin: 3.5rem 0 1.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Alıntı / Önemli Not Kutusu (Glassmorphism + Neon) */
+.blog-quote-box {
+    position: relative;
+    padding: 2rem 2.5rem;
+    margin: 3rem 0;
+    background: linear-gradient(90deg, rgba(0, 242, 254, 0.05) 0%, transparent 100%);
+    border-left: 4px solid var(--neon-blue);
+    border-radius: 0 12px 12px 0;
+}
+
+.blog-quote-box p {
+    margin: 0;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: #ffffff;
+    position: relative;
+    z-index: 2;
+}
+
+.quote-icon {
+    position: absolute;
+    top: -15px;
+    left: 20px;
+    font-size: 3rem;
+    /* Rengi canlandırıp opaklığı artırdık */
+    color: rgba(0, 242, 254, 0.7); 
+    /* Neon parlama (glow) efekti ekledik */
+    text-shadow: 0 0 15px rgba(0, 242, 254, 0.5);
+    z-index: 1;
+}
+
+
+/* =========================================
+   BLOG YENİ OKUNABİLİRLİK VE DÜZEN AYARLARI
+   ========================================= */
+
+/* Toplam okuma genişliğini daralttık ve merkeze aldık */
+.blog-content-width {
+    width: 100%;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Başlık alanının sola net yaslanması ve alt çizginin kısıtlanması */
+.hero-left-aligned {
+    text-align: left !important;
+    align-items: flex-start !important;
+    margin-bottom: 2rem;
+}
+
+.hero-title-wrapper.fixed-underline {
+    display: block;
+}
+
+/* Altındaki rastgele çizgiyi sola ve başlığa sabitledik */
+.hero-title-wrapper.fixed-underline::after {
+    left: 0;
+    transform: none;
+    width: 80px; /* Kısa, şık, kasıtlı bir tasarım kararı */
+    background: var(--neon-blue); /* Lila yerine vurgu rengimiz cyan ile netleştirdik */
+    box-shadow: 0 0 10px rgba(0, 242, 254, 0.4);
+}
+
+.hero-left-aligned .project-main-title {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+}
+
+/* YENİ FONT VE YASLAMA AYARI (Sola yaslı, Sans-Serif) */
+.reading-optimized p, .reading-optimized li {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+    text-align: left !important; /* Justify (İki yana yasla) kaldırıldı */
+    font-size: 1.1rem !important;
+    line-height: 1.8 !important;
+    color: #cbd5e1;
+    letter-spacing: 0.01em;
+}
+
+.reading-optimized h2 {
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+/* =========================================
+   İÇİNDEKİLER (TOC) VE MAKALENİN YAN YANA DURUŞU
+   ========================================= */
+
+.blog-layout-grid {
+    display: flex;
+    gap: 3rem;
+    align-items: flex-start;
+}
+
+.blog-article-content {
+    flex: 1; /* Sağda kalanı kaplar, maks 750px'e kadar genişler */
+    max-width: 750px; /* Uzun satırları engeller (60-75 karakter sınırı) */
+    margin: 0; 
+}
+
+.blog-toc {
+    position: sticky;
+    top: 100px; /* Scroll ederken yukarıda yapışık kalır */
+    width: 250px;
+    background: rgba(8, 9, 12, 0.6);
+    border: 1px solid rgba(0, 242, 254, 0.15);
+    border-radius: 12px;
+    padding: 1.5rem;
+    backdrop-filter: blur(10px);
+}
+
+.toc-title {
+    color: var(--neon-blue);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.5rem;
+}
+
+.toc-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.toc-nav a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.2s ease;
+}
+
+.toc-nav a:hover {
+    color: #fff;
+    transform: translateX(5px);
+}
+
+/* Mobil ekranlarda TOC üstte normal kart gibi görünsün */
+@media (max-width: 900px) {
+    .blog-layout-grid {
+        flex-direction: column;
+    }
+    .blog-toc {
+        position: relative;
+        top: 0;
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+}
+
+/* =========================================
+   KOD KOPYALAMA BUTONU TASARIMI
+   ========================================= */
+
+.terminal-header {
+    justify-content: space-between; /* İkonlar solda, kopyala sağda */
+}
+
+.copy-code-btn {
+    background: transparent;
+    border: 1px solid rgba(0, 242, 254, 0.3);
+    color: var(--text-secondary);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    padding: 4px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.copy-code-btn:hover {
+    color: var(--neon-blue);
+    border-color: var(--neon-blue);
+    background: rgba(0, 242, 254, 0.1);
+}
+
+.copy-code-btn.copied {
+    color: #27c93f;
+    border-color: #27c93f;
+    background: rgba(39, 201, 63, 0.1);
+}
