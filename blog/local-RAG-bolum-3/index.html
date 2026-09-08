@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local RAG Asistanı Geliştirmek (Bölüm 3) | Blog | Mehmet Burak Menteşe</title>
+    <meta name="description" content="Microsoft AI Innovators yaz kampı kapsamında geliştirilen yerel RAG asistanının dayanıklılık testleri, halüsinasyon direnci ve hız optimizasyonlarının incelendiği final bölümü.">
+    
+    <!-- CSS ve Fontlar (Inter fontu dahil) -->
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <a href="../../index.html" class="nav-logo-container">
+            <img src="../../Assets/favicon.png" alt="Website Logo" class="nav-logo">
+            <span class="nav-brand">Mehmet Burak Menteşe</span>
+        </a>
+        <nav>
+            <a href="../../index.html" class="nav-link" data-translate="home">Ana Sayfa</a>
+            <a href="../../hakkimda.html" class="nav-link" data-translate="about">Hakkımda</a>
+            <a href="../../projeler.html" class="nav-link" data-translate="projects">Projeler</a>
+            <a href="../../blog.html" class="nav-link" data-translate="blog">Blog</a>
+            <a href="../../iletisim.html" class="nav-link" data-translate="contact me">İletişim</a>
+            <span id="lang-tr" class="lang-active">TR</span><span class="lang-separator">/</span><span id="lang-en">EN</span>
+        </nav>
+    </header>
+
+    <section id="blog-detail" class="project-single-layout">
+        
+        <!-- ÜST NAVİGASYON (Geri Dönüş) -->
+        <div class="project-top-nav blog-content-width">
+            <a href="../../blog.html" class="back-link">
+                <i class="fa-solid fa-arrow-left-long"></i> Tüm Yazılara Dön
+            </a>
+        </div>
+
+        <!-- YAZI BAŞLIĞI (HERO) -->
+        <div class="project-hero blog-content-width hero-left-aligned">
+            <div class="hero-title-wrapper fixed-underline">
+                <h1 class="project-main-title">Local RAG Asistanı Geliştirmek: Sistemi Test Etmek (Bölüm 3 — Final)</h1>
+            </div>
+            
+            <div class="blog-meta-info">
+                <span class="meta-item"><i class="fa-regular fa-calendar-alt"></i> 24 Eylül 2026</span>
+                <span class="meta-item"><i class="fa-solid fa-bug-slash"></i> Test & Optimizasyon</span>
+                <span class="meta-item"><i class="fa-regular fa-clock"></i> 5 dk okuma</span>
+            </div>
+        </div>
+
+        <!-- İÇERİK DÜZENİ (TOC + Makale) -->
+        <div class="blog-layout-grid blog-content-width">
+            
+            <!-- STICKY TOC (İçindekiler) -->
+            <aside class="blog-toc">
+                <h4 class="toc-title"><i class="fa-solid fa-list-ul"></i> İçindekiler</h4>
+                <nav class="toc-nav">
+                    <a href="#on-soz">Yazı Hakkında Ön Söz</a>
+                    <a href="#phase-3">Phase 3: Sistemi Terletmek</a>
+                    <a href="#adim-1">Adım 1: Boşluk ve Anlamsız Girdiler</a>
+                    <a href="#adim-2">Adım 2: Halüsinasyon Direnci</a>
+                    <a href="#adim-3">Adım 3: Apple Silicon Hız Testi</a>
+                    <a href="#final">Projenin Sonu ve Açık Kaynak</a>
+                </nav>
+            </aside>
+
+            <!-- MAKALENİN KENDİSİ -->
+            <article class="blog-article-content reading-optimized">
+                
+                <h2 id="on-soz"><i class="fa-solid fa-pen-nib" style="color: var(--neon-blue);"></i> Yazı Hakkında Ön Söz</h2>
+                <p class="lead-text">
+                    Tekrardan selam dostum! Yazı serimizin ilk iki bölümünde adeta sıfırdan bir yapay zeka ekosistemi inşa ettik: Metinlerimizi parçalara ayırdık, SQLite üzerinde akıllı bir vektör hafızası kurduk, qwen3 ile kelimeleri matematiğe döktük ve phi-3.5-mini ile terminalde tıkır tıkır sohbet eden yerel bir asistan çıkardık ortaya.
+                </p>
+                <p>
+                    Ancak bir yazılımı geliştirirken fark ediyorsun ki, her şeyin ilk başta düzgün çalışması sistemin kusursuz olduğu anlamına gelmiyor. Gerçek bir projede asıl emek, kodun yazıldığı anda değil, onu uç senaryolarla test edip zayıf noktalarını bulduğunda başlıyor.
+                </p>
+                <p>
+                    İşte bu final bölümünde sistemi gerçek dünya senaryolarıyla test edip kırmaya çalışacağız.
+                </p>
+
+                <div class="about-divider" style="margin: 3rem 0; width: 60px;"></div>
+
+                <h2 id="phase-3"><i class="fa-solid fa-hammer" style="color: var(--neon-blue);"></i> Phase 3: Sistemi Terletmek: Dayanıklılık ve Güvenilirlik Testleri</h2>
+                <p>
+                    Her şeyin harika çalıştığı o güvenli limandan çıkıp gerçek dünya senaryolarına geçiyoruz. Bu aşamada asistanımızı hem beklenmeyen kullanıcı hatalarına hem de yapay zekanın en büyük hastalığı olan “uydurmaya” karşı test edeceğiz.
+                </p>
+
+                <h2 id="adim-1"><i class="fa-solid fa-keyboard" style="color: var(--neon-blue);"></i> Adım 1: Boşluk ve Anlamsız Girdiler (Asistanı Çökertme Girişimi)</h2>
+                <p>
+                    Sistemi ilk test ettiğimizde fark ettik ki, kullanıcı bazen enter tuşuna boş boş basabiliyor veya klavyeye rastgele karakterler (asdasdasdasd) girebiliyor veya da fazladan gereksiz space tuşuna basıp cümlenin anlamını bozabiliyordu. Eski haliyle bu durum, embedding modelinin girdiyi işleyemeyip <code>ValueError</code> fırlatmasına ve programın aniden kapanmasına yol açıyordu.
+                </p>
+                <p>
+                    Bunu engellemek için <code>app.py</code> içine ufak ama hayat kurtaran bir girdi doğrulama mekanizması ekledik:
+                </p>
+
+                <!-- KOD BLOĞU -->
+                <div class="terminal-code-block" style="margin: 2rem 0;">
+                    <div class="terminal-header">
+                        <div style="display: flex; gap: 6px; align-items: center;">
+                            <div style="width: 12px; height: 12px; border-radius: 50%; background: #ff5f56;"></div>
+                            <div style="width: 12px; height: 12px; border-radius: 50%; background: #ffbd2e;"></div>
+                            <div style="width: 12px; height: 12px; border-radius: 50%; background: #27c93f;"></div>
+                            <span class="terminal-title">app.py</span>
+                        </div>
+                        <button class="copy-code-btn" onclick="copyCode(this)"><i class="fa-regular fa-copy"></i> Copy</button>
+                    </div>
+                    <pre><code>user_input = input("Sen: ")
+
+# Kullanıcı boş enter'a bastıysa veya sadece boşluk bıraktıysa sistemi korumaya al
+if not user_input.strip():
+    print("🤖 Asistan: Lütfen geçerli bir soru sorun.\n")
+    continue</code></pre>
+                </div>
+
+                <p>
+                    Bu minik <code>.strip()</code> dokunuşu sayesinde asistanımız artık boş girdilere karşı dayanıklı bir CLI arayüzüne kavuştu. Boşluklara karşı hata yapmıyor ve cümleyi normal akışında anlayabiliyor!
+                </p>
+
+                <p style="color: var(--text-secondary); font-family: 'JetBrains Mono'; font-size: 0.9rem;">
+                    Terminalden örnek çalıştırma ve çıktı görseli:
+                </p>
+
+                <!-- GÖRSEL 1 -->
+                <div class="image-gallery" style="margin: 1.5rem 0 3rem 0;">
+                    <div class="image-container">
+                        <div class="corner top-left"></div>
+                        <div class="corner top-right"></div>
+                        <div class="corner bottom-left"></div>
+                        <div class="corner bottom-right"></div>
+                        <img src="../../Assets/blog/input-validation-output.png" alt="Girdi Doğrulama Testi Çıktısı" class="project-img">
+                    </div>
+                    <div style="text-align: center; color: var(--text-secondary); font-family: 'JetBrains Mono'; font-size: 0.85rem; margin-top: 10px;">
+                        <i class="fa-solid fa-expand"></i> Press enter or click to view image in full size
+                    </div>
+                </div>
+
+                <h2 id="adim-2"><i class="fa-solid fa-shield-halved" style="color: var(--neon-blue);"></i> Adım 2: Halüsinasyon Direnci Testi</h2>
+                <p>
+                    RAG mimarisinin bize sunduğu en büyük avantaj, modelin kafasına göre hikaye uydurmasını engellemektir. Önceki fazlarda halüsinasyon riskini azaltmayı hedefleyen işlemler yapmıştık. Peki bu pratikte ne kadar başarılı? Bunu test etmek için asistanımıza hafızasında kesinlikle olmayan bir tuzak soru sorduk:
+                </p>
+
+                <div class="blog-quote-box" style="margin: 2.5rem 0;">
+                    <i class="fa-solid fa-user-secret quote-icon"></i>
+                    <p style="margin-bottom: 1rem;"><strong>“Siber Güvenlik Kulübü’nün başkanı kimdir?”</strong></p>
+                    <p>İnternete erişimi olan veya geniş bir genel bilgi tabanıyla çalışan bir model, eğitim verisindeki bilgilerden hareketle bir cevap üretmeye çalışabilir. Bizim sistemimizde ise modelin yalnızca sağlanan bağlam üzerinden cevap vermesi için daha katı bir yaklaşım kullandık:</p>
+                    <p style="margin-top: 1rem; color: var(--neon-blue); font-family: 'JetBrains Mono', monospace;">“I do not have this information.”</p>
+                </div>
+
+                <p style="color: var(--text-secondary); font-family: 'JetBrains Mono'; font-size: 0.9rem;">
+                    Terminalden örnek çalıştırma ve çıktı görseli:
+                </p>
+
+                <!-- GÖRSEL 2 -->
+                <div class="image-gallery" style="margin: 1.5rem 0 3rem 0;">
+                    <div class="image-container">
+                        <div class="corner top-left"></div>
+                        <div class="corner top-right"></div>
+                        <div class="corner bottom-left"></div>
+                        <div class="corner bottom-right"></div>
+                        <img src="../../Assets/blog/hallucination-test-output.png" alt="Halüsinasyon Testi Çıktısı" class="project-img">
+                    </div>
+                    <div style="text-align: center; color: var(--text-secondary); font-family: 'JetBrains Mono'; font-size: 0.85rem; margin-top: 10px;">
+                        <i class="fa-solid fa-expand"></i> Press enter or click to view image in full size
+                    </div>
+                </div>
+
+                <p>
+                    İşte bu noktada modelin bilmediği konularda dürüst kalabilmesi, özellikle kurumsal veya kişisel bilgi asistanlarında güvenilirliği artıran en kritik detaylardan biri. Bilgiyi uydurmak yerine sınırını bilmesi sistemin kararlılığını gösteriyor.
+                </p>
+
+                <h2 id="adim-3"><i class="fa-solid fa-gauge-high" style="color: var(--neon-blue);"></i> Adım 3: Apple Silicon Üzerinde Hız Testi</h2>
+                <p>
+                    Bütün bu işlemler (vektör arama, kosinüs benzerliği hesaplama, modelin bağlamı okuyup cevap üretmesi) tamamen benim MacBook Pro’mun üzerinde, hiçbir bulut API’sine gitmeden çalışıyor. Peki bu yerel işlem tam olarak kaç saniye sürüyor?
+                </p>
+                <p>
+                    Sisteme eklediğimiz mini bir zaman sayacı (<code>time</code> kütüphanesi) ile bunu net olarak ölçtük:
+                </p>
+
+                <ul class="styled-list" style="margin: 2rem 0;">
+                    <li><strong>Doğrudan Bilgi Çekme Sorusu:</strong> ~0.74 saniye</li>
+                    <li><strong>Mantıksal Çıkarım / Yorumlama Sorusu:</strong> ~1.09 saniye</li>
+                    <li><strong>Bağlam Dışı Soruları Reddetme (Refusal):</strong> ~0.38 saniye</li>
+                </ul>
+
+                <p>
+                    Harici API çağrılarına ihtiyaç duymadığımız için internet kaynaklı ağ gecikmelerini ortadan kaldırdık ve veriyi parça parça işlediğimiz (RAG) için yanıt sürelerimiz 1 saniyenin bile altında seyrediyor. Donanımın gücü ile yazılım optimizasyonu birleşince sistem beklenen performansın da üzerine çıkıyor!
+                </p>
+
+                <div class="about-divider" style="margin: 4rem 0; width: 60px;"></div>
+
+                <h2 id="final"><i class="fa-brands fa-github" style="color: var(--neon-blue);"></i> Projenin Sonu: Github Deposu ve Açık Kaynak Yolculuğu</h2>
+                <p>
+                    6 hafta boyunca adım adım ördüğümüz; %100 çevrimdışı çalışan, gizlilik odaklı, sıfır halüsinasyonlu bu akıllı asistan projesini nihayet tamamladık. Projenin tüm kodlarını, mimari detaylarını ve projeyi kendi bilgisayarınızda kurup çalıştırabilmeniz için İngilizce-Türkçe çift dilli README dokümantasyonunu GitHub’da açık kaynak olarak yayınladım.
+                </p>
+                <p>
+                    Eğer siz de verilerinizin cihazınızdan dışarı çıkmadığı, tamamen size ait yerel bir yapay zeka asistanı kurmak istiyorsanız, repoyu inceleyebilir ve kendi terminalinizde test edebilirsiniz.
+                </p>
+                <p>
+                    Bu yaz kampı serüveninde benimle birlikte kod yazan, hataları ayıklayan ve sistemi çıkmazlardan döndüren herkese çok teşekkürler.
+                </p>
+                <p class="lead-text" style="text-align: center; margin-top: 3rem; color: var(--neon-blue) !important; font-family: 'JetBrains Mono', monospace;">
+                    Yeni projelerde, yeni kod satırlarında görüşmek üzere, takipte kalın! 🚀
+                </p>
+                
+            </article>
+        </div>
+
+        <!-- YAZI NAVİGASYONU -->
+        <div class="project-bottom-nav-container blog-content-width" style="margin-top: 4rem;">
+            <div class="project-pagination">
+                
+                <a href="../local-rag-bolum-2/index.html" class="pagination-link prev">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span class="pagination-text">
+                        <span class="pagination-label">Önceki Yazı</span>
+                        <span class="pagination-title">Local RAG (Bölüm 2)</span>
+                    </span>
+                </a>
+
+                <a href="../../blog.html" class="pagination-link next">
+                    <span class="pagination-text">
+                        <span class="pagination-label">Geri Dön</span>
+                        <span class="pagination-title">Tüm Makaleler</span>
+                    </span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+        </div>
+
+    </section>
+
+    <script src="../../script.js"></script>
+</body>
+</html>
