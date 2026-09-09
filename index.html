@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Telefon-Tablet Ayarı -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Mehmet Burak Menteşe resmi portfolyo web sitesi.">
     <meta name="keywords" content="Mehmet Burak Menteşe, portfolyo, kişisel portfolyo, mehmet, burak, menteşe, java, c, yapay zeka">
     <meta name="author" content="Mehmet Burak Menteşe">
@@ -12,13 +12,11 @@
     <meta property="og:url" content="https://mbmentese.dev">
     <meta property="og:title" content="Mehmet Burak Menteşe">
     <meta property="og:description" content="Mehmet Burak Menteşe resmi portfolyo web sitesi.">
-    <!-- Image oluşturunca ekle -->
 
     <!-- Twitter -->
     <meta property="twitter:url" content="https://mbmentese.dev">
     <meta property="twitter:title" content="Mehmet Burak Menteşe">
     <meta property="twitter:description" content="Mehmet Burak Menteşe resmi portfolyo web sitesi.">
-    <!-- Image oluşturunca ekle -->
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="./Assets/favicon.png">
@@ -26,12 +24,55 @@
 
     <title>Mehmet Burak Menteşe</title>
 
-    <!-- Google Fonts: Space Grotesk & JetBrains Mono -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
+
+    <!-- Öne Çıkanlar Sütun Yapısı İçin Özel CSS -->
+    <style>
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 4rem; 
+            position: relative;
+        }
+
+        @media (min-width: 769px) {
+            .featured-grid::after {
+                content: '';
+                position: absolute;
+                left: 50%;
+                top: 0;
+                bottom: 0;
+                width: 1px;
+                background: linear-gradient(to bottom, rgba(0, 242, 254, 0.0), rgba(0, 242, 254, 0.4), rgba(0, 242, 254, 0.0));
+                transform: translateX(-50%);
+            }
+        }
+        
+        .featured-col-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .featured-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem; 
+            }
+            .featured-column {
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header-Navbar -->
@@ -41,25 +82,29 @@
             <span class="nav-brand">Mehmet Burak Menteşe</span>
         </a>
         <nav>
-            <!-- Ana sayfa linki hero.html yerine index.html olarak güncellendi -->
-            <a href="index.html" class="nav-link" data-translate="home">Ana Sayfa</a>
+            <!-- Ana sayfada olduğumuz için active class'ı burada -->
+            <a href="index.html" class="nav-link active" data-translate="home">Ana Sayfa</a>
             <a href="hakkimda.html" class="nav-link" data-translate="about">Hakkımda</a>
             <a href="projeler.html" class="nav-link" data-translate="projects">Projeler</a>
             <a href="blog.html" class="nav-link" data-translate="blog">Blog</a>
-            <a href="iletisim.html" class="nav-link" data-translate="contact me">İletişim</a>
-            <span id="lang-tr" class="lang-active">TR</span><span class="lang-separator">/</span><span id="lang-en">EN</span>
+            
+            <div class="lang-toggle">
+                <span id="lang-tr" class="lang-btn active">TR</span>
+                <span class="lang-separator">/</span>
+                <span id="lang-en" class="lang-btn">EN</span>
+            </div>
         </nav>
     </header>
 
     <!-- ANA SAYFA BÖLÜMÜ -->
-    <section id="hero">
-        <main id="landing-card">
+    <section id="hero" style="flex-direction: column; padding-bottom: 100px;">
+        
+        <main id="landing-card" style="margin-bottom: 2rem;">
             <div class="corner top-left"></div>
             <div class="corner top-right"></div>
             <div class="corner bottom-left"></div>
             <div class="corner bottom-right"></div>
 
-            <!-- Terminal Status Bar -->
             <div class="terminal-status-bar">
                 <div class="terminal-dots">
                     <span class="dot red"></span>
@@ -84,9 +129,9 @@
                     <span class="classic-medium">M</span>
                 </a>
             </div>
-
         </main>
-        <div class="github-card">
+
+        <div class="github-card" style="margin-bottom: 5rem;">
             <div class="corner top-left"></div>
             <div class="corner top-right"></div>
             <div class="corner bottom-left"></div>
@@ -95,8 +140,122 @@
             <h3 class="graph-title" data-translate="githubGraph">GitHub Aktiviteleri</h3>
             <img src="https://ghchart.rshah.org/BurakHINGE" alt="Mehmet Burak Menteşe GitHub Contributions" class="github-chart">
         </div>
+
+        <!-- ÖNE ÇIKANLAR BÖLÜMÜ -->
+        <div class="featured-section" style="width: 100%; max-width: 950px;">
+            <div class="section-title-wrapper" style="margin-bottom: 3rem;">
+                <span class="title-bracket">&lt;&lt;</span>
+                <h2 class="cv-title centered-title" style="font-size: 2rem;" data-translate="featuredTitle">ÖNE ÇIKANLAR</h2>
+                <span class="title-bracket">&gt;&gt;</span>
+            </div>
+
+            <div class="featured-grid">
+                <!-- SOL SÜTUN: PROJELER -->
+                <div class="featured-column">
+                    <h3 class="featured-col-title" style="color: var(--neon-blue); border-bottom: 1px solid rgba(0, 242, 254, 0.3);">
+                        <i class="fa-solid fa-code"></i> <span data-translate="featuredProjects">Projeler</span>
+                    </h3>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 2rem;">
+                        <a href="projeler/local-RAG-assistant/index.html" class="project-card">
+                            <div class="project-header">
+                                <!-- Eksik Olan ragTitle Etiketi Eklendi -->
+                                <h3 data-translate="ragTitle">Yerel RAG Asistanı</h3>
+                                <i class="fa-solid fa-microchip"></i> 
+                            </div>
+                            <p class="project-desc" data-translate="ragDesc">Kişisel belgelerden bilgi çıkaran, harici API kullanmadan tamamen cihazda çalışan CLI tabanlı yapay zeka asistanı.</p>
+                            <span class="project-link-text" data-translate="inspectProject">Projeyi İncele ➔</span>
+                        </a>
+
+                        <!-- GhostHunterINC özel isim olduğu için başlığı çevrilmiyor -->
+                        <!-- Proje 2: Library OOP System -->
+                        <a href="projeler/library-management-system/index.html" class="project-card">
+                            <div class="project-header">
+                                <h3 data-translate="libraryTitle">Library Management System</h3>
+                                <i class="fa-solid fa-book-bookmark"></i>
+                            </div>
+                            <p class="project-desc" data-translate="libraryDesc">Kitapların raflara dizilmesinden genel kütüphane organizasyonuna kadar tüm süreçleri modelleyen, OOP tabanlı Java uygulaması.</p>
+                            <span class="project-link-text" data-translate="inspectProject">Projeyi İncele ➔</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- SAĞ SÜTUN: BLOGLAR -->
+                <div class="featured-column">
+                    <h3 class="featured-col-title" style="color: #a5b4fc; border-bottom: 1px solid rgba(165, 180, 252, 0.4);">
+                        <i class="fa-solid fa-pen-nib"></i> <span data-translate="featuredBlogs">Bloglar</span>
+                    </h3>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 2rem;">
+                        <a href="blog/local-RAG-bolum-1/index.html" class="project-card">
+                            <div class="project-header">
+                                <h3 data-translate="ragBlogTitle">Local RAG Asistanı (Bölüm 1)</h3>
+                                <i class="fa-solid fa-rocket"></i> 
+                            </div>
+                            <p class="project-desc" data-translate="ragBlogDesc">Yapay zeka uydurmalarını engelleyen Local RAG mimarisine giriş; Embeddings işlemleri ve sunucusuz SQLite entegrasyonu.</p>
+                            <span class="project-link-text" data-translate="startReading">Okumaya Başla ➔</span>
+                        </a>
+
+                        <a href="blog/mac-adresi-ve-arp/index.html" class="project-card">
+                            <div class="project-header">
+                                <h3 data-translate="macBlogTitle">MAC Adresi ve ARP</h3>
+                                <i class="fa-solid fa-network-wired"></i>
+                            </div>
+                            <p class="project-desc" data-translate="macBlogDesc">Bilgisayarların ağda birbirini nasıl bulduğunu anlatan rehber; OSI katmanları, NIC, Private IP farkları ve ARP protokolü.</p>
+                            <span class="project-link-text" data-translate="startReading">Okumaya Başla ➔</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
+    <!-- FOOTER BÖLÜMÜ -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo-wrapper">
+                    <img src="./Assets/favicon.png" alt="MBM Logo" class="footer-logo">
+                    <span class="footer-name">MEHMET BURAK MENTEŞE</span>
+                </div>
+                <!-- Footer Bilgi Etiketi Eklendi -->
+                <p class="footer-desc" data-translate="footerDesc">
+                    Marmara Üniversitesi Bilgisayar Mühendisliği.<br>
+                    Yapay Zeka, Yazılım Geliştirme ve Siber Güvenlik.
+                </p>
+                <a href="mailto:burakmentese16@gmail.com" class="footer-email">
+                    <i class="fa-regular fa-envelope"></i> burakmentese16@gmail.com
+                </a>
+            </div>
+
+            <div class="footer-links">
+                <!-- Hızlı Menü Etiketi Eklendi -->
+                <h4 class="footer-title" data-translate="quickMenu">Hızlı Menü</h4>
+                <nav class="footer-nav">
+                    <a href="index.html" data-translate="home">Ana Sayfa</a>
+                    <a href="hakkimda.html" data-translate="about">Hakkımda</a>
+                    <a href="projeler.html" data-translate="projects">Projeler</a>
+                    <a href="blog.html" data-translate="blog">Blog</a>
+                </nav>
+            </div>
+
+            <div class="footer-social">
+                <!-- Beni Takip Edin Etiketi Eklendi -->
+                <h4 class="footer-title" data-translate="followMe">Beni Takip Edin</h4>
+                <div class="footer-social-icons">
+                    <a href="https://github.com/BurakHINGE" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/mehmetburakmentese/" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://medium.com/@burakmentese16" target="_blank" title="Medium"><span class="classic-medium">M</span></a>
+                </div>
+                <!-- Telif Hakları Etiketi Eklendi -->
+                <p class="copyright" data-translate="allRightsReserved">
+                    © 2026 Mehmet Burak Menteşe.<br>
+                    Tüm Hakları Saklıdır.<br>
+                    <span class="designed-by">Designed by MBM</span>
+                </p>
+            </div>
+        </div>
+    </footer>
     <script src="script.js"></script>
 </body>
 </html>
