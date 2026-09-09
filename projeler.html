@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <!-- Buradaki tüm meta etiketleri, fontlar ve CSS linkin index.html ile birebir aynı kalacak -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projeler | Mehmet Burak Menteşe</title>
+    <link rel="icon" type="image/png" href="./Assets/favicon.png">
     <link rel="stylesheet" href="style.css">
-    <!-- Diğer head etiketlerini de ekle... -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Navbar aynen kalıyor ki diğer sayfalara geçilebilsin -->
+    <!-- Navbar -->
     <header>
         <a href="index.html" class="nav-logo-container">
             <img src="Assets/favicon.png" alt="Website Logo" class="nav-logo">
@@ -18,10 +19,14 @@
         <nav>
             <a href="index.html" class="nav-link" data-translate="home">Ana Sayfa</a>
             <a href="hakkimda.html" class="nav-link" data-translate="about">Hakkımda</a>
-            <a href="projeler.html" class="nav-link" data-translate="projects">Projeler</a>
+            <!-- Projeler sayfasında olduğumuz için active class'ı burada! -->
+            <a href="projeler.html" class="nav-link active" data-translate="projects">Projeler</a>
             <a href="blog.html" class="nav-link" data-translate="blog">Blog</a>
-            <a href="iletisim.html" class="nav-link" data-translate="contact me">İletişim</a>
-            <span id="lang-tr" class="lang-active">TR</span><span class="lang-separator">/</span><span id="lang-en">EN</span>
+            <div class="lang-toggle">
+                <span id="lang-tr" class="lang-btn active">TR</span>
+                <span class="lang-separator">/</span>
+                <span id="lang-en" class="lang-btn">EN</span>
+            </div>
         </nav>
     </header>
 
@@ -29,7 +34,8 @@
         <div class="projects-container">
             <div class="section-title-wrapper">
                 <span class="title-bracket">&lt;&lt;</span>
-                <h1 class="cv-title centered-title">PROJELER</h1>
+                <h1 class="cv-title centered-title content-tr">PROJELER</h1>
+                <h1 class="cv-title centered-title content-en" style="display:none;">PROJECTS</h1>
                 <span class="title-bracket">&gt;&gt;</span>
             </div>            
     
@@ -39,46 +45,121 @@
                 <!-- Proje 1 -->
                 <a href="projeler/local-RAG-assistant/index.html" class="project-card">
                     <div class="project-header">
-                        <h3>Yerel RAG Asistanı</h3>
-                        <i class="icon-ai">🧠</i> 
+                        <h3 class="content-tr">Yerel RAG Asistanı</h3>
+                        <h3 class="content-en" style="display:none;">Local RAG Assistant</h3>
+                        <i class="fa-solid fa-microchip"></i> 
                     </div>
-                    <p class="project-desc">Kişisel belgelerden bilgi çıkaran, Python ve SQLite kullanılarak geliştirilmiş yerel barındırılan yapay zeka asistanı CLI aracı.</p>
-                    <span class="project-link-text">Detayları İncele ➔</span>
+                    <p class="project-desc content-tr">Kişisel belgelerden bilgi çıkaran, harici API kullanmadan tamamen cihazda çalışan CLI tabanlı yapay zeka asistanı.</p>
+                    <p class="project-desc content-en" style="display:none;">A CLI-based AI assistant running entirely locally without external APIs, extracting information from personal documents.</p>
+                    <div class="skill-tags" style="margin-bottom: 1.5rem; gap: 8px;">
+                        <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">Python</span>
+                        <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">SQLite</span>
+                        <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">Foundry Local</span>
+                    </div>
+                    <span class="project-link-text content-tr">Detayları İncele ➔</span>
+                    <span class="project-link-text content-en" style="display:none;">View Details ➔</span>
                 </a>
     
                 <!-- Proje 2 -->
                 <a href="projeler/ghost-hunter/index.html" class="project-card">
                     <div class="project-header">
+                        <!-- Özel isim olduğu için çevrilmedi -->
                         <h3>GhostHunterINC</h3>
-                        <i class="icon-game">🎮</i>
+                        <i class="fa-solid fa-gamepad"></i>
                     </div>
-                    <p class="project-desc">Oyun motoru (Unity vb.) kullanılmadan, tamamen sıfırdan standart editörlerde Java ve JavaFX ile kodlanmış interaktif bağımsız oyun.</p>
-                    <span class="project-link-text">Detayları İncele ➔</span>
+                    <p class="project-desc content-tr">Oyun motoru kullanılmadan, tamamen sıfırdan standart editörlerde Java ve JavaFX ile kodlanmış interaktif bağımsız oyun.</p>
+                    <p class="project-desc content-en" style="display:none;">An interactive indie game coded entirely from scratch using Java and JavaFX in standard editors, without a game engine.</p>
+                    <div class="skill-tags" style="margin-bottom: 1.5rem; gap: 8px;">
+                        <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">Java</span>
+                        <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">JavaFX</span>
+                        <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">CSS</span>
+                    </div>
+                    <span class="project-link-text content-tr">Detayları İncele ➔</span>
+                    <span class="project-link-text content-en" style="display:none;">View Details ➔</span>
                 </a>
     
                 <!-- Proje 3 -->
                 <a href="projeler/library-management-system/index.html" class="project-card">
                     <div class="project-header">
-                        <h3>Library Management System</h3>
-                        <i class="icon-terminal">💻</i>
+                        <!-- Senin script.js'ye eklediğin etiket çalışacak -->
+                        <h3 data-translate="libraryTitle">Library OOP System</h3>
+                        <i class="fa-solid fa-book-bookmark"></i>
                     </div>
-                    <p class="project-desc">Özelleştirilebilir zar yüzleri ve olasılık dağılımı görselleştirmesi sunan konsol tabanlı algoritmik Java programı.</p>
-                    <span class="project-link-text">Detayları İncele ➔</span>
+                    <p class="project-desc content-tr">Kitapların raflara dizilmesinden genel kütüphane organizasyonuna kadar tüm süreçleri modelleyen, OOP tabanlı Java uygulaması.</p>
+                    <p class="project-desc content-en" style="display:none;">An OOP-based Java application that models all processes, from organizing books on shelves to general library management.</p>
+                    <div class="skill-tags" style="margin-bottom: 1.5rem; gap: 8px;">
+                        <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">Java</span>
+                        <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">OOP</span>
+                        <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">Console</span>
+                    </div>
+                    <span class="project-link-text content-tr">Detayları İncele ➔</span>
+                    <span class="project-link-text content-en" style="display:none;">View Details ➔</span>
                 </a>
     
                 <!-- Proje 4 -->
-                <a href="projeler/marmara-siber/" class="project-card">
+                <a href="projeler/marmara-cyber-website/index.html" class="project-card">
                     <div class="project-header">
-                        <h3>Siber Kulüp Web Arayüzü</h3>
-                        <i class="icon-web">🌐</i>
+                        <h3 class="content-tr">Marmara Siber Web Arayüzü</h3>
+                        <h3 class="content-en" style="display:none;">Marmara Cyber Web Interface</h3>
+                        <i class="fa-solid fa-globe"></i>
                     </div>
-                    <p class="project-desc">Marmara Siber web sitesi için akordeon tarzı dinamik SSS bölümü ve fonksiyonel arayüz geliştirmeleri.</p>
-                    <span class="project-link-text">Detayları İncele ➔</span>
+                    <p class="project-desc content-tr">Marmara Siber web sitesi için akordeon tarzı dinamik SSS bölümü ve i18n altyapısına sahip fütüristik arayüz geliştirmeleri.</p>
+                    <p class="project-desc content-en" style="display:none;">Futuristic interface developments for the Marmara Cyber website, featuring an accordion-style dynamic FAQ section and i18n infrastructure.</p>
+                    <div class="skill-tags" style="margin-bottom: 1.5rem; gap: 8px;">
+                        <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">Vanilla JS</span>
+                        <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">HTML5/CSS3</span>
+                        <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">i18n</span>
+                    </div>
+                    <span class="project-link-text content-tr">Detayları İncele ➔</span>
+                    <span class="project-link-text content-en" style="display:none;">View Details ➔</span>
                 </a>
     
             </div>
         </div>
     </section>
+
+    <!-- FOOTER BÖLÜMÜ -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo-wrapper">
+                    <img src="./Assets/favicon.png" alt="MBM Logo" class="footer-logo">
+                    <span class="footer-name">MEHMET BURAK MENTEŞE</span>
+                </div>
+                <p class="footer-desc" data-translate="footerDesc">
+                    Marmara Üniversitesi Bilgisayar Mühendisliği.<br>
+                    Yapay Zeka, Yazılım Geliştirme ve Siber Güvenlik.
+                </p>
+                <a href="mailto:burakmentese16@gmail.com" class="footer-email">
+                    <i class="fa-regular fa-envelope"></i> burakmentese16@gmail.com
+                </a>
+            </div>
+
+            <div class="footer-links">
+                <h4 class="footer-title" data-translate="quickMenu">Hızlı Menü</h4>
+                <nav class="footer-nav">
+                    <a href="index.html" data-translate="home">Ana Sayfa</a>
+                    <a href="hakkimda.html" data-translate="about">Hakkımda</a>
+                    <a href="projeler.html" data-translate="projects">Projeler</a>
+                    <a href="blog.html" data-translate="blog">Blog</a>
+                </nav>
+            </div>
+
+            <div class="footer-social">
+                <h4 class="footer-title" data-translate="followMe">Beni Takip Edin</h4>
+                <div class="footer-social-icons">
+                    <a href="https://github.com/BurakHINGE" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/mehmetburakmentese/" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://medium.com/@burakmentese16" target="_blank" title="Medium"><span class="classic-medium">M</span></a>
+                </div>
+                <p class="copyright" data-translate="allRightsReserved">
+                    © 2026 Mehmet Burak Menteşe.<br>
+                    Tüm Hakları Saklıdır.<br>
+                    <span class="designed-by">Designed by MBM</span>
+                </p>
+            </div>
+        </div>
+    </footer>
     
     <script src="script.js"></script>
 </body>
