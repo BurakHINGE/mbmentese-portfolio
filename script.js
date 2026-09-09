@@ -197,5 +197,112 @@ function copyCode(button) {
     });
 }
 
+// --- DİL SEÇENEĞİ (TR/EN) İŞLEMLERİ ---
+
+const translations = {
+    "tr": {
+        "home": "Ana Sayfa",
+        "about": "Hakkımda",
+        "projects": "Projeler",
+        "blog": "Blog",
+        "subtitle": "Kişisel Portfolyo ve Blog",
+        "title": "Merhaba, ben Mehmet Burak Menteşe",
+        "githubGraph": "GitHub Aktiviteleri",
+        "featuredTitle": "ÖNE ÇIKANLAR",
+        "featuredProjects": "Projeler",
+        "featuredBlogs": "Bloglar",
+        "ragTitle": "Yerel RAG Asistanı", 
+        "ragDesc": "Kişisel belgelerden bilgi çıkaran, harici API kullanmadan tamamen cihazda çalışan CLI tabanlı yapay zeka asistanı.",
+        "libraryTitle": "Library Management System",
+        "libraryDesc": "Kitapların raflara dizilmesinden genel kütüphane organizasyonuna kadar tüm süreçleri modelleyen, OOP tabanlı Java uygulaması.",
+        
+        "inspectProject": "Projeyi İncele ➔",
+        "ragBlogTitle": "Local RAG Asistanı (Bölüm 1)",
+        "ragBlogDesc": "Yapay zeka uydurmalarını engelleyen Local RAG mimarisine giriş; Embeddings işlemleri ve sunucusuz SQLite entegrasyonu.",
+        "macBlogTitle": "MAC Adresi ve ARP",
+        "macBlogDesc": "Bilgisayarların ağda birbirini nasıl bulduğunu anlatan rehber; OSI katmanları, NIC, Private IP farkları ve ARP protokolü.",
+        "startReading": "Okumaya Başla ➔",
+        "quickMenu": "Hızlı Menü",
+        "followMe": "Beni Takip Edin",
+        "footerDesc": "Marmara Üniversitesi Bilgisayar Mühendisliği.<br>Yapay Zeka, Yazılım Geliştirme ve Siber Güvenlik.",
+        "allRightsReserved": "© 2026 Mehmet Burak Menteşe.<br>Tüm Hakları Saklıdır.<br><span class='designed-by'>Designed by MBM</span>"
+    },
+    "en": {
+        "home": "Home",
+        "about": "About Me",
+        "projects": "Projects",
+        "blog": "Blog",
+        "subtitle": "Personal Portfolio and Blog",
+        "title": "Hello, I'm Mehmet Burak Menteşe",
+        "githubGraph": "GitHub Activities",
+        "featuredTitle": "FEATURED",
+        "featuredProjects": "Projects",
+        "featuredBlogs": "Blogs",
+        "ragTitle": "Local RAG Assistant",
+        "ragDesc": "A CLI-based AI assistant running entirely locally without external APIs, extracting information from personal documents.",
+        "libraryTitle": "Library Management System",
+        "libraryDesc": "An OOP-based Java application that models all processes, from organizing books on shelves to general library management.",
+        
+        "inspectProject": "View Project ➔",
+        "ragBlogTitle": "Local RAG Assistant (Part 1)",
+        "ragBlogDesc": "Introduction to Local RAG architecture preventing AI hallucinations; Embeddings operations and serverless SQLite integration.",
+        "macBlogTitle": "MAC Address and ARP",
+        "macBlogDesc": "A guide explaining how computers find each other on a network; OSI layers, NIC, Private IP differences, and the ARP protocol.",
+        "startReading": "Start Reading ➔",
+        "quickMenu": "Quick Links",
+        "followMe": "Follow Me",
+        "footerDesc": "Marmara University Computer Engineering.<br>Artificial Intelligence, Software Development, and Cyber Security.",
+        "allRightsReserved": "© 2026 Mehmet Burak Menteşe.<br>All Rights Reserved.<br><span class='designed-by'>Designed by MBM</span>"
+    }
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+    const btnTr = document.getElementById('lang-tr');
+    const btnEn = document.getElementById('lang-en');
+    
+    let currentLang = localStorage.getItem('siteLang') || 'tr';
+    setLanguage(currentLang);
+
+    if(btnTr && btnEn) {
+        btnTr.addEventListener('click', () => {
+            setLanguage('tr');
+            localStorage.setItem('siteLang', 'tr');
+        });
+        btnEn.addEventListener('click', () => {
+            setLanguage('en');
+            localStorage.setItem('siteLang', 'en');
+        });
+    }
+});
+
+function setLanguage(lang) {
+    const btnTr = document.getElementById('lang-tr');
+    const btnEn = document.getElementById('lang-en');
+    
+    if (btnTr && btnEn) {
+        if(lang === 'tr') {
+            btnTr.classList.add('active');
+            btnEn.classList.remove('active');
+        } else {
+            btnEn.classList.add('active');
+            btnTr.classList.remove('active');
+        }
+    }
+
+    document.querySelectorAll('[data-translate]').forEach(el => {
+        const key = el.getAttribute('data-translate');
+        if (translations[lang] && translations[lang][key]) {
+            el.innerHTML = translations[lang][key]; 
+        }
+    });
+
+    document.querySelectorAll('.content-tr').forEach(el => {
+        el.style.display = lang === 'tr' ? '' : 'none';
+    });
+    
+    document.querySelectorAll('.content-en').forEach(el => {
+        el.style.display = lang === 'en' ? '' : 'none';
+    });
+}
 
 document.addEventListener('DOMContentLoaded', createEnhancedStarfield);
