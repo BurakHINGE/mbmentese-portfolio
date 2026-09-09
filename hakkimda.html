@@ -1,15 +1,24 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <!-- Buradaki tüm meta etiketleri, fontlar ve CSS linkin index.html ile birebir aynı kalacak -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hakkımda | Mehmet Burak Menteşe</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./Assets/favicon.png">
+    
+    <!-- İŞTE EKSİK OLAN İKON KÜTÜPHANESİ -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Yazı Tipleri (Google Fonts) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="style.css">
-    <!-- Diğer head etiketlerini de ekle... -->
 </head>
 <body>
-    <!-- Navbar aynen kalıyor ki diğer sayfalara geçilebilsin -->
     <header>
         <a href="index.html" class="nav-logo-container">
             <img src="Assets/favicon.png" alt="Website Logo" class="nav-logo">
@@ -17,60 +26,77 @@
         </a>
         <nav>
             <a href="index.html" class="nav-link" data-translate="home">Ana Sayfa</a>
-            <a href="hakkimda.html" class="nav-link" data-translate="about">Hakkımda</a>
+            <a href="hakkimda.html" class="nav-link active" data-translate="about">Hakkımda</a>
             <a href="projeler.html" class="nav-link" data-translate="projects">Projeler</a>
             <a href="blog.html" class="nav-link" data-translate="blog">Blog</a>
-            <a href="iletisim.html" class="nav-link" data-translate="contact me">İletişim</a>
-            <span id="lang-tr" class="lang-active">TR</span><span class="lang-separator">/</span><span id="lang-en">EN</span>
+            <div class="lang-toggle">
+                <span id="lang-tr" class="lang-btn active">TR</span>
+                <span class="lang-separator">/</span>
+                <span id="lang-en" class="lang-btn">EN</span>
+            </div>
         </nav>
     </header>
 
-        <!-- HAKKIMDA BÖLÜMÜ -->
-        <section id="hakkimda" class="multi-card-layout">
-        
-            <!-- HİKAYE VE HEDEFLER -->
-            <div class="about-card narrative-card">
-                <!-- Neon Köşeler -->
-                <div class="corner top-left"></div>
-                <div class="corner top-right"></div>
-                <div class="corner bottom-left"></div>
-                <div class="corner bottom-right"></div>
-    
-                <h2 data-translate="aboutTitle">Hakkımda</h2>
-                <div class="about-divider"></div>
-                <p class="about-text">
-                    Marmara Üniversitesi Bilgisayar Mühendisliği öğrencisi olarak, özellikle yapay zeka ve makine öğrenmesi alanlarında yenilikçi çözümler üretmeye odaklanıyorum. Yerel tabanlı RAG sistemleri geliştirmekten, veri mimarileri kurmaya kadar yapay zekanın arka planındaki mimariyle ilgileniyorum.
-                </p>
-                <p class="about-text">
-                    Amacım, karmaşık problemleri çözen otonom asistanlar ve akıllı yazılımlar tasarlamak. Teorik altyapımı hackathonlar ve sektör odaklı projelerle pratiğe dökmeye, öğrendiklerimle somut ürünler ortaya koymaya devam ediyorum.
-                </p>
-            </div>
-    
+    <section id="hakkimda" class="multi-card-layout">
+        <!-- HİKAYE VE HEDEFLER -->
+        <div class="about-card narrative-card">
+            <div class="corner top-left"></div>
+            <div class="corner top-right"></div>
+            <div class="corner bottom-left"></div>
+            <div class="corner bottom-right"></div>
+
+            <h2 data-translate="aboutTitle">Hakkımda</h2>
+            <div class="about-divider"></div>
+            
+            <!-- Türkçe Paragraflar -->
+            <p class="about-text content-tr">
+                Marmara Üniversitesi Bilgisayar Mühendisliği öğrencisi olarak, özellikle yapay zeka ve makine öğrenmesi alanlarında yenilikçi çözümler üretmeye odaklanıyorum. Yerel tabanlı RAG sistemleri geliştirmekten, veri mimarileri kurmaya kadar yapay zekanın arka planındaki mimariyle ilgileniyorum.
+            </p>
+            <p class="about-text content-tr">
+                Amacım, karmaşık problemleri çözen otonom asistanlar ve akıllı yazılımlar tasarlamak. Teorik altyapımı hackathonlar ve sektör odaklı projelerle pratiğe dökmeye, öğrendiklerimle somut ürünler ortaya koymaya devam ediyorum.
+            </p>
+
+            <!-- İngilizce Paragraflar -->
+            <p class="about-text content-en" style="display:none;">
+                As a Computer Engineering student at Marmara University, I focus on creating innovative solutions, particularly in the fields of artificial intelligence and machine learning. I am interested in the underlying architecture of AI, ranging from developing local-based RAG systems to building data architectures.
+            </p>
+            <p class="about-text content-en" style="display:none;">
+                My goal is to design autonomous assistants and smart software that solve complex problems. I continue to put my theoretical background into practice through hackathons and industry-focused projects, creating concrete products with what I've learned.
+            </p>
+        </div>
+
         <!-- TEKNİK BİLGİLER VE CV -->
         <div class="terminal-style">
 
             <!-- EĞİTİM BÖLÜMÜ -->
             <div class="cv-section">
-                <h3 class="cv-title">EĞİTİM</h3>
+                <h3 class="cv-title content-tr">EĞİTİM</h3>
+                <h3 class="cv-title content-en" style="display:none;">EDUCATION</h3>
                 
                 <div class="cv-item">
                     <div class="cv-item-header">
-                        <h4>Marmara Üniversitesi – Bilgisayar Mühendisliği</h4>
+                        <h4 class="content-tr">Marmara Üniversitesi – Bilgisayar Mühendisliği</h4>
+                        <h4 class="content-en" style="display:none;">Marmara University – Computer Engineering</h4>
                     </div>
-                    <div class="cv-meta">Eylül 2024 – 2029 (beklenen) · %100 İngilizce · İstanbul</div>
-                    <p class="cv-desc">2. sınıf öğrencisiyim. Genel not ortalamam: 3.05 / 4.00.<br><br>Yazılım mimarileri, makine öğrenmesi ve yapay zeka sistemlerine odaklanıyorum. Bu alanlar ile ilgili dersler alıyorum.</p>
+                    <div class="cv-meta content-tr">Eylül 2024 – 2029 (beklenen) · %100 İngilizce · İstanbul</div>
+                    <div class="cv-meta content-en" style="display:none;">September 2024 – 2029 (Expected) · 100% English · Istanbul</div>
+                    
+                    <p class="cv-desc content-tr">2. sınıf öğrencisiyim. Genel not ortalamam: 3.05 / 4.00.<br><br>Yazılım mimarileri, makine öğrenmesi ve yapay zeka sistemlerine odaklanıyorum. Bu alanlar ile ilgili dersler alıyorum.</p>
+                    <p class="cv-desc content-en" style="display:none;">I am a 2nd-year student. Cumulative GPA: 3.05 / 4.00.<br><br>I focus on software architectures, machine learning, and artificial intelligence systems. I am taking courses related to these fields.</p>
                 </div>
             </div>
 
             <!-- TEKNİK BECERİLER BÖLÜMÜ -->
             <div class="cv-section">
-                <h3 class="cv-title">TEKNİK BECERİLER</h3>
+                <h3 class="cv-title content-tr">TEKNİK BECERİLER</h3>
+                <h3 class="cv-title content-en" style="display:none;">TECHNICAL SKILLS</h3>
                 
                 <div class="skill-category">
-                    <h4>Yapay Zeka & Veri</h4>
+                    <h4 class="content-tr">Yapay Zeka & Veri</h4>
+                    <h4 class="content-en" style="display:none;">AI & Data</h4>
                     <div class="skill-tags">
-                        <span class="skill-tag">RAG Sistemleri</span>
-                        <span class="skill-tag">Makine Öğrenmesi</span>
+                        <span class="skill-tag">RAG Systems</span>
+                        <span class="skill-tag">Machine Learning</span>
                         <span class="skill-tag">Embeddings</span>
                         <span class="skill-tag">Microsoft Foundry Local</span>
                         <span class="skill-tag">SQLite</span>
@@ -78,7 +104,8 @@
                 </div>
 
                 <div class="skill-category">
-                    <h4>Programlama Dilleri & Kütüphaneler</h4>
+                    <h4 class="content-tr">Programlama Dilleri & Kütüphaneler</h4>
+                    <h4 class="content-en" style="display:none;">Programming Languages & Libraries</h4>
                     <div class="skill-tags">
                         <span class="skill-tag">Java</span>
                         <span class="skill-tag">Python</span>
@@ -89,7 +116,8 @@
                 </div>
 
                 <div class="skill-category">
-                    <h4>Siber Güvenlik & Sistem</h4>
+                    <h4 class="content-tr">Siber Güvenlik & Sistem</h4>
+                    <h4 class="content-en" style="display:none;">Cyber Security & Systems</h4>
                     <div class="skill-tags">
                         <span class="skill-tag">Kali Linux</span>
                         <span class="skill-tag">Terminal / Bash</span>
@@ -100,7 +128,8 @@
                 </div>
 
                 <div class="skill-category">
-                    <h4>Araçlar & Metodolojiler</h4>
+                    <h4 class="content-tr">Araçlar & Metodolojiler</h4>
+                    <h4 class="content-en" style="display:none;">Tools & Methodologies</h4>
                     <div class="skill-tags">
                         <span class="skill-tag">Git & GitHub</span>
                         <span class="skill-tag">Agile / Scrum</span>
@@ -112,162 +141,226 @@
 
             <!-- Deneyimler -->
             <div class="cv-section">
-                <h3 class="cv-title">Deneyim</h3>
+                <h3 class="cv-title content-tr">Deneyim</h3>
+                <h3 class="cv-title content-en" style="display:none;">Experience</h3>
                 
                 <div class="cv-item">
                     <div class="cv-item-header">
-                        <h4>Microsoft AI Innovators - Yapay Zeka Yazılım Geliştirme ● Gönüllü Stajyer</h4>
+                        <h4 class="content-tr">Microsoft AI Innovators - Yapay Zeka Yazılım Geliştirme ● Gönüllü Stajyer</h4>
+                        <h4 class="content-en" style="display:none;">Microsoft AI Innovators - AI Software Development ● Volunteer Intern</h4>
                     </div>
-                    <div class="cv-meta">Temmuz - Ağustos 2026 · Uzaktan</div>
-                    <p class="cv-desc">Microsoft AI Innovators Yaz Stajı kapsamında, internet bağlantısı gerektirmeyen, gizlilik odaklı bir RAG tabanlı yapay zeka asistanı geliştirdim.<br>
-                    Proje SQLite üzerinden vektör arama ve phi-3.5-mini slm modelini bir araya getirerek ortalama 0.5-1.5 saniyede yanıt üretebiliyordu.<br>
-                    Geliştirme sürecinde Microsoft Foundry Local ile Python kullandım.</p>
+                    <div class="cv-meta content-tr">Temmuz - Ağustos 2026 · Uzaktan</div>
+                    <div class="cv-meta content-en" style="display:none;">July - August 2026 · Remote</div>
+                    <p class="cv-desc content-tr">Microsoft AI Innovators Yaz Stajı kapsamında, internet bağlantısı gerektirmeyen, gizlilik odaklı bir RAG tabanlı yapay zeka asistanı geliştirdim.<br>Proje SQLite üzerinden vektör arama ve phi-3.5-mini slm modelini bir araya getirerek ortalama 0.5-1.5 saniyede yanıt üretebiliyordu.<br>Geliştirme sürecinde Microsoft Foundry Local ile Python kullandım.</p>
+                    <p class="cv-desc content-en" style="display:none;">As part of the Microsoft AI Innovators Summer Internship, I developed a privacy-focused, RAG-based AI assistant that does not require an internet connection.<br>The project combined vector search via SQLite with the phi-3.5-mini slm model to generate responses in an average of 0.5-1.5 seconds.<br>I used Python with Microsoft Foundry Local during the development process.</p>
                 </div>
 
                 <div class="cv-item">
                     <div class="cv-item-header">
-                        <h4>SyberTÜRK - Siber Güvenlik ● Gönüllü Stajyer</h4>
+                        <h4 class="content-tr">SyberTÜRK - Siber Güvenlik ● Gönüllü Stajyer</h4>
+                        <h4 class="content-en" style="display:none;">SyberTÜRK - Cyber Security ● Volunteer Intern</h4>
                     </div>
-                    <div class="cv-meta">Temmuz - Ağustos 2025 · Uzaktan</div>
-                    <p class="cv-desc">SyberTÜRK'te siber güvenlik stajyeri olarak, gerçek sistemler üzerinde keşif ve zafiyet analizi çalışmaları yaptım. Wireshark, Burp Suite ve Bettercap gibi araçları kullanarak 5'ten fazla sistemde temel sızma testleri gerçekleştirdim.<br>
-                    Linux komut satırı ve PowerShell ile sistem yönetimi görevlerini otomatikleştirdim ve Active Directory yapıları üzerine araştırmalar yürüttüm.<br>
-                    Bu staj, güvenlik odaklı düşünme biçimimi ve sistemleri saldırgan bakış açısıyla değerlendirme becerimi geliştirdi.</p>
+                    <div class="cv-meta content-tr">Temmuz - Ağustos 2025 · Uzaktan</div>
+                    <div class="cv-meta content-en" style="display:none;">July - August 2025 · Remote</div>
+                    <p class="cv-desc content-tr">SyberTÜRK'te siber güvenlik stajyeri olarak, gerçek sistemler üzerinde keşif ve zafiyet analizi çalışmaları yaptım. Wireshark, Burp Suite ve Bettercap gibi araçları kullanarak 5'ten fazla sistemde temel sızma testleri gerçekleştirdim.<br>Linux komut satırı ve PowerShell ile sistem yönetimi görevlerini otomatikleştirdim ve Active Directory yapıları üzerine araştırmalar yürüttüm.<br>Bu staj, güvenlik odaklı düşünme biçimimi ve sistemleri saldırgan bakış açısıyla değerlendirme becerimi geliştirdi.</p>
+                    <p class="cv-desc content-en" style="display:none;">As a cyber security intern at SyberTÜRK, I conducted reconnaissance and vulnerability analysis on real systems. I performed basic penetration tests on over 5 systems using tools like Wireshark, Burp Suite, and Bettercap.<br>I automated system administration tasks using Linux command line and PowerShell, and conducted research on Active Directory structures.<br>This internship improved my security-oriented mindset and my ability to evaluate systems from an attacker's perspective.</p>
                 </div>
 
                 <div class="cv-item">
                     <div class="cv-item-header">
-                        <h4>Marmara Üniversitesi Siber Güvenlik Kulübü ● Yönetim Kurulu Sekreteri</h4>
+                        <h4 class="content-tr">Marmara Üniversitesi Siber Güvenlik Kulübü ● Yönetim Kurulu Sekreteri</h4>
+                        <h4 class="content-en" style="display:none;">Marmara University Cyber Security Club ● Board Secretary</h4>
                     </div>
-                    <div class="cv-meta">Mayıs 2025 - Mayıs 2026 · İstanbul (Yönetim Kurulu Sekreteri)</div>
-                    <div class="cv-meta">Mayıs 2026 - Devam Ediyor · İstanbul (Akademi Komitesi Başkanı)</div>
-                    <p class="cv-desc">Marmara Üniversitesi Siber Güvenlik Kulübü'nde Yönetim Kurulu Sekreteri olarak görev alıyorum. Bu süreçte 20'den fazla atölye ve eğitim etkinliğinin organizasyonunda yer aldım ve yaklaşık 20 kişilik çekirdek bir topluluğun bir arada tutulmasına katkı sağladım. Bu deneyim, hem organizasyon hem de topluluk yönetimi konusunda bana önemli beceriler kazandırdı.<br>
-                    Şu an ise aktif olarak Akademi Komitesi Başkanı olarak görev alıyorum. Çeşitli çalışmalar, projeler ve blogların gerçekleştirilmesini yönetiyorum.</p>
+                    <div class="cv-meta content-tr">Mayıs 2025 - Mayıs 2026 · İstanbul (Yönetim Kurulu Sekreteri)<br>Mayıs 2026 - Devam Ediyor · İstanbul (Akademi Komitesi Başkanı)</div>
+                    <div class="cv-meta content-en" style="display:none;">May 2025 - May 2026 · Istanbul (Board Secretary)<br>May 2026 - Present · Istanbul (Head of Academy Committee)</div>
+                    <p class="cv-desc content-tr">Marmara Üniversitesi Siber Güvenlik Kulübü'nde Yönetim Kurulu Sekreteri olarak görev alıyorum. Bu süreçte 20'den fazla atölye ve eğitim etkinliğinin organizasyonunda yer aldım ve yaklaşık 20 kişilik çekirdek bir topluluğun bir arada tutulmasına katkı sağladım. Bu deneyim, hem organizasyon hem de topluluk yönetimi konusunda bana önemli beceriler kazandırdı.<br>Şu an ise aktif olarak Akademi Komitesi Başkanı olarak görev alıyorum. Çeşitli çalışmalar, projeler ve blogların gerçekleştirilmesini yönetiyorum.</p>
+                    <p class="cv-desc content-en" style="display:none;">I served as the Board Secretary at the Marmara University Cyber Security Club. During this period, I participated in the organization of more than 20 workshop and training events, and contributed to keeping a core community of about 20 people together. This experience gave me important skills in both organization and community management.<br>I am currently serving actively as the Head of the Academy Committee, managing the execution of various studies, projects, and blogs.</p>
                 </div>
 
                 <div class="cv-item">
                     <div class="cv-item-header">
-                        <h4>Marmara Üniversitesi Sosyal Teknoloji Kulübü ● Oyun Geliştiricisi</h4>
+                        <h4 class="content-tr">Marmara Üniversitesi Sosyal Teknoloji Kulübü ● Oyun Geliştiricisi</h4>
+                        <h4 class="content-en" style="display:none;">Marmara University Social Technology Club ● Game Developer</h4>
                     </div>
-                    <div class="cv-meta">Kasım 2025 - Ağustos 2026 · İstanbul</div>
-                    <p class="cv-desc">Sosyal Teknoloji Kulübü bünyesinde, 15-20 kişiden oluşan bir ekiple Unity tabanlı bir oyun projesi geliştiriyorum.<br>
-                    Haftalık Agile/Scrum sprintleriyle ilerleyen bu projede Git/GitHub üzerinden ekip içi iş birliği ve versiyon kontrolü süreçlerini de aktif olarak yürütüyorum.<br>
-                    Bu deneyim bana büyük bir ekipte agile metodolojilerle çalışmanın pratik yönlerini öğretti.</p>
+                    <div class="cv-meta content-tr">Kasım 2025 - Ağustos 2026 · İstanbul</div>
+                    <div class="cv-meta content-en" style="display:none;">November 2025 - August 2026 · Istanbul</div>
+                    <p class="cv-desc content-tr">Sosyal Teknoloji Kulübü bünyesinde, 15-20 kişiden oluşan bir ekiple Unity tabanlı bir oyun projesi geliştiriyorum.<br>Haftalık Agile/Scrum sprintleriyle ilerleyen bu projede Git/GitHub üzerinden ekip içi iş birliği ve versiyon kontrolü süreçlerini de aktif olarak yürütüyorum.<br>Bu deneyim bana büyük bir ekipte agile metodolojilerle çalışmanın pratik yönlerini öğretti.</p>
+                    <p class="cv-desc content-en" style="display:none;">Within the Social Technology Club, I am developing a Unity-based game project with a team of 15-20 people.<br>In this project, which progresses with weekly Agile/Scrum sprints, I actively manage team collaboration and version control processes via Git/GitHub.<br>This experience taught me the practical aspects of working with agile methodologies in a large team.</p>
                 </div>
             </div>
 
             <!-- KURSLAR VE BOOTCAMP BÖLÜMÜ -->
             <div class="cv-section">
-                <h3 class="cv-title">BOOTCAMP & KURSLAR</h3>
+                <h3 class="cv-title content-tr">BOOTCAMP & KURSLAR</h3>
+                <h3 class="cv-title content-en" style="display:none;">BOOTCAMPS & COURSES</h3>
                 
                 <div class="cv-item">
                     <div class="cv-item-header">
                         <h4>KOMTAŞ & İstanbul Data Science Academy ● AI Explorer Bootcamp'26</h4>
                     </div>
-                    <div class="cv-meta">Temmuz - Ağustos 2026 · Uzaktan</div>
-                    <p class="cv-desc">KOMTAS ve İstanbul Data Science Academy iş birliğiyle düzenlenen AI Explorer Summer Bootcamp'26 programına katıldım.<br>
-                    Bu yoğun eğitim sürecinde üretken yapay zeka, büyük dil modelleri (LLM), agentic ai ve makine öğrenmesinin temelleri üzerine hem teorik hem uygulamalı çalışmalar gerçekleştirdim.<br>
-                    Bootcamp, yapay zeka alanındaki güncel yaklaşımları pratik projelerle pekiştirme fırsatı sundu.</p>
+                    <div class="cv-meta content-tr">Temmuz - Ağustos 2026 · Uzaktan</div>
+                    <div class="cv-meta content-en" style="display:none;">July - August 2026 · Remote</div>
+                    <p class="cv-desc content-tr">KOMTAS ve İstanbul Data Science Academy iş birliğiyle düzenlenen AI Explorer Summer Bootcamp'26 programına katıldım.<br>Bu yoğun eğitim sürecinde üretken yapay zeka, büyük dil modelleri (LLM), agentic ai ve makine öğrenmesinin temelleri üzerine hem teorik hem uygulamalı çalışmalar gerçekleştirdim.<br>Bootcamp, yapay zeka alanındaki güncel yaklaşımları pratik projelerle pekiştirme fırsatı sundu.</p>
+                    <p class="cv-desc content-en" style="display:none;">I participated in the AI Explorer Summer Bootcamp'26 program organized in collaboration with KOMTAS and Istanbul Data Science Academy.<br>During this intensive training period, I carried out both theoretical and practical studies on the fundamentals of generative AI, large language models (LLM), agentic AI, and machine learning.<br>The bootcamp provided an opportunity to reinforce current approaches in the field of AI with practical projects.</p>
                 </div>
 
                 <div class="cv-item">
                     <div class="cv-item-header">
                         <h4>MultiGroup Community ● Agentic AI Development with Google ADK & MCP</h4>
                     </div>
-                    <div class="cv-meta">Mart - Mayıs 2026 · Uzaktan</div>
-                    <p class="cv-desc">MultiGroup Community tarafından düzenlenen 6 farklı modülden oluşan "Agentic AI Development with Google ADK & MCP" eğitim serisini tamamladım.<br>
-                    Bu eğitimlerde Google'ın Agent Development Kit aracını, Model Context Protocol standardını ve RAG tabanlı bilgi motorları kurma yaklaşımlarını öğrendim.<br>
-                    Program, ajan tabanlı yapay zeka sistemleri geliştirme konusundaki bilgimi somut araçlarla genişletmeme yardımcı oldu.</p>
+                    <div class="cv-meta content-tr">Mart - Mayıs 2026 · Uzaktan</div>
+                    <div class="cv-meta content-en" style="display:none;">March - May 2026 · Remote</div>
+                    <p class="cv-desc content-tr">MultiGroup Community tarafından düzenlenen 6 farklı modülden oluşan "Agentic AI Development with Google ADK & MCP" eğitim serisini tamamladım.<br>Bu eğitimlerde Google'ın Agent Development Kit aracını, Model Context Protocol standardını ve RAG tabanlı bilgi motorları kurma yaklaşımlarını öğrendim.<br>Program, ajan tabanlı yapay zeka sistemleri geliştirme konusundaki bilgimi somut araçlarla genişletmeme yardımcı oldu.</p>
+                    <p class="cv-desc content-en" style="display:none;">I completed the "Agentic AI Development with Google ADK & MCP" training series consisting of 6 different modules organized by the MultiGroup Community.<br>In these trainings, I learned about Google's Agent Development Kit tool, the Model Context Protocol standard, and approaches to building RAG-based knowledge engines.<br>The program helped me expand my knowledge in developing agent-based AI systems with concrete tools.</p>
                 </div>
             </div>
 
             <!-- SERTİFİKALAR BÖLÜMÜ -->
             <div class="cv-section">
-                <h3 class="cv-title">Sertifikalar</h3>
+                <h3 class="cv-title content-tr">Sertifikalar</h3>
+                <h3 class="cv-title content-en" style="display:none;">Certificates</h3>
                 
                 <div class="cv-item">
                     <div class="cv-item-header">
                         <h4>AI Explorer Summer Bootcamp'26</h4>
                     </div>
-                    <div class="cv-meta">KOMTAS & İstanbul Data Science Academy · Ağustos 2026</div>
-                    <p class="cv-desc">Generative AI, LLM, Agentic AI ve makine öğrenmesi temelleri.</p>
+                    <div class="cv-meta content-tr">KOMTAS & İstanbul Data Science Academy · Ağustos 2026</div>
+                    <div class="cv-meta content-en" style="display:none;">KOMTAS & Istanbul Data Science Academy · August 2026</div>
+                    <p class="cv-desc content-tr">Generative AI, LLM, Agentic AI ve makine öğrenmesi temelleri.</p>
+                    <p class="cv-desc content-en" style="display:none;">Fundamentals of Generative AI, LLM, Agentic AI, and machine learning.</p>
                 </div>
 
                 <div class="cv-item">
                     <div class="cv-item-header">
                         <h4>Agentic AI Development with Google ADK & MCP</h4>
                     </div>
-                    <div class="cv-meta">MultiGroup Community · 2026</div>
-                    <p class="cv-desc">Google Agent Development Kit, MCP ve RAG tabanlı bilgi motorları.</p>
+                    <div class="cv-meta content-tr">MultiGroup Community · 2026</div>
+                    <div class="cv-meta content-en" style="display:none;">MultiGroup Community · 2026</div>
+                    <p class="cv-desc content-tr">Google Agent Development Kit, MCP ve RAG tabanlı bilgi motorları.</p>
+                    <p class="cv-desc content-en" style="display:none;">Google Agent Development Kit, MCP, and RAG-based knowledge engines.</p>
                 </div>
 
                 <div class="cv-item">
                     <div class="cv-item-header">
                         <h4>GitHub Foundations</h4>
                     </div>
-                    <div class="cv-meta">GitHub · devam ediyor</div>
-                    <p class="cv-desc">Git/GitHub temelleri, iş birliği araçları ve Actions.</p>
+                    <div class="cv-meta content-tr">GitHub · devam ediyor</div>
+                    <div class="cv-meta content-en" style="display:none;">GitHub · ongoing</div>
+                    <p class="cv-desc content-tr">Git/GitHub temelleri, iş birliği araçları ve Actions.</p>
+                    <p class="cv-desc content-en" style="display:none;">Git/GitHub fundamentals, collaboration tools, and Actions.</p>
                 </div>
 
                 <div class="cv-item">
                     <div class="cv-item-header">
                         <h4>Microsoft AI Innovators Summer Internship'26</h4>
                     </div>
-                    <div class="cv-meta">Microsoft · Ağustos 2026</div>
+                    <div class="cv-meta content-tr">Microsoft · Ağustos 2026</div>
+                    <div class="cv-meta content-en" style="display:none;">Microsoft · August 2026</div>
                 </div>
 
                 <div class="cv-item">
                     <div class="cv-item-header">
-                        <h4>SyberTÜRK Staj Sertifikası</h4>
+                        <h4 class="content-tr">SyberTÜRK Staj Sertifikası</h4>
+                        <h4 class="content-en" style="display:none;">SyberTÜRK Internship Certificate</h4>
                     </div>
-                    <div class="cv-meta">SyberTÜRK · Ağustos 2025</div>
+                    <div class="cv-meta content-tr">SyberTÜRK · Ağustos 2025</div>
+                    <div class="cv-meta content-en" style="display:none;">SyberTÜRK · August 2025</div>
                 </div>
 
                 <div class="cv-item">
                     <div class="cv-item-header">
-                        <h4>Web Uygulama Güvenliği Eğitimi</h4>
+                        <h4 class="content-tr">Web Uygulama Güvenliği Eğitimi</h4>
+                        <h4 class="content-en" style="display:none;">Web Application Security Training</h4>
                     </div>
-                    <div class="cv-meta">Siber Kulüpler Birliği · 2025</div>
-                    <p class="cv-desc">Yaygın web zafiyetleri ve güvenli kod yazımı.</p>
+                    <div class="cv-meta content-tr">Siber Kulüpler Birliği · 2025</div>
+                    <div class="cv-meta content-en" style="display:none;">Siber Kulüpler Birliği · 2025</div>
+                    <p class="cv-desc content-tr">Yaygın web zafiyetleri ve güvenli kod yazımı.</p>
+                    <p class="cv-desc content-en" style="display:none;">Common web vulnerabilities and secure coding.</p>
                 </div>
 
                 <div class="cv-item">
                     <div class="cv-item-header">
-                        <h4>Excel Sertifikası</h4>
+                        <h4 class="content-tr">Excel Sertifikası</h4>
+                        <h4 class="content-en" style="display:none;">Excel Certificate</h4>
                     </div>
-                    <div class="cv-meta">Emre Akyüz (Udemy) · Mart 2026</div>
+                    <div class="cv-meta content-tr">Emre Akyüz (Udemy) · Mart 2026</div>
+                    <div class="cv-meta content-en" style="display:none;">Emre Akyüz (Udemy) · March 2026</div>
                 </div>
 
                 <div class="cv-item">
                     <div class="cv-item-header">
-                        <h4>Unity Oyun Geliştirme Motoru Sertifikası</h4>
+                        <h4 class="content-tr">Unity Oyun Geliştirme Motoru Sertifikası</h4>
+                        <h4 class="content-en" style="display:none;">Unity Game Development Engine Certificate</h4>
                     </div>
-                    <div class="cv-meta">BTK Akademi · Aralık 2025</div>
+                    <div class="cv-meta content-tr">BTK Akademi · Aralık 2025</div>
+                    <div class="cv-meta content-en" style="display:none;">BTK Akademi · December 2025</div>
                 </div>
 
                 <div class="cv-item">
                     <div class="cv-item-header">
                         <h4>QBronze</h4>
                     </div>
-                    <div class="cv-meta">QWorld · Ağustos 2026</div>
-                    <p class="cv-desc">Kuantum bilişime giriş: kübit, süperpozisyon, temel algoritmalar.</p>
+                    <div class="cv-meta content-tr">QWorld · Ağustos 2026</div>
+                    <div class="cv-meta content-en" style="display:none;">QWorld · August 2026</div>
+                    <p class="cv-desc content-tr">Kuantum bilişime giriş: kübit, süperpozisyon, temel algoritmalar.</p>
+                    <p class="cv-desc content-en" style="display:none;">Introduction to quantum computing: qubits, superposition, fundamental algorithms.</p>
                 </div>
 
                 <div class="cv-item">
                     <div class="cv-item-header">
                         <h4>QPrep</h4>
                     </div>
-                    <div class="cv-meta">QWorld · Ağustos 2026</div>
-                    <p class="cv-desc">Kuantum bilişim için lineer cebir ve matematiksel altyapı.</p>
+                    <div class="cv-meta content-tr">QWorld · Ağustos 2026</div>
+                    <div class="cv-meta content-en" style="display:none;">QWorld · August 2026</div>
+                    <p class="cv-desc content-tr">Kuantum bilişim için lineer cebir ve matematiksel altyapı.</p>
+                    <p class="cv-desc content-en" style="display:none;">Linear algebra and mathematical foundation for quantum computing.</p>
                 </div>
-                
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER BÖLÜMÜ -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo-wrapper">
+                    <img src="./Assets/favicon.png" alt="MBM Logo" class="footer-logo">
+                    <span class="footer-name">MEHMET BURAK MENTEŞE</span>
+                </div>
+                <p class="footer-desc" data-translate="footerDesc">
+                    Marmara Üniversitesi Bilgisayar Mühendisliği.<br>
+                    Yapay Zeka, Yazılım Geliştirme ve Siber Güvenlik.
+                </p>
+                <a href="mailto:burakmentese16@gmail.com" class="footer-email">
+                    <i class="fa-regular fa-envelope"></i> burakmentese16@gmail.com
+                </a>
             </div>
 
+            <div class="footer-links">
+                <h4 class="footer-title" data-translate="quickMenu">Hızlı Menü</h4>
+                <nav class="footer-nav">
+                    <a href="index.html" data-translate="home">Ana Sayfa</a>
+                    <a href="hakkimda.html" data-translate="about">Hakkımda</a>
+                    <a href="projeler.html" data-translate="projects">Projeler</a>
+                    <a href="blog.html" data-translate="blog">Blog</a>
+                </nav>
+            </div>
+
+            <div class="footer-social">
+                <h4 class="footer-title" data-translate="followMe">Beni Takip Edin</h4>
+                <div class="footer-social-icons">
+                    <a href="https://github.com/BurakHINGE" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/mehmetburakmentese/" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://medium.com/@burakmentese16" target="_blank" title="Medium"><span class="classic-medium">M</span></a>
+                </div>
+                <p class="copyright" data-translate="allRightsReserved">
+                    © 2026 Mehmet Burak Menteşe.<br>
+                    Tüm Hakları Saklıdır.<br>
+                    <span class="designed-by">Designed by MBM</span>
+                </p>
+            </div>
         </div>
-
-
-        </section>
-    
-
+    </footer>
     <script src="script.js"></script>
 </body>
 </html>
