@@ -23,7 +23,11 @@ body {
     overflow-x: hidden;
     overflow-y: auto;
     position: relative;
+    /* FOOTER'I EN ALTA İTMEK İÇİN EKLENENLER */
+    display: flex;
+    flex-direction: column;
 }
+
 
 /* Dil Butonu Stilleri */
 .lang-toggle {
@@ -1444,4 +1448,251 @@ h1 {
     color: #27c93f;
     border-color: #27c93f;
     background: rgba(39, 201, 63, 0.1);
+}
+
+
+/* =========================================
+   SABİT NAVBAR İÇİN SCROLL PAYI
+   ========================================= */
+   .blog-article-content h2,
+   .blog-article-content h3 {
+       scroll-margin-top: 110px; /* Navbar yüksekliği (75px) + biraz nefes alma boşluğu */
+   }
+
+   .featured-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem; /* 2rem'den 4rem'e çıkardık, kartlar rahat bir nefes aldı */
+    position: relative;
+}
+
+/* Araya eklediğimiz dikey neon çizgi (sadece bilgisayar/tablet ekranlarında görünür) */
+@media (min-width: 769px) {
+    .featured-grid::after {
+        content: '';
+        position: absolute;
+        left: 50%; /* Tam ortaya hizalar */
+        top: 0;
+        bottom: 0;
+        width: 1px;
+        /* Yukarıdan aşağıya silikleşen neon mavi bir ışık hüzmesi */
+        background: linear-gradient(to bottom, rgba(0, 242, 254, 0.0), rgba(0, 242, 254, 0.4), rgba(0, 242, 254, 0.0));
+        transform: translateX(-50%);
+    }
+}
+
+.featured-col-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Mobilde yan yana sütunları alt alta dizer ve çizgiyi kaldırır */
+@media (max-width: 768px) {
+    .featured-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem; /* Mobilde alt alta girerken boşluk normal kalsın */
+    }
+    .featured-column {
+        margin-bottom: 2rem;
+    }
+}
+
+/* =========================================
+   FOOTER (ALT BİLGİ) TASARIMI
+   ========================================= */
+.site-footer {
+    background: rgba(4, 5, 8, 0.95);
+    border-top: 1px solid rgba(0, 242, 254, 0.15);
+    padding: 3rem 2rem 3rem 2rem;
+    width: 100%; /* Genişliği baştan başa kaplar */
+    margin-top: auto; /* İçerik kısa olsa bile footer'ı zorla en aşağı iter */
+    position: relative;
+    z-index: 10;
+}
+
+
+.footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 3rem;
+}
+
+/* Sol Sütun */
+.footer-logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 1.5rem;
+}
+
+.footer-logo {
+    height: 35px;
+    width: auto;
+    opacity: 0.9;
+}
+
+.footer-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: #ffffff;
+}
+
+.footer-desc {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.footer-email {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--neon-blue);
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.footer-email:hover {
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(0, 242, 254, 0.5);
+}
+
+/* Orta ve Sağ Sütun Başlıkları */
+.footer-title {
+    color: #ffffff;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.05em;
+}
+
+/* Orta Sütun Navigasyon */
+.footer-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.footer-nav a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    width: fit-content;
+}
+
+.footer-nav a:hover {
+    color: var(--neon-blue);
+    transform: translateX(5px);
+}
+
+/* Sağ Sütun Sosyal İkonlar ve Telif */
+.footer-social-icons {
+    display: flex;
+    gap: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-social-icons a {
+    color: var(--text-secondary);
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-social-icons a:hover {
+    color: var(--neon-blue);
+    transform: translateY(-3px);
+    filter: drop-shadow(0 0 8px rgba(0, 242, 254, 0.4));
+}
+
+.copyright {
+    color: rgba(143, 156, 174, 0.6);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    line-height: 1.6;
+}
+
+.designed-by {
+    display: block;
+    margin-top: 8px;
+    color: rgba(143, 156, 174, 0.4);
+}
+
+/* Mobil Uyumluluk */
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        text-align: center;
+    }
+    
+    .footer-logo-wrapper {
+        justify-content: center;
+    }
+    
+    .footer-nav {
+        align-items: center;
+    }
+    
+    .footer-social-icons {
+        justify-content: center;
+    }
+}
+
+/* TR / EN Buton Stilleri */
+.lang-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: 1rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
+
+.lang-btn {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 4px 2px;
+    color: var(--text-secondary);
+}
+
+.lang-btn:hover {
+    color: #ffffff;
+}
+
+/* Aktif olan dilin neon turkuaz yanması */
+.lang-btn.active {
+    color: #00f2fe !important; 
+    text-shadow: 0 0 10px rgba(0, 242, 254, 0.8) !important;
+    font-weight: 700 !important;
+}
+
+.lang-separator {
+    opacity: 0.4;
+    cursor: default;
+}
+
+.nav-link.active,
+.lang-btn.active {
+    color: #00f2fe !important; 
+    text-shadow: 0 0 10px rgba(0, 242, 254, 0.8) !important;
+    font-weight: 700 !important;
+    border-bottom: 2px solid #00f2fe; /* Turkuaz alt çizgi */
+    padding-bottom: 4px; /* Çizgiyle yazı arasına nefes payı */
 }
