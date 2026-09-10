@@ -4,14 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Local RAG Asistanı Geliştirmek (Bölüm 1) | Blog | Mehmet Burak Menteşe</title>
-    <!-- CSS ve Fontlar -->
     <link rel="stylesheet" href="../../style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Uzun okumalar için Inter fontunu ekledik -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- HEADER -->
     <header>
         <a href="../../index.html" class="nav-logo-container">
             <img src="../../Assets/favicon.png" alt="Website Logo" class="nav-logo">
@@ -21,41 +18,44 @@
             <a href="../../index.html" class="nav-link" data-translate="home">Ana Sayfa</a>
             <a href="../../hakkimda.html" class="nav-link" data-translate="about">Hakkımda</a>
             <a href="../../projeler.html" class="nav-link" data-translate="projects">Projeler</a>
-            <a href="../../blog.html" class="nav-link" data-translate="blog">Blog</a>
-            <a href="../../iletisim.html" class="nav-link" data-translate="contact me">İletişim</a>
-            <span id="lang-tr" class="lang-active">TR</span><span class="lang-separator">/</span><span id="lang-en">EN</span>
+            <a href="../../blog.html" class="nav-link active" data-translate="blog">Blog</a>
+            <div class="lang-toggle">
+                <span id="lang-tr" class="lang-btn active">TR</span>
+                <span class="lang-separator">/</span>
+                <span id="lang-en" class="lang-btn">EN</span>
+            </div>
         </nav>
     </header>
 
     <section id="blog-detail" class="project-single-layout">
         
-        <!-- ÜST NAVİGASYON (Geri Dönüş) -->
         <div class="project-top-nav blog-content-width">
-            <a href="../../blog.html" class="back-link">
-                <i class="fa-solid fa-arrow-left-long"></i> Blog'a Dön
-            </a>
+            <a href="../../blog.html" class="back-link content-tr"><i class="fa-solid fa-arrow-left-long"></i> Blog'a Dön</a>
+            <a href="../../blog.html" class="back-link content-en" style="display:none;"><i class="fa-solid fa-arrow-left-long"></i> Back to Blog</a>
         </div>
 
-        <!-- YAZI BAŞLIĞI (HERO) - Düzenlendi -->
         <div class="project-hero blog-content-width hero-left-aligned">
             <div class="hero-title-wrapper fixed-underline">
-                <h1 class="project-main-title">Local RAG Asistanı Geliştirmek: Microsoft Foundry ile Bölüm 1</h1>
+                <h1 class="project-main-title content-tr">Local RAG Asistanı Geliştirmek: Microsoft Foundry ile Bölüm 1</h1>
+                <h1 class="project-main-title content-en" style="display:none;">Developing a Local RAG Assistant: Part 1 with Microsoft Foundry</h1>
             </div>
             
             <div class="blog-meta-info">
-                <span class="meta-item"><i class="fa-regular fa-calendar-alt"></i> 10 Eylül 2026</span>
+                <span class="meta-item"><i class="fa-regular fa-calendar-alt"></i> <span class="content-tr">14 Temmuz 2026</span><span class="content-en" style="display:none;">July 14, 2026</span></span>
                 <span class="meta-item"><i class="fa-solid fa-microchip"></i> AI & RAG</span>
-                <span class="meta-item"><i class="fa-regular fa-clock"></i> 8 dk okuma</span>
+                <span class="meta-item"><i class="fa-regular fa-clock"></i> <span class="content-tr">6 dk okuma</span><span class="content-en" style="display:none;">6 min read</span></span>
             </div>
         </div>
 
-        <!-- İÇERİK DÜZENİ (TOC + Makale) -->
         <div class="blog-layout-grid blog-content-width">
             
-            <!-- STICKY TOC (İçindekiler) -->
             <aside class="blog-toc">
-                <h4 class="toc-title"><i class="fa-solid fa-list-ul"></i> İçindekiler</h4>
-                <nav class="toc-nav">
+                <h4 class="toc-title content-tr"><i class="fa-solid fa-list-ul"></i> İçindekiler</h4>
+                <h4 class="toc-title content-en" style="display:none;"><i class="fa-solid fa-list-ul"></i> Table of Contents</h4>
+                
+                <nav class="toc-nav content-tr">
+                    <a href="#blog-detail">Local RAG Asistanı Geliştirme</a>
+                    <div style="height: 1px; background: rgba(0, 242, 254, 0.15); margin: 0.5rem 0;"></div>
                     <a href="#on-soz">Yazı Hakkında Ön Söz</a>
                     <a href="#phase-1">Phase 1: Projenin Amacı</a>
                     <a href="#halusinasyonlar">Merhaba Halüsinasyonlar!</a>
@@ -65,70 +65,94 @@
                     <a href="#adim-2">Adım 2: SQLite Depolama</a>
                     <a href="#adim-3">Adım 3: Prompt Mühendisliği</a>
                 </nav>
+                
+                <!-- YENİ: İngilizce linklere -en eklendi -->
+                <nav class="toc-nav content-en" style="display:none;">
+                    <a href="#blog-detail">Local RAG Assistant Dev</a>
+                    <div style="height: 1px; background: rgba(0, 242, 254, 0.15); margin: 0.5rem 0;"></div>
+                    <a href="#on-soz-en">Preface to the Article</a>
+                    <a href="#phase-1-en">Phase 1: Purpose of the Project</a>
+                    <a href="#halusinasyonlar-en">Hello Hallucinations!</a>
+                    <a href="#nedir-rag-en">What is RAG?</a>
+                    <a href="#microsoft-foundry-en">Microsoft Foundry Local</a>
+                    <a href="#adim-1-en">Step 1: Embeddings</a>
+                    <a href="#adim-2-en">Step 2: SQLite Storage</a>
+                    <a href="#adim-3-en">Step 3: Prompt Engineering</a>
+                </nav>
             </aside>
 
-            <!-- MAKALENİN KENDİSİ -->
             <article class="blog-article-content reading-optimized">
                 
-                <h2 id="on-soz"><i class="fa-solid fa-pen-nib" style="color: var(--neon-blue);"></i> Yazı Hakkında Ön Söz</h2>
-                <p class="lead-text">
-                    Selamlar dostum, bu yazı serisinde Microsoft AI Innovators Summer Program’ında öğrendiğim, üretmeye çalışıp karşıma çıkan problemleri çözdüğüm ve en sonunda çalışan bir local agent elde etmemin aşamalarını uygulayabileceğiniz şekilde anlatacağım. 
-                </p>
-                <p>
-                    Biraz sohbet havasında ama aynı zamanda can alıcı noktalardan en anlaşılır şekilde bahsederek sizlerin de bu projeyi gerçekleştirebilmenizi hatta mümkünse daha da geliştirebilmenizi sağlamaya çalışacağım. 6 haftalık bu serüveni 3 farklı faza bölerek anlatacağım. Hazırsan başlayalım!
-                </p>
+                <!-- YENİ: İngilizce başlıklara -en ID'si eklendi -->
+                <h2 id="on-soz" class="content-tr"><i class="fa-solid fa-pen-nib" style="color: var(--neon-blue);"></i> Yazı Hakkında Ön Söz</h2>
+                <h2 id="on-soz-en" class="content-en" style="display:none;"><i class="fa-solid fa-pen-nib" style="color: var(--neon-blue);"></i> Preface to the Article</h2>
+                
+                <p class="lead-text content-tr">Selamlar dostum, bu yazı serisinde Microsoft AI Innovators Summer Program’ında öğrendiğim, üretmeye çalışıp karşıma çıkan problemleri çözdüğüm ve en sonunda çalışan bir local agent elde etmemin aşamalarını uygulayabileceğiniz şekilde anlatacağım.</p>
+                <p class="lead-text content-en" style="display:none;">Greetings my friend, in this article series, I will explain the steps of how I learned, solved the problems I faced while trying to build, and finally obtained a working local agent during the Microsoft AI Innovators Summer Program in an applicable way.</p>
+                
+                <p class="content-tr">Biraz sohbet havasında ama aynı zamanda can alıcı noktalardan en anlaşılır şekilde bahsederek sizlerin de bu projeyi gerçekleştirebilmenizi hatta mümkünse daha da geliştirebilmenizi sağlamaya çalışacağım. 6 haftalık bu serüveni 3 farklı faza bölerek anlatacağım. Hazırsan başlayalım!</p>
+                <p class="content-en" style="display:none;">I will try to ensure that you can also realize this project, and if possible, develop it further, by keeping a conversational tone while discussing the crucial points as clearly as possible. I will break down this 6-week adventure into 3 different phases. If you are ready, let's begin!</p>
 
                 <div class="about-divider" style="margin: 3rem 0; width: 60px;"></div>
 
-                <h2 id="phase-1"><i class="fa-solid fa-rocket" style="color: var(--neon-blue);"></i> Phase 1: Projenin Amacı ve Ana Sorunumuz</h2>
-                <p>
-                    Bu projeyi geliştirmeye başlamadan önce kendime sorduğum ilk soru “Ben bu agent’ı ne için yapıyorum?” sorusu oldu, zaten halihazırda bir sürü popüler yapay zeka modeli mevcut öyleyse neden hazır API’ler dururken her şeyi sıfırdan kendi cihazımızda kuruyoruz? Cevap tek kelimede gizli: <strong>Local</strong>. Peki nedir bu local çalışma prensibi? Cihazınızın kaynaklarını kullanarak internete bağlanmadan (offline) kullanılabilmesidir.
-                </p>
+                <h2 id="phase-1" class="content-tr"><i class="fa-solid fa-rocket" style="color: var(--neon-blue);"></i> Phase 1: Projenin Amacı ve Ana Sorunumuz</h2>
+                <h2 id="phase-1-en" class="content-en" style="display:none;"><i class="fa-solid fa-rocket" style="color: var(--neon-blue);"></i> Phase 1: Purpose of the Project and Our Main Problem</h2>
+                
+                <p class="content-tr">Bu projeyi geliştirmeye başlamadan önce kendime sorduğum ilk soru “Ben bu agent’ı ne için yapıyorum?” sorusu oldu, zaten halihazırda bir sürü popüler yapay zeka modeli mevcut öyleyse neden hazır API’ler dururken her şeyi sıfırdan kendi cihazımızda kuruyoruz? Cevap tek kelimede gizli: <strong>Local</strong>. Peki nedir bu local çalışma prensibi? Cihazınızın kaynaklarını kullanarak internete bağlanmadan (offline) kullanılabilmesidir.</p>
+                <p class="content-en" style="display:none;">The first question I asked myself before starting to develop this project was, "What am I building this agent for?" There are already plenty of popular AI models available, so why are we setting up everything from scratch on our own device when ready-made APIs exist? The answer lies in one word: <strong>Local</strong>. So what is this local operating principle? It is the ability to use the model without connecting to the internet (offline) by utilizing your device's resources.</p>
 
-                <h2 id="halusinasyonlar">Peki Local Olması Her Şeyi Çözüyor mu? (Merhaba Halüsinasyonlar!)</h2>
-                <p>
-                    Tamam, modelimiz internete kapalı, verilerimiz güvende ve tamamen kendi cihazımızda çalışıyor. Harika! Ama burada karşımıza ikinci ve çok daha sinsi bir problem çıkıyor: Yapay zekanın cehaleti ve “uydurma” (halüsinasyon) huyu.
-                </p>
-                <p>
-                    Düşünün, elinizdeki dil modeli devasa bir genel kültür havuzuna sahip. Ama sizin spesifik ders notlarınızı, şirketinizin gizli projelerini veya üyesi olduğunuz kulübün bahar dönemi planlarını bilmiyor. Bu modellere bilmedikleri spesifik bir şey sorduğunuzda, “Bilmiyorum dostum” demek yerine, gayet özgüvenli bir şekilde uydurmaya (halüsinasyon görmeye) başlıyorlar.
-                </p>
-                <p>
-                    Eee biz bu modeli her yeni PDF’imiz veya notumuz için baştan mı eğiteceğiz? Tabi ki hayır, çünkü bu hem aylar sürer hem de inanılmaz bir donanım gücü (GPU) gerektirir. İşte tam bu noktada projemizin asıl kahramanı olan <strong>RAG (Retrieval-Augmented Generation)</strong> devreye giriyor.
-                </p>
+                <h2 id="halusinasyonlar" class="content-tr">Peki Local Olması Her Şeyi Çözüyor mu? (Merhaba Halüsinasyonlar!)</h2>
+                <h2 id="halusinasyonlar-en" class="content-en" style="display:none;">Does Being Local Solve Everything? (Hello Hallucinations!)</h2>
+                
+                <p class="content-tr">Tamam, modelimiz internete kapalı, verilerimiz güvende ve tamamen kendi cihazımızda çalışıyor. Harika! Ama burada karşımıza ikinci ve çok daha sinsi bir problem çıkıyor: Yapay zekanın cehaleti ve “uydurma” (halüsinasyon) huyu.</p>
+                <p class="content-en" style="display:none;">Okay, our model is closed to the internet, our data is safe, and it runs entirely on our own device. Great! But here we face a second and much more insidious problem: the AI's ignorance and its habit of "making things up" (hallucination).</p>
+                
+                <p class="content-tr">Düşünün, elinizdeki dil modeli devasa bir genel kültür havuzuna sahip. Ama sizin spesifik ders notlarınızı, şirketinizin gizli projelerini veya üyesi olduğunuz kulübün bahar dönemi planlarını bilmiyor. Bu modellere bilmedikleri spesifik bir şey sorduğunuzda, “Bilmiyorum dostum” demek yerine, gayet özgüvenli bir şekilde uydurmaya (halüsinasyon görmeye) başlıyorlar.</p>
+                <p class="content-en" style="display:none;">Imagine, the language model you have possesses a massive pool of general knowledge. But it doesn't know your specific lecture notes, your company's secret projects, or the spring semester plans of the club you're a member of. When you ask these models something specific they don't know, instead of saying, "I don't know, buddy," they confidently start making things up (hallucinating).</p>
+                
+                <p class="content-tr">Eee biz bu modeli her yeni PDF’imiz veya notumuz için baştan mı eğiteceğiz? Tabi ki hayır, çünkü bu hem aylar sürer hem de inanılmaz bir donanım gücü (GPU) gerektirir. İşte tam bu noktada projemizin asıl kahramanı olan <strong>RAG (Retrieval-Augmented Generation)</strong> devreye giriyor.</p>
+                <p class="content-en" style="display:none;">So, are we going to retrain this model from scratch for every new PDF or note we have? Of course not, because this would take months and require incredible hardware power (GPU). This is exactly where the true hero of our project, <strong>RAG (Retrieval-Augmented Generation)</strong>, steps in.</p>
 
-                <h2 id="nedir-rag"><i class="fa-solid fa-magnifying-glass-chart" style="color: var(--neon-blue);"></i> Nedir Bu RAG?</h2>
-                <p>
-                    Mantığı oldukça basit: Cihazımızda bulunan bilgilere göre cevap vermesi, yani yapay zekaya bir nevi “açık kitap sınavı” yaptırmaktır. Modelin sadece kendi hafızasına güvenmesini istemeyiz. Onun yerine şu üç adımı izleriz:
-                </p>
+                <h2 id="nedir-rag" class="content-tr"><i class="fa-solid fa-magnifying-glass-chart" style="color: var(--neon-blue);"></i> Nedir Bu RAG?</h2>
+                <h2 id="nedir-rag-en" class="content-en" style="display:none;"><i class="fa-solid fa-magnifying-glass-chart" style="color: var(--neon-blue);"></i> What is This RAG?</h2>
+                
+                <p class="content-tr">Mantığı oldukça basit: Cihazımızda bulunan bilgilere göre cevap vermesi, yani yapay zekaya bir nevi “açık kitap sınavı” yaptırmaktır. Modelin sadece kendi hafızasına güvenmesini istemeyiz. Onun yerine şu üç adımı izleriz:</p>
+                <p class="content-en" style="display:none;">Its logic is quite simple: making it answer based on the information stored on our device, essentially giving the AI an "open book exam." We don't want the model to rely solely on its own memory. Instead, we follow these three steps:</p>
 
-                <ul class="styled-list" style="margin-bottom: 2rem;">
+                <ul class="styled-list content-tr" style="margin-bottom: 2rem;">
                     <li><strong>1. Retrieve (Bulup Getirme):</strong> Kullanıcının sorusuyla alakalı olan bilgicikleri kendi belgelerimizin (PDF’ler, notlar vs.) içinden arayıp buluruz.</li>
                     <li><strong>2. Augment (Harmanlamak):</strong> Bulduğumuz bu bilgiyi kullanıcının sorusuyla birleştirip yapay zekaya sunarız. (Yani modele kopyayı veririz.)</li>
                     <li><strong>3. Generate (Üretmek):</strong> Yapay zeka, verdiğimiz bu spesifik metne bakarak sadece oradaki gerçeklere dayanarak bize düzgün bir cevap üretir.</li>
                 </ul>
-                <p>
-                    Böylece hem kendi kişisel verilerimizle çalışan hem de internete çıkmadığı için verimizi dışarı sızdırmayan o kusursuz asistanı yaratmış oluyoruz!
-                </p>
+                <ul class="styled-list content-en" style="display:none; margin-bottom: 2rem;">
+                    <li><strong>1. Retrieve:</strong> We search and find the pieces of information relevant to the user's question within our own documents (PDFs, notes, etc.).</li>
+                    <li><strong>2. Augment:</strong> We combine this found information with the user's query and present it to the AI. (Meaning, we give the model a cheat sheet.)</li>
+                    <li><strong>3. Generate:</strong> The AI produces a proper answer for us by looking at this specific text and relying solely on the facts presented there.</li>
+                </ul>
+                
+                <p class="content-tr">Böylece hem kendi kişisel verilerimizle çalışan hem de internete çıkmadığı için verimizi dışarı sızdırmayan o kusursuz asistanı yaratmış oluyoruz!</p>
+                <p class="content-en" style="display:none;">Thus, we create that perfect assistant that works with our personal data and doesn't leak it outside since it never connects to the internet!</p>
 
-                <h2 id="microsoft-foundry">Microsoft Foundry Local ile Tanışın</h2>
-                <p>
-                    RAG mimarisini kuracağız ama bu yapay zeka nerede çalışacak? İşte burada <strong>Microsoft Foundry Local</strong> sahneye çıkıyor. Foundry Local, büyük dil modellerini tamamen kendi cihazlarınızda çalıştırmanızı sağlayan harika bir ortam. Ne bir bulut hesabı ne de API anahtarı gerekiyor. Üstelik devasa ekran kartlarına (GPU) da ihtiyacınız yok; modelin CPU veya NPU üzerinden çalışmasını sağlayarak donanım engelini de ortadan kaldırıyor.
-                </p>
-                <p>
-                    Kurulumu yapıp geliştirme ortamımızı kurduğumuza göre artık RAG mimarisinin ilk ve en temel adımı olan verilerimizi modelin anlayacağı dile çevirme işlemine yani kodlama aşamalarına geçebiliriz.
-                </p>
+                <h2 id="microsoft-foundry" class="content-tr">Microsoft Foundry Local ile Tanışın</h2>
+                <h2 id="microsoft-foundry-en" class="content-en" style="display:none;">Meet Microsoft Foundry Local</h2>
+                
+                <p class="content-tr">RAG mimarisini kuracağız ama bu yapay zeka nerede çalışacak? İşte burada <strong>Microsoft Foundry Local</strong> sahneye çıkıyor. Foundry Local, büyük dil modellerini tamamen kendi cihazlarınızda çalıştırmanızı sağlayan harika bir ortam. Ne bir bulut hesabı ne de API anahtarı gerekiyor. Üstelik devasa ekran kartlarına (GPU) da ihtiyacınız yok; modelin CPU veya NPU üzerinden çalışmasını sağlayarak donanım engelini de ortadan kaldırıyor.</p>
+                <p class="content-en" style="display:none;">We will build the RAG architecture, but where will this AI run? This is where <strong>Microsoft Foundry Local</strong> comes into play. Foundry Local is a fantastic environment that allows you to run large language models entirely on your own devices. It requires neither a cloud account nor an API key. Moreover, you don't need massive graphics cards (GPUs); it eliminates the hardware barrier by allowing the model to run on a CPU or NPU.</p>
+                
+                <p class="content-tr">Kurulumu yapıp geliştirme ortamımızı kurduğumuza göre artık RAG mimarisinin ilk ve en temel adımı olan verilerimizi modelin anlayacağı dile çevirme işlemine yani kodlama aşamalarına geçebiliriz.</p>
+                <p class="content-en" style="display:none;">Now that we've completed the setup and established our development environment, we can move on to the first and most fundamental step of the RAG architecture: converting our data into a language the model can understand, meaning the coding phases.</p>
 
                 <div class="about-divider" style="margin: 3rem 0; width: 60px;"></div>
 
-                <h2 id="adim-1"><i class="fa-solid fa-code" style="color: var(--neon-blue);"></i> Adım 1: Embeddings (Kelimeleri Matematiğe Dönüştürme)</h2>
-                <p>
-                    Yapay zeka bizim gibi kelimeleri okuyup anlamaz, onun dili matematiktir. Bir cümleyi modele verebilmemiz için önce onu sayılardan oluşan çok boyutlu bir uzay koordinatına, yani vektörlere (Embeddings) çevirmemiz gerekir.
-                </p>
-                <p>
-                    Foundry Local SDK’sını kullanarak <code>qwen3-embedding-0.6b</code> modelini indirdik ve örnek bir cümleyi vektöre çevirdik:
-                </p>
+                <h2 id="adim-1" class="content-tr"><i class="fa-solid fa-code" style="color: var(--neon-blue);"></i> Adım 1: Embeddings (Kelimeleri Matematiğe Dönüştürme)</h2>
+                <h2 id="adim-1-en" class="content-en" style="display:none;"><i class="fa-solid fa-code" style="color: var(--neon-blue);"></i> Step 1: Embeddings (Converting Words to Math)</h2>
+                
+                <p class="content-tr">Yapay zeka bizim gibi kelimeleri okuyup anlamaz, onun dili matematiktir. Bir cümleyi modele verebilmemiz için önce onu sayılardan oluşan çok boyutlu bir uzay koordinatına, yani vektörlere (Embeddings) çevirmemiz gerekir.</p>
+                <p class="content-en" style="display:none;">AI doesn't read and understand words like we do; its language is mathematics. To feed a sentence to the model, we first need to convert it into a multidimensional spatial coordinate made of numbers, namely vectors (Embeddings).</p>
+                
+                <p class="content-tr">Foundry Local SDK’sını kullanarak <code>qwen3-embedding-0.6b</code> modelini indirdik ve örnek bir cümleyi vektöre çevirdik:</p>
+                <p class="content-en" style="display:none;">Using the Foundry Local SDK, we downloaded the <code>qwen3-embedding-0.6b</code> model and converted a sample sentence into a vector:</p>
 
-                <!-- KOD BLOĞU (Kopyala Butonu Eklendi) -->
                 <div class="terminal-code-block" style="margin: 2rem 0;">
                     <div class="terminal-header">
                         <div style="display: flex; gap: 6px; align-items: center;">
@@ -159,19 +183,18 @@ vector = response.data[0].embedding
 print(f"Vektör Uzunluğu: {len(vector)} boyutlu")</code></pre>
                 </div>
 
-                <p>
-                    Bu kodu çalıştırdığımızda, o tek cümlenin tam 1024 boyutlu bir sayı dizisine dönüştüğünü göreceğiz. Artık kelimelerimiz yapay zekanın anlayabileceği bir formata dönüştürmüş olduk!
-                </p>
+                <p class="content-tr">Bu kodu çalıştırdığımızda, o tek cümlenin tam 1024 boyutlu bir sayı dizisine dönüştüğünü göreceğiz. Artık kelimelerimiz yapay zekanın anlayabileceği bir formata dönüştürmüş olduk!</p>
+                <p class="content-en" style="display:none;">When we run this code, we will see that single sentence transformed into an exact 1024-dimensional array of numbers. We have now converted our words into a format the AI can understand!</p>
 
-                <h2 id="adim-2"><i class="fa-solid fa-database" style="color: var(--neon-blue);"></i> Adım 2: SQLite ile Vektörleri Depolama (Agent’imizin Hafızası)</h2>
-                <p>
-                    Bu 1024 boyutlu vektörleri öylece havada bırakamayız, ileride arama yapabilmek için sağlam bir yere kaydetmemiz lazım. Bunun için gidip karmaşık veritabanı sunucuları kurmaya hiç gerek yok. Çözümümüz: <strong>SQLite</strong>. Kendisi sunucusuz (serverless) çalışan ve tüm veriyi tek bir dosyada tutan, kurulum gerektirmeyen harika bir veritabanı motorudur.
-                </p>
-                <p>
-                    Python’un gömülü <code>sqlite3</code> kütüphanesiyle projemizin içinde <code>knowledge_base.db</code> adında bir veritabanı oluşturup vektörlerimizi buraya kaydettik:
-                </p>
+                <h2 id="adim-2" class="content-tr"><i class="fa-solid fa-database" style="color: var(--neon-blue);"></i> Adım 2: SQLite ile Vektörleri Depolama (Agent’imizin Hafızası)</h2>
+                <h2 id="adim-2-en" class="content-en" style="display:none;"><i class="fa-solid fa-database" style="color: var(--neon-blue);"></i> Step 2: Storing Vectors with SQLite (Our Agent's Memory)</h2>
+                
+                <p class="content-tr">Bu 1024 boyutlu vektörleri öylece havada bırakamayız, ileride arama yapabilmek için sağlam bir yere kaydetmemiz lazım. Bunun için gidip karmaşık veritabanı sunucuları kurmaya hiç gerek yok. Çözümümüz: <strong>SQLite</strong>. Kendisi sunucusuz (serverless) çalışan ve tüm veriyi tek bir dosyada tutan, kurulum gerektirmeyen harika bir veritabanı motorudur.</p>
+                <p class="content-en" style="display:none;">We can't just leave these 1024-dimensional vectors floating in the air; we need to save them somewhere solid to perform searches later. There's no need to go and set up complex database servers for this. Our solution: <strong>SQLite</strong>. It is a fantastic, serverless database engine that stores all data in a single file and requires no installation.</p>
+                
+                <p class="content-tr">Python’un gömülü <code>sqlite3</code> kütüphanesiyle projemizin içinde <code>knowledge_base.db</code> adında bir veritabanı oluşturup vektörlerimizi buraya kaydettik:</p>
+                <p class="content-en" style="display:none;">Using Python's built-in <code>sqlite3</code> library, we created a database named <code>knowledge_base.db</code> inside our project and saved our vectors there:</p>
 
-                <!-- KOD BLOĞU (Kopyala Butonu Eklendi) -->
                 <div class="terminal-code-block" style="margin: 2rem 0;">
                     <div class="terminal-header">
                         <div style="display: flex; gap: 6px; align-items: center;">
@@ -205,18 +228,19 @@ conn.commit()</code></pre>
 
                 <div class="blog-quote-box" style="margin-bottom: 3.5rem;">
                     <i class="fa-solid fa-circle-exclamation quote-icon"></i>
-                    <p><strong>Not:</strong> Standart SQLite 1024 boyutlu vektörlerler arasında doğrudan benzerlik araması yapamaz. İkinci fazda bu vektörleri veritabanından çekip kullanıcının sorusuyla aralarındaki kosinüs benzerliğini Python üzerinden nasıl hesaplayacağımızı göreceğiz.</p>
+                    <p class="content-tr"><strong>Not:</strong> Standart SQLite 1024 boyutlu vektörlerler arasında doğrudan benzerlik araması yapamaz. İkinci fazda bu vektörleri veritabanından çekip kullanıcının sorusuyla aralarındaki kosinüs benzerliğini Python üzerinden nasıl hesaplayacağımızı göreceğiz.</p>
+                    <p class="content-en" style="display:none;"><strong>Note:</strong> Standard SQLite cannot perform direct similarity searches between 1024-dimensional vectors. In the second phase, we will see how to fetch these vectors from the database and calculate their cosine similarity with the user's query using Python.</p>
                 </div>
 
-                <h2 id="adim-3"><i class="fa-solid fa-terminal" style="color: var(--neon-blue);"></i> Adım 3: Prompt Mühendisliği</h2>
-                <p>
-                    Altyapımızı tamamladık, verimizi de kaydettik. Şimdi işin en eğlenceli kısmı: Modele nasıl davranacağını öğretmek. Bize cevap üretebilmesi için (bu kez embedding değil) bir sohbet modeli olan <code>phi-3.5-mini</code>'yi ayağa kaldırdık.
-                </p>
-                <p>
-                    Burada önemli bir tecrübe edindik: Küçük dil modelleri (SLM - Small Language Models) İngilizce komutlara çok daha sadıktır. Eğer onlara Türkçe karmaşık kurallar verirseniz kafaları karışıp gramer hataları yapabiliyorlar. Bu yüzden modelin karakterini belirleyen "Sistem Prompt’umuzu" net bir İngilizceyle yazdık:
-                </p>
+                <h2 id="adim-3" class="content-tr"><i class="fa-solid fa-terminal" style="color: var(--neon-blue);"></i> Adım 3: Prompt Mühendisliği</h2>
+                <h2 id="adim-3-en" class="content-en" style="display:none;"><i class="fa-solid fa-terminal" style="color: var(--neon-blue);"></i> Step 3: Prompt Engineering</h2>
+                
+                <p class="content-tr">Altyapımızı tamamladık, verimizi de kaydettik. Şimdi işin en eğlenceli kısmı: Modele nasıl davranacağını öğretmek. Bize cevap üretebilmesi için (bu kez embedding değil) bir sohbet model olan <code>phi-3.5-mini</code>'yi ayağa kaldırdık.</p>
+                <p class="content-en" style="display:none;">We completed our infrastructure and saved our data. Now for the fun part: teaching the model how to behave. To generate answers for us, we booted up a chat model (not embedding this time) called <code>phi-3.5-mini</code>.</p>
+                
+                <p class="content-tr">Burada önemli bir tecrübe edindik: Küçük dil modelleri (SLM - Small Language Models) İngilizce komutlara çok daha sadıktır. Eğer onlara Türkçe karmaşık kurallar verirseniz kafaları karışıp gramer hataları yapabiliyorlar. Bu yüzden modelin karakterini belirleyen "Sistem Prompt’umuzu" net bir İngilizceyle yazdık:</p>
+                <p class="content-en" style="display:none;">We gained an important insight here: Small Language Models (SLMs) are much more faithful to English commands. If you give them complex Turkish rules, they can get confused and make grammatical errors. That's why we wrote our "System Prompt," which defines the model's character, in clear English:</p>
 
-                <!-- KOD BLOĞU (Kopyala Butonu Eklendi) -->
                 <div class="terminal-code-block" style="margin: 2rem 0;">
                     <div class="terminal-header">
                         <div style="display: flex; gap: 6px; align-items: center;">
@@ -235,37 +259,41 @@ Context: {retrieved_context}
 """</code></pre>
                 </div>
 
-                <p>
-                    Bu katı kural sayesinde modele metinde yer almayan (ve normalde uydurmaya çok müsait olduğu) alakasız bir soru sorduğumuzda, paşa paşa “I do not have this information.” cevabını verdirmiş olduk. Böylece halüsinasyon problemini tamamen çözmüş olduk!
-                </p>
+                <p class="content-tr">Bu katı kural sayesinde modele metinde yer almayan (ve normalde uydurmaya çok müsait olduğu) alakasız bir soru sorduğumuzda, paşa paşa “I do not have this information.” cevabını verdirmiş olduk. Böylece halüsinasyon problemini tamamen çözmüş olduk!</p>
+                <p class="content-en" style="display:none;">Thanks to this strict rule, when we ask the model an irrelevant question not found in the text (which it normally would be very prone to fabricate), we force it to obediently reply, "I do not have this information." Thus, we completely solved the hallucination problem!</p>
 
                 <div class="about-divider" style="margin: 4rem 0; width: 60px;"></div>
 
-                <h2><i class="fa-solid fa-flag-checkered" style="color: var(--neon-blue);"></i> İlk Phase’in Sonu ve Sırada Ne Var?</h2>
-                <p>
-                    İlk aşamada (Phase 1) RAG’ın temellerini anladık, geliştirme ortamımızı kurduk, metinleri matematiğe çevirip bir SQLite veritabanına yazmayı başardık.
-                </p>
-                <p>
-                    İkinci fazda (Data Ingestion & Retrieval) ise işleri büyüteceğiz: Kodun içine elle tek bir cümle yazmak yerine, elimizdeki gerçek dokümanları kod yardımıyla okutup küçük parçalara (chunk) bölecek, veritabanımıza yığınla fırlatacak ve en sonunda arama motorumuzu yazıp agent’imizle terminal üzerinden sohbet etmeye başlayacağız.
-                </p>
+                <h2 class="content-tr"><i class="fa-solid fa-flag-checkered" style="color: var(--neon-blue);"></i> İlk Phase’in Sonu ve Sırada Ne Var?</h2>
+                <h2 class="content-en" style="display:none;"><i class="fa-solid fa-flag-checkered" style="color: var(--neon-blue);"></i> End of Phase 1 and What's Next?</h2>
+                
+                <p class="content-tr">İlk aşamada (Phase 1) RAG’ın temellerini anladık, geliştirme ortamımızı kurduk, metinleri matematiğe çevirip bir SQLite veritabanına yazmayı başardık.</p>
+                <p class="content-en" style="display:none;">In the first stage (Phase 1), we understood the fundamentals of RAG, set up our development environment, and successfully converted texts to math, saving them to an SQLite database.</p>
+                
+                <p class="content-tr">İkinci fazda (Data Ingestion & Retrieval) ise işleri büyüteceğiz: Kodun içine elle tek bir cümle yazmak yerine, elimizdeki gerçek dokümanları kod yardımıyla okutup küçük parçalara (chunk) bölecek, veritabanımıza yığınla fırlatacak ve en sonunda arama motorumuzu yazıp agent’imizle terminal üzerinden sohbet etmeye başlayacağız.</p>
+                <p class="content-en" style="display:none;">In the second phase (Data Ingestion & Retrieval), we will scale things up: Instead of manually writing a single sentence in the code, we will read our actual documents programmatically, divide them into small chunks, throw them into our database in batches, and finally write our search engine to start chatting with our agent via the terminal.</p>
                 
             </article>
         </div>
 
-        <!-- YAZI NAVİGASYONU -->
+
         <div class="project-bottom-nav-container blog-content-width" style="margin-top: 4rem;">
             <div class="project-pagination">
                 <a href="../../blog.html" class="pagination-link prev">
                     <i class="fa-solid fa-arrow-left"></i>
                     <span class="pagination-text">
-                        <span class="pagination-label">Geri Dön</span>
-                        <span class="pagination-title">Tüm Makaleler</span>
+                        <span class="pagination-label content-tr">Geri Dön</span>
+                        <span class="pagination-label content-en" style="display:none;">Go Back</span>
+                        <span class="pagination-title content-tr">Tüm Makaleler</span>
+                        <span class="pagination-title content-en" style="display:none;">All Articles</span>
                     </span>
                 </a>
                 <a href="../local-rag-bolum-2/index.html" class="pagination-link next">
                     <span class="pagination-text">
-                        <span class="pagination-label">Sonraki Yazı</span>
-                        <span class="pagination-title">Local RAG (Bölüm 2)</span>
+                        <span class="pagination-label content-tr">Sonraki Yazı</span>
+                        <span class="pagination-label content-en" style="display:none;">Next Post</span>
+                        <span class="pagination-title content-tr">Local RAG Asistanı Geliştirmek (Bölüm 2)</span>
+                        <span class="pagination-title content-en" style="display:none;">Developing a Local RAG Assistant (Part 2)</span>
                     </span>
                     <i class="fa-solid fa-arrow-right"></i>
                 </a>
@@ -274,6 +302,36 @@ Context: {retrieved_context}
 
     </section>
 
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo-wrapper">
+                    <img src="../../Assets/favicon.png" alt="MBM Logo" class="footer-logo">
+                    <span class="footer-name">MEHMET BURAK MENTEŞE</span>
+                </div>
+                <p class="footer-desc" data-translate="footerDesc">Marmara Üniversitesi Bilgisayar Mühendisliği.<br>Yapay Zeka, Yazılım Geliştirme ve Siber Güvenlik.</p>
+                <a href="mailto:burakmentese16@gmail.com" class="footer-email"><i class="fa-regular fa-envelope"></i> burakmentese16@gmail.com</a>
+            </div>
+            <div class="footer-links">
+                <h4 class="footer-title" data-translate="quickMenu">Hızlı Menü</h4>
+                <nav class="footer-nav">
+                    <a href="../../index.html" data-translate="home">Ana Sayfa</a>
+                    <a href="../../hakkimda.html" data-translate="about">Hakkımda</a>
+                    <a href="../../projeler.html" data-translate="projects">Projeler</a>
+                    <a href="../../blog.html" data-translate="blog">Blog</a>
+                </nav>
+            </div>
+            <div class="footer-social">
+                <h4 class="footer-title" data-translate="followMe">Beni Takip Edin</h4>
+                <div class="footer-social-icons">
+                    <a href="https://github.com/BurakHINGE" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/mehmetburakmentese/" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://medium.com/@burakmentese16" target="_blank" title="Medium"><span class="classic-medium">M</span></a>
+                </div>
+                <p class="copyright" data-translate="allRightsReserved">© 2026 Mehmet Burak Menteşe.<br>Tüm Hakları Saklıdır.<br><span class="designed-by">Designed by MBM</span></p>
+            </div>
+        </div>
+    </footer>
     <script src="../../script.js"></script>
 </body>
 </html>
