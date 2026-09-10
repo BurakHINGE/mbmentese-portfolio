@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAC Adresi ve ARP | Blog | Mehmet Burak Menteşe</title>
+    <meta name="description" content="Bilgisayarların ağ üzerinde nasıl iletişim kurduğu, OSI katmanları, NIC donanımı ve ARP protokolünün arka planında işleyen süreçlerin sade anlatımı.">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <a href="../../index.html" class="nav-logo-container">
+            <img src="../../Assets/favicon.png" alt="Website Logo" class="nav-logo">
+            <span class="nav-brand">Mehmet Burak Menteşe</span>
+        </a>
+        <nav>
+            <a href="../../index.html" class="nav-link" data-translate="home">Ana Sayfa</a>
+            <a href="../../hakkimda.html" class="nav-link" data-translate="about">Hakkımda</a>
+            <a href="../../projeler.html" class="nav-link" data-translate="projects">Projeler</a>
+            <a href="../../blog.html" class="nav-link active" data-translate="blog">Blog</a>
+            <div class="lang-toggle">
+                <span id="lang-tr" class="lang-btn active">TR</span>
+                <span class="lang-separator">/</span>
+                <span id="lang-en" class="lang-btn">EN</span>
+            </div>
+        </nav>
+    </header>
+
+    <section id="blog-detail" class="project-single-layout">
+        <div class="project-top-nav blog-content-width">
+            <a href="../../blog.html" class="back-link content-tr"><i class="fa-solid fa-arrow-left-long"></i> Tüm Yazılara Dön</a>
+            <a href="../../blog.html" class="back-link content-en" style="display:none;"><i class="fa-solid fa-arrow-left-long"></i> Back to All Posts</a>
+        </div>
+
+        <div class="project-hero blog-content-width hero-left-aligned">
+            <div class="hero-title-wrapper fixed-underline">
+                <h1 class="project-main-title content-tr">MAC Adresi ve ARP: Cihazlar Nasıl İletişim Kurar?</h1>
+                <h1 class="project-main-title content-en" style="display:none;">MAC Address and ARP: How Do Devices Communicate?</h1>
+            </div>
+            
+            <div class="blog-meta-info">
+                <span class="meta-item"><i class="fa-regular fa-calendar-alt"></i> <span class="content-tr">16 Ağustos 2025</span><span class="content-en" style="display:none;">August 16, 2025</span></span>
+                <span class="meta-item"><i class="fa-solid fa-network-wired"></i> <span class="content-tr">Network & Güvenlik</span><span class="content-en" style="display:none;">Network & Security</span></span>
+                <span class="meta-item"><i class="fa-regular fa-clock"></i> <span class="content-tr">8 dk okuma</span><span class="content-en" style="display:none;">8 min read</span></span>
+            </div>
+        </div>
+
+        <div class="blog-layout-grid blog-content-width">
+            <aside class="blog-toc">
+                <h4 class="toc-title content-tr"><i class="fa-solid fa-list-ul"></i> İçindekiler</h4>
+                <h4 class="toc-title content-en" style="display:none;"><i class="fa-solid fa-list-ul"></i> Table of Contents</h4>
+                
+                <nav class="toc-nav content-tr">
+                    <a href="#blog-detail">MAC Adresi ve ARP</a>
+                    <div style="height: 1px; background: rgba(0, 242, 254, 0.15); margin: 0.5rem 0;"></div>
+                    <a href="#on-soz">Konular Hakkında Ön Söz</a>
+                    <a href="#temel-bilgiler">Bazı Temel Bilgiler (NIC)</a>
+                    <a href="#osi-katmanlari">OSI ve MAC Adresinin Bağlantısı</a>
+                    <a href="#mac-adresi">MAC Adresi Nedir?</a>
+                    <a href="#ip-farklari">IP ve MAC Arasındaki Farklar</a>
+                    <a href="#arp-protokolu">ARP Nasıl Çalışır?</a>
+                    <a href="#veri-iletisimi">MAC Adresi Nasıl Çalışır?</a>
+                    <a href="#protokoller">MAC Protokolleri ve Algoritmaları</a>
+                </nav>
+
+                <nav class="toc-nav content-en" style="display:none;">
+                    <a href="#blog-detail">MAC Address and ARP</a>
+                    <div style="height: 1px; background: rgba(0, 242, 254, 0.15); margin: 0.5rem 0;"></div>
+                    <a href="#on-soz-en">Preface to the Topics</a>
+                    <a href="#temel-bilgiler-en">Some Basic Information (NIC)</a>
+                    <a href="#osi-katmanlari-en">Connection of OSI and MAC</a>
+                    <a href="#mac-adresi-en">What is a MAC Address?</a>
+                    <a href="#ip-farklari-en">Differences Between IP & MAC</a>
+                    <a href="#arp-protokolu-en">How Does ARP Work?</a>
+                    <a href="#veri-iletisimi-en">How Does MAC Operate?</a>
+                    <a href="#protokoller-en">MAC Protocols & Algorithms</a>
+                </nav>
+            </aside>
+
+            <article class="blog-article-content reading-optimized">
+                
+                <h2 id="on-soz" class="content-tr"><i class="fa-solid fa-pen-nib" style="color: var(--neon-blue);"></i> Konular Hakkında Ön Söz</h2>
+                <h2 id="on-soz-en" class="content-en" style="display:none;"><i class="fa-solid fa-pen-nib" style="color: var(--neon-blue);"></i> Preface to the Topics</h2>
+                
+                <div class="blog-quote-box" style="margin: 2rem 0;">
+                    <i class="fa-solid fa-shield-halved quote-icon"></i>
+                    <p class="content-tr"><strong>Yazarın Notu:</strong> Bu makale, orijinal olarak <strong>Marmara Siber Güvenlik Kulübü</strong> çatısı altında kaleme alınmış ve Medium'daki resmi kulüp yayınında editör onayından geçerek yayımlanmıştır.</p>
+                    <p class="content-en" style="display:none;"><strong>Author's Note:</strong> This article was originally written under the umbrella of the <strong>Marmara Cyber Security Club</strong> and was published in the official club publication on Medium after passing editorial approval.</p>
+                </div>
+
+                <p class="lead-text content-tr">Merhabalar, bu yazımda siz dostlarımla bilgisayarların ağ üzerinde nasıl iletişim kurduğunu, birbirlerini nasıl tanıyabildiklerini ve bu iletişimin arka planında işleyen süreçleri sade bir dille konuşacağız.</p>
+                <p class="lead-text content-en" style="display:none;">Hello, in this article, I will discuss with you my friends how computers communicate on a network, how they recognize each other, and the processes running in the background of this communication in plain language.</p>
+                
+                <p class="content-tr">Ayrıca bunları konuşurken teknik terimleri fazla kullanmadan en basit şekilde kafanızı karıştırmadan anlatacağım. Hazırsanız başlayalım!</p>
+                <p class="content-en" style="display:none;">Furthermore, while discussing these, I will explain them in the simplest way without confusing you by avoiding excessive use of technical terms. Let's start if you're ready!</p>
+
+                <div class="about-divider" style="margin: 3rem 0; width: 60px;"></div>
+
+                <h2 id="temel-bilgiler" class="content-tr"><i class="fa-solid fa-microchip" style="color: var(--neon-blue);"></i> Bazı Temel Bilgiler</h2>
+                <h2 id="temel-bilgiler-en" class="content-en" style="display:none;"><i class="fa-solid fa-microchip" style="color: var(--neon-blue);"></i> Some Basic Information</h2>
+                
+                <p class="content-tr"><strong>NIC (Network Interface Card):</strong> Kısaca cihazınızın internete açılan kapısıdır. Diyelim ki evinizde bilgisayarınız ile internete girmek istiyorsunuz peki bu bilgisayarım internete nasıl bağlanıyor diye düşündünüz mü hiç? İşte burada NIC donanımı devreye giriyor. Peki size bundan niye bahsettim çünkü NIC üzerinde MAC adresimizi bulunduruyor.</p>
+                <p class="content-en" style="display:none;"><strong>NIC (Network Interface Card):</strong> Simply put, it is your device's gateway to the internet. Let's say you want to access the internet with your computer at home; have you ever wondered how your computer connects to the internet? This is where the NIC hardware comes into play. So why did I mention this to you? Because the NIC holds our MAC address on it.</p>
+
+                <div class="image-gallery" style="margin: 1.5rem 0 2.5rem 0;">
+                    <div class="image-container">
+                        <div class="corner top-left"></div>
+                        <div class="corner top-right"></div>
+                        <div class="corner bottom-left"></div>
+                        <div class="corner bottom-right"></div>
+                        <img src="../../Assets/blog/nic-hardware.png" alt="NIC Hardware" class="project-img">
+                    </div>
+                </div>
+
+                <h3 class="content-tr" style="color: #fff; margin-bottom: 1rem; font-family: 'Space Grotesk', sans-serif;">NIC Hakkında Temel Bilgiler</h3>
+                <h3 class="content-en" style="display:none; color: #fff; margin-bottom: 1rem; font-family: 'Space Grotesk', sans-serif;">Basic Information About NIC</h3>
+                
+                <ul class="styled-list content-tr">
+                    <li>İnternetten gelen bilgileri cihazın anlayacağı hale getirir.</li>
+                    <li>Cihazların içindeki bilgileri internete gönderir.</li>
+                    <li>Genellikle ethernet teknolojisi için 1, wireless teknolojisi için 1 ve bluetooth teknolojisi için de 1 yani toplam 3 adet NIC aynı cihazda bulunabilir. (Başka teknolojilerle daha da artabiliyor.)</li>
+                </ul>
+                <ul class="styled-list content-en" style="display:none;">
+                    <li>It translates information coming from the internet into a format the device can understand.</li>
+                    <li>It sends information from inside the devices to the internet.</li>
+                    <li>Typically, there can be 1 for ethernet technology, 1 for wireless technology, and 1 for bluetooth technology, meaning a total of 3 NICs can reside on the same device. (It can increase further with other technologies.)</li>
+                </ul>
+
+                <h2 id="osi-katmanlari" class="content-tr"><i class="fa-solid fa-layer-group" style="color: var(--neon-blue);"></i> OSI ve MAC Adresinin Bağlantısı</h2>
+                <h2 id="osi-katmanlari-en" class="content-en" style="display:none;"><i class="fa-solid fa-layer-group" style="color: var(--neon-blue);"></i> The Connection Between OSI and MAC Address</h2>
+                
+                <p class="content-tr">MAC adresini daha iyi anlamak için önce bilgisayarların nasıl iletişim kurduğuna bakalım. İşte burada OSI katmanları devreye giriyor. Şöyle düşünmelisiniz ki verilerimiz internette yolculuk ederken 7 farklı işlemden geçiyor ve biz bu katmanlara OSI layer’ları diyoruz. Her layer’in farklı bir görevi var. Alt katmanlar (1–4) verinin taşınıp yollanmasında, üst katmanlar (5–7) ise verinin hazırlanıp gösterilmesinde görevlidir.</p>
+                <p class="content-en" style="display:none;">To better understand the MAC address, let's first look at how computers communicate. This is where OSI layers come into play. You should think of it this way: as our data travels the internet, it passes through 7 different processes, and we call these layers OSI layers. Each layer has a different duty. Lower layers (1–4) are responsible for transporting and sending the data, while upper layers (5–7) handle preparing and displaying the data.</p>
+
+                <div class="image-gallery" style="margin: 1.5rem 0 2.5rem 0;">
+                    <div class="image-container">
+                        <div class="corner top-left"></div>
+                        <div class="corner top-right"></div>
+                        <div class="corner bottom-left"></div>
+                        <div class="corner bottom-right"></div>
+                        <img src="../../Assets/blog/osi-model.png" alt="OSI Layers" class="project-img">
+                    </div>
+                </div>
+
+                <p class="content-tr">Bu modelde bizi ilgilendiren kısım <strong>2. katmandır (Data Link)</strong> çünkü MAC adresi bu katmanda yer alır. Peki bu katman tam olarak neler yapar?</p>
+                <p class="content-en" style="display:none;">In this model, the part that concerns us is the <strong>2nd layer (Data Link)</strong> because the MAC address resides in this layer. So what exactly does this layer do?</p>
+                
+                <ul class="styled-list content-tr">
+                    <li>Cihazları tanır.</li>
+                    <li><em>“Bu veri kime gidecek?”</em> sorusuna cevap verir.</li>
+                    <li>Hedef cihazın MAC adresini kullanarak yönlendirme yapar.</li>
+                    <li>Ek olarak NIC 1. katmanda veriyi bit’lere çevirir ve MAC adresini üstünde bulundurduğundan 2. katmanda cihazların birbirini tanımasını sağlar.</li>
+                    <li>OSI’nin 3. katmanı (Network Layer) IP adresiyle ilgilidir. Bu, MAC adresiyle birlikte çalışır.</li>
+                </ul>
+                <ul class="styled-list content-en" style="display:none;">
+                    <li>It recognizes devices.</li>
+                    <li>It answers the question, <em>"To whom will this data go?"</em></li>
+                    <li>It routes using the destination device's MAC address.</li>
+                    <li>Additionally, the NIC converts data into bits at the 1st layer, and since it holds the MAC address, it enables devices to recognize each other at the 2nd layer.</li>
+                    <li>The 3rd layer of OSI (Network Layer) deals with the IP address. This works in tandem with the MAC address.</li>
+                </ul>
+
+                <h2 id="mac-adresi" class="content-tr"><i class="fa-solid fa-id-card" style="color: var(--neon-blue);"></i> MAC Adresi Nedir?</h2>
+                <h2 id="mac-adresi-en" class="content-en" style="display:none;"><i class="fa-solid fa-id-card" style="color: var(--neon-blue);"></i> What is a MAC Address?</h2>
+                
+                <p class="content-tr">Şimdi geldik yazımızın kahramanına! Her insanın kendine ait bir kimlik kartı vardır ya aslında cihazların da kendilerine ait kimlik kartları vardır işte bu kimlik kartlarına biz <strong>MAC adresi</strong> diyoruz. Herhangi bir ağa bağlandığınız zaman cihazınızın başka cihazlar tarafından tanınması gerekir aynı şekilde cihazınızın da başka cihazları tanıması gerekir ki bu sayede internete bağlanırız.</p>
+                <p class="content-en" style="display:none;">Now we come to the hero of our article! Just as every person has their own identity card, devices actually have their own ID cards too; we call these ID cards the <strong>MAC address</strong>. When you connect to any network, your device must be recognized by other devices, and similarly, your device must recognize other devices so that we can connect to the internet.</p>
+
+                <h3 class="content-tr" style="color: #fff; margin-bottom: 1rem; font-family: 'Space Grotesk', sans-serif;">MAC Adresi Hakkında Temel Bilgiler</h3>
+                <h3 class="content-en" style="display:none; color: #fff; margin-bottom: 1rem; font-family: 'Space Grotesk', sans-serif;">Basic Information About the MAC Address</h3>
+                
+                <ul class="styled-list content-tr" style="margin-bottom: 2rem;">
+                    <li>MAC’in açılımı Media Access Control’dür.</li>
+                    <li>Her MAC adresi cihaz üretilirken tanımlanır ve genellikle değiştirilemez. (Taklit edilebilir!)</li>
+                    <li>48 bitten oluşurlar ve genellikle 12 hanelidirler.</li>
+                    <li>İlk 6 hanesi üretici firmayı, son 6 hanesi ise cihazı tanımlar.</li>
+                    <li>Hatırlarsanız yukarıda MAC adresinin NIC üzerinde bulunduğundan bahsetmiştik. Kaç tane NIC varsa o kadar MAC adresi vardır. (Örn: Ethernet, Wi-Fi, Bluetooth)</li>
+                    <li>Bazı gelişmiş sistem ve sunucularda birden fazla ethernet bulunabilir. Bu daha fazla NIC, dolayısıyla daha fazla MAC adresi demektir.</li>
+                    <li>Cep telefonlarında ethernet teknolojisi bulunmadığı için en fazla 2 tane MAC adresi bulundurabilirler.</li>
+                    <li>4G ve 5G mobil şebekelerinde MAC adresi doğrudan kullanılmaz. Bunun yerine cihaz kimliği için SIM kartla ilişkili kimlikler kullanılır.</li>
+                    <li>MAC adresleri cihazların birbirini tanımasını sağlıyor dedik evet ama bunu <strong>sadece LAN (aynı yerel ağ) içinde</strong> gerçekleştirebilirler.</li>
+                    <li>Cihazlar farklı ağlara geçse bile MAC adresleri hep sabit kalır.</li>
+                </ul>
+                <ul class="styled-list content-en" style="display:none; margin-bottom: 2rem;">
+                    <li>MAC stands for Media Access Control.</li>
+                    <li>Each MAC address is defined when the device is manufactured and is generally unchangeable. (Though it can be spoofed!)</li>
+                    <li>They consist of 48 bits and are usually 12 characters long.</li>
+                    <li>The first 6 characters define the manufacturer, while the last 6 define the device.</li>
+                    <li>Remember we mentioned above that the MAC address resides on the NIC. There are as many MAC addresses as there are NICs. (e.g., Ethernet, Wi-Fi, Bluetooth)</li>
+                    <li>Some advanced systems and servers may have multiple ethernet ports. This means more NICs, hence more MAC addresses.</li>
+                    <li>Since mobile phones lack ethernet technology, they can hold a maximum of 2 MAC addresses.</li>
+                    <li>In 4G and 5G mobile networks, the MAC address is not used directly. Instead, identities associated with the SIM card are used for device identification.</li>
+                    <li>We said MAC addresses allow devices to recognize each other, yes, but they can do this <strong>only within a LAN (the same local network)</strong>.</li>
+                    <li>Even if devices move to different networks, their MAC addresses always remain constant.</li>
+                </ul>
+
+                <div class="about-divider" style="margin: 3rem 0; width: 60px;"></div>
+
+                <h2 id="ip-farklari" class="content-tr"><i class="fa-solid fa-arrows-split-up-and-left" style="color: var(--neon-blue);"></i> Public IP, Private IP ve MAC Adresi Arasındaki Farklar</h2>
+                <h2 id="ip-farklari-en" class="content-en" style="display:none;"><i class="fa-solid fa-arrows-split-up-and-left" style="color: var(--neon-blue);"></i> Differences Between Public IP, Private IP, and MAC Address</h2>
+                
+                <p class="content-tr">Öncelikle Public IP adresi ile Private IP arasındaki farklara bakmalıyız.</p>
+                <p class="content-en" style="display:none;">First, we should look at the differences between a Public IP address and a Private IP.</p>
+                
+                <ul class="styled-list content-tr">
+                    <li><strong>Private IP</strong>, bir yerel ağ (LAN) içindeki her cihaza ağ yönlendiricisi (router) tarafından atanan, sadece o ağ içinde geçerli olan benzersiz IP adresidir. Public IP adresi ise işte bu Private IP’lerin bulunduğu ağdaki genel adrestir.</li>
+                    <li>Bu şekilde yerel ağdaki cihazların hem kendine ait IP adresi hem de o IP adreslerinin ait olduğu ağın adresi olur. Network IP, cihazların birbirleriyle aynı ağda olup olmadığını anlamalarına yardımcı olur.</li>
+                </ul>
+                <ul class="styled-list content-en" style="display:none;">
+                    <li><strong>Private IP</strong> is a unique IP address assigned to each device within a local area network (LAN) by the network router, valid only within that network. The Public IP address, however, is the external, general address of the network where these Private IPs reside.</li>
+                    <li>In this way, devices in a local network have both their own IP address and the address of the network those IPs belong to. The Network IP helps devices understand whether they are on the same network with each other.</li>
+                </ul>
+
+                <div class="blog-quote-box" style="margin: 2.5rem 0;">
+                    <i class="fa-solid fa-lightbulb quote-icon"></i>
+                    <p class="content-tr" style="margin-bottom: 1rem;">Şimdi bu durumda aklınıza belki <em>“O zaman MAC adresi ve private ip aynı şey değil mi?”</em> sorusu gelmiş olabilir. Fakat oldukça önemli farkı var:</p>
+                    <p class="content-en" style="display:none; margin-bottom: 1rem;">Now in this situation, the question <em>"Then aren't the MAC address and private IP the same thing?"</em> might have come to your mind. But there is a very important difference:</p>
+                    
+                    <p class="content-tr">MAC adresi LAN içindeki cihazların birbirini tanıması ve bulması için kullanılır. Private IP adresimiz ise o LAN’dan başka network’lere çıkarken cihazların yönlendirilmesi için kullanılır.</p>
+                    <p class="content-en" style="display:none;">The MAC address is used for devices within the LAN to recognize and find each other. Our Private IP address, on the other hand, is used to route devices when they exit that LAN to other networks.</p>
+                    
+                    <p class="content-tr" style="margin-top: 1rem;">Başka bir deyişle MAC adresi daha çok <strong>“cihazın kimliği”</strong> olarak yerel ağda görev yaparken, Private IP adresi <strong>“cihazın adresi”</strong> olarak hem yerel ağda hem de ağlar arası iletişimde yönlendirme işlevi görür. Bu yüzden MAC adresi fiziksel adres, IP adresi ise mantıksal adres olarak adlandırılır.</p>
+                    <p class="content-en" style="display:none; margin-top: 1rem;">In other words, while the MAC address acts more like the <strong>"identity of the device"</strong> in the local network, the Private IP address serves as the <strong>"address of the device"</strong>, providing routing functions both in the local network and in inter-network communication. That's why the MAC address is called the physical address, and the IP address is called the logical address.</p>
+                </div>
+
+                <h2 id="arp-protokolu" class="content-tr"><i class="fa-solid fa-magnifying-glass-location" style="color: var(--neon-blue);"></i> ARP (Address Resolution Protocol)</h2>
+                <h2 id="arp-protokolu-en" class="content-en" style="display:none;"><i class="fa-solid fa-magnifying-glass-location" style="color: var(--neon-blue);"></i> ARP (Address Resolution Protocol)</h2>
+                
+                <p class="content-tr">Cihazımızın internette iletişim kurarken IP adresini, yerel ağda bir cihazla konuşmak istediğinde ise MAC adresine ihtiyacı olduğundan bahsettik. Peki bilgisayarımız sadece IP adresini biliyorsa o IP adresine ait MAC adresini nasıl bulur? İşte burada devreye <strong>ARP</strong> giriyor.</p>
+                <p class="content-en" style="display:none;">We mentioned that our device needs an IP address when communicating on the internet, and a MAC address when it wants to talk to a device on the local network. So, if our computer only knows the IP address, how does it find the MAC address belonging to that IP? This is where <strong>ARP</strong> comes in.</p>
+
+                <h3 class="content-tr" style="color: #fff; margin-bottom: 1rem; font-family: 'Space Grotesk', sans-serif;">ARP Nasıl Çalışır?</h3>
+                <h3 class="content-en" style="display:none; color: #fff; margin-bottom: 1rem; font-family: 'Space Grotesk', sans-serif;">How Does ARP Work?</h3>
+                
+                <p class="content-tr">Diyelim ki cihazımız <code>192.168.1.12</code> adresine veri göndermek istiyor ama o IP adresine ait MAC adresini bilmiyor. Bu durumda şu adımlar izlenir:</p>
+                <p class="content-en" style="display:none;">Let's say our device wants to send data to the address <code>192.168.1.12</code> but doesn't know the MAC address for that IP. In this case, the following steps are taken:</p>
+                
+                <ul class="styled-list content-tr">
+                    <li><strong>Ağdaki herkese sorar:</strong> <em>“Hey, 192.168.1.12 kim? Lütfen MAC adresini söyle!”</em></li>
+                    <li><strong>O IP adresine sahip cihaz cevap verir:</strong> <em>“Bu IP benim! MAC adresim şu: A4:BC:12:DE:34:56”</em></li>
+                    <li>Tabii bu işlemler saliseler içinde gerçekleşir.</li>
+                    <li>ARP, IP-MAC eşlemesini kendi belleğinde (ARP Cache) tutar. Aynı IP için tekrar tekrar ARP sorgusu yapılmaz.</li>
+                </ul>
+                <ul class="styled-list content-en" style="display:none;">
+                    <li><strong>Asks everyone on the network:</strong> <em>“Hey, who is 192.168.1.12? Please tell me your MAC address!”</em></li>
+                    <li><strong>The device holding that IP replies:</strong> <em>“That IP is mine! My MAC address is: A4:BC:12:DE:34:56”</em></li>
+                    <li>Of course, these operations happen in fractions of a second.</li>
+                    <li>ARP keeps the IP-MAC mapping in its own memory (ARP Cache). An ARP query is not performed repeatedly for the same IP.</li>
+                </ul>
+
+                <h3 class="content-tr" style="color: #fff; margin: 2rem 0 1rem 0; font-family: 'Space Grotesk', sans-serif;">ARP Neden Gerekli?</h3>
+                <h3 class="content-en" style="display:none; color: #fff; margin: 2rem 0 1rem 0; font-family: 'Space Grotesk', sans-serif;">Why is ARP Necessary?</h3>
+                
+                <ul class="styled-list content-tr">
+                    <li>IP adresi mantıksal bir adrestir ve sadece yönlendirme için kullanılır.</li>
+                    <li>Veri fiziksel olarak gönderilecekse, hangi cihaza gideceğini MAC adresi belirler.</li>
+                    <li>IP adresini MAC adresine çeviren köprü ise ARP protokolüdür. (<strong>NOT:</strong> ARP sadece IPv4 için geçerlidir. IPv6’da NDP - Neighbor Discovery Protocol kullanılır.)</li>
+                </ul>
+                <ul class="styled-list content-en" style="display:none;">
+                    <li>An IP address is a logical address and is used purely for routing.</li>
+                    <li>If data is to be sent physically, the MAC address determines which device it will go to.</li>
+                    <li>The bridge that translates the IP address to a MAC address is the ARP protocol. (<strong>NOTE:</strong> ARP is only valid for IPv4. In IPv6, NDP - Neighbor Discovery Protocol is used.)</li>
+                </ul>
+
+                <div class="about-divider" style="margin: 3rem 0; width: 60px;"></div>
+
+                <h2 id="veri-iletisimi" class="content-tr"><i class="fa-solid fa-server" style="color: var(--neon-blue);"></i> MAC Adresi Nasıl Çalışır?</h2>
+                <h2 id="veri-iletisimi-en" class="content-en" style="display:none;"><i class="fa-solid fa-server" style="color: var(--neon-blue);"></i> How Does MAC Operate?</h2>
+                
+                <p class="content-tr">Şimdi biraz daha derine inelim ama merak etmeyin yine elimden geldiğince basit ve anlaşılır ilerlemeye çalışacağım. Diyelim ki bilgisayarınızdan bir video izlemek istediniz. Bu veriler yola çıkmadan önce bilgisayarınızda şu işlemler gerçekleşir:</p>
+                <p class="content-en" style="display:none;">Now let's dig a little deeper, but don't worry, I will again try to proceed as simply and understandably as possible. Let's say you wanted to watch a video from your computer. Before this data sets off, the following operations occur on your computer:</p>
+                
+                <ul class="styled-list content-tr">
+                    <li>Bu veriyi kime göndereceğini belirler (IP Adresi). Fakat IP adresi tek başına yeterli değildir; hedef cihazın ağ içindeki tam yerini belirlemek için MAC adresine ihtiyaç vardır.</li>
+                    <li>Bu nedenle cihazımız <em>“Bu IP adresi neydi?”</em> diye sorar. (İşte burada ARP çalışır)</li>
+                    <li>Ardından cevap gelir, MAC adresi öğrenilir ve verimiz yola çıkar.</li>
+                </ul>
+                <ul class="styled-list content-en" style="display:none;">
+                    <li>It determines who to send this data to (IP Address). However, the IP address alone is not enough; a MAC address is needed to determine the exact location of the target device within the network.</li>
+                    <li>Therefore, our device asks, <em>"What was this IP address?"</em> (This is where ARP works)</li>
+                    <li>Then the answer comes, the MAC address is learned, and our data hits the road.</li>
+                </ul>
+
+                <h3 class="content-tr" style="color: #fff; margin: 2rem 0 1rem 0; font-family: 'Space Grotesk', sans-serif;">Veriler Switch’e Ulaştığında</h3>
+                <h3 class="content-en" style="display:none; color: #fff; margin: 2rem 0 1rem 0; font-family: 'Space Grotesk', sans-serif;">When Data Reaches the Switch</h3>
+                
+                <p class="content-tr">Verilerimiz, önce switch (yerel ağdaki cihazları birbirine bağlayan cihaz) adlı cihaza ulaşır. Switch, gelen verideki MAC adresini okur ve bu adrese göre veriyi nereye göndereceğine karar verir. Çünkü switch, aynı ağdaki cihazların MAC adreslerini bilir ve ona göre yönlendirme yapar.</p>
+                <p class="content-en" style="display:none;">Our data first reaches a device called a switch (the device that connects devices on a local network). The switch reads the MAC address in the incoming data and decides where to send the data based on this address. Because the switch knows the MAC addresses of the devices on the same network and routes accordingly.</p>
+
+                <h3 class="content-tr" style="color: #fff; margin: 2rem 0 1rem 0; font-family: 'Space Grotesk', sans-serif;">Veriler Router’a Ulaştığında</h3>
+                <h3 class="content-en" style="display:none; color: #fff; margin: 2rem 0 1rem 0; font-family: 'Space Grotesk', sans-serif;">When Data Reaches the Router</h3>
+                
+                <p class="content-tr">Veri switch’ten çıktıktan sonra hedef ağa ulaşması için router’a gider. Router, gelen paketin önce 2. katman başlığında hata kontrolü yapar ardından MAC adresini kontrol eder.</p>
+                <p class="content-en" style="display:none;">After leaving the switch, the data goes to the router to reach the destination network. The router first checks the incoming packet for errors in the 2nd layer header, then checks the MAC address.</p>
+                
+                <ul class="styled-list content-tr">
+                    <li>Eğer MAC adresi router’in kendisine ait ise, paket artık kendi ağında demektir.</li>
+                    <li>Bu durumda router, veriyi 3. katmana (Ağ Katmanı) çıkarır ve hedef IP adresine bakar.</li>
+                    <li>Router, paketin doğru ağa gitmesi için en uygun yolu hesaplar ve paketi bu yöne yollar.</li>
+                </ul>
+                <ul class="styled-list content-en" style="display:none;">
+                    <li>If the MAC address belongs to the router itself, it means the packet is now in its own network.</li>
+                    <li>In this case, the router elevates the data to the 3rd layer (Network Layer) and looks at the destination IP address.</li>
+                    <li>The router calculates the optimal path for the packet to go to the correct network and sends the packet in that direction.</li>
+                </ul>
+
+                <h2 id="protokoller" class="content-tr"><i class="fa-solid fa-network-wired" style="color: var(--neon-blue);"></i> MAC Protokolleri ve Algoritmaları</h2>
+                <h2 id="protokoller-en" class="content-en" style="display:none;"><i class="fa-solid fa-network-wired" style="color: var(--neon-blue);"></i> MAC Protocols and Algorithms</h2>
+                
+                <p class="content-tr">Cihazların aynı ağ ortamında verileri iletirken çakışma yaşamaması ve verilerin güvenli, etkili bir şekilde gönderilmesi için belirli protokol ve algoritmalar kullanırız. Bu protokoller MAC katmanında çalışır ve ağdaki cihazların veri gönderim sırasını belirler.</p>
+                <p class="content-en" style="display:none;">We use specific protocols and algorithms so that devices do not experience collisions while transmitting data in the same network environment and so data is sent securely and efficiently. These protocols operate at the MAC layer and determine the data transmission order of devices on the network.</p>
+
+                <h3 class="content-tr" style="color: #fff; margin: 2rem 0 1rem 0; font-family: 'Space Grotesk', sans-serif;">Protokoller</h3>
+                <h3 class="content-en" style="display:none; color: #fff; margin: 2rem 0 1rem 0; font-family: 'Space Grotesk', sans-serif;">Protocols</h3>
+                
+                <ul class="styled-list content-tr">
+                    <li><strong>1. Ethernet:</strong> Kablolu yerel ağlarda kullanılan protokoldür. Ethernet frame başlıklarını, MAC adreslerini içerir ve verinin doğru cihaza iletilmesini sağlar.</li>
+                    <li><strong>2. IEEE 802.11:</strong> Kablosuz ağlarda kullanılan standarttır. Wi-Fi bağlantısında bu protokolün frame başlıkları 2. katmanda yer alır ve MAC adres bilgisi taşır.</li>
+                    <li><strong>3. CSMA/CD:</strong> Ethernet gibi kablolu ağlarda kullanılan bir erişim kontrol yöntemidir. Çarpışma algılanınca cihazlar belirli bir süre rastgele bekleyip sonra yeniden veri göndermeyi denerler. Teknolojinin gelişmesiyle full-duplex switch’ler üretildi dolayısıyla bu protokol daha çok tarihsel bilgi olarak kaldı.</li>
+                    <li><strong>4. PPP, HDLC, Frame Relay:</strong> Bu protokoller genellikle WAN bağlantılarında kullanılır ve MAC adresi taşımazlar. Bu yüzden WAN’da veri iletimi farklı başlık ve yöntemlerle yapılır.</li>
+                </ul>
+                <ul class="styled-list content-en" style="display:none;">
+                    <li><strong>1. Ethernet:</strong> This is the protocol used in wired local networks. It includes Ethernet frame headers and MAC addresses, ensuring data is delivered to the correct device.</li>
+                    <li><strong>2. IEEE 802.11:</strong> This is the standard used in wireless networks. In a Wi-Fi connection, this protocol's frame headers are located in the 2nd layer and carry MAC address information.</li>
+                    <li><strong>3. CSMA/CD:</strong> An access control method used in wired networks like Ethernet. When a collision is detected, devices wait randomly for a certain period and then try to send data again. With the advancement of technology, full-duplex switches were produced, thus leaving this protocol mostly as historical knowledge.</li>
+                    <li><strong>4. PPP, HDLC, Frame Relay:</strong> These protocols are generally used in WAN connections and do not carry MAC addresses. Because of this, data transmission in WAN is done with different headers and methods.</li>
+                </ul>
+
+                <h3 class="content-tr" style="color: #fff; margin: 2rem 0 1rem 0; font-family: 'Space Grotesk', sans-serif;">Erişim Algoritmaları</h3>
+                <h3 class="content-en" style="display:none; color: #fff; margin: 2rem 0 1rem 0; font-family: 'Space Grotesk', sans-serif;">Access Algorithms</h3>
+                
+                <ul class="styled-list content-tr">
+                    <li><strong>Contention-Based (Rekabete Dayalı) MAC:</strong> Ethernet gibi ortamlarda kullanılır. Cihazlar ortamın boş olup olmadığını kontrol eder ve boşsa veri gönderir. Aynı anda birden fazla cihaz gönderirse, çakışma olur ve yeniden denerler.</li>
+                    <li><strong>Controlled Access (Kontrollü Erişim) MAC:</strong> Bu yöntemde cihazlara veri gönderme sırası önceden belirlenir veya kontrol edilir. Böylece çakışmalar önlenir ve daha düzenli veri iletimi sağlanır.</li>
+                </ul>
+                <ul class="styled-list content-en" style="display:none;">
+                    <li><strong>Contention-Based MAC:</strong> Used in environments like Ethernet. Devices check whether the medium is clear and send data if it is. If multiple devices send at the same time, a collision occurs, and they retry.</li>
+                    <li><strong>Controlled Access MAC:</strong> In this method, the order in which devices send data is predetermined or controlled. This prevents collisions and ensures more orderly data transmission.</li>
+                </ul>
+                
+            </article>
+        </div>
+
+        <div class="project-bottom-nav-container blog-content-width" style="margin-top: 4rem;">
+            <div class="project-pagination">
+                <a href="../local-rag-bolum-3/index.html" class="pagination-link prev">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span class="pagination-text">
+                        <span class="pagination-label content-tr">Önceki Yazı</span>
+                        <span class="pagination-label content-en" style="display:none;">Previous Post</span>
+                        <span class="pagination-title content-tr">Local RAG (Bölüm 3)</span>
+                        <span class="pagination-title content-en" style="display:none;">Local RAG (Part 3)</span>
+                    </span>
+                </a>
+
+                <a href="../guvenlik-modelleri/index.html" class="pagination-link next">
+                    <span class="pagination-text">
+                        <span class="pagination-label content-tr">Sonraki Yazı</span>
+                        <span class="pagination-label content-en" style="display:none;">Next Post</span>
+                        <span class="pagination-title content-tr">Güvenlik Modelleri</span>
+                        <span class="pagination-title content-en" style="display:none;">Security Models</span>
+                    </span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo-wrapper">
+                    <img src="../../Assets/favicon.png" alt="MBM Logo" class="footer-logo">
+                    <span class="footer-name">MEHMET BURAK MENTEŞE</span>
+                </div>
+                <p class="footer-desc" data-translate="footerDesc">Marmara Üniversitesi Bilgisayar Mühendisliği.<br>Yapay Zeka, Yazılım Geliştirme ve Siber Güvenlik.</p>
+                <a href="mailto:burakmentese16@gmail.com" class="footer-email"><i class="fa-regular fa-envelope"></i> burakmentese16@gmail.com</a>
+            </div>
+            <div class="footer-links">
+                <h4 class="footer-title" data-translate="quickMenu">Hızlı Menü</h4>
+                <nav class="footer-nav">
+                    <a href="../../index.html" data-translate="home">Ana Sayfa</a>
+                    <a href="../../hakkimda.html" data-translate="about">Hakkımda</a>
+                    <a href="../../projeler.html" data-translate="projects">Projeler</a>
+                    <a href="../../blog.html" data-translate="blog">Blog</a>
+                </nav>
+            </div>
+            <div class="footer-social">
+                <h4 class="footer-title" data-translate="followMe">Beni Takip Edin</h4>
+                <div class="footer-social-icons">
+                    <a href="https://github.com/BurakHINGE" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/mehmetburakmentese/" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://medium.com/@burakmentese16" target="_blank" title="Medium"><span class="classic-medium">M</span></a>
+                </div>
+                <p class="copyright" data-translate="allRightsReserved">© 2026 Mehmet Burak Menteşe.<br>Tüm Hakları Saklıdır.<br><span class="designed-by">Designed by MBM</span></p>
+            </div>
+        </div>
+    </footer>
+    <script src="../../script.js"></script>
+</body>
+</html>
