@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bilgi Güvenliği Modelleri ve CIA Üçlüsü | Blog | Mehmet Burak Menteşe</title>
+    <meta name="description" content="Bilgi güvenliğinin temelini oluşturan CIA üçlüsü (Gizlilik, Bütünlük, Erişilebilirlik) ve Bell-LaPadula, Biba, Clark-Wilson gibi güvenlik modellerinin detaylı incelemesi.">
+    
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <a href="../../index.html" class="nav-logo-container">
+            <img src="../../Assets/favicon.png" alt="Website Logo" class="nav-logo">
+            <span class="nav-brand">Mehmet Burak Menteşe</span>
+        </a>
+        <nav>
+            <a href="../../index.html" class="nav-link" data-translate="home">Ana Sayfa</a>
+            <a href="../../hakkimda.html" class="nav-link" data-translate="about">Hakkımda</a>
+            <a href="../../projeler.html" class="nav-link" data-translate="projects">Projeler</a>
+            <a href="../../blog.html" class="nav-link active" data-translate="blog">Blog</a>
+            <div class="lang-toggle">
+                <span id="lang-tr" class="lang-btn active">TR</span>
+                <span class="lang-separator">/</span>
+                <span id="lang-en" class="lang-btn">EN</span>
+            </div>
+        </nav>
+    </header>
+
+    <section id="blog-detail" class="project-single-layout">
+        
+        <div class="project-top-nav blog-content-width">
+            <a href="../../blog.html" class="back-link content-tr"><i class="fa-solid fa-arrow-left-long"></i> Tüm Yazılara Dön</a>
+            <a href="../../blog.html" class="back-link content-en" style="display:none;"><i class="fa-solid fa-arrow-left-long"></i> Back to All Posts</a>
+        </div>
+
+        <div class="project-hero blog-content-width hero-left-aligned">
+            <div class="hero-title-wrapper fixed-underline">
+                <h1 class="project-main-title content-tr">Bilgi Güvenliği Modelleri ve CIA Üçlüsü</h1>
+                <h1 class="project-main-title content-en" style="display:none;">Information Security Models and the CIA Triad</h1>
+            </div>
+            
+            <div class="blog-meta-info">
+                <span class="meta-item"><i class="fa-regular fa-calendar-alt"></i> <span class="content-tr">16 Haziran 2025</span><span class="content-en" style="display:none;">June 16, 2025</span></span>
+                <span class="meta-item"><i class="fa-solid fa-shield-halved"></i> <span class="content-tr">Siber Güvenlik</span><span class="content-en" style="display:none;">Cyber Security</span></span>
+                <span class="meta-item"><i class="fa-regular fa-clock"></i> <span class="content-tr">3 dk okuma</span><span class="content-en" style="display:none;">3 min read</span></span>
+            </div>
+        </div>
+
+        <div class="blog-layout-grid blog-content-width">
+            
+            <!-- STICKY TOC (İçindekiler) -->
+            <aside class="blog-toc">
+                <h4 class="toc-title content-tr"><i class="fa-solid fa-list-ul"></i> İçindekiler</h4>
+                <h4 class="toc-title content-en" style="display:none;"><i class="fa-solid fa-list-ul"></i> Table of Contents</h4>
+                
+                <nav class="toc-nav content-tr">
+                    <a href="#blog-detail">Bilgi Güvenliği Modelleri</a>
+                    <div style="height: 1px; background: rgba(0, 242, 254, 0.15); margin: 0.5rem 0;"></div>
+                    <a href="#on-soz">Yazı Hakkında Ön Söz</a>
+                    <a href="#bell-lapadula">1. Bell-LaPadula Modeli</a>
+                    <a href="#biba-integrity">2. The Biba Integrity Modeli</a>
+                    <a href="#clark-wilson">3. The Clark-Wilson Modeli</a>
+                    <a href="#diger-modeller">Diğer Modeller</a>
+                </nav>
+                <!-- YENİ: İngilizce linklere -en eklendi -->
+                <nav class="toc-nav content-en" style="display:none;">
+                    <a href="#blog-detail">Information Security Models</a>
+                    <div style="height: 1px; background: rgba(0, 242, 254, 0.15); margin: 0.5rem 0;"></div>
+                    <a href="#on-soz-en">Preface to the Article</a>
+                    <a href="#bell-lapadula-en">1. Bell-LaPadula Model</a>
+                    <a href="#biba-integrity-en">2. The Biba Integrity Model</a>
+                    <a href="#clark-wilson-en">3. The Clark-Wilson Model</a>
+                    <a href="#diger-modeller-en">Other Models</a>
+                </nav>
+            </aside>
+
+            <!-- MAKALENİN KENDİSİ -->
+            <article class="blog-article-content reading-optimized">
+                
+                <!-- YENİ: İngilizce başlıklara -en ID'si eklendi -->
+                <h2 id="on-soz" class="content-tr"><i class="fa-solid fa-pen-nib" style="color: var(--neon-blue);"></i> Yazı Hakkında Ön Söz</h2>
+                <h2 id="on-soz-en" class="content-en" style="display:none;"><i class="fa-solid fa-pen-nib" style="color: var(--neon-blue);"></i> Preface to the Article</h2>
+                
+                <p class="lead-text content-tr">Güvenlik üçlüsü olarak adlandırılan Confidentiality (Gizlilik), Integrity (Bütünlük) ve Availability (Erişilebilirlik) yani diğer adıyla <strong>CIA</strong>; bir veya birden fazla güvenlik işlevini garanti eden bir sistemde kullanılabilir. Bu kullanımlara da güvenlik modelleri denir.</p>
+                <p class="lead-text content-en" style="display:none;">The security triad known as Confidentiality, Integrity, and Availability, commonly referred to as <strong>CIA</strong>, can be applied in a system that guarantees one or more security functions. These applications are called security models.</p>
+                
+                <p class="content-tr">Bu yazımda bahsedeceğim modeller sırasıyla şunlardır:</p>
+                <p class="content-en" style="display:none;">The models I will discuss in this article are respectively:</p>
+                
+                <ul class="styled-list">
+                    <li>Bell-LaPadula Modeli / Model</li>
+                    <li>The Biba Integrity Modeli / Model</li>
+                    <li>The Clark-Wilson Modeli / Model</li>
+                </ul>
+
+                <div class="image-gallery" style="margin: 2rem 0;">
+                    <div class="image-container">
+                        <div class="corner top-left"></div>
+                        <div class="corner top-right"></div>
+                        <div class="corner bottom-left"></div>
+                        <div class="corner bottom-right"></div>
+                        <img src="../../Assets/blog/cia-triad.png" alt="CIA Üçlüsü Şeması" class="project-img">
+                    </div>
+                </div>
+
+                <div class="about-divider" style="margin: 3rem 0; width: 60px;"></div>
+
+                <h2 id="bell-lapadula" class="content-tr"><i class="fa-solid fa-user-secret" style="color: var(--neon-blue);"></i> 1. Bell-LaPadula Modeli</h2>
+                <h2 id="bell-lapadula-en" class="content-en" style="display:none;"><i class="fa-solid fa-user-secret" style="color: var(--neon-blue);"></i> 1. Bell-LaPadula Model</h2>
+                
+                <p class="content-tr">Bell-LaPadula Modeli, üç özelliği belirleyerek <strong>gizliliği (Confidentiality)</strong> sağlamayı amaçlamaktadır. Daha yüksek güvenlik iznine sahip kişilerle gizli bilgileri paylaşabilirsiniz ve daha düşük güvenlik iznine sahip kişilerden gizli bilgiler alabilirsiniz.</p>
+                <p class="content-en" style="display:none;">The Bell-LaPadula Model aims to ensure <strong>Confidentiality</strong> by defining three properties. You can share confidential information with individuals possessing higher security clearances and receive confidential information from individuals with lower clearances.</p>
+                
+                <p class="content-tr" style="margin-top: 1.5rem; font-weight: 600; color: #fff;">Bu üç kural şunlardır:</p>
+                <p class="content-en" style="display:none; margin-top: 1.5rem; font-weight: 600; color: #fff;">These three rules are:</p>
+                
+                <div class="blog-quote-box" style="margin: 1.5rem 0; padding: 1.5rem 2rem;">
+                    <p class="content-tr" style="margin-bottom: 1rem;"><strong style="color: var(--neon-blue); font-style: normal;">Simple Security Property:</strong> Bu özellik “okuma yok” olarak adlandırılır; daha düşük bir güvenlik seviyesindeki bir öznenin daha yüksek bir güvenlik seviyesindeki bir nesneyi okuyamayacağını belirtir. Bu kural, yetkili seviyenin üzerindeki hassas bilgilere erişimi engeller.</p>
+                    <p class="content-en" style="display:none; margin-bottom: 1rem;"><strong style="color: var(--neon-blue); font-style: normal;">Simple Security Property:</strong> Often referred to as "no read up", this property states that a subject at a lower security level cannot read an object at a higher security level. This rule prevents access to sensitive information above an authorized level.</p>
+                    
+                    <p class="content-tr" style="margin-bottom: 1rem;"><strong style="color: var(--neon-blue); font-style: normal;">Star Security Property:</strong> Bu özellik “yazma yok” olarak adlandırılır; daha yüksek güvenlik seviyesindeki bir öznenin daha düşük güvenlik seviyesindeki bir nesneye yazamayacağını belirtir. Bu kural, hassas bilgilerin daha düşük güvenlik seviyesindeki bir özneye ifşa edilmesini önler.</p>
+                    <p class="content-en" style="display:none; margin-bottom: 1rem;"><strong style="color: var(--neon-blue); font-style: normal;">Star Security Property:</strong> Often referred to as "no write down", this property states that a subject at a higher security level cannot write to an object at a lower security level. This rule prevents the disclosure of sensitive information to a subject with a lower clearance.</p>
+                    
+                    <p class="content-tr"><strong style="color: var(--neon-blue); font-style: normal;">Discretionary-Security Property:</strong> Bu özellik, okuma ve yazma işlemlerine izin vermek için bir erişim matrisi kullanır. İlk iki özellik ile birlikte kullanılır.</p>
+                    <p class="content-en" style="display:none;"><strong style="color: var(--neon-blue); font-style: normal;">Discretionary-Security Property:</strong> This property uses an access matrix to authorize read and write operations. It is used in conjunction with the first two properties.</p>
+                </div>
+
+                <ul class="styled-list content-tr">
+                    <li><strong>Dezavantajı:</strong> Dosya paylaşımını idare edememe gibi bazı sınırlamaları vardır.</li>
+                </ul>
+                <ul class="styled-list content-en" style="display:none;">
+                    <li><strong>Disadvantage:</strong> It has some limitations, such as the inability to handle file sharing effectively.</li>
+                </ul>
+
+                <div class="about-divider" style="margin: 3rem 0; width: 60px;"></div>
+
+                <h2 id="biba-integrity" class="content-tr"><i class="fa-solid fa-file-shield" style="color: var(--neon-blue);"></i> 2. The Biba Integrity Modeli</h2>
+                <h2 id="biba-integrity-en" class="content-en" style="display:none;"><i class="fa-solid fa-file-shield" style="color: var(--neon-blue);"></i> 2. The Biba Integrity Model</h2>
+                
+                <p class="content-tr">Biba Modeli, iki temel özelliği belirleyerek <strong>bütünlüğe (Integrity)</strong> ulaşmayı hedefler. Bu kural Bell-LaPadula Modeli ile çelişir fakat biri gizlilikle ilgiliyken diğeri bütünlükle ilgilidir.</p>
+                <p class="content-en" style="display:none;">The Biba Model aims to achieve <strong>Integrity</strong> by defining two core properties. These rules contrast with the Bell-LaPadula Model, but one is concerned with confidentiality while the other focuses on integrity.</p>
+
+                <p class="content-tr" style="margin-top: 1.5rem; font-weight: 600; color: #fff;">Bu iki özellik:</p>
+                <p class="content-en" style="display:none; margin-top: 1.5rem; font-weight: 600; color: #fff;">These two properties are:</p>
+
+                <div class="blog-quote-box" style="margin: 1.5rem 0; padding: 1.5rem 2rem;">
+                    <p class="content-tr" style="margin-bottom: 1rem;"><strong style="color: var(--neon-blue); font-style: normal;">Simple Integrity Property:</strong> Bu özellik “aşağı doğru okuma yok” olarak adlandırılır; daha yüksek bütünlüğe sahip bir özne, daha düşük bütünlüğe sahip bir nesneden okuma yapmamalıdır.</p>
+                    <p class="content-en" style="display:none; margin-bottom: 1rem;"><strong style="color: var(--neon-blue); font-style: normal;">Simple Integrity Property:</strong> Often referred to as "no read down", meaning a subject with higher integrity must not read from an object with lower integrity.</p>
+                    
+                    <p class="content-tr"><strong style="color: var(--neon-blue); font-style: normal;">Star Integrity Property:</strong> Bu özellik “yazma yok” olarak adlandırılır; daha düşük bütünlükteki bir özne, daha yüksek bütünlükteki bir nesneye yazmamalıdır.</p>
+                    <p class="content-en" style="display:none;"><strong style="color: var(--neon-blue); font-style: normal;">Star Integrity Property:</strong> Often referred to as "no write up", meaning a subject with lower integrity must not write to an object with higher integrity.</p>
+                </div>
+
+                <ul class="styled-list content-tr">
+                    <li><strong>Dezavantajı:</strong> İçeri gelen tehditleri ele alamaması yönünden zayıftır.</li>
+                </ul>
+                <ul class="styled-list content-en" style="display:none;">
+                    <li><strong>Disadvantage:</strong> It is weak in terms of handling incoming threats.</li>
+                </ul>
+
+                <div class="about-divider" style="margin: 3rem 0; width: 60px;"></div>
+
+                <h2 id="clark-wilson" class="content-tr"><i class="fa-solid fa-network-wired" style="color: var(--neon-blue);"></i> 3. The Clark-Wilson Modeli</h2>
+                <h2 id="clark-wilson-en" class="content-en" style="display:none;"><i class="fa-solid fa-network-wired" style="color: var(--neon-blue);"></i> 3. The Clark-Wilson Model</h2>
+                
+                <p class="content-tr">Bazı spesifik kavramları kullanarak <strong>bütünlüğe (Integrity)</strong> ulaşmayı hedefler.</p>
+                <p class="content-en" style="display:none;">It aims to achieve <strong>Integrity</strong> by utilizing certain specific concepts.</p>
+
+                <p class="content-tr" style="margin-top: 1.5rem; font-weight: 600; color: #fff;">Bu kavramlar:</p>
+                <p class="content-en" style="display:none; margin-top: 1.5rem; font-weight: 600; color: #fff;">These concepts are:</p>
+                
+                <ul class="styled-list content-tr" style="margin-bottom: 2.5rem;">
+                    <li><strong style="color: var(--neon-blue);">Constrained Data Item (CDI):</strong> Bütünlüğünü korumak istediğimiz veri türünü ifade eder.</li>
+                    <li><strong style="color: var(--neon-blue);">Unconstrained Data Item (UDI):</strong> Kullanıcı ve sistem girişi gibi CDI’nin ötesindeki tüm veri türlerini ifade eder.</li>
+                    <li><strong style="color: var(--neon-blue);">Transformation Procedures (TPs):</strong> Prosedürler, okuma ve yazma gibi programlanmış işlemlerdir ve CDI’ların bütünlüğünü korumalıdır.</li>
+                    <li><strong style="color: var(--neon-blue);">Integrity Verification Procedures (IVPs):</strong> Prosedürler CDI’ların geçerliliğini kontrol eder ve sağlar.</li>
+                </ul>
+                <ul class="styled-list content-en" style="display:none; margin-bottom: 2.5rem;">
+                    <li><strong style="color: var(--neon-blue);">Constrained Data Item (CDI):</strong> Refers to the type of data whose integrity we want to preserve.</li>
+                    <li><strong style="color: var(--neon-blue);">Unconstrained Data Item (UDI):</strong> Refers to all data types beyond CDI, such as user and system input.</li>
+                    <li><strong style="color: var(--neon-blue);">Transformation Procedures (TPs):</strong> Procedures are programmed operations like reading and writing, and they must maintain the integrity of CDIs.</li>
+                    <li><strong style="color: var(--neon-blue);">Integrity Verification Procedures (IVPs):</strong> Procedures that check and ensure the validity of CDIs.</li>
+                </ul>
+
+                <h2 id="diger-modeller" class="content-tr"><i class="fa-solid fa-folder-tree" style="color: var(--neon-blue);"></i> Diğer Güvenlik Modelleri</h2>
+                <h2 id="diger-modeller-en" class="content-en" style="display:none;"><i class="fa-solid fa-folder-tree" style="color: var(--neon-blue);"></i> Other Security Models</h2>
+                
+                <p class="content-tr">Burada detaylıca bahsetmediğim ancak siber güvenlik mimarilerinde sıkça karşımıza çıkan diğer bazı modeller de bulunmaktadır. Örneğin:</p>
+                <p class="content-en" style="display:none;">There are several other models frequently encountered in cybersecurity architectures that I haven't discussed in detail here. For example:</p>
+                
+                <ul class="styled-list">
+                    <li>Brewer and Nash Model</li>
+                    <li>Goguen-Meseguer Model</li>
+                    <li>Sutherland Model</li>
+                    <li>Graham-Denning Model</li>
+                    <li>Harrison-Ruzzo-Ullman Model</li>
+                </ul>
+                
+            </article>
+        </div>
+
+
+        <div class="project-bottom-nav-container blog-content-width" style="margin-top: 4rem;">
+            <div class="project-pagination">
+                <a href="../mac-adresi-ve-arp/index.html" class="pagination-link prev">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span class="pagination-text">
+                        <span class="pagination-label content-tr">Önceki Yazı</span>
+                        <span class="pagination-label content-en" style="display:none;">Previous Post</span>
+                        <span class="pagination-title content-tr">MAC Adresi ve ARP</span>
+                        <span class="pagination-title content-en" style="display:none;">MAC Address and ARP</span>
+                    </span>
+                </a>
+
+                <a href="../vpn-ve-proxy-kavramlari/index.html" class="pagination-link next">
+                    <span class="pagination-text">
+                        <span class="pagination-label content-tr">Sonraki Yazı</span>
+                        <span class="pagination-label content-en" style="display:none;">Next Post</span>
+                        <span class="pagination-title content-tr">VPN ve Proxy Kavramları</span>
+                        <span class="pagination-title content-en" style="display:none;">VPN and Proxy Concepts</span>
+                    </span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo-wrapper">
+                    <img src="../../Assets/favicon.png" alt="MBM Logo" class="footer-logo">
+                    <span class="footer-name">MEHMET BURAK MENTEŞE</span>
+                </div>
+                <p class="footer-desc" data-translate="footerDesc">Marmara Üniversitesi Bilgisayar Mühendisliği.<br>Yapay Zeka, Yazılım Geliştirme ve Siber Güvenlik.</p>
+                <a href="mailto:burakmentese16@gmail.com" class="footer-email"><i class="fa-regular fa-envelope"></i> burakmentese16@gmail.com</a>
+            </div>
+            <div class="footer-links">
+                <h4 class="footer-title" data-translate="quickMenu">Hızlı Menü</h4>
+                <nav class="footer-nav">
+                    <a href="../../index.html" data-translate="home">Ana Sayfa</a>
+                    <a href="../../hakkimda.html" data-translate="about">Hakkımda</a>
+                    <a href="../../projeler.html" data-translate="projects">Projeler</a>
+                    <a href="../../blog.html" data-translate="blog">Blog</a>
+                </nav>
+            </div>
+            <div class="footer-social">
+                <h4 class="footer-title" data-translate="followMe">Beni Takip Edin</h4>
+                <div class="footer-social-icons">
+                    <a href="https://github.com/BurakHINGE" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/mehmetburakmentese/" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://medium.com/@burakmentese16" target="_blank" title="Medium"><span class="classic-medium">M</span></a>
+                </div>
+                <p class="copyright" data-translate="allRightsReserved">© 2026 Mehmet Burak Menteşe.<br>Tüm Hakları Saklıdır.<br><span class="designed-by">Designed by MBM</span></p>
+            </div>
+        </div>
+    </footer>
+    <script src="../../script.js"></script>
+</body>
+</html>
