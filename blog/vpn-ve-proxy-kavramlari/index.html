@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VPN ve Proxy Kavramları | Blog | Mehmet Burak Menteşe</title>
+    <meta name="description" content="VPN ve Proxy arasındaki temel farklar, çalışma mantıkları ve ortak noktalarının sade bir dille anlatımı.">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <a href="../../index.html" class="nav-logo-container">
+            <img src="../../Assets/favicon.png" alt="Website Logo" class="nav-logo">
+            <span class="nav-brand">Mehmet Burak Menteşe</span>
+        </a>
+        <nav>
+            <a href="../../index.html" class="nav-link" data-translate="home">Ana Sayfa</a>
+            <a href="../../hakkimda.html" class="nav-link" data-translate="about">Hakkımda</a>
+            <a href="../../projeler.html" class="nav-link" data-translate="projects">Projeler</a>
+            <a href="../../blog.html" class="nav-link active" data-translate="blog">Blog</a>
+            <div class="lang-toggle">
+                <span id="lang-tr" class="lang-btn active">TR</span>
+                <span class="lang-separator">/</span>
+                <span id="lang-en" class="lang-btn">EN</span>
+            </div>
+        </nav>
+    </header>
+
+    <section id="blog-detail" class="project-single-layout">
+        <div class="project-top-nav blog-content-width">
+            <a href="../../blog.html" class="back-link content-tr"><i class="fa-solid fa-arrow-left-long"></i> Tüm Yazılara Dön</a>
+            <a href="../../blog.html" class="back-link content-en" style="display:none;"><i class="fa-solid fa-arrow-left-long"></i> Back to All Posts</a>
+        </div>
+
+        <div class="project-hero blog-content-width hero-left-aligned">
+            <div class="hero-title-wrapper fixed-underline">
+                <h1 class="project-main-title content-tr">VPN ve Proxy Kavramları</h1>
+                <h1 class="project-main-title content-en" style="display:none;">VPN and Proxy Concepts</h1>
+            </div>
+            
+            <div class="blog-meta-info">
+                <span class="meta-item"><i class="fa-regular fa-calendar-alt"></i> <span class="content-tr">19 Mayıs 2025</span><span class="content-en" style="display:none;">May 19, 2025</span></span>
+                <span class="meta-item"><i class="fa-solid fa-network-wired"></i> <span class="content-tr">Network & Güvenlik</span><span class="content-en" style="display:none;">Network & Security</span></span>
+                <span class="meta-item"><i class="fa-regular fa-clock"></i> <span class="content-tr">2 dk okuma</span><span class="content-en" style="display:none;">2 min read</span></span>
+            </div>
+        </div>
+
+        <div class="blog-layout-grid blog-content-width">
+            <aside class="blog-toc">
+                <h4 class="toc-title content-tr"><i class="fa-solid fa-list-ul"></i> İçindekiler</h4>
+                <h4 class="toc-title content-en" style="display:none;"><i class="fa-solid fa-list-ul"></i> Table of Contents</h4>
+                
+                <nav class="toc-nav content-tr">
+                    <a href="#blog-detail">VPN ve Proxy Kavramları</a>
+                    <div style="height: 1px; background: rgba(0, 242, 254, 0.15); margin: 0.5rem 0;"></div>
+                    <a href="#on-soz">Yazı Hakkında Ön Söz</a>
+                    <a href="#vpn">VPN (Sanal Özel Ağ)</a>
+                    <a href="#proxy">Proxy (Vekil Sunucu)</a>
+                    <a href="#ortak-noktalar">Ortak Noktaları Nelerdir?</a>
+                </nav>
+
+                <nav class="toc-nav content-en" style="display:none;">
+                    <a href="#blog-detail">VPN and Proxy Concepts</a>
+                    <div style="height: 1px; background: rgba(0, 242, 254, 0.15); margin: 0.5rem 0;"></div>
+                    <a href="#on-soz-en">Preface to the Article</a>
+                    <a href="#vpn-en">VPN (Virtual Private Network)</a>
+                    <a href="#proxy-en">Proxy Server</a>
+                    <a href="#ortak-noktalar-en">What Are Their Common Points?</a>
+                </nav>
+            </aside>
+
+            <article class="blog-article-content reading-optimized">
+                
+                <h2 id="on-soz" class="content-tr"><i class="fa-solid fa-pen-nib" style="color: var(--neon-blue);"></i> Yazı Hakkında Ön Söz</h2>
+                <h2 id="on-soz-en" class="content-en" style="display:none;"><i class="fa-solid fa-pen-nib" style="color: var(--neon-blue);"></i> Preface to the Article</h2>
+                
+                <p class="lead-text content-tr">VPN ve Proxy çoğu zaman birbiriyle karıştırılabiliyor. Aralarında benzerlikler olsa da temel işlevleri ve güvenlik seviyeleri açısından belirgin farkları bulunmaktadır.</p>
+                <p class="lead-text content-en" style="display:none;">VPN and Proxy are often confused with each other. Even though they share similarities, they have distinct differences in terms of their core functions and security levels.</p>
+                
+                <p class="content-tr">Bu yazımda ise teknik boğuntulara girmeden bu servislerin ortak noktalarına ve farklılıklarına değineceğim.</p>
+                <p class="content-en" style="display:none;">In this article, without drowning in technical jargon, I will touch upon the commonalities and differences of these services.</p>
+
+                <div class="about-divider" style="margin: 3rem 0; width: 60px;"></div>
+
+                <h2 id="vpn" class="content-tr"><i class="fa-solid fa-shield-halved" style="color: var(--neon-blue);"></i> VPN Nedir?</h2>
+                <h2 id="vpn-en" class="content-en" style="display:none;"><i class="fa-solid fa-shield-halved" style="color: var(--neon-blue);"></i> What is a VPN?</h2>
+                
+                <ul class="styled-list content-tr" style="margin-bottom: 2.5rem;">
+                    <li>İki tarafın arasındaki iletişimin şifrelendirildiği bir servistir. Bu şifrelendirilmiş özel hatta <strong>tünel</strong> adı verilir.</li>
+                    <li>VPN trafiği, VPN sunucusuna kadar tamamen şifrelidir ve dışarıdan bakanlar (İSS dahil) tarafından <strong>okunabilir değildir</strong>.</li>
+                </ul>
+                <ul class="styled-list content-en" style="display:none; margin-bottom: 2.5rem;">
+                    <li>It is a service where communication between two parties is encrypted. This encrypted private line is called a <strong>tunnel</strong>.</li>
+                    <li>VPN traffic is completely encrypted up to the VPN server and is <strong>unreadable</strong> by external observers (including ISPs).</li>
+                </ul>
+
+                <h2 id="proxy" class="content-tr"><i class="fa-solid fa-server" style="color: var(--neon-blue);"></i> Proxy Nedir?</h2>
+                <h2 id="proxy-en" class="content-en" style="display:none;"><i class="fa-solid fa-server" style="color: var(--neon-blue);"></i> What is a Proxy?</h2>
+                
+                <ul class="styled-list content-tr">
+                    <li>Çevrimiçi bir kaynağa erişmek için aracı görevi gören bir servistir. Temelde sadece internet erişimine aracılık eder.</li>
+                    <li>İletişimi genellikle <strong>şifresizdir</strong>.</li>
+                    <li>Uçtan uca güçlü bir anonimlik (gizlilik) sağlamaz.</li>
+                    <li>Proxy sunucuları güvenlik taahhüt etse bile proxy sunucusuna giderkenki trafik, internet servis sağlayıcıları (ISP) veya üçüncü kişiler tarafından okunabilir/izlenebilir.</li>
+                </ul>
+                <ul class="styled-list content-en" style="display:none;">
+                    <li>It is a service that acts as an intermediary to access an online resource. It essentially merely mediates internet access.</li>
+                    <li>Its communication is generally <strong>unencrypted</strong>.</li>
+                    <li>It does not provide strong end-to-end anonymity (privacy).</li>
+                    <li>Even if proxy servers pledge security, the traffic going to the proxy server can be read/monitored by internet service providers (ISPs) or third parties.</li>
+                </ul>
+
+                <div class="image-gallery" style="margin: 2.5rem 0;">
+                    <div class="image-container">
+                        <div class="corner top-left"></div>
+                        <div class="corner top-right"></div>
+                        <div class="corner bottom-left"></div>
+                        <div class="corner bottom-right"></div>
+                        <img src="../../Assets/blog/vpn-vs-proxy.png" alt="VPN vs Proxy" class="project-img">
+                    </div>
+                </div>
+
+                <div class="about-divider" style="margin: 3rem 0; width: 60px;"></div>
+
+                <h2 id="ortak-noktalar" class="content-tr"><i class="fa-solid fa-handshake" style="color: var(--neon-blue);"></i> VPN ve Proxy’nin Ortak Noktaları</h2>
+                <h2 id="ortak-noktalar-en" class="content-en" style="display:none;"><i class="fa-solid fa-handshake" style="color: var(--neon-blue);"></i> Common Points of VPN and Proxy</h2>
+                
+                <div class="blog-quote-box content-tr" style="margin: 2rem 0; padding: 2rem;">
+                    <i class="fa-solid fa-circle-nodes quote-icon"></i>
+                    <ul class="styled-list" style="margin: 0;">
+                        <li style="margin-bottom: 0.8rem;">Her ikisinde de <strong>IP değişikliği</strong> sağlanır.</li>
+                        <li style="margin-bottom: 0.8rem;">Sunucu üzerinde log (kayıt) alımı ve monitoring (izleme) yapılabilir.</li>
+                        <li style="margin-bottom: 0;">Farklı ülkelerdeki serverlara (sunuculara) bağlanarak <strong>coğrafi kısıtlamaları (geo-blocking) aşabilirler</strong>.</li>
+                    </ul>
+                </div>
+                
+                <div class="blog-quote-box content-en" style="display:none; margin: 2rem 0; padding: 2rem;">
+                    <i class="fa-solid fa-circle-nodes quote-icon"></i>
+                    <ul class="styled-list" style="margin: 0;">
+                        <li style="margin-bottom: 0.8rem;">Both provide an <strong>IP change</strong>.</li>
+                        <li style="margin-bottom: 0.8rem;">Logging and monitoring can be performed on the server.</li>
+                        <li style="margin-bottom: 0;">They can <strong>bypass geographical restrictions (geo-blocking)</strong> by connecting to servers in different countries.</li>
+                    </ul>
+                </div>
+                
+            </article>
+        </div>
+
+        <div class="project-bottom-nav-container blog-content-width" style="margin-top: 4rem;">
+            <div class="project-pagination">
+                <a href="../mac-adresi-ve-arp/index.html" class="pagination-link prev">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span class="pagination-text">
+                        <span class="pagination-label content-tr">Önceki Yazı</span>
+                        <span class="pagination-label content-en" style="display:none;">Previous Post</span>
+                        <span class="pagination-title content-tr">Bilgi Güvenliği Modelleri</span>
+                        <span class="pagination-title content-en" style="display:none;">Information Security Models</span>
+                    </span>
+                </a>
+
+                <a href="../../blog.html" class="pagination-link next">
+                    <span class="pagination-text">
+                        <span class="pagination-label content-tr">Geri Dön</span>
+                        <span class="pagination-label content-en" style="display:none;">Go Back</span>
+                        <span class="pagination-title content-tr">Tüm Yazılar</span>
+                        <span class="pagination-title content-en" style="display:none;">All Posts</span>
+                    </span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo-wrapper">
+                    <img src="./Assets/favicon.png" alt="MBM Logo" class="footer-logo">
+                    <span class="footer-name">MEHMET BURAK MENTEŞE</span>
+                </div>
+                <p class="footer-desc" data-translate="footerDesc">Marmara Üniversitesi Bilgisayar Mühendisliği.<br>Yapay Zeka, Yazılım Geliştirme ve Siber Güvenlik.</p>
+                <a href="mailto:burakmentese16@gmail.com" class="footer-email"><i class="fa-regular fa-envelope"></i> burakmentese16@gmail.com</a>
+            </div>
+            <div class="footer-links">
+                <h4 class="footer-title" data-translate="quickMenu">Hızlı Menü</h4>
+                <nav class="footer-nav">
+                    <a href="../../index.html" data-translate="home">Ana Sayfa</a>
+                    <a href="../../hakkimda.html" data-translate="about">Hakkımda</a>
+                    <a href="../../projeler.html" data-translate="projects">Projeler</a>
+                    <a href="../../blog.html" data-translate="blog">Blog</a>
+                </nav>
+            </div>
+            <div class="footer-social">
+                <h4 class="footer-title" data-translate="followMe">Beni Takip Edin</h4>
+                <div class="footer-social-icons">
+                    <a href="https://github.com/BurakHINGE" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/mehmetburakmentese/" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://medium.com/@burakmentese16" target="_blank" title="Medium"><span class="classic-medium">M</span></a>
+                </div>
+                <p class="copyright" data-translate="allRightsReserved">© 2026 Mehmet Burak Menteşe.<br>Tüm Hakları Saklıdır.<br><span class="designed-by">Designed by MBM</span></p>
+            </div>
+        </div>
+    </footer>
+    <script src="../../script.js"></script>
+</body>
+</html>
