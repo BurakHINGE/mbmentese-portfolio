@@ -305,4 +305,106 @@ function setLanguage(lang) {
     });
 }
 
+// --- RESİM GALERİSİ (SLIDER) İŞLEMLERİ ---
+let slideIndex = 0;
+
+function showSlide(n) {
+    const slides = document.querySelectorAll('.slide');
+    
+    // Eğer o sayfada slider yoksa kodu çalıştırma (Hata vermesini önler)
+    if (slides.length === 0) return; 
+
+    // Sınır kontrolleri (Sona gelince başa sar, baştayken sola basınca sona git)
+    if (n >= slides.length) { slideIndex = 0; }
+    if (n < 0) { slideIndex = slides.length - 1; }
+
+    // Tüm slaytları gizle
+    slides.forEach((slide) => {
+        slide.classList.remove('active');
+    });
+
+    // Sadece aktif olanı göster
+    slides[slideIndex].classList.add('active');
+}
+
+function moveSlide(n) {
+    slideIndex += n;
+    showSlide(slideIndex);
+}
+
+// Sayfa ilk yüklendiğinde slider varsa birinci resmi aktif et
+document.addEventListener('DOMContentLoaded', () => {
+    showSlide(0);
+});
+
+// --- LIGHTBOX (RESİM BÜYÜTME) İŞLEMLERİ ---
+function openLightbox() {
+    // Slider içindeki o an aktif (görünen) resmi bul
+    const activeSlide = document.querySelector('.slide.active');
+    if (activeSlide) {
+        const lightbox = document.getElementById('lightbox-overlay');
+        const lightboxImg = document.getElementById('lightbox-img');
+        
+        if (lightbox && lightboxImg) {
+            lightboxImg.src = activeSlide.src; // Resmi lightbox'a kopyala
+            lightbox.classList.add('active'); // Lightbox'ı görünür yap
+        }
+    }
+}
+
+function closeLightbox(event) {
+    // Sadece siyah arka plana tıklanırsa kapat (resmin kendisine tıklanırsa kapatma)
+    if (event.target.id === 'lightbox-overlay') {
+        document.getElementById('lightbox-overlay').classList.remove('active');
+    }
+}
+
+// script.js'deki mevcut LIGHTBOX işlevlerinin altına ekliyorum
+
+// YENİ: Tekli resimler için büyütme işlevi
+function openSingleLightbox(buttonElement) {
+    // Tıklanan butonun ebeveynindeki resmi bul
+    const container = buttonElement.closest('.image-container');
+    if (container) {
+        const img = container.querySelector('img');
+        if (img) {
+            const lightbox = document.getElementById('lightbox-overlay');
+            const lightboxImg = document.getElementById('lightbox-img');
+            
+            if (lightbox && lightboxImg) {
+                lightboxImg.src = img.src; // Resmi lightbox'a kopyala
+                lightbox.classList.add('active'); // Lightbox'ı görünür yap
+                lightbox.classList.add('single-image'); // Navigasyon oklarını gizlemek için sınıf ekle
+            }
+        }
+    }
+}
+
+// openLightbox işlevini de güncelleyerek bu sınıfı temizlemesini sağlamalıyım
+// Mevcut openLightbox işlevini bulup değiştiriyorum
+function openLightbox() {
+    const activeSlide = document.querySelector('.slide.active');
+    if (activeSlide) {
+        const lightbox = document.getElementById('lightbox-overlay');
+        const lightboxImg = document.getElementById('lightbox-img');
+        
+        if (lightbox && lightboxImg) {
+            lightbox.classList.remove('single-image'); // Önceki tekli resim sınıfını temizle
+            lightboxImg.src = activeSlide.src; 
+            lightbox.classList.add('active'); 
+        }
+    }
+}
+
+// closeLightbox işlevini de güncelleyerek bu sınıfı temizlemesini sağlamalıyım
+// Mevcut closeLightbox işlevini bulup değiştiriyorum
+function closeLightbox(event) {
+    if (event.target.id === 'lightbox-overlay') {
+        const lightbox = document.getElementById('lightbox-overlay');
+        lightbox.classList.remove('active');
+        lightbox.classList.remove('single-image'); // Sınıfı temizle
+    }
+}
+
+
 document.addEventListener('DOMContentLoaded', createEnhancedStarfield);
