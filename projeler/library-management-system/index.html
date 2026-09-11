@@ -3,168 +3,188 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>Library Management System | Projeler | Mehmet Burak Menteşe</title>
-    <meta name="description" content="Java ve OOP prensipleriyle geliştirilmiş; JSON tabanlı kalıcı veri yönetimi, kişisel raf sistemi, ödünç alma mekanizması ve admin paneli içeren kapsamlı kütüphane sistemi.">
-    
-    <!-- 2 üst klasöre çıkıyoruz -->
+    <link rel="icon" type="image/png" href="../../Assets/favicon.png">
     <link rel="stylesheet" href="../../style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- HEADER & NAVBAR -->
     <header>
         <a href="../../index.html" class="nav-logo-container">
             <img src="../../Assets/favicon.png" alt="Website Logo" class="nav-logo">
             <span class="nav-brand">Mehmet Burak Menteşe</span>
         </a>
         <nav>
-            <a href="../../index.html" class="nav-link">Ana Sayfa</a>
-            <a href="../../hakkimda.html" class="nav-link">Hakkımda</a>
-            <a href="../../projeler.html" class="nav-link">Projeler</a>
-            <a href="../../blog.html" class="nav-link">Blog</a>
-            <a href="../../iletisim.html" class="nav-link">İletişim</a>
-            <span id="lang-tr" class="lang-active">TR</span><span class="lang-separator">/</span><span id="lang-en">EN</span>
+            <a href="../../index.html" class="nav-link" data-translate="home">Ana Sayfa</a>
+            <a href="../../hakkimda.html" class="nav-link" data-translate="about">Hakkımda</a>
+            <a href="../../projeler.html" class="nav-link active" data-translate="projects">Projeler</a>
+            <a href="../../blog.html" class="nav-link" data-translate="blog">Blog</a>
+            <div class="lang-toggle">
+                <span id="lang-tr" class="lang-btn active">TR</span>
+                <span class="lang-separator">/</span>
+                <span id="lang-en" class="lang-btn">EN</span>
+            </div>
         </nav>
     </header>
 
-    <!-- PROJE DETAY BÖLÜMÜ -->
     <section id="project-detail" class="project-single-layout">
-        
-        <!-- Sola Yaslı, Canlı Renkli Üst Navigasyon -->
         <div class="project-top-nav">
-            <a href="../../projeler.html" class="back-link">
-                <i class="fa-solid fa-arrow-left-long"></i> Tüm Projelere Dön
-            </a>
+            <a href="../../projeler.html" class="back-link content-tr"><i class="fa-solid fa-arrow-left-long"></i> Tüm Projelere Dön</a>
+            <a href="../../projeler.html" class="back-link content-en" style="display:none;"><i class="fa-solid fa-arrow-left-long"></i> Back to All Projects</a>
         </div>
 
-        <!-- 1. ÜST ODAK ALANI (HERO) -->
         <div class="project-hero">
             <div class="hero-title-wrapper">
                 <h1 class="project-main-title">LIBRARY OOP SYSTEM</h1>
             </div>
             
+            <!-- YENİ: Etiketler ve Tooltip Yapısı -->
             <div class="skill-tags justify-center">
                 <span class="skill-tag">Java</span>
                 <span class="skill-tag">OOP</span>
                 <span class="skill-tag">JSON Persistence</span>
-                <span class="skill-tag">Admin & Role Management</span>
-                <span class="skill-tag">Console App</span>
+                <span class="skill-tag">Auth & Roles</span>
+                
+                <div class="more-tags-container">
+                    <span class="skill-tag more-btn">+3</span>
+                    <div class="tags-tooltip">
+                        <span class="skill-tag" style="padding: 4px 8px; font-size: 0.75rem;">Inheritance</span>
+                        <span class="skill-tag" style="padding: 4px 8px; font-size: 0.75rem;">Polymorphism</span>
+                        <span class="skill-tag" style="padding: 4px 8px; font-size: 0.75rem;">Exception Handling</span>
+                    </div>
+                </div>
             </div>
 
-            <p class="project-hero-desc">
-                Kişisel kitaplık (raf) yönetimini ortak kütüphane, kopya takibi, ödünç alma mekanizması ve admin paneliyle harmanlayan konsol tabanlı otomasyon sistemi.
-            </p>
+            <p class="project-hero-desc content-tr">Kişisel kitaplık (raf) yönetimini ortak kütüphane, kopya takibi, ödünç alma mekanizması ve admin paneliyle harmanlayan konsol tabanlı otomasyon sistemi.</p>
+            <p class="project-hero-desc content-en" style="display:none;">A console-based automation system that blends personal library (shelf) management with a shared library, copy tracking, borrowing mechanics, and an admin panel.</p>
         </div>
 
         <div class="about-divider" style="margin: 3rem 0 4rem 0;"></div>
 
-        <!-- ANA İÇERİK ALANI -->
         <div class="project-content">
-
-            <!-- 2. HİKAYE VE ÖNE ÇIKAN ÖZELLİKLER -->
             <div class="project-bento-box" style="margin-top: 0; margin-bottom: 5rem;">
-                
-                <!-- Hikaye Kartı -->
                 <div class="bento-card full-width">
                     <div class="bento-header">
                         <i class="fa-solid fa-book-bookmark"></i>
-                        <h3>Çıkış Noktası ve Kapsam</h3>
+                        <h3 class="content-tr">Çıkış Noktası ve Kapsam</h3>
+                        <h3 class="content-en" style="display:none;">Starting Point and Scope</h3>
                     </div>
-                    <p class="bento-text">
-                        Bu proje başlangıçta kullanıcıların okudukları kitapları not edip saklayabileceği kişisel bir "kitaplık/raf" uygulaması olarak tasarlandı. Zamanla kapsamı genişletilerek mevcut kod yapısı silinmeden tam teşekküllü bir **Kütüphane Sistemine** dönüştürüldü. Artık kullanıcılar sadece kendi raflarını yönetmekle kalmıyor; merkezi kütüphaneden kitap aratabiliyor, kopya sayılarıyla birlikte kitap ödünç alabiliyor ve ödünç alınan bu kitaplar otomatik olarak kişisel raflarına "Okunuyor" statüsüyle ekleniyor.
-                    </p>
+                    <p class="bento-text content-tr">Bu proje başlangıçta kullanıcıların okudukları kitapları not edip saklayabileceği kişisel bir "kitaplık/raf" uygulaması olarak tasarlandı. Zamanla kapsamı genişletilerek mevcut kod yapısı silinmeden tam teşekküllü bir **Kütüphane Sistemine** dönüştürüldü. Artık kullanıcılar sadece kendi raflarını yönetmekle kalmıyor; merkezi kütüphaneden kitap aratabiliyor, kopya sayılarıyla birlikte kitap ödünç alabiliyor ve ödünç alınan bu kitaplar otomatik olarak kişisel raflarına "Okunuyor" statüsüyle ekleniyor.</p>
+                    <p class="bento-text content-en" style="display:none;">This project was initially designed as a personal "bookshelf" application where users could note and store books they read. Over time, its scope was expanded and transformed into a full-fledged **Library System** without discarding the existing code structure. Users can now not only manage their own shelves but also search for books in the central library, borrow books with copy counts, and have these borrowed books automatically added to their personal shelves with a "Reading" status.</p>
                 </div>
                 
-                <!-- Öne Çıkan 4 Özellik (2x2 Grid) -->
                 <div class="feature-grid full-width">
-                    
                     <div class="bento-card" style="padding: 1.5rem; text-align: center;">
                         <i class="fa-solid fa-layer-group" style="font-size: 2rem; color: var(--neon-blue); margin-bottom: 1rem;"></i>
-                        <h4 class="bento-card-title">Hibrit Raf Sistemi</h4>
-                        <p class="bento-text" style="font-size: 0.9rem;">Kişisel not edilen kitaplar ile merkezi kütüphaneden gelen ödünç kitapların ortak yönetimi.</p>
+                        <h4 class="bento-card-title content-tr">Hibrit Raf Sistemi</h4>
+                        <h4 class="bento-card-title content-en" style="display:none;">Hybrid Shelf System</h4>
+                        <p class="bento-text content-tr" style="font-size: 0.9rem;">Kişisel not edilen kitaplar ile merkezi kütüphaneden gelen ödünç kitapların ortak yönetimi.</p>
+                        <p class="bento-text content-en" style="display:none; font-size: 0.9rem;">Joint management of personally noted books and borrowed books from the central library.</p>
                     </div>
-                    
                     <div class="bento-card" style="padding: 1.5rem; text-align: center;">
                         <i class="fa-solid fa-hand-holding-hand" style="font-size: 2rem; color: var(--neon-blue); margin-bottom: 1rem;"></i>
-                        <h4 class="bento-card-title">Ödünç Alma Entegrasyonu</h4>
-                        <p class="bento-text" style="font-size: 0.9rem;">Kütüphaneden ödünç alınan kitabın doğrudan kullanıcının rafına aktarılması ve durum takibi.</p>
+                        <h4 class="bento-card-title content-tr">Ödünç Alma Entegrasyonu</h4>
+                        <h4 class="bento-card-title content-en" style="display:none;">Borrowing Integration</h4>
+                        <p class="bento-text content-tr" style="font-size: 0.9rem;">Kütüphaneden ödünç alınan kitabın doğrudan kullanıcının rafına aktarılması ve durum takibi.</p>
+                        <p class="bento-text content-en" style="display:none; font-size: 0.9rem;">Direct transfer of borrowed books to the user's shelf and status tracking.</p>
                     </div>
-                    
                     <div class="bento-card" style="padding: 1.5rem; text-align: center;">
                         <i class="fa-solid fa-user-shield" style="font-size: 2rem; color: var(--neon-blue); margin-bottom: 1rem;"></i>
-                        <h4 class="bento-card-title">Admin & Yetkilendirme</h4>
-                        <p class="bento-text" style="font-size: 0.9rem;">Kütüphane stoklarını, kitap kopya sayılarını ve kullanıcı işlemlerini yöneten admin paneli.</p>
+                        <h4 class="bento-card-title content-tr">Admin & Yetkilendirme</h4>
+                        <h4 class="bento-card-title content-en" style="display:none;">Admin & Authorization</h4>
+                        <p class="bento-text content-tr" style="font-size: 0.9rem;">Kütüphane stoklarını, kitap kopya sayılarını ve kullanıcı işlemlerini yöneten admin paneli.</p>
+                        <p class="bento-text content-en" style="display:none; font-size: 0.9rem;">An admin panel managing library stocks, book copy counts, and user operations.</p>
                     </div>
-                    
                     <div class="bento-card" style="padding: 1.5rem; text-align: center;">
                         <i class="fa-solid fa-database" style="font-size: 2rem; color: var(--neon-blue); margin-bottom: 1rem;"></i>
-                        <h4 class="bento-card-title">JSON Kalıcılığı</h4>
-                        <p class="bento-text" style="font-size: 0.9rem;">Harici sunucu gerektirmeyen, otomatik dosya oluşturan JSON tabanlı güvenli veri saklama.</p>
+                        <h4 class="bento-card-title content-tr">JSON Kalıcılığı</h4>
+                        <h4 class="bento-card-title content-en" style="display:none;">JSON Persistence</h4>
+                        <p class="bento-text content-tr" style="font-size: 0.9rem;">Harici sunucu gerektirmeyen, otomatik dosya oluşturan JSON tabanlı güvenli veri saklama.</p>
+                        <p class="bento-text content-en" style="display:none; font-size: 0.9rem;">Secure JSON-based data storage that creates files automatically without external servers.</p>
                     </div>
-
                 </div>
             </div>
 
-            <!-- 3. ZIG-ZAG BÖLÜM 1: Teknik Detaylar -->
             <div class="bento-section-title">
-                <h2><i class="fa-solid fa-microchip" style="color: var(--neon-blue);"></i> Teknik Altyapı ve Sınıf Mimarisi</h2>
+                <h2 class="content-tr"><i class="fa-solid fa-microchip" style="color: var(--neon-blue);"></i> Teknik Altyapı ve Sınıf Mimarisi</h2>
+                <h2 class="content-en" style="display:none;"><i class="fa-solid fa-microchip" style="color: var(--neon-blue);"></i> Tech Infrastructure & Class Architecture</h2>
             </div>
             
-            <div class="zigzag-row" style="margin-bottom: 5rem;">
-                <div class="zigzag-text">
+            <div class="zigzag-row" style="margin-bottom: 5rem; display: flex; align-items: center;">
+                <div class="zigzag-text" style="flex: 0.8;">
                     <div class="mini-card-container">
                         <div class="mini-card">
                             <i class="fa-solid fa-cubes"></i>
                             <div class="mini-card-content">
-                                <h4>OOP Prensipleri</h4>
-                                <p>Sistem; <code>Library</code>, <code>User</code> ve <code>Book</code> sınıfları arasında sıkı sorumluluk ayrımı (separation of concerns) gözetilerek tasarlandı.</p>
+                                <h4 class="content-tr">OOP Prensipleri</h4>
+                                <h4 class="content-en" style="display:none;">OOP Principles</h4>
+                                <p class="content-tr">Sistem; <code>Library</code>, <code>User</code> ve <code>Book</code> sınıfları arasında sıkı sorumluluk ayrımı (separation of concerns) gözetilerek tasarlandı.</p>
+                                <p class="content-en" style="display:none;">The system was designed with strict separation of concerns among <code>Library</code>, <code>User</code>, and <code>Book</code> classes.</p>
                             </div>
                         </div>
-
                         <div class="mini-card">
                             <i class="fa-solid fa-file-code"></i>
                             <div class="mini-card-content">
-                                <h4>JSON Veri Yönetimi</h4>
-                                <p>Harici <code>json.jar</code> kütüphanesi kullanılarak kullanıcı verileri ve kitap envanteri kalıcı olarak diske kaydedilir ve okunur.</p>
+                                <h4 class="content-tr">JSON Veri Yönetimi</h4>
+                                <h4 class="content-en" style="display:none;">JSON Data Management</h4>
+                                <p class="content-tr">Harici <code>json.jar</code> kütüphanesi kullanılarak kullanıcı verileri ve kitap envanteri kalıcı olarak diske kaydedilir ve okunur.</p>
+                                <p class="content-en" style="display:none;">User data and book inventory are persistently saved and read from disk using the external <code>json.jar</code> library.</p>
                             </div>
                         </div>
-
                         <div class="mini-card">
                             <i class="fa-solid fa-lock"></i>
                             <div class="mini-card-content">
-                                <h4>Güvenlik & Doğrulama</h4>
-                                <p>Kullanıcı kayıt mekanizması, güvenli giriş (secure login) ve özel parola kısıtlamalarıyla desteklenmiştir.</p>
+                                <h4 class="content-tr">Güvenlik & Doğrulama</h4>
+                                <h4 class="content-en" style="display:none;">Security & Authentication</h4>
+                                <p class="content-tr">Kullanıcı kayıt mekanizması, güvenli giriş (secure login) ve özel parola kısıtlamalarıyla desteklenmiştir.</p>
+                                <p class="content-en" style="display:none;">Supported by user registration mechanics, secure login, and custom password constraints.</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="zigzag-image image-container">
+
+                <div class="zigzag-image slider-container local-rag-terminal-slider" style="flex: 1.2; margin-top: 0;">
                     <div class="corner top-left"></div>
                     <div class="corner top-right"></div>
                     <div class="corner bottom-left"></div>
                     <div class="corner bottom-right"></div>
-                    <img src="../../Assets/library-demo.png" alt="Library System Konsol Görünümü" class="project-img" style="aspect-ratio: 4/3; object-fit: cover;">
+                    
+                    <button class="enlarge-btn" onclick="openLightbox()" title="Resmi Büyüt"><i class="fa-solid fa-expand"></i></button>
+                    
+                    <img src="../../Assets/library-demo.png" alt="Library System Demo 1" class="slide active" style="object-fit: contain !important;">
+                    <img src="../../Assets/library-demo-2.png" alt="Library System Demo 2" class="slide" style="object-fit: contain !important;">
+                    <img src="../../Assets/library-demo-3.png" alt="Library System Demo 3" class="slide" style="object-fit: contain !important;">
+                    <img src="../../Assets/library-demo-4.png" alt="Library System Demo 4" class="slide" style="object-fit: contain !important;">
+                    <img src="../../Assets/library-demo-5.png" alt="Library System Demo 5" class="slide" style="object-fit: contain !important;">
+                    <img src="../../Assets/library-demo-6.png" alt="Library System Demo 6" class="slide" style="object-fit: contain !important;">
+                    <img src="../../Assets/library-demo-7.png" alt="Library System Demo 7" class="slide" style="object-fit: contain !important;">
+                    <img src="../../Assets/library-demo-8.png" alt="Library System Demo 8" class="slide" style="object-fit: contain !important;">
+
+                    <button class="slider-btn prev-btn" onclick="moveSlide(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button class="slider-btn next-btn" onclick="moveSlide(1)"><i class="fa-solid fa-chevron-right"></i></button>
                 </div>
             </div>
 
-            <!-- 4. ZORLUKLAR VE ÖĞRENİLENLER -->
             <div class="bento-card full-width" style="margin-bottom: 5rem;">
                 <div class="bento-header">
                     <i class="fa-solid fa-lightbulb"></i>
-                    <h3>Mimari Kararlar ve Zorluklar</h3>
+                    <h3 class="content-tr">Mimari Kararlar ve Zorluklar</h3>
+                    <h3 class="content-en" style="display:none;">Architectural Decisions & Challenges</h3>
                 </div>
-                <ul class="styled-list">
+                <ul class="styled-list content-tr">
                     <li><strong>Mevcut Kodu Korumak (Refactoring):</strong> Uygulamayı sıfırdan yazmak yerine, eski "Kişisel Raf" yapısını bozmadan üstüne "Merkezi Kütüphane ve Admin" katmanını entegre etmek OOP kalıtım ve kapsülleme (encapsulation) mantığını test etmek adına harika bir pratik oldu.</li>
                     <li><strong>Kopya Sayısı Senkronizasyonu:</strong> Bir kullanıcı kütüphaneden kitap ödünç aldığında kütüphanedeki stok (copy count) miktarının güvenli bir şekilde azalması ve bu değişikliğin anlık olarak JSON dosyasına yansıtılması veri tutarlılığı açısından kritik bir süreçti.</li>
                 </ul>
+                <ul class="styled-list content-en" style="display:none;">
+                    <li><strong>Preserving Existing Code (Refactoring):</strong> Instead of rewriting from scratch, integrating the "Central Library and Admin" layer over the old "Personal Shelf" structure without breaking it was a great practice to test OOP inheritance and encapsulation logic.</li>
+                    <li><strong>Copy Count Synchronization:</strong> When a user borrows a book, safely decrementing the library stock (copy count) and reflecting this change instantly in the JSON file was a critical process for data consistency.</li>
+                </ul>
             </div>
 
-            <!-- 5. KURULUM VE KULLANIM -->
             <div class="bento-section-title">
-                <h2><i class="fa-solid fa-code" style="color: var(--neon-blue);"></i> Kurulum ve Çalıştırma</h2>
+                <h2 class="content-tr"><i class="fa-solid fa-code" style="color: var(--neon-blue);"></i> Kurulum ve Çalıştırma</h2>
+                <h2 class="content-en" style="display:none;"><i class="fa-solid fa-code" style="color: var(--neon-blue);"></i> Installation and Execution</h2>
             </div>
             
             <div class="terminal-code-block" style="margin-bottom: 5rem;">
@@ -172,51 +192,91 @@
                     <span class="dot red"></span>
                     <span class="dot yellow"></span>
                     <span class="dot green"></span>
-                    <span class="terminal-title">bash - macOS / Linux & Windows</span>
+                    <span class="terminal-title">bash</span>
                 </div>
-                <pre><code># macOS / Linux için Derleme ve Çalıştırma
+<pre class="content-tr"><code># macOS / Linux için Derleme ve Çalıştırma
 javac -cp ".:lib/json.jar" Codes/*.java
 java -cp ".:lib/json.jar:Codes" MainLibrary
 
 # Windows için Derleme ve Çalıştırma
 javac -cp ".;lib/json.jar" Codes\*.java
 java -cp ".;lib/json.jar;Codes" MainLibrary</code></pre>
+<pre class="content-en" style="display:none;"><code># Compile and Run for macOS / Linux
+javac -cp ".:lib/json.jar" Codes/*.java
+java -cp ".:lib/json.jar:Codes" MainLibrary
+
+# Compile and Run for Windows
+javac -cp ".;lib/json.jar" Codes\*.java
+java -cp ".;lib/json.jar;Codes" MainLibrary</code></pre>
             </div>
 
-            <!-- ALT CTA VE PROJELER ARASI GEÇİŞ -->
             <div class="project-bottom-nav-container">
-                
-                <h3 class="cta-title">Sistemi İncelemeye Hazır Mısınız?</h3>
+                <h3 class="cta-title content-tr">Sistemi İncelemeye Hazır Mısınız?</h3>
+                <h3 class="cta-title content-en" style="display:none;">Ready to Review the System?</h3>
                 <a href="https://github.com/BurakHINGE" target="_blank" class="neon-btn cta-btn">
-                    <i class="fa-brands fa-github"></i> Kaynak Kodları İncele
+                    <i class="fa-brands fa-github"></i> <span class="content-tr">Kaynak Kodları İncele</span><span class="content-en" style="display:none;">View Source Code</span>
                 </a>
 
-                <!-- Önceki ve Sonraki Proje Linkleri -->
                 <div class="project-pagination">
-                    
-                    <!-- Sol: Önceki Proje -->
                     <a href="../ghost-hunter/index.html" class="pagination-link prev">
                         <i class="fa-solid fa-arrow-left"></i>
                         <span class="pagination-text">
-                            <span class="pagination-label">Önceki Proje</span>
+                            <span class="pagination-label content-tr">Önceki Proje</span>
+                            <span class="pagination-label content-en" style="display:none;">Previous Project</span>
                             <span class="pagination-title">GhostHunterINC</span>
                         </span>
                     </a>
                     
-                    <!-- Sağ: Sonraki Proje (Örn: Zar Simülatörü veya sıradaki proje) -->
-                    <a href="../zar-simülatörü/index.html" class="pagination-link next">
+                    <a href="../marmara-cyber-website/index.html" class="pagination-link next">
                         <span class="pagination-text">
-                            <span class="pagination-label">Sonraki Proje</span>
-                            <span class="pagination-title">Zar Simülatörü v2.1.0</span>
+                            <span class="pagination-label content-tr">Sonraki Proje</span>
+                            <span class="pagination-label content-en" style="display:none;">Next Project</span>
+                            <span class="pagination-title content-tr">Marmara Cyber Websitesi</span>
+                            <span class="pagination-title content-en" style="display:none;">Marmara Cyber Website</span>
                         </span>
                         <i class="fa-solid fa-arrow-right"></i>
                     </a>
-
                 </div>
             </div>
-
         </div>
     </section>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo-wrapper">
+                    <img src="../../Assets/favicon.png" alt="MBM Logo" class="footer-logo">
+                    <span class="footer-name">MEHMET BURAK MENTEŞE</span>
+                </div>
+                <p class="footer-desc" data-translate="footerDesc">Marmara Üniversitesi Bilgisayar Mühendisliği.<br>Yapay Zeka, Yazılım Geliştirme ve Siber Güvenlik.</p>
+                <a href="mailto:burakmentese16@gmail.com" class="footer-email"><i class="fa-regular fa-envelope"></i> burakmentese16@gmail.com</a>
+            </div>
+            <div class="footer-links">
+                <h4 class="footer-title" data-translate="quickMenu">Hızlı Menü</h4>
+                <nav class="footer-nav">
+                    <a href="../../index.html" data-translate="home">Ana Sayfa</a>
+                    <a href="../../hakkimda.html" data-translate="about">Hakkımda</a>
+                    <a href="../../projeler.html" data-translate="projects">Projeler</a>
+                    <a href="../../blog.html" data-translate="blog">Blog</a>
+                </nav>
+            </div>
+            <div class="footer-social">
+                <h4 class="footer-title" data-translate="followMe">Beni Takip Edin</h4>
+                <div class="footer-social-icons">
+                    <a href="https://github.com/BurakHINGE" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/mehmetburakmentese/" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://medium.com/@burakmentese16" target="_blank" title="Medium"><span class="classic-medium">M</span></a>
+                </div>
+                <p class="copyright" data-translate="allRightsReserved">© 2026 Mehmet Burak Menteşe.<br>Tüm Hakları Saklıdır.<br><span class="designed-by">Designed by MBM</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="lightbox-overlay" class="lightbox-overlay" onclick="closeLightbox(event)">
+        <img id="lightbox-img" src="" alt="Büyütülmüş Ekran Görüntüsü">
+        <span class="lightbox-hint content-tr">Kapatmak için dışarıya tıklayın.</span>
+        <span class="lightbox-hint content-en" style="display:none;">Click outside to close.</span>
+    </div>
 
     <script src="../../script.js"></script>
 </body>

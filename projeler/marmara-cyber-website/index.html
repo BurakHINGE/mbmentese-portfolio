@@ -3,193 +3,246 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>Marmara Cyber Web Sitesi | Projeler | Mehmet Burak Menteşe</title>
-    <meta name="description" content="Marmara Üniversitesi Siber Güvenlik Kulübü için geliştirilmiş; çoklu dil desteği, terminal arayüzü ve hiyerarşik yönetim şemasına sahip modern web platformu.">
-    
-    <!-- 2 üst klasöre çıkıyoruz -->
+    <link rel="icon" type="image/png" href="../../Assets/favicon.png">
     <link rel="stylesheet" href="../../style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- HEADER & NAVBAR -->
     <header>
         <a href="../../index.html" class="nav-logo-container">
             <img src="../../Assets/favicon.png" alt="Website Logo" class="nav-logo">
             <span class="nav-brand">Mehmet Burak Menteşe</span>
         </a>
         <nav>
-            <a href="../../index.html" class="nav-link">Ana Sayfa</a>
-            <a href="../../hakkimda.html" class="nav-link">Hakkımda</a>
-            <a href="../../projeler.html" class="nav-link">Projeler</a>
-            <a href="../../blog.html" class="nav-link">Blog</a>
-            <a href="../../iletisim.html" class="nav-link">İletişim</a>
-            <span id="lang-tr" class="lang-active">TR</span><span class="lang-separator">/</span><span id="lang-en">EN</span>
+            <a href="../../index.html" class="nav-link" data-translate="home">Ana Sayfa</a>
+            <a href="../../hakkimda.html" class="nav-link" data-translate="about">Hakkımda</a>
+            <a href="../../projeler.html" class="nav-link active" data-translate="projects">Projeler</a>
+            <a href="../../blog.html" class="nav-link" data-translate="blog">Blog</a>
+            <div class="lang-toggle">
+                <span id="lang-tr" class="lang-btn active">TR</span>
+                <span class="lang-separator">/</span>
+                <span id="lang-en" class="lang-btn">EN</span>
+            </div>
         </nav>
     </header>
 
-    <!-- PROJE DETAY BÖLÜMÜ -->
     <section id="project-detail" class="project-single-layout">
-        
-        <!-- Sola Yaslı, Canlı Renkli Üst Navigasyon -->
         <div class="project-top-nav">
-            <a href="../../projeler.html" class="back-link">
-                <i class="fa-solid fa-arrow-left-long"></i> Tüm Projelere Dön
-            </a>
+            <a href="../../projeler.html" class="back-link content-tr"><i class="fa-solid fa-arrow-left-long"></i> Tüm Projelere Dön</a>
+            <a href="../../projeler.html" class="back-link content-en" style="display:none;"><i class="fa-solid fa-arrow-left-long"></i> Back to All Projects</a>
         </div>
 
-        <!-- 1. ÜST ODAK ALANI (HERO) -->
         <div class="project-hero">
             <div class="hero-title-wrapper">
                 <h1 class="project-main-title">MARMARA CYBER</h1>
             </div>
             
+            <!-- YENİ: Etiketler ve Tooltip Yapısı -->
             <div class="skill-tags justify-center">
+                <span class="skill-tag">Vanilla JS</span>
                 <span class="skill-tag">HTML5 / CSS3</span>
-                <span class="skill-tag">Vanilla JavaScript</span>
-                <span class="skill-tag">Multi-Language (TR/EN)</span>
+                <span class="skill-tag">i18n</span>
                 <span class="skill-tag">UI/UX Design</span>
+                
+                <div class="more-tags-container">
+                    <span class="skill-tag more-btn">+3</span>
+                    <div class="tags-tooltip">
+                        <span class="skill-tag" style="padding: 4px 8px; font-size: 0.75rem;">Responsive</span>
+                        <span class="skill-tag" style="padding: 4px 8px; font-size: 0.75rem;">DOM Manipulation</span>
+                        <span class="skill-tag" style="padding: 4px 8px; font-size: 0.75rem;">Accordion UI</span>
+                    </div>
+                </div>
             </div>
 
-            <p class="project-hero-desc">
-                Marmara Üniversitesi Siber Güvenlik Kulübü için sıfırdan geliştirilen; terminal temalı status bar, dinamik dil desteği ve hiyerarşik ekip yapısına sahip resmi web platformu.
-            </p>
+            <p class="project-hero-desc content-tr">Marmara Üniversitesi Siber Güvenlik Kulübü için sıfırdan geliştirilen; terminal temalı status bar, dinamik dil desteği ve hiyerarşik ekip yapısına sahip resmi web platformu.</p>
+            <p class="project-hero-desc content-en" style="display:none;">The official web platform developed from scratch for the Marmara University Cyber Security Club, featuring a terminal-themed status bar, dynamic language support, and a hierarchical team structure.</p>
 
             <a href="https://marmaracyber.com" target="_blank" class="neon-btn" style="margin-top: 1rem;">
-                <i class="fa-solid fa-globe"></i> Canlı Siteyi Ziyaret Et
+                <i class="fa-solid fa-globe"></i> <span class="content-tr">Canlı Siteyi Ziyaret Et</span><span class="content-en" style="display:none;">Visit Live Site</span>
             </a>
         </div>
 
         <div class="about-divider" style="margin: 3rem 0 4rem 0;"></div>
 
-        <!-- ANA İÇERİK ALANI -->
         <div class="project-content">
-
-            <!-- 2. HİKAYE VE ÖNE ÇIKAN ÖZELLİKLER -->
             <div class="project-bento-box" style="margin-top: 0; margin-bottom: 5rem;">
-                
-                <!-- Hikaye Kartı -->
                 <div class="bento-card full-width">
                     <div class="bento-header">
                         <i class="fa-solid fa-shield-halved"></i>
-                        <h3>Çıkış Noktası ve Kapsam</h3>
+                        <h3 class="content-tr">Çıkış Noktası ve Kapsam</h3>
+                        <h3 class="content-en" style="display:none;">Starting Point and Scope</h3>
                     </div>
-                    <p class="bento-text">
-                        Marmara Cyber, kulübün kurumsal kimliğini yansıtmak, etkinlikleri duyurmak ve öğrencilere siber güvenlik alanında rehberlik etmek amacıyla hayata geçirildi. Tasarım aşamasında klasik şablonlardan kaçınılarak tamamen siberpunk ve terminal estetiğine odaklanıldı. Ziyaretçilerin siteyi hem Türkçe hem İngilizce deneyimleyebilmesi için harici kütüphane kullanmadan tamamen saf JavaScript ile dinamik bir çeviri (i18n) altyapısı kuruldu.
-                    </p>
+                    <p class="bento-text content-tr">Marmara Cyber, kulübün kurumsal kimliğini yansıtmak, etkinlikleri duyurmak ve öğrencilere siber güvenlik alanında rehberlik etmek amacıyla hayata geçirildi. Tasarım aşamasında klasik şablonlardan kaçınılarak tamamen siberpunk ve terminal estetiğine odaklanıldı. Ziyaretçilerin siteyi hem Türkçe hem İngilizce deneyimleyebilmesi için harici kütüphane kullanmadan tamamen saf JavaScript ile dinamik bir çeviri (i18n) altyapısı kuruldu.</p>
+                    <p class="bento-text content-en" style="display:none;">Marmara Cyber was launched to reflect the club's corporate identity, announce events, and guide students in the field of cyber security. During the design phase, classic templates were avoided, focusing entirely on cyberpunk and terminal aesthetics. To allow visitors to experience the site in both Turkish and English, a dynamic translation (i18n) infrastructure was built entirely with vanilla JavaScript without using external libraries.</p>
                 </div>
                 
-                <!-- Öne Çıkan 4 Özellik (2x2 Grid) -->
                 <div class="feature-grid full-width">
-                    
                     <div class="bento-card" style="padding: 1.5rem; text-align: center;">
                         <i class="fa-solid fa-terminal" style="font-size: 2rem; color: var(--neon-blue); margin-bottom: 1rem;"></i>
-                        <h4 class="bento-card-title">Terminal Arayüzü</h4>
-                        <p class="bento-text" style="font-size: 0.9rem;">AES-256 şifreleme göstergeleri ve canlı sistem durumu simülasyonu.</p>
+                        <h4 class="bento-card-title content-tr">Terminal Arayüzü</h4>
+                        <h4 class="bento-card-title content-en" style="display:none;">Terminal UI</h4>
+                        <p class="bento-text content-tr" style="font-size: 0.9rem;">AES-256 şifreleme göstergeleri ve canlı sistem durumu simülasyonu.</p>
+                        <p class="bento-text content-en" style="display:none; font-size: 0.9rem;">AES-256 encryption indicators and live system status simulation.</p>
                     </div>
                     
                     <div class="bento-card" style="padding: 1.5rem; text-align: center;">
                         <i class="fa-solid fa-language" style="font-size: 2rem; color: var(--neon-blue); margin-bottom: 1rem;"></i>
-                        <h4 class="bento-card-title">Dinamik Dil Desteği</h4>
-                        <p class="bento-text" style="font-size: 0.9rem;">Sayfa yenilenmeden anlık Türkçe ve İngilizce (TR/EN) geçiş mekanizması.</p>
+                        <h4 class="bento-card-title content-tr">Dinamik Dil Desteği</h4>
+                        <h4 class="bento-card-title content-en" style="display:none;">Dynamic Language</h4>
+                        <p class="bento-text content-tr" style="font-size: 0.9rem;">Sayfa yenilenmeden anlık Türkçe ve İngilizce (TR/EN) geçiş mekanizması.</p>
+                        <p class="bento-text content-en" style="display:none; font-size: 0.9rem;">Instant Turkish and English (TR/EN) toggle mechanism without page reloads.</p>
                     </div>
                     
                     <div class="bento-card" style="padding: 1.5rem; text-align: center;">
                         <i class="fa-solid fa-sitemap" style="font-size: 2rem; color: var(--neon-blue); margin-bottom: 1rem;"></i>
-                        <h4 class="bento-card-title">Hiyerarşik Ekip Şeması</h4>
-                        <p class="bento-text" style="font-size: 0.9rem;">Başkan, başkan yardımcısı ve komite başkanlarının kademeli olarak sergilendiği yapı.</p>
+                        <h4 class="bento-card-title content-tr">Hiyerarşik Ekip Şeması</h4>
+                        <h4 class="bento-card-title content-en" style="display:none;">Hierarchical Team Chart</h4>
+                        <p class="bento-text content-tr" style="font-size: 0.9rem;">Başkan, başkan yardımcısı ve komite başkanlarının kademeli olarak sergilendiği yapı.</p>
+                        <p class="bento-text content-en" style="display:none; font-size: 0.9rem;">A structure where the president, vice president, and committee heads are displayed progressively.</p>
                     </div>
                     
                     <div class="bento-card" style="padding: 1.5rem; text-align: center;">
                         <i class="fa-solid fa-envelope-circle-check" style="font-size: 2rem; color: var(--neon-blue); margin-bottom: 1rem;"></i>
-                        <h4 class="bento-card-title">Güvenli İletişim</h4>
-                        <p class="bento-text" style="font-size: 0.9rem;">Formspree entegrasyonu, XSS koruması ve honeypot tabanlı bot engelleme katmanı.</p>
+                        <h4 class="bento-card-title content-tr">Güvenli İletişim</h4>
+                        <h4 class="bento-card-title content-en" style="display:none;">Secure Communication</h4>
+                        <p class="bento-text content-tr" style="font-size: 0.9rem;">Formspree entegrasyonu, XSS koruması ve honeypot tabanlı bot engelleme katmanı.</p>
+                        <p class="bento-text content-en" style="display:none; font-size: 0.9rem;">Formspree integration, XSS protection, and honeypot-based bot prevention layer.</p>
                     </div>
-
                 </div>
             </div>
 
-            <!-- 3. ZIG-ZAG BÖLÜM 1: Teknik Detaylar -->
             <div class="bento-section-title">
-                <h2><i class="fa-solid fa-microchip" style="color: var(--neon-blue);"></i> Teknik Altyapı ve Özellikler</h2>
+                <h2 class="content-tr"><i class="fa-solid fa-microchip" style="color: var(--neon-blue);"></i> Teknik Altyapı ve Özellikler</h2>
+                <h2 class="content-en" style="display:none;"><i class="fa-solid fa-microchip" style="color: var(--neon-blue);"></i> Tech Infrastructure & Features</h2>
             </div>
             
-            <div class="zigzag-row" style="margin-bottom: 5rem;">
-                <div class="zigzag-text">
+            <div class="zigzag-row" style="margin-bottom: 5rem; display: flex; align-items: center;">
+                <div class="zigzag-text" style="flex: 0.8;">
                     <div class="mini-card-container">
                         <div class="mini-card">
                             <i class="fa-solid fa-code"></i>
                             <div class="mini-card-content">
                                 <h4>Vanilla JS & i18n</h4>
-                                <p>Ekstra ağır kütüphaneler kullanılmadan, tamamen saf JavaScript ile yazılmış anahtar-değer tabanlı çeviri mimarisi.</p>
+                                <p class="content-tr">Ekstra ağır kütüphaneler kullanılmadan, tamamen saf JavaScript ile yazılmış anahtar-değer tabanlı çeviri mimarisi.</p>
+                                <p class="content-en" style="display:none;">A key-value based translation architecture written entirely in vanilla JavaScript, without using heavy external libraries.</p>
                             </div>
                         </div>
-
                         <div class="mini-card">
                             <i class="fa-solid fa-list-check"></i>
                             <div class="mini-card-content">
-                                <h4>Akordiyon S.S.S.</h4>
-                                <p>Kulübe yeni katılanların en sık sorduğu soruları yanıtlayan, pürüzsüz açılıp kapanan dinamik Sıkça Sorulan Sorular bileşeni.</p>
+                                <h4 class="content-tr">Akordiyon S.S.S.</h4>
+                                <h4 class="content-en" style="display:none;">Accordion FAQ</h4>
+                                <p class="content-tr">Kulübe yeni katılanların en sık sorduğu soruları yanıtlayan, pürüzsüz açılıp kapanan dinamik Sıkça Sorulan Sorular bileşeni.</p>
+                                <p class="content-en" style="display:none;">A smoothly expanding dynamic Frequently Asked Questions component answering common queries from new club members.</p>
                             </div>
                         </div>
-
                         <div class="mini-card">
                             <i class="fa-solid fa-shield-dog"></i>
                             <div class="mini-card-content">
-                                <h4>Güvenlik Önlemleri</h4>
-                                <p>İletişim formunda girdi sanitizasyonu (HTML entity encoding) ve spam koruması için gizli honeypot alanları yer alıyor.</p>
+                                <h4 class="content-tr">Güvenlik Önlemleri</h4>
+                                <h4 class="content-en" style="display:none;">Security Measures</h4>
+                                <p class="content-tr">İletişim formunda girdi sanitizasyonu (HTML entity encoding) ve spam koruması için gizli honeypot alanları yer alıyor.</p>
+                                <p class="content-en" style="display:none;">The contact form includes input sanitization (HTML entity encoding) and hidden honeypot fields for spam protection.</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="zigzag-image image-container">
+
+                <div class="zigzag-image slider-container" style="flex: 1.2; margin-top: 0;">
                     <div class="corner top-left"></div>
                     <div class="corner top-right"></div>
                     <div class="corner bottom-left"></div>
                     <div class="corner bottom-right"></div>
-                    <img src="../../Assets/marmaracyber-demo.png" alt="Marmara Cyber Arayüz Görünümü" class="project-img" style="aspect-ratio: 4/3; object-fit: cover;">
+                    
+                    <button class="enlarge-btn" onclick="openLightbox()" title="Resmi Büyüt"><i class="fa-solid fa-expand"></i></button>
+
+                    <img src="../../Assets/marmaracyber-demo.png" alt="Marmara Cyber Demo 1" class="slide active">
+                    <img src="../../Assets/marmaracyber-demo-2.png" alt="Marmara Cyber Demo 2" class="slide">
+                    <img src="../../Assets/marmaracyber-demo-3.png" alt="Marmara Cyber Demo 3" class="slide">
+                    <img src="../../Assets/marmaracyber-demo-4.png" alt="Marmara Cyber Demo 4" class="slide">
+                    <img src="../../Assets/marmaracyber-demo-5.png" alt="Marmara Cyber Demo 5" class="slide">
+
+                    <button class="slider-btn prev-btn" onclick="moveSlide(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button class="slider-btn next-btn" onclick="moveSlide(1)"><i class="fa-solid fa-chevron-right"></i></button>
                 </div>
             </div>
 
-            <!-- 4. ZORLUKLAR VE ÖĞRENİLENLER -->
             <div class="bento-card full-width" style="margin-bottom: 5rem;">
                 <div class="bento-header">
                     <i class="fa-solid fa-lightbulb"></i>
-                    <h3>Mimari Kararlar ve Zorluklar</h3>
+                    <h3 class="content-tr">Mimari Kararlar ve Zorluklar</h3>
+                    <h3 class="content-en" style="display:none;">Architectural Decisions & Challenges</h3>
                 </div>
-                <ul class="styled-list">
+                <ul class="styled-list content-tr">
                     <li><strong>Saf JavaScript ile Dil Yönetimi:</strong> React veya Vue gibi büyük frameworkler yerine projenin hızlı yüklenmesi ve statik barındırmaya (hosting) tam uyum sağlaması için tüm çoklu dil altyapısı vanilla JavaScript sözlük objeleriyle optimize edildi.</li>
                     <li><strong>Responsive Tasarım Dengesi:</strong> Fütüristik cam efekti (glassmorphism) ve hiyerarşik yönetim kartlarının mobil cihazlarda (özellikle dar ekranlarda) bozulmadan dikey akışa geçmesi için CSS Grid ve Flexbox kombinasyonları titizlikle ayarlandı.</li>
                 </ul>
+                <ul class="styled-list content-en" style="display:none;">
+                    <li><strong>Language Management with Vanilla JS:</strong> Instead of large frameworks like React or Vue, the entire multi-language infrastructure was optimized with vanilla JavaScript dictionary objects to ensure fast loading and full compatibility with static hosting.</li>
+                    <li><strong>Responsive Design Balance:</strong> CSS Grid and Flexbox combinations were meticulously adjusted so the futuristic glassmorphism effect and hierarchical management cards transition flawlessly into a vertical flow on mobile devices (especially narrow screens).</li>
+                </ul>
             </div>
 
-            <!-- ALT CTA VE PROJELER ARASI GEÇİŞ -->
             <div class="project-bottom-nav-container">
-                
-                <h3 class="cta-title">Canlı Platformu İnceleyin</h3>
+                <h3 class="cta-title content-tr">Canlı Platformu İnceleyin</h3>
+                <h3 class="cta-title content-en" style="display:none;">Review the Live Platform</h3>
                 <a href="https://marmaracyber.com" target="_blank" class="neon-btn cta-btn">
                     <i class="fa-solid fa-globe"></i> Marmara Cyber Web Sitesi
                 </a>
 
-                <!-- Önceki ve Sonraki Proje Linkleri (Son proje olduğu için sadece Önceki var) -->
                 <div class="project-pagination" style="justify-content: flex-start;">
-                    
-                    <!-- Sol: Önceki Proje (Library System) -->
-                    <a href="../library-management/index.html" class="pagination-link prev">
+                    <a href="../library-management-system/index.html" class="pagination-link prev">
                         <i class="fa-solid fa-arrow-left"></i>
                         <span class="pagination-text">
-                            <span class="pagination-label">Önceki Proje</span>
+                            <span class="pagination-label content-tr">Önceki Proje</span>
+                            <span class="pagination-label content-en" style="display:none;">Previous Project</span>
                             <span class="pagination-title">Library OOP System</span>
                         </span>
                     </a>
-
                 </div>
             </div>
-
         </div>
     </section>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo-wrapper">
+                    <img src="../../Assets/favicon.png" alt="MBM Logo" class="footer-logo">
+                    <span class="footer-name">MEHMET BURAK MENTEŞE</span>
+                </div>
+                <p class="footer-desc" data-translate="footerDesc">Marmara Üniversitesi Bilgisayar Mühendisliği.<br>Yapay Zeka, Yazılım Geliştirme ve Siber Güvenlik.</p>
+                <a href="mailto:burakmentese16@gmail.com" class="footer-email"><i class="fa-regular fa-envelope"></i> burakmentese16@gmail.com</a>
+            </div>
+            <div class="footer-links">
+                <h4 class="footer-title" data-translate="quickMenu">Hızlı Menü</h4>
+                <nav class="footer-nav">
+                    <a href="../../index.html" data-translate="home">Ana Sayfa</a>
+                    <a href="../../hakkimda.html" data-translate="about">Hakkımda</a>
+                    <a href="../../projeler.html" data-translate="projects">Projeler</a>
+                    <a href="../../blog.html" data-translate="blog">Blog</a>
+                </nav>
+            </div>
+            <div class="footer-social">
+                <h4 class="footer-title" data-translate="followMe">Beni Takip Edin</h4>
+                <div class="footer-social-icons">
+                    <a href="https://github.com/BurakHINGE" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/mehmetburakmentese/" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://medium.com/@burakmentese16" target="_blank" title="Medium"><span class="classic-medium">M</span></a>
+                </div>
+                <p class="copyright" data-translate="allRightsReserved">© 2026 Mehmet Burak Menteşe.<br>Tüm Hakları Saklıdır.<br><span class="designed-by">Designed by MBM</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- YENİ: LIGHTBOX OVERLAY (Büyütülmüş resimlerin gösterildiği alan) -->
+    <div id="lightbox-overlay" class="lightbox-overlay" onclick="closeLightbox(event)">
+        <img id="lightbox-img" src="" alt="Büyütülmüş Ekran Görüntüsü">
+        <span class="lightbox-hint content-tr">Kapatmak için dışarıya tıklayın.</span>
+        <span class="lightbox-hint content-en" style="display:none;">Click outside to close.</span>
+    </div>
 
     <script src="../../script.js"></script>
 </body>

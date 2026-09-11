@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MAC Adresi ve ARP | Blog | Mehmet Burak Menteşe</title>
+    <link rel="icon" type="image/png" href="../../Assets/favicon.png">
     <meta name="description" content="Bilgisayarların ağ üzerinde nasıl iletişim kurduğu, OSI katmanları, NIC donanımı ve ARP protokolünün arka planında işleyen süreçlerin sade anlatımı.">
     <link rel="stylesheet" href="../../style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -104,13 +105,22 @@
                 <p class="content-tr"><strong>NIC (Network Interface Card):</strong> Kısaca cihazınızın internete açılan kapısıdır. Diyelim ki evinizde bilgisayarınız ile internete girmek istiyorsunuz peki bu bilgisayarım internete nasıl bağlanıyor diye düşündünüz mü hiç? İşte burada NIC donanımı devreye giriyor. Peki size bundan niye bahsettim çünkü NIC üzerinde MAC adresimizi bulunduruyor.</p>
                 <p class="content-en" style="display:none;"><strong>NIC (Network Interface Card):</strong> Simply put, it is your device's gateway to the internet. Let's say you want to access the internet with your computer at home; have you ever wondered how your computer connects to the internet? This is where the NIC hardware comes into play. So why did I mention this to you? Because the NIC holds our MAC address on it.</p>
 
+                <!-- BİRİNCİ FOTOĞRAF (NIC Hardware) -->
                 <div class="image-gallery" style="margin: 1.5rem 0 2.5rem 0;">
                     <div class="image-container">
                         <div class="corner top-left"></div>
                         <div class="corner top-right"></div>
                         <div class="corner bottom-left"></div>
                         <div class="corner bottom-right"></div>
-                        <img src="../../Assets/blog/nic-hardware.png" alt="NIC Hardware" class="project-img">
+                        
+                        <!-- YENİ: Büyütme Butonu Eklendi -->
+                        <button class="enlarge-btn" onclick="openSingleLightbox(this)" title="Resmi Büyüt"><i class="fa-solid fa-expand"></i></button>
+
+                        <img src="../../Assets/blog/NIC-Card.png" alt="NIC Hardware" class="project-img">
+                    </div>
+                    <!-- YENİ: Büyütmek için tıklayın metni eklendi -->
+                    <div style="text-align: center; color: var(--text-secondary); font-family: 'JetBrains Mono'; font-size: 0.85rem; margin-top: 10px;">
+                        <i class="fa-solid fa-expand"></i> <span class="content-tr">Büyütmek için tıklayın</span><span class="content-en" style="display:none;">Press enter or click to view image in full size</span>
                     </div>
                 </div>
 
@@ -134,13 +144,22 @@
                 <p class="content-tr">MAC adresini daha iyi anlamak için önce bilgisayarların nasıl iletişim kurduğuna bakalım. İşte burada OSI katmanları devreye giriyor. Şöyle düşünmelisiniz ki verilerimiz internette yolculuk ederken 7 farklı işlemden geçiyor ve biz bu katmanlara OSI layer’ları diyoruz. Her layer’in farklı bir görevi var. Alt katmanlar (1–4) verinin taşınıp yollanmasında, üst katmanlar (5–7) ise verinin hazırlanıp gösterilmesinde görevlidir.</p>
                 <p class="content-en" style="display:none;">To better understand the MAC address, let's first look at how computers communicate. This is where OSI layers come into play. You should think of it this way: as our data travels the internet, it passes through 7 different processes, and we call these layers OSI layers. Each layer has a different duty. Lower layers (1–4) are responsible for transporting and sending the data, while upper layers (5–7) handle preparing and displaying the data.</p>
 
+                <!-- İKİNCİ FOTOĞRAF (OSI Model) -->
                 <div class="image-gallery" style="margin: 1.5rem 0 2.5rem 0;">
                     <div class="image-container">
                         <div class="corner top-left"></div>
                         <div class="corner top-right"></div>
                         <div class="corner bottom-left"></div>
                         <div class="corner bottom-right"></div>
-                        <img src="../../Assets/blog/osi-model.png" alt="OSI Layers" class="project-img">
+                        
+                        <!-- YENİ: Büyütme Butonu Eklendi -->
+                        <button class="enlarge-btn" onclick="openSingleLightbox(this)" title="Resmi Büyüt"><i class="fa-solid fa-expand"></i></button>
+
+                        <img src="../../Assets/blog/OSI-Layers.png" alt="OSI Layers" class="project-img">
+                    </div>
+                    <!-- YENİ: Büyütmek için tıklayın metni eklendi -->
+                    <div style="text-align: center; color: var(--text-secondary); font-family: 'JetBrains Mono'; font-size: 0.85rem; margin-top: 10px;">
+                        <i class="fa-solid fa-expand"></i> <span class="content-tr">Büyütmek için tıklayın</span><span class="content-en" style="display:none;">Press enter or click to view image in full size</span>
                     </div>
                 </div>
 
@@ -196,6 +215,24 @@
                     <li>Even if devices move to different networks, their MAC addresses always remain constant.</li>
                 </ul>
 
+                <div class="image-gallery" style="margin: 1.5rem 0 2.5rem 0;">
+                    <div class="image-container">
+                        <div class="corner top-left"></div>
+                        <div class="corner top-right"></div>
+                        <div class="corner bottom-left"></div>
+                        <div class="corner bottom-right"></div>
+                        
+                        <!-- YENİ: Büyütme Butonu Eklendi -->
+                        <button class="enlarge-btn" onclick="openSingleLightbox(this)" title="Resmi Büyüt"><i class="fa-solid fa-expand"></i></button>
+
+                        <img src="../../Assets/blog/MAC-Address.png" alt="NIC Hardware" class="project-img">
+                    </div>
+                    <!-- YENİ: Büyütmek için tıklayın metni eklendi -->
+                    <div style="text-align: center; color: var(--text-secondary); font-family: 'JetBrains Mono'; font-size: 0.85rem; margin-top: 10px;">
+                        <i class="fa-solid fa-expand"></i> <span class="content-tr">Büyütmek için tıklayın</span><span class="content-en" style="display:none;">Press enter or click to view image in full size</span>
+                    </div>
+                </div>
+
                 <div class="about-divider" style="margin: 3rem 0; width: 60px;"></div>
 
                 <h2 id="ip-farklari" class="content-tr"><i class="fa-solid fa-arrows-split-up-and-left" style="color: var(--neon-blue);"></i> Public IP, Private IP ve MAC Adresi Arasındaki Farklar</h2>
@@ -231,8 +268,8 @@
                 <p class="content-tr">Cihazımızın internette iletişim kurarken IP adresini, yerel ağda bir cihazla konuşmak istediğinde ise MAC adresine ihtiyacı olduğundan bahsettik. Peki bilgisayarımız sadece IP adresini biliyorsa o IP adresine ait MAC adresini nasıl bulur? İşte burada devreye <strong>ARP</strong> giriyor.</p>
                 <p class="content-en" style="display:none;">We mentioned that our device needs an IP address when communicating on the internet, and a MAC address when it wants to talk to a device on the local network. So, if our computer only knows the IP address, how does it find the MAC address belonging to that IP? This is where <strong>ARP</strong> comes in.</p>
 
-                <h3 class="content-tr" style="color: #fff; margin-bottom: 1rem; font-family: 'Space Grotesk', sans-serif;">ARP Nasıl Çalışır?</h3>
-                <h3 class="content-en" style="display:none; color: #fff; margin-bottom: 1rem; font-family: 'Space Grotesk', sans-serif;">How Does ARP Work?</h3>
+                <h3 class="content-tr" style="color: #fff; margin: 1rem 0; font-family: 'Space Grotesk', sans-serif;">ARP Nasıl Çalışır?</h3>
+                <h3 class="content-en" style="display:none; color: #fff; margin: 1rem 0; font-family: 'Space Grotesk', sans-serif;">How Does ARP Work?</h3>
                 
                 <p class="content-tr">Diyelim ki cihazımız <code>192.168.1.12</code> adresine veri göndermek istiyor ama o IP adresine ait MAC adresini bilmiyor. Bu durumda şu adımlar izlenir:</p>
                 <p class="content-en" style="display:none;">Let's say our device wants to send data to the address <code>192.168.1.12</code> but doesn't know the MAC address for that IP. In this case, the following steps are taken:</p>
@@ -399,6 +436,14 @@
             </div>
         </div>
     </footer>
+    
+    <!-- YENİ: Büyütme ekranının (Lightbox) çalışması için gerekli olan HTML bloğu -->
+    <div id="lightbox-overlay" class="lightbox-overlay" onclick="closeLightbox(event)">
+        <img id="lightbox-img" src="" alt="Büyütülmüş Ekran Görüntüsü">
+        <span class="lightbox-hint content-tr">Kapatmak için dışarıya tıklayın.</span>
+        <span class="lightbox-hint content-en" style="display:none;">Click outside to close.</span>
+    </div>
+
     <script src="../../script.js"></script>
 </body>
 </html>

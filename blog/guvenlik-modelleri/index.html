@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bilgi Güvenliği Modelleri ve CIA Üçlüsü | Blog | Mehmet Burak Menteşe</title>
+    <link rel="icon" type="image/png" href="../../Assets/favicon.png">
     <meta name="description" content="Bilgi güvenliğinin temelini oluşturan CIA üçlüsü (Gizlilik, Bütünlük, Erişilebilirlik) ve Bell-LaPadula, Biba, Clark-Wilson gibi güvenlik modellerinin detaylı incelemesi.">
     
     <link rel="stylesheet" href="../../style.css">
@@ -65,7 +66,6 @@
                     <a href="#clark-wilson">3. The Clark-Wilson Modeli</a>
                     <a href="#diger-modeller">Diğer Modeller</a>
                 </nav>
-                <!-- YENİ: İngilizce linklere -en eklendi -->
                 <nav class="toc-nav content-en" style="display:none;">
                     <a href="#blog-detail">Information Security Models</a>
                     <div style="height: 1px; background: rgba(0, 242, 254, 0.15); margin: 0.5rem 0;"></div>
@@ -80,7 +80,6 @@
             <!-- MAKALENİN KENDİSİ -->
             <article class="blog-article-content reading-optimized">
                 
-                <!-- YENİ: İngilizce başlıklara -en ID'si eklendi -->
                 <h2 id="on-soz" class="content-tr"><i class="fa-solid fa-pen-nib" style="color: var(--neon-blue);"></i> Yazı Hakkında Ön Söz</h2>
                 <h2 id="on-soz-en" class="content-en" style="display:none;"><i class="fa-solid fa-pen-nib" style="color: var(--neon-blue);"></i> Preface to the Article</h2>
                 
@@ -96,13 +95,22 @@
                     <li>The Clark-Wilson Modeli / Model</li>
                 </ul>
 
-                <div class="image-gallery" style="margin: 2rem 0;">
+                <!-- GÜNCELLENEN FOTOĞRAF KISMI -->
+                <div class="image-gallery" style="margin: 2rem 0 3rem 0;">
                     <div class="image-container">
                         <div class="corner top-left"></div>
                         <div class="corner top-right"></div>
                         <div class="corner bottom-left"></div>
                         <div class="corner bottom-right"></div>
-                        <img src="../../Assets/blog/cia-triad.png" alt="CIA Üçlüsü Şeması" class="project-img">
+                        
+                        <!-- YENİ: Büyütme Butonu Eklendi -->
+                        <button class="enlarge-btn" onclick="openSingleLightbox(this)" title="Resmi Büyüt"><i class="fa-solid fa-expand"></i></button>
+
+                        <img src="../../Assets/blog/CIA-Triad.png" alt="CIA Üçlüsü Şeması" class="project-img">
+                    </div>
+                    <!-- YENİ: Büyütmek için tıklayın metni eklendi -->
+                    <div style="text-align: center; color: var(--text-secondary); font-family: 'JetBrains Mono'; font-size: 0.85rem; margin-top: 10px;">
+                        <i class="fa-solid fa-expand"></i> <span class="content-tr">Büyütmek için tıklayın</span><span class="content-en" style="display:none;">Press enter or click to view image in full size</span>
                     </div>
                 </div>
 
@@ -259,6 +267,14 @@
             </div>
         </div>
     </footer>
+
+    <!-- YENİ: Büyütme ekranının (Lightbox) çalışması için gerekli olan HTML bloğu -->
+    <div id="lightbox-overlay" class="lightbox-overlay" onclick="closeLightbox(event)">
+        <img id="lightbox-img" src="" alt="Büyütülmüş Ekran Görüntüsü">
+        <span class="lightbox-hint content-tr">Kapatmak için dışarıya tıklayın.</span>
+        <span class="lightbox-hint content-en" style="display:none;">Click outside to close.</span>
+    </div>
+
     <script src="../../script.js"></script>
 </body>
 </html>

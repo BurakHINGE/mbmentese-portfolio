@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Local RAG Asistanı Geliştirmek (Bölüm 3) | Blog | Mehmet Burak Menteşe</title>
+    <link rel="icon" type="image/png" href="../../Assets/favicon.png">
     <meta name="description" content="Microsoft AI Innovators yaz kampı kapsamında geliştirilen yerel RAG asistanının dayanıklılık testleri, halüsinasyon direnci ve hız optimizasyonlarının incelendiği final bölümü.">
     <link rel="stylesheet" href="../../style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -145,13 +146,21 @@ if not user_input.strip():
                 <p class="content-tr">Bu minik <code>.strip()</code> dokunuşu sayesinde asistanımız artık boş girdilere karşı dayanıklı bir CLI arayüzüne kavuştu. Boşluklara karşı hata yapmıyor ve cümleyi normal akışında anlayabiliyor!</p>
                 <p class="content-en" style="display:none;">Thanks to this tiny <code>.strip()</code> touch, our assistant now has a resilient CLI interface against empty inputs. It doesn't throw errors at empty spaces and understands the sentence in its normal flow!</p>
 
+                <!-- BİRİNCİ FOTOĞRAF -->
                 <div class="image-gallery" style="margin: 1.5rem 0 3rem 0;">
                     <div class="image-container">
                         <div class="corner top-left"></div>
                         <div class="corner top-right"></div>
                         <div class="corner bottom-left"></div>
                         <div class="corner bottom-right"></div>
-                        <img src="../../Assets/blog/input-validation-output.png" alt="Input Validation Output" class="project-img">
+                        
+                        <!-- YENİ: Büyütme Butonu Eklendi -->
+                        <button class="enlarge-btn" onclick="openSingleLightbox(this)" title="Resmi Büyüt"><i class="fa-solid fa-expand"></i></button>
+
+                        <img src="../../Assets/blog/LocalRAG-Durability.png" alt="Input Validation Output" class="project-img">
+                    </div>
+                    <div style="text-align: center; color: var(--text-secondary); font-family: 'JetBrains Mono'; font-size: 0.85rem; margin-top: 10px;">
+                        <i class="fa-solid fa-expand"></i> <span class="content-tr">Büyütmek için tıklayın</span><span class="content-en" style="display:none;">Press enter or click to view image in full size</span>
                     </div>
                 </div>
 
@@ -172,13 +181,21 @@ if not user_input.strip():
                     <p style="margin-top: 1rem; color: var(--neon-blue); font-family: 'JetBrains Mono', monospace;">“I do not have this information.”</p>
                 </div>
 
+                <!-- İKİNCİ FOTOĞRAF -->
                 <div class="image-gallery" style="margin: 1.5rem 0 3rem 0;">
                     <div class="image-container">
                         <div class="corner top-left"></div>
                         <div class="corner top-right"></div>
                         <div class="corner bottom-left"></div>
                         <div class="corner bottom-right"></div>
-                        <img src="../../Assets/blog/hallucination-test-output.png" alt="Hallucination Test Output" class="project-img">
+                        
+                        <!-- YENİ: Büyütme Butonu Eklendi -->
+                        <button class="enlarge-btn" onclick="openSingleLightbox(this)" title="Resmi Büyüt"><i class="fa-solid fa-expand"></i></button>
+
+                        <img src="../../Assets/blog/LocalRAG-Hallucination.png" alt="Hallucination Test Output" class="project-img">
+                    </div>
+                    <div style="text-align: center; color: var(--text-secondary); font-family: 'JetBrains Mono'; font-size: 0.85rem; margin-top: 10px;">
+                        <i class="fa-solid fa-expand"></i> <span class="content-tr">Büyütmek için tıklayın</span><span class="content-en" style="display:none;">Press enter or click to view image in full size</span>
                     </div>
                 </div>
 
@@ -288,6 +305,14 @@ if not user_input.strip():
             </div>
         </div>
     </footer>
+
+    <!-- YENİ: Büyütme ekranının (Lightbox) çalışması için gerekli olan HTML bloğu -->
+    <div id="lightbox-overlay" class="lightbox-overlay" onclick="closeLightbox(event)">
+        <img id="lightbox-img" src="" alt="Büyütülmüş Ekran Görüntüsü">
+        <span class="lightbox-hint content-tr">Kapatmak için dışarıya tıklayın.</span>
+        <span class="lightbox-hint content-en" style="display:none;">Click outside to close.</span>
+    </div>
+
     <script src="../../script.js"></script>
 </body>
 </html>

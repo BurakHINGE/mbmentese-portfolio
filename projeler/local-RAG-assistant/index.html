@@ -3,213 +3,236 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>Yerel RAG Asistanı | Projeler | Mehmet Burak Menteşe</title>
-    <meta name="description" content="Kişisel belgelerden bilgi çıkaran, Python ve SQLite kullanılarak geliştirilmiş, yerel barındırılan otonom yapay zeka asistanı ve CLI aracı.">
-    
-    <!-- 2 üst klasöre çıkıyoruz -->
+    <link rel="icon" type="image/png" href="../../Assets/favicon.png">
     <link rel="stylesheet" href="../../style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- HEADER & NAVBAR -->
     <header>
         <a href="../../index.html" class="nav-logo-container">
             <img src="../../Assets/favicon.png" alt="Website Logo" class="nav-logo">
             <span class="nav-brand">Mehmet Burak Menteşe</span>
         </a>
         <nav>
-            <a href="../../index.html" class="nav-link">Ana Sayfa</a>
-            <a href="../../hakkimda.html" class="nav-link">Hakkımda</a>
-            <a href="../../projeler.html" class="nav-link">Projeler</a>
-            <a href="../../blog.html" class="nav-link">Blog</a>
-            <a href="../../iletisim.html" class="nav-link">İletişim</a>
-            <span id="lang-tr" class="lang-active">TR</span><span class="lang-separator">/</span><span id="lang-en">EN</span>
+            <a href="../../index.html" class="nav-link" data-translate="home">Ana Sayfa</a>
+            <a href="../../hakkimda.html" class="nav-link" data-translate="about">Hakkımda</a>
+            <a href="../../projeler.html" class="nav-link active" data-translate="projects">Projeler</a>
+            <a href="../../blog.html" class="nav-link" data-translate="blog">Blog</a>
+            <div class="lang-toggle">
+                <span id="lang-tr" class="lang-btn active">TR</span>
+                <span class="lang-separator">/</span>
+                <span id="lang-en" class="lang-btn">EN</span>
+            </div>
         </nav>
     </header>
 
-        <!-- PROJE DETAY BÖLÜMÜ -->
-        <section id="project-detail" class="project-single-layout">
-            <div class="project-top-nav">
-                <a href="../../projeler.html" class="back-link">
-                    <i class="fa-solid fa-arrow-left-long"></i> Tüm Projelere Dön
-                </a>
-            </div>
-    
-            <!-- 1. ÜST ODAK ALANI (HERO) -->
-            <div class="project-hero">
-    
+    <section id="project-detail" class="project-single-layout">
+        <div class="project-top-nav">
+            <a href="../../projeler.html" class="back-link content-tr"><i class="fa-solid fa-arrow-left-long"></i> Tüm Projelere Dön</a>
+            <a href="../../projeler.html" class="back-link content-en" style="display:none;"><i class="fa-solid fa-arrow-left-long"></i> Back to All Projects</a>
+        </div>
+
+        <div class="project-hero">
             <div class="hero-title-wrapper">
-                <h1 class="project-main-title">YEREL RAG ASİSTANI</h1>
+                <h1 class="project-main-title content-tr">YEREL RAG ASİSTANI</h1>
+                <h1 class="project-main-title content-en" style="display:none;">LOCAL RAG ASSISTANT</h1>
             </div>
             
             <div class="skill-tags justify-center">
                 <span class="skill-tag">Python</span>
                 <span class="skill-tag">SQLite</span>
-                <span class="skill-tag">Microsoft Foundry Local</span>
-                <span class="skill-tag">phi-3.5-mini</span>
+                <span class="skill-tag">RAG</span>
+                <span class="skill-tag">Foundry Local</span>
+                
+                <div class="more-tags-container">
+                    <span class="skill-tag more-btn">+5</span>
+                    <div class="tags-tooltip">
+                        <span class="skill-tag" style="padding: 4px 8px; font-size: 0.75rem;">phi-3.5-mini</span>
+                        <span class="skill-tag" style="padding: 4px 8px; font-size: 0.75rem;">qwen3</span>
+                        <span class="skill-tag" style="padding: 4px 8px; font-size: 0.75rem;">Embeddings</span>
+                        <span class="skill-tag" style="padding: 4px 8px; font-size: 0.75rem;">Chunking</span>
+                        <span class="skill-tag" style="padding: 4px 8px; font-size: 0.75rem;">Cosine Similarity</span>
+                    </div>
+                </div>
             </div>
 
-            <p class="project-hero-desc">
-                İnternet bağlantısı gerektirmeyen, kişisel belgelerinizden saniyeler içinde bilgi çıkaran gizlilik odaklı yapay zeka CLI aracı.
-            </p>
-
+            <p class="project-hero-desc content-tr">İnternet bağlantısı gerektirmeyen, kişisel belgelerinizden saniyeler içinde bilgi çıkaran gizlilik odaklı yapay zeka CLI aracı.</p>
+            <p class="project-hero-desc content-en" style="display:none;">A privacy-focused AI CLI tool that extracts information from your personal documents in seconds without requiring an internet connection.</p>
+            
             <a href="https://github.com/BurakHINGE" target="_blank" class="neon-btn">
-                <i class="fa-brands fa-github"></i> Kaynak Kodları İncele
+                <i class="fa-brands fa-github"></i> <span class="content-tr">Kaynak Kodları İncele</span><span class="content-en" style="display:none;">View Source Code</span>
             </a>
         </div>
 
-        <!-- BÖLÜCÜ ÇİZGİ -->
         <div class="about-divider" style="margin: 3rem 0 4rem 0;"></div>
 
-        <!-- ANA İÇERİK ALANI -->
         <div class="project-content">
-
-            <!-- 2. HİKAYE VE ÖNE ÇIKAN ÖZELLİKLER -->
             <div class="project-bento-box" style="margin-top: 0; margin-bottom: 5rem;">
-                
-                <!-- Hikaye Kartı -->
                 <div class="bento-card full-width">
                     <div class="bento-header">
                         <i class="fa-solid fa-crosshairs"></i>
-                        <h3>Çıkış Noktası ve Kapsam</h3>
+                        <h3 class="content-tr">Çıkış Noktası ve Kapsam</h3>
+                        <h3 class="content-en" style="display:none;">Starting Point and Scope</h3>
                     </div>
-                    <p class="bento-text">
-                        Microsoft AI Innovators Yaz Stajı programı sürecinde geliştirdiğim bu proje, tamamen yerel donanım üzerinde çalışan otonom bir asistan oluşturma fikriyle doğdu. Dış servislere (API) veri göndermeden, kullanıcının kendi bilgisayarındaki belgeler üzerinde sorgulama yapabilmesini sağlıyor.
-                    </p>
+                    <p class="bento-text content-tr">Microsoft AI Innovators Yaz Stajı programı sürecinde geliştirdiğim bu proje, tamamen yerel donanım üzerinde çalışan otonom bir asistan oluşturma fikriyle doğdu. Dış servislere (API) veri göndermeden, kullanıcının kendi bilgisayarındaki belgeler üzerinde sorgulama yapabilmesini sağlıyor.</p>
+                    <p class="bento-text content-en" style="display:none;">Developed during the Microsoft AI Innovators Summer Internship program, this project originated from the idea of creating an autonomous assistant running entirely on local hardware. It allows users to query their own documents on their computers without sending data to external services (APIs).</p>
                 </div>
                 
-                <!-- Öne Çıkan 4 Özellik (İç içe Grid yapısı ile kaymaları önledik) -->
-                 <div class="feature-grid full-width">
+                <div class="feature-grid full-width">
                     <div class="bento-card" style="padding: 1.5rem; text-align: center;">
                         <i class="fa-solid fa-wifi" style="font-size: 2rem; color: var(--neon-blue); margin-bottom: 1rem;"></i>
-                        <h4 class="bento-card-title">%100 Çevrimdışı</h4>
-                        <p class="bento-text" style="font-size: 0.9rem;">Tüm model ve veritabanı lokalde çalışır, buluta veri gitmez.</p>
+                        <h4 class="bento-card-title content-tr">%100 Çevrimdışı</h4>
+                        <h4 class="bento-card-title content-en" style="display:none;">100% Offline</h4>
+                        <p class="bento-text content-tr" style="font-size: 0.9rem;">Tüm model ve veritabanı lokalde çalışır, buluta veri gitmez.</p>
+                        <p class="bento-text content-en" style="display:none; font-size: 0.9rem;">The entire model and database run locally; no data goes to the cloud.</p>
                     </div>
-                    
                     <div class="bento-card" style="padding: 1.5rem; text-align: center;">
                         <i class="fa-solid fa-bullseye" style="font-size: 2rem; color: var(--neon-blue); margin-bottom: 1rem;"></i>
-                        <h4 class="bento-card-title">Sıfır Halüsinasyon</h4>
-                        <p class="bento-text" style="font-size: 0.9rem;">Sıkı sistem promptu sayesinde bilgi yoksa uydurmaz, dürüst cevap verir.</p>
+                        <h4 class="bento-card-title content-tr">Sıfır Halüsinasyon</h4>
+                        <h4 class="bento-card-title content-en" style="display:none;">Zero Hallucinations</h4>
+                        <p class="bento-text content-tr" style="font-size: 0.9rem;">Sıkı sistem promptu sayesinde bilgi yoksa uydurmaz, dürüst cevap verir.</p>
+                        <p class="bento-text content-en" style="display:none; font-size: 0.9rem;">Thanks to strict system prompting, it doesn't invent answers if data is missing; it replies honestly.</p>
                     </div>
-                    
                     <div class="bento-card" style="padding: 1.5rem; text-align: center;">
                         <i class="fa-solid fa-bolt" style="font-size: 2rem; color: var(--neon-blue); margin-bottom: 1rem;"></i>
-                        <h4 class="bento-card-title">Yüksek Hız</h4>
-                        <p class="bento-text" style="font-size: 0.9rem;">0.5 - 1.5 saniye arasında son derece hızlı yanıt süresi.</p>
+                        <h4 class="bento-card-title content-tr">Yüksek Hız</h4>
+                        <h4 class="bento-card-title content-en" style="display:none;">High Speed</h4>
+                        <p class="bento-text content-tr" style="font-size: 0.9rem;">0.5 - 1.5 saniye arasında son derece hızlı yanıt süresi.</p>
+                        <p class="bento-text content-en" style="display:none; font-size: 0.9rem;">Extremely fast response time between 0.5 - 1.5 seconds.</p>
                     </div>
-                    
                     <div class="bento-card" style="padding: 1.5rem; text-align: center;">
                         <i class="fa-solid fa-shield-halved" style="font-size: 2rem; color: var(--neon-blue); margin-bottom: 1rem;"></i>
-                        <h4 class="bento-card-title">Tam Gizlilik</h4>
-                        <p class="bento-text" style="font-size: 0.9rem;">Belgeleriniz asla cihaz dışına çıkmaz, tamamen güvendedir.</p>
+                        <h4 class="bento-card-title content-tr">Tam Gizlilik</h4>
+                        <h4 class="bento-card-title content-en" style="display:none;">Total Privacy</h4>
+                        <p class="bento-text content-tr" style="font-size: 0.9rem;">Belgeleriniz asla cihaz dışına çıkmaz, tamamen güvendedir.</p>
+                        <p class="bento-text content-en" style="display:none; font-size: 0.9rem;">Your documents never leave the device, ensuring complete security.</p>
                     </div>
-
                 </div>
-
             </div>
 
-            <!-- 3. MİMARİ DİYAGRAMI -->
             <div class="bento-section-title">
-                <h2><i class="fa-solid fa-sitemap" style="color: var(--neon-blue);"></i> Veri Akışı ve Mimari</h2>
+                <h2 class="content-tr"><i class="fa-solid fa-sitemap" style="color: var(--neon-blue);"></i> Veri Akışı ve Mimari</h2>
+                <h2 class="content-en" style="display:none;"><i class="fa-solid fa-sitemap" style="color: var(--neon-blue);"></i> Data Flow & Architecture</h2>
             </div>
             
-            <div class="image-container" style="margin-bottom: 5rem;">
+            <div class="image-container" style="margin-bottom: 5rem; padding: 0 !important; background: transparent; border: 1px solid var(--neon-blue);">
                 <div class="corner top-left"></div>
                 <div class="corner top-right"></div>
                 <div class="corner bottom-left"></div>
                 <div class="corner bottom-right"></div>
-                <div style="width: 100%; aspect-ratio: 21/9; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.4); border-radius: 4px; border: 1px dashed rgba(0, 242, 254, 0.3);">
-                    <p style="color: var(--text-secondary); font-family: 'JetBrains Mono', monospace;">[ Mimari Akış Diyagramı Görseli Buraya Gelecek ]</p>
-                </div>
+                <img src="../../Assets/LocalRAG-Flow.png" alt="RAG Architecture Flow" class="project-img" style="width: 100%; height: auto; object-fit: contain; border-radius: 8px;">
             </div>
 
-            <!-- 4. ZIG-ZAG BÖLÜM 1: Teknik Detaylar -->
             <div class="bento-section-title">
-                <h2><i class="fa-solid fa-microchip" style="color: var(--neon-blue);"></i> Teknik Altyapı</h2>
+                <h2 class="content-tr"><i class="fa-solid fa-microchip" style="color: var(--neon-blue);"></i> Teknik Altyapı</h2>
+                <h2 class="content-en" style="display:none;"><i class="fa-solid fa-microchip" style="color: var(--neon-blue);"></i> Technical Infrastructure</h2>
             </div>
             
-            <div class="zigzag-row" style="margin-bottom: 5rem;">
-                <div class="zigzag-text">
-                    <!-- Ayrık Mini Kartlar -->
+            <div class="zigzag-row" style="margin-bottom: 5rem; display: flex; align-items: center;">
+                <div class="zigzag-text" style="flex: 0.8;">
                     <div class="mini-card-container">
                         <div class="mini-card">
                             <i class="fa-solid fa-brain"></i>
                             <div class="mini-card-content">
-                                <h4>Model Seçimi & Üretim</h4>
-                                <p>Sohbet (Chat) üretiminde <strong>phi-3.5-mini</strong>, metinleri vektörlere çevirme (Embedding) işleminde ise <strong>qwen3-embedding-0.6b</strong> kullanıldı.</p>
+                                <h4 class="content-tr">Model Seçimi & Üretim</h4>
+                                <h4 class="content-en" style="display:none;">Model Selection & Generation</h4>
+                                <p class="content-tr">Sohbet (Chat) üretiminde <strong>phi-3.5-mini</strong>, metinleri vektörlere çevirme (Embedding) işleminde ise <strong>qwen3-embedding-0.6b</strong> kullanıldı.</p>
+                                <p class="content-en" style="display:none;"><strong>phi-3.5-mini</strong> was used for chat generation, and <strong>qwen3-embedding-0.6b</strong> was used for converting texts into vectors (Embedding).</p>
                             </div>
                         </div>
-
                         <div class="mini-card">
                             <i class="fa-solid fa-database"></i>
                             <div class="mini-card-content">
-                                <h4>Vektör Veritabanı & Arama</h4>
-                                <p>Harici bir sunucu yerine gömülü SQLite kullanıldı. Vektör eşleştirmeleri <strong>Cosine Similarity</strong> algoritmasıyla doğrudan veritabanında hesaplanıyor.</p>
+                                <h4 class="content-tr">Vektör Veritabanı & Arama</h4>
+                                <h4 class="content-en" style="display:none;">Vector DB & Search</h4>
+                                <p class="content-tr">Harici bir sunucu yerine gömülü SQLite kullanıldı. Vektör eşleştirmeleri <strong>Cosine Similarity</strong> algoritmasıyla doğrudan veritabanında hesaplanıyor.</p>
+                                <p class="content-en" style="display:none;">Embedded SQLite was used instead of an external server. Vector matching is calculated directly in the database using the <strong>Cosine Similarity</strong> algorithm.</p>
                             </div>
                         </div>
-
                         <div class="mini-card">
                             <i class="fa-solid fa-gear"></i>
                             <div class="mini-card-content">
-                                <h4>Veri İşleme (Ingestion)</h4>
-                                <p>Belgeler önce parçalara (chunk) ayrılır, qwen3 ile vektörize edilir ve sorgulanmaya hazır şekilde SQLite tablosuna indekslenir.</p>
+                                <h4 class="content-tr">Veri İşleme (Ingestion)</h4>
+                                <h4 class="content-en" style="display:none;">Data Ingestion</h4>
+                                <p class="content-tr">Belgeler önce parçalara (chunk) ayrılır, qwen3 ile vektörize edilir ve sorgulanmaya hazır şekilde SQLite tablosuna indekslenir.</p>
+                                <p class="content-en" style="display:none;">Documents are first chunked, vectorized with qwen3, and indexed into the SQLite table ready to be queried.</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="zigzag-image image-container">
+
+                <!-- BURASI GÜNCELLENDİ: Slider tasarımı alttaki terminal-3 ile aynı stile kavuştu -->
+                <div class="zigzag-image slider-container local-rag-terminal-slider" style="flex: 1.2; margin-top: 0; padding: 0 !important; background: transparent; border: 1px solid var(--neon-blue); border-radius: 8px; aspect-ratio: 16/9; overflow: hidden;">
                     <div class="corner top-left"></div>
                     <div class="corner top-right"></div>
                     <div class="corner bottom-left"></div>
                     <div class="corner bottom-right"></div>
-                    <img src="../../Assets/rag-architecture.png" alt="Teknik Mimari Görseli" class="project-img" style="aspect-ratio: 4/3; object-fit: cover;">
-                </div>
+                    
+                    <button class="enlarge-btn" onclick="openLightbox()" title="Resmi Büyüt"><i class="fa-solid fa-expand"></i></button>
+                
+                    <img src="../../Assets/LocalRAG-Terminal-1.png" alt="Ingestion Log Terminal" class="slide active" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+                    <img src="../../Assets/LocalRAG-Terminal-2.png" alt="Halüsinasyon Test Terminal" class="slide" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+                    
+                    <button class="slider-btn prev-btn" onclick="moveSlide(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button class="slider-btn next-btn" onclick="moveSlide(1)"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>                
             </div>
             
-            <!-- 5. ZIG-ZAG BÖLÜM 2: Demo ve Metrikler (Ters Düzen) -->
-            <div class="zigzag-row zigzag-reverse" style="margin-bottom: 5rem;">
-                <div class="zigzag-text bento-card" style="margin: 0;">
+            <div class="zigzag-row zigzag-reverse" style="margin-bottom: 5rem; display: flex; align-items: center;">
+                <div class="zigzag-text bento-card" style="margin: 0; flex: 0.8;">
                     <div class="bento-header">
                         <i class="fa-solid fa-stopwatch"></i>
-                        <h3>Performans Metrikleri</h3>
+                        <h3 class="content-tr">Performans Metrikleri</h3>
+                        <h3 class="content-en" style="display:none;">Performance Metrics</h3>
                     </div>
-                    <p class="bento-text" style="margin-bottom: 1rem;">
-                        Apple Silicon çipleri üzerinde yapılan canlı CLI testlerinde, farklı sorgu tipleri için elde edilen ortalama çıkarım (inference) süreleri:
-                    </p>
-                    <ul class="styled-list">
+                    <p class="bento-text content-tr" style="margin-bottom: 1rem;">Apple Silicon çipleri üzerinde yapılan canlı CLI testlerinde, farklı sorgu tipleri için elde edilen ortalama çıkarım (inference) süreleri:</p>
+                    <p class="bento-text content-en" style="display:none; margin-bottom: 1rem;">Average inference times obtained for different query types during live CLI tests on Apple Silicon chips:</p>
+                    
+                    <ul class="styled-list content-tr">
                         <li><strong>Doğrudan Bilgi Çıkarımı:</strong> ~0.74 saniye</li>
                         <li><strong>Mantıksal Çıkarım (Deduction):</strong> ~1.09 saniye</li>
                         <li><strong>Bağlam Dışı Reddetme (Refusal):</strong> ~0.38 saniye</li>
                     </ul>
+                    <ul class="styled-list content-en" style="display:none;">
+                        <li><strong>Direct Information Extraction:</strong> ~0.74 seconds</li>
+                        <li><strong>Logical Deduction:</strong> ~1.09 seconds</li>
+                        <li><strong>Out-of-Context Refusal:</strong> ~0.38 seconds</li>
+                    </ul>
                 </div>
-                
-                <div class="zigzag-image image-container">
+
+                <div class="zigzag-image image-container" style="flex: 1.2; margin-top: 0; padding: 0 !important; background: transparent; border: 1px solid var(--neon-blue);">
                     <div class="corner top-left"></div>
                     <div class="corner top-right"></div>
                     <div class="corner bottom-left"></div>
                     <div class="corner bottom-right"></div>
-                    <img src="../../Assets/rag-cli-screenshot.png" alt="CLI Kullanım GIF'i" class="project-img" style="aspect-ratio: 4/3; object-fit: cover;">
+                    
+                    <button class="enlarge-btn" onclick="openSingleLightbox(this)" title="Resmi Büyüt"><i class="fa-solid fa-expand"></i></button>
+
+                    <img src="../../Assets/LocalRAG-Terminal-3.png" alt="Inference Speed Screenshot" class="project-img" style="width: 100%; height: auto; object-fit: contain; border-radius: 8px;">
                 </div>
             </div>
 
-            <!-- 6. ZORLUKLAR VE ÖĞRENİLENLER -->
             <div class="bento-card full-width" style="margin-bottom: 5rem;">
                 <div class="bento-header">
                     <i class="fa-solid fa-lightbulb"></i>
-                    <h3>Karşılaşılan Zorluklar ve Trade-off'lar</h3>
+                    <h3 class="content-tr">Karşılaşılan Zorluklar ve Trade-off'lar</h3>
+                    <h3 class="content-en" style="display:none;">Challenges and Decisions</h3>
                 </div>
-                <ul class="styled-list">
+                <ul class="styled-list content-tr">
                     <li><strong>Neden SQLite?</strong> ChromaDB veya Milvus gibi çözümler yerine SQLite kullanmak, sistemin sadece standart kütüphanelerle "tak-çalıştır" (plug & play) seviyesinde hafif olmasını sağladı. Ancak bu, çok büyük ölçekli vektör aramalarında hızdan bir miktar feragat etmek (trade-off) anlamına geliyordu. Lokal kullanım için bu denge idealdi.</li>
                     <li><strong>Model Kısıtlamaları:</strong> phi-3.5-mini gibi küçük dil modelleri (SLM) karmaşık promptlara bazen halüsinasyonla yanıt verebiliyordu. Context pencerelerini daraltarak ve RAG promptlarını çok daha spesifik hale getirerek bu sorunu aştım.</li>
                 </ul>
+                <ul class="styled-list content-en" style="display:none;">
+                    <li><strong>Why SQLite?</strong> Using SQLite instead of solutions like ChromaDB or Milvus ensured the system remained lightweight and "plug & play" using only standard libraries. However, this meant slightly trading off speed for very large-scale vector searches. For local use, this balance was ideal.</li>
+                    <li><strong>Model Limitations:</strong> Small language models (SLM) like phi-3.5-mini could sometimes respond to complex prompts with hallucinations. I overcame this issue by narrowing context windows and making RAG prompts much more specific.</li>
+                </ul>
             </div>
 
-            <!-- 7. KURULUM VE KULLANIM -->
             <div class="bento-section-title">
-                <h2><i class="fa-solid fa-code" style="color: var(--neon-blue);"></i> Kurulum ve Çalıştırma</h2>
+                <h2 class="content-tr"><i class="fa-solid fa-code" style="color: var(--neon-blue);"></i> Kurulum ve Çalıştırma</h2>
+                <h2 class="content-en" style="display:none;"><i class="fa-solid fa-code" style="color: var(--neon-blue);"></i> Installation and Execution</h2>
             </div>
             
             <div class="terminal-code-block" style="margin-bottom: 5rem;">
@@ -219,7 +242,7 @@
                     <span class="dot green"></span>
                     <span class="terminal-title">bash</span>
                 </div>
-                <pre><code># Depoyu klonlayın ve klasöre girin
+<pre class="content-tr"><code># Depoyu klonlayın ve klasöre girin
 git clone https://github.com/BurakHINGE/LocalRagAssistant.git
 cd LocalRagAssistant
 
@@ -235,36 +258,83 @@ python3 ingest.py
 
 # Asistanı başlatın
 python3 app.py</code></pre>
+<pre class="content-en" style="display:none;"><code># Clone the repo and navigate to the directory
+git clone https://github.com/BurakHINGE/LocalRagAssistant.git
+cd LocalRagAssistant
+
+# Create and activate virtual environment (macOS/Linux)
+python3 -m venv venv
+source venv/bin/activate
+
+# Install required libraries
+pip install -r requirements.txt
+
+# Vectorize documents and save to SQLite (Ingestion)
+python3 ingest.py
+
+# Start the assistant
+python3 app.py</code></pre>
             </div>
 
-            <!-- ALT CTA VE PROJELER ARASI GEÇİŞ -->
             <div class="project-bottom-nav-container">
-                
-                <h3 class="cta-title">Projeyi İncelemeye Hazır Mısınız?</h3>
+                <h3 class="cta-title content-tr">Projeyi İncelemeye Hazır Mısınız?</h3>
+                <h3 class="cta-title content-en" style="display:none;">Ready to Review the Project?</h3>
                 <a href="https://github.com/BurakHINGE" target="_blank" class="neon-btn cta-btn">
-                    <i class="fa-brands fa-github"></i> Kaynak Kodları İncele
+                    <i class="fa-brands fa-github"></i> <span class="content-tr">Kaynak Kodları İncele</span><span class="content-en" style="display:none;">View Source Code</span>
                 </a>
 
-                <!-- Sadece Sonraki Proje Linki (İlk proje olduğu için sağa yaslıyoruz) -->
                 <div class="project-pagination" style="justify-content: flex-end;">
-                    
-                    <!-- Sağ: Sonraki Proje (GhostHunter) -->
                     <a href="../ghost-hunter/index.html" class="pagination-link next">
                         <span class="pagination-text">
-                            <span class="pagination-label">Sonraki Proje</span>
+                            <span class="pagination-label content-tr">Sonraki Proje</span>
+                            <span class="pagination-label content-en" style="display:none;">Next Project</span>
                             <span class="pagination-title">GhostHunterINC</span>
                         </span>
                         <i class="fa-solid fa-arrow-right"></i>
                     </a>
-
                 </div>
             </div>
-
-
         </div>
     </section>
 
-    <!-- JS BAĞLANTISI -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo-wrapper">
+                    <img src="../../Assets/favicon.png" alt="MBM Logo" class="footer-logo">
+                    <span class="footer-name">MEHMET BURAK MENTEŞE</span>
+                </div>
+                <p class="footer-desc" data-translate="footerDesc">Marmara Üniversitesi Bilgisayar Mühendisliği.<br>Yapay Zeka, Yazılım Geliştirme ve Siber Güvenlik.</p>
+                <a href="mailto:burakmentese16@gmail.com" class="footer-email"><i class="fa-regular fa-envelope"></i> burakmentese16@gmail.com</a>
+            </div>
+            <div class="footer-links">
+                <h4 class="footer-title" data-translate="quickMenu">Hızlı Menü</h4>
+                <nav class="footer-nav">
+                    <a href="../../index.html" data-translate="home">Ana Sayfa</a>
+                    <a href="../../hakkimda.html" data-translate="about">Hakkımda</a>
+                    <a href="../../projeler.html" data-translate="projects">Projeler</a>
+                    <a href="../../blog.html" data-translate="blog">Blog</a>
+                </nav>
+            </div>
+            <div class="footer-social">
+                <h4 class="footer-title" data-translate="followMe">Beni Takip Edin</h4>
+                <div class="footer-social-icons">
+                    <a href="https://github.com/BurakHINGE" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/mehmetburakmentese/" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://medium.com/@burakmentese16" target="_blank" title="Medium"><span class="classic-medium">M</span></a>
+                </div>
+                <p class="copyright" data-translate="allRightsReserved">© 2026 Mehmet Burak Menteşe.<br>Tüm Hakları Saklıdır.<br><span class="designed-by">Designed by MBM</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LIGHTBOX OVERLAY -->
+    <div id="lightbox-overlay" class="lightbox-overlay" onclick="closeLightbox(event)">
+        <img id="lightbox-img" src="" alt="Büyütülmüş Ekran Görüntüsü">
+        <span class="lightbox-hint content-tr">Kapatmak için dışarıya tıklayın.</span>
+        <span class="lightbox-hint content-en" style="display:none;">Click outside to close.</span>
+    </div>
+
     <script src="../../script.js"></script>
 </body>
 </html>
