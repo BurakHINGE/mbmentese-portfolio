@@ -19,7 +19,6 @@
         <nav>
             <a href="index.html" class="nav-link" data-translate="home">Ana Sayfa</a>
             <a href="hakkimda.html" class="nav-link" data-translate="about">Hakkımda</a>
-            <!-- Projeler sayfasında olduğumuz için active class'ı burada! -->
             <a href="projeler.html" class="nav-link active" data-translate="projects">Projeler</a>
             <a href="blog.html" class="nav-link" data-translate="blog">Blog</a>
             <div class="lang-toggle">
@@ -42,7 +41,7 @@
             <!-- 2'li Grid Kart Yapısı -->
             <div class="projects-grid">
                 
-                <!-- Proje 1 -->
+                <!-- Proje 1: Local RAG -->
                 <a href="projeler/local-RAG-assistant/index.html" class="project-card">
                     <div class="project-header">
                         <h3 class="content-tr">Yerel RAG Asistanı</h3>
@@ -51,52 +50,94 @@
                     </div>
                     <p class="project-desc content-tr">Kişisel belgelerden bilgi çıkaran, harici API kullanmadan tamamen cihazda çalışan CLI tabanlı yapay zeka asistanı.</p>
                     <p class="project-desc content-en" style="display:none;">A CLI-based AI assistant running entirely locally without external APIs, extracting information from personal documents.</p>
+                    
+                    <!-- ETİKETLER ALANI -->
                     <div class="skill-tags" style="margin-bottom: 1.5rem; gap: 8px;">
                         <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">Python</span>
                         <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">SQLite</span>
+                        <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">RAG</span>
                         <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">Foundry Local</span>
+                        
+                        <!-- GİZLİ ETİKETLER (TOOLTIP) -->
+                        <div class="more-tags-container">
+                            <span class="skill-tag more-btn" style="padding: 4px 10px; font-size: 0.75rem;">+5</span>
+                            <div class="tags-tooltip">
+                                <span class="skill-tag" style="padding: 4px 8px; font-size: 0.7rem;">phi-3.5-mini</span>
+                                <span class="skill-tag" style="padding: 4px 8px; font-size: 0.7rem;">qwen3</span>
+                                <span class="skill-tag" style="padding: 4px 8px; font-size: 0.7rem;">Embeddings</span>
+                                <span class="skill-tag" style="padding: 4px 8px; font-size: 0.7rem;">Chunking</span>
+                                <span class="skill-tag" style="padding: 4px 8px; font-size: 0.7rem;">Cosine Similarity</span>
+                            </div>
+                        </div>
                     </div>
+
                     <span class="project-link-text content-tr">Detayları İncele ➔</span>
                     <span class="project-link-text content-en" style="display:none;">View Details ➔</span>
                 </a>
     
-                <!-- Proje 2 -->
+                <!-- Proje 2: GhostHunter -->
                 <a href="projeler/ghost-hunter/index.html" class="project-card">
                     <div class="project-header">
-                        <!-- Özel isim olduğu için çevrilmedi -->
                         <h3>GhostHunterINC</h3>
                         <i class="fa-solid fa-gamepad"></i>
                     </div>
                     <p class="project-desc content-tr">Oyun motoru kullanılmadan, tamamen sıfırdan standart editörlerde Java ve JavaFX ile kodlanmış interaktif bağımsız oyun.</p>
                     <p class="project-desc content-en" style="display:none;">An interactive indie game coded entirely from scratch using Java and JavaFX in standard editors, without a game engine.</p>
+                    
+                    <!-- ETİKETLER ALANI -->
                     <div class="skill-tags" style="margin-bottom: 1.5rem; gap: 8px;">
                         <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">Java</span>
                         <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">JavaFX</span>
-                        <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">CSS</span>
+                        <span class="skill-tag" style="padding: 4px 8px; font-size: 0.7rem;">OOP</span>
+                        <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">2D Game Dev</span>
+                        
+                        <!-- GİZLİ ETİKETLER (TOOLTIP) -->
+                        <div class="more-tags-container">
+                            <span class="skill-tag more-btn" style="padding: 4px 10px; font-size: 0.75rem;">+3</span>
+                            <div class="tags-tooltip">
+                                <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">No Game Engine</span>
+                                <span class="skill-tag" style="padding: 4px 8px; font-size: 0.7rem;">Game Loop</span>
+                                <span class="skill-tag" style="padding: 4px 8px; font-size: 0.7rem;">Co-op Dev</span>
+                            </div>
+                        </div>
                     </div>
+
                     <span class="project-link-text content-tr">Detayları İncele ➔</span>
                     <span class="project-link-text content-en" style="display:none;">View Details ➔</span>
                 </a>
     
-                <!-- Proje 3 -->
+                <!-- Proje 3: Library System -->
                 <a href="projeler/library-management-system/index.html" class="project-card">
                     <div class="project-header">
-                        <!-- Senin script.js'ye eklediğin etiket çalışacak -->
                         <h3 data-translate="libraryTitle">Library OOP System</h3>
                         <i class="fa-solid fa-book-bookmark"></i>
                     </div>
                     <p class="project-desc content-tr">Kitapların raflara dizilmesinden genel kütüphane organizasyonuna kadar tüm süreçleri modelleyen, OOP tabanlı Java uygulaması.</p>
                     <p class="project-desc content-en" style="display:none;">An OOP-based Java application that models all processes, from organizing books on shelves to general library management.</p>
+                    
+                    <!-- ETİKETLER ALANI -->
                     <div class="skill-tags" style="margin-bottom: 1.5rem; gap: 8px;">
                         <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">Java</span>
                         <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">OOP</span>
-                        <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">Console</span>
+                        <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">JSON Persistence</span>
+                        <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">Auth & Roles</span>
+                        
+                        <!-- GİZLİ ETİKETLER (TOOLTIP) -->
+                        <div class="more-tags-container">
+                            <span class="skill-tag more-btn" style="padding: 4px 10px; font-size: 0.75rem;">+3</span>
+                            <div class="tags-tooltip">
+                                <span class="skill-tag" style="padding: 4px 8px; font-size: 0.7rem;">Inheritance</span>
+                                <span class="skill-tag" style="padding: 4px 8px; font-size: 0.7rem;">Polymorphism</span>
+                                <span class="skill-tag" style="padding: 4px 8px; font-size: 0.7rem;">Exception Handling</span>
+                            </div>
+                        </div>
                     </div>
+
                     <span class="project-link-text content-tr">Detayları İncele ➔</span>
                     <span class="project-link-text content-en" style="display:none;">View Details ➔</span>
                 </a>
     
-                <!-- Proje 4 -->
+                <!-- Proje 4: Marmara Cyber -->
                 <a href="projeler/marmara-cyber-website/index.html" class="project-card">
                     <div class="project-header">
                         <h3 class="content-tr">Marmara Siber Web Arayüzü</h3>
@@ -105,11 +146,25 @@
                     </div>
                     <p class="project-desc content-tr">Marmara Siber web sitesi için akordeon tarzı dinamik SSS bölümü ve i18n altyapısına sahip fütüristik arayüz geliştirmeleri.</p>
                     <p class="project-desc content-en" style="display:none;">Futuristic interface developments for the Marmara Cyber website, featuring an accordion-style dynamic FAQ section and i18n infrastructure.</p>
+                    
+                    <!-- ETİKETLER ALANI -->
                     <div class="skill-tags" style="margin-bottom: 1.5rem; gap: 8px;">
                         <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">Vanilla JS</span>
                         <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">HTML5/CSS3</span>
                         <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">i18n</span>
+                        <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">UI/UX Design</span>
+                        
+                        <!-- GİZLİ ETİKETLER (TOOLTIP) -->
+                        <div class="more-tags-container">
+                            <span class="skill-tag more-btn" style="padding: 4px 10px; font-size: 0.75rem;">+3</span>
+                            <div class="tags-tooltip">
+                                <span class="skill-tag" style="padding: 4px 8px; font-size: 0.7rem;">Responsive</span>
+                                <span class="skill-tag" style="padding: 4px 8px; font-size: 0.7rem;">DOM Manipulation</span>
+                                <span class="skill-tag" style="padding: 4px 8px; font-size: 0.7rem;">Accordion UI</span>
+                            </div>
+                        </div>
                     </div>
+
                     <span class="project-link-text content-tr">Detayları İncele ➔</span>
                     <span class="project-link-text content-en" style="display:none;">View Details ➔</span>
                 </a>
