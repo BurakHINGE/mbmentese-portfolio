@@ -9,6 +9,22 @@
     <link rel="stylesheet" href="../../style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- YENİ EKLENDİ: Canonical URL -->
+    <link rel="canonical" href="https://mburakmentese.dev/blog/local-RAG-bolum-3" />
+
+    <!-- YENİ EKLENDİ: SEO Schema Markup (Article/Project) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "author": {
+        "@type": "Person",
+        "name": "Mehmet Burak Menteşe"
+      },
+      "url": "https://mburakmentese.dev/blog/local-RAG-bolum-3"
+    }
+    </script>
 </head>
 <body>
     <header>
@@ -21,11 +37,9 @@
             <a href="../../hakkimda.html" class="nav-link" data-translate="about">Hakkımda</a>
             <a href="../../projeler.html" class="nav-link" data-translate="projects">Projeler</a>
             <a href="../../blog.html" class="nav-link active" data-translate="blog">Blog</a>
-            <div class="lang-toggle">
-                <span id="lang-tr" class="lang-btn active">TR</span>
-                <span class="lang-separator">/</span>
-                <span id="lang-en" class="lang-btn">EN</span>
-            </div>
+            <button id="lang-toggle-btn" class="lang-toggle-btn">
+                <i class="fa-solid fa-globe"></i> EN
+            </button>
         </nav>
     </header>
 
@@ -37,8 +51,10 @@
 
         <div class="project-hero blog-content-width hero-left-aligned">
             <div class="hero-title-wrapper fixed-underline">
-                <h1 class="project-main-title content-tr">Local RAG Asistanı Geliştirmek: Sistemi Test Etmek (Bölüm 3 — Final)</h1>
-                <h1 class="project-main-title content-en" style="display:none;">Developing a Local RAG Assistant: Testing the System (Part 3 — Final)</h1>
+                <h1 class="project-main-title">
+    <span class="content-tr">Local RAG Asistanı Geliştirmek: Sistemi Test Etmek (Bölüm 3 — Final)</span>
+    <span class="content-en" style="display:none;">Developing a Local RAG Assistant: Testing the System (Part 3 — Final)</span>
+</h1>
             </div>
             
             <div class="blog-meta-info">
@@ -78,8 +94,10 @@
 
             <article class="blog-article-content reading-optimized">
                 
-                <h2 id="on-soz" class="content-tr"><i class="fa-solid fa-pen-nib" style="color: var(--neon-blue);"></i> Yazı Hakkında Ön Söz</h2>
-                <h2 id="on-soz-en" class="content-en" style="display:none;"><i class="fa-solid fa-pen-nib" style="color: var(--neon-blue);"></i> Preface to the Article</h2>
+                <h2>
+    <span class="content-tr"><i class="fa-solid fa-pen-nib" style="color: var(--neon-blue);"></i> Yazı Hakkında Ön Söz</span>
+    <span class="content-en" style="display:none;"><i class="fa-solid fa-pen-nib" style="color: var(--neon-blue);"></i> Preface to the Article</span>
+</h2>
                 
                 <p class="lead-text content-tr">Tekrardan selam dostum! Yazı serimizin ilk iki bölümünde adeta sıfırdan bir yapay zeka ekosistemi inşa ettik: Metinlerimizi parçalara ayırdık, SQLite üzerinde akıllı bir vektör hafızası kurduk, qwen3 ile kelimeleri matematiğe döktük ve phi-3.5-mini ile terminalde tıkır tıkır sohbet eden yerel bir asistan çıkardık ortaya.</p>
                 <p class="lead-text content-en" style="display:none;">Hello again my friend! In the first two parts of our article series, we built an AI ecosystem practically from scratch: We chunked our texts, set up a smart vector memory on SQLite, converted words into math using qwen3, and brought forth a local assistant chatting seamlessly in the terminal using phi-3.5-mini.</p>
@@ -92,14 +110,18 @@
 
                 <div class="about-divider" style="margin: 3rem 0; width: 60px;"></div>
 
-                <h2 id="phase-3" class="content-tr"><i class="fa-solid fa-hammer" style="color: var(--neon-blue);"></i> Phase 3: Sistemi Terletmek: Dayanıklılık ve Güvenilirlik Testleri</h2>
-                <h2 id="phase-3-en" class="content-en" style="display:none;"><i class="fa-solid fa-hammer" style="color: var(--neon-blue);"></i> Phase 3: Making the System Sweat: Resilience and Reliability Tests</h2>
+                <h2>
+    <span class="content-tr"><i class="fa-solid fa-hammer" style="color: var(--neon-blue);"></i> Phase 3: Sistemi Terletmek: Dayanıklılık ve Güvenilirlik Testleri</span>
+    <span class="content-en" style="display:none;"><i class="fa-solid fa-hammer" style="color: var(--neon-blue);"></i> Phase 3: Making the System Sweat: Resilience and Reliability Tests</span>
+</h2>
                 
                 <p class="content-tr">Her şeyin harika çalıştığı o güvenli limandan çıkıp gerçek dünya senaryolarına geçiyoruz. Bu aşamada asistanımızı hem beklenmeyen kullanıcı hatalarına hem de yapay zekanın en büyük hastalığı olan “uydurmaya” karşı test edeceğiz.</p>
                 <p class="content-en" style="display:none;">We are leaving the safe harbor where everything works perfectly and moving on to real-world scenarios. In this stage, we will test our assistant against both unexpected user errors and the AI's greatest disease: "making things up" (hallucination).</p>
 
-                <h2 id="adim-1" class="content-tr"><i class="fa-solid fa-keyboard" style="color: var(--neon-blue);"></i> Adım 1: Boşluk ve Anlamsız Girdiler (Asistanı Çökertme Girişimi)</h2>
-                <h2 id="adim-1-en" class="content-en" style="display:none;"><i class="fa-solid fa-keyboard" style="color: var(--neon-blue);"></i> Step 1: Empty and Meaningless Inputs (Attempting to Crash the Assistant)</h2>
+                <h2>
+    <span class="content-tr"><i class="fa-solid fa-keyboard" style="color: var(--neon-blue);"></i> Adım 1: Boşluk ve Anlamsız Girdiler (Asistanı Çökertme Girişimi)</span>
+    <span class="content-en" style="display:none;"><i class="fa-solid fa-keyboard" style="color: var(--neon-blue);"></i> Step 1: Empty and Meaningless Inputs (Attempting to Crash the Assistant)</span>
+</h2>
                 
                 <p class="content-tr">Sistemi ilk test ettiğimizde fark ettik ki, kullanıcı bazen enter tuşuna boş boş basabiliyor veya klavyeye rastgele karakterler (asdasdasdasd) girebiliyor veya da fazladan gereksiz space tuşuna basıp cümlenin anlamını bozabiliyordu. Eski haliyle bu durum, embedding modelinin girdiyi işleyemeyip <code>ValueError</code> fırlatmasına ve programın aniden kapanmasına yol açıyordu.</p>
                 <p class="content-en" style="display:none;">When we first tested the system, we noticed that a user could sometimes press the enter key blankly, input random characters (asdasdasdasd), or press unnecessary space keys, distorting the sentence's meaning. In its old state, this caused the embedding model to fail in processing the input, throwing a <code>ValueError</code>, and abruptly crashing the program.</p>
@@ -164,8 +186,10 @@ if not user_input.strip():
                     </div>
                 </div>
 
-                <h2 id="adim-2" class="content-tr"><i class="fa-solid fa-shield-halved" style="color: var(--neon-blue);"></i> Adım 2: Halüsinasyon Direnci Testi</h2>
-                <h2 id="adim-2-en" class="content-en" style="display:none;"><i class="fa-solid fa-shield-halved" style="color: var(--neon-blue);"></i> Step 2: Hallucination Resistance Test</h2>
+                <h2>
+    <span class="content-tr"><i class="fa-solid fa-shield-halved" style="color: var(--neon-blue);"></i> Adım 2: Halüsinasyon Direnci Testi</span>
+    <span class="content-en" style="display:none;"><i class="fa-solid fa-shield-halved" style="color: var(--neon-blue);"></i> Step 2: Hallucination Resistance Test</span>
+</h2>
                 
                 <p class="content-tr">RAG mimarisinin bize sunduğu en büyük avantaj, modelin kafasına göre hikaye uydurmasını engellemektir. Önceki fazlarda halüsinasyon riskini azaltmayı hedefleyen işlemler yapmıştık. Peki bu pratikte ne kadar başarılı? Bunu test etmek için asistanımıza hafızasında kesinlikle olmayan bir tuzak soru sorduk:</p>
                 <p class="content-en" style="display:none;">The biggest advantage the RAG architecture offers us is preventing the model from making up stories on its own. In previous phases, we implemented operations aimed at reducing the hallucination risk. But how successful is this in practice? To test this, we asked our assistant a trap question that is absolutely not in its memory:</p>
@@ -202,8 +226,10 @@ if not user_input.strip():
                 <p class="content-tr">İşte bu noktada modelin bilmediği konularda dürüst kalabilmesi, özellikle kurumsal veya kişisel bilgi asistanlarında güvenilirliği artıran en kritik detaylardan biri. Bilgiyi uydurmak yerine sınırını bilmesi sistemin kararlılığını gösteriyor.</p>
                 <p class="content-en" style="display:none;">At this point, the model's ability to remain honest about topics it doesn't know is one of the most critical details that increases reliability, especially in corporate or personal knowledge assistants. Knowing its limits instead of fabricating information demonstrates the system's stability.</p>
 
-                <h2 id="adim-3" class="content-tr"><i class="fa-solid fa-gauge-high" style="color: var(--neon-blue);"></i> Adım 3: Apple Silicon Üzerinde Hız Testi</h2>
-                <h2 id="adim-3-en" class="content-en" style="display:none;"><i class="fa-solid fa-gauge-high" style="color: var(--neon-blue);"></i> Step 3: Speed Test on Apple Silicon</h2>
+                <h2>
+    <span class="content-tr"><i class="fa-solid fa-gauge-high" style="color: var(--neon-blue);"></i> Adım 3: Apple Silicon Üzerinde Hız Testi</span>
+    <span class="content-en" style="display:none;"><i class="fa-solid fa-gauge-high" style="color: var(--neon-blue);"></i> Step 3: Speed Test on Apple Silicon</span>
+</h2>
                 
                 <p class="content-tr">Bütün bu işlemler (vektör arama, kosinüs benzerliği hesaplama, modelin bağlamı okuyup cevap üretmesi) tamamen benim MacBook Pro’mun üzerinde, hiçbir bulut API’sine gitmeden çalışıyor. Peki bu yerel işlem tam olarak kaç saniye sürüyor?</p>
                 <p class="content-en" style="display:none;">All these operations (vector searching, calculating cosine similarity, the model reading the context and generating a response) run entirely on my MacBook Pro, without reaching out to any cloud APIs. So exactly how many seconds does this local operation take?</p>
@@ -227,8 +253,10 @@ if not user_input.strip():
 
                 <div class="about-divider" style="margin: 4rem 0; width: 60px;"></div>
 
-                <h2 id="final" class="content-tr"><i class="fa-brands fa-github" style="color: var(--neon-blue);"></i> Projenin Sonu: Github Deposu ve Açık Kaynak Yolculuğu</h2>
-                <h2 id="final-en" class="content-en" style="display:none;"><i class="fa-brands fa-github" style="color: var(--neon-blue);"></i> The End of the Project: GitHub Repo and Open Source Journey</h2>
+                <h2>
+    <span class="content-tr"><i class="fa-brands fa-github" style="color: var(--neon-blue);"></i> Projenin Sonu: Github Deposu ve Açık Kaynak Yolculuğu</span>
+    <span class="content-en" style="display:none;"><i class="fa-brands fa-github" style="color: var(--neon-blue);"></i> The End of the Project: GitHub Repo and Open Source Journey</span>
+</h2>
                 
                 <p class="content-tr">6 hafta boyunca adım adım ördüğümüz; %100 çevrimdışı çalışan, gizlilik odaklı, sıfır halüsinasyonlu bu akıllı asistan projesini nihayet tamamladık. Projenin tüm kodlarını, mimari detaylarını ve projeyi kendi bilgisayarınızda kurup çalıştırabilmeniz için İngilizce-Türkçe çift dilli README dokümantasyonunu GitHub’da açık kaynak olarak yayınladım.</p>
                 <p class="content-en" style="display:none;">We have finally completed this 100% offline, privacy-focused, zero-hallucination smart assistant project that we wove step by step over 6 weeks. I published all the project codes, architectural details, and a bilingual English-Turkish README documentation open-source on GitHub so you can install and run the project on your own computer.</p>

@@ -8,6 +8,22 @@
     <link rel="stylesheet" href="../../style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- YENİ EKLENDİ: Canonical URL -->
+    <link rel="canonical" href="https://mburakmentese.dev/projeler/marmara-cyber-website" />
+
+    <!-- YENİ EKLENDİ: SEO Schema Markup (Article/Project) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "author": {
+        "@type": "Person",
+        "name": "Mehmet Burak Menteşe"
+      },
+      "url": "https://mburakmentese.dev/projeler/marmara-cyber-website"
+    }
+    </script>
 </head>
 <body>
     <header>
@@ -20,11 +36,9 @@
             <a href="../../hakkimda.html" class="nav-link" data-translate="about">Hakkımda</a>
             <a href="../../projeler.html" class="nav-link active" data-translate="projects">Projeler</a>
             <a href="../../blog.html" class="nav-link" data-translate="blog">Blog</a>
-            <div class="lang-toggle">
-                <span id="lang-tr" class="lang-btn active">TR</span>
-                <span class="lang-separator">/</span>
-                <span id="lang-en" class="lang-btn">EN</span>
-            </div>
+            <button id="lang-toggle-btn" class="lang-toggle-btn">
+                <i class="fa-solid fa-globe"></i> EN
+            </button>
         </nav>
     </header>
 
@@ -71,11 +85,13 @@
                 <div class="bento-card full-width">
                     <div class="bento-header">
                         <i class="fa-solid fa-shield-halved"></i>
-                        <h3 class="content-tr">Çıkış Noktası ve Kapsam</h3>
-                        <h3 class="content-en" style="display:none;">Starting Point and Scope</h3>
+                        <h3>
+    <span class="content-tr">Çıkış Noktası ve Kapsam</span>
+    <span class="content-en" style="display:none;">Starting Point and Scope</span>
+</h3>
                     </div>
-                    <p class="bento-text content-tr">Marmara Cyber, kulübün kurumsal kimliğini yansıtmak, etkinlikleri duyurmak ve öğrencilere siber güvenlik alanında rehberlik etmek amacıyla hayata geçirildi. Tasarım aşamasında klasik şablonlardan kaçınılarak tamamen siberpunk ve terminal estetiğine odaklanıldı. Ziyaretçilerin siteyi hem Türkçe hem İngilizce deneyimleyebilmesi için harici kütüphane kullanmadan tamamen saf JavaScript ile dinamik bir çeviri (i18n) altyapısı kuruldu.</p>
-                    <p class="bento-text content-en" style="display:none;">Marmara Cyber was launched to reflect the club's corporate identity, announce events, and guide students in the field of cyber security. During the design phase, classic templates were avoided, focusing entirely on cyberpunk and terminal aesthetics. To allow visitors to experience the site in both Turkish and English, a dynamic translation (i18n) infrastructure was built entirely with vanilla JavaScript without using external libraries.</p>
+                    <p class="bento-text content-tr">Marmara Cyber, kulübün kurumsal kimliğini yansıtmak, etkinlikleri duyurmak ve öğrencilere siber güvenlik alanında rehberlik etmek amacıyla hayata geçirildi. Tasarım aşamasında klasik şablonlardan kaçınılarak tamamen siberpunk ve terminal estetiğine odaklanıldı. Ziyaretçilerin siteyi hem Türkçe hem İngilizce deneyimleyebilmesi için harici kütüphane kullanmadan tamamen saf JavaScript ile dinamik bir çeviri altyapısı kuruldu.</p>
+                    <p class="bento-text content-en" style="display:none;">Marmara Cyber was launched to reflect the club's corporate identity, announce events, and guide students in the field of cyber security. During the design phase, classic templates were avoided, focusing entirely on cyberpunk and terminal aesthetics. To allow visitors to experience the site in both Turkish and English, a dynamic translation infrastructure was built entirely with vanilla JavaScript without using external libraries.</p>
                 </div>
                 
                 <div class="feature-grid full-width">
@@ -114,8 +130,10 @@
             </div>
 
             <div class="bento-section-title">
-                <h2 class="content-tr"><i class="fa-solid fa-microchip" style="color: var(--neon-blue);"></i> Teknik Altyapı ve Özellikler</h2>
-                <h2 class="content-en" style="display:none;"><i class="fa-solid fa-microchip" style="color: var(--neon-blue);"></i> Tech Infrastructure & Features</h2>
+                <h2>
+    <span class="content-tr"><i class="fa-solid fa-microchip" style="color: var(--neon-blue);"></i> Teknik Altyapı ve Özellikler</span>
+    <span class="content-en" style="display:none;"><i class="fa-solid fa-microchip" style="color: var(--neon-blue);"></i> Tech Infrastructure & Features</span>
+</h2>
             </div>
             
             <div class="zigzag-row" style="margin-bottom: 5rem; display: flex; align-items: center;">
@@ -143,8 +161,8 @@
                             <div class="mini-card-content">
                                 <h4 class="content-tr">Güvenlik Önlemleri</h4>
                                 <h4 class="content-en" style="display:none;">Security Measures</h4>
-                                <p class="content-tr">İletişim formunda girdi sanitizasyonu (HTML entity encoding) ve spam koruması için gizli honeypot alanları yer alıyor.</p>
-                                <p class="content-en" style="display:none;">The contact form includes input sanitization (HTML entity encoding) and hidden honeypot fields for spam protection.</p>
+                                <p class="content-tr">İletişim formunda girdi sanitizasyonu ve spam koruması için gizli honeypot alanları yer alıyor.</p>
+                                <p class="content-en" style="display:none;">The contact form includes input sanitization and hidden honeypot fields for spam protection.</p>
                             </div>
                         </div>
                     </div>
@@ -172,22 +190,26 @@
             <div class="bento-card full-width" style="margin-bottom: 5rem;">
                 <div class="bento-header">
                     <i class="fa-solid fa-lightbulb"></i>
-                    <h3 class="content-tr">Mimari Kararlar ve Zorluklar</h3>
-                    <h3 class="content-en" style="display:none;">Architectural Decisions & Challenges</h3>
+                    <h3>
+    <span class="content-tr">Mimari Kararlar ve Zorluklar</span>
+    <span class="content-en" style="display:none;">Architectural Decisions & Challenges</span>
+</h3>
                 </div>
                 <ul class="styled-list content-tr">
-                    <li><strong>Saf JavaScript ile Dil Yönetimi:</strong> React veya Vue gibi büyük frameworkler yerine projenin hızlı yüklenmesi ve statik barındırmaya (hosting) tam uyum sağlaması için tüm çoklu dil altyapısı vanilla JavaScript sözlük objeleriyle optimize edildi.</li>
-                    <li><strong>Responsive Tasarım Dengesi:</strong> Fütüristik cam efekti (glassmorphism) ve hiyerarşik yönetim kartlarının mobil cihazlarda (özellikle dar ekranlarda) bozulmadan dikey akışa geçmesi için CSS Grid ve Flexbox kombinasyonları titizlikle ayarlandı.</li>
+                    <li><strong>Saf JavaScript ile Dil Yönetimi:</strong> React veya Vue gibi büyük frameworkler yerine projenin hızlı yüklenmesi ve statik barındırmaya tam uyum sağlaması için tüm çoklu dil altyapısı vanilla JavaScript sözlük objeleriyle optimize edildi.</li>
+                    <li><strong>Responsive Tasarım Dengesi:</strong> Fütüristik cam efekti ve hiyerarşik yönetim kartlarının mobil cihazlarda bozulmadan dikey akışa geçmesi için CSS Grid ve Flexbox kombinasyonları titizlikle ayarlandı.</li>
                 </ul>
                 <ul class="styled-list content-en" style="display:none;">
                     <li><strong>Language Management with Vanilla JS:</strong> Instead of large frameworks like React or Vue, the entire multi-language infrastructure was optimized with vanilla JavaScript dictionary objects to ensure fast loading and full compatibility with static hosting.</li>
-                    <li><strong>Responsive Design Balance:</strong> CSS Grid and Flexbox combinations were meticulously adjusted so the futuristic glassmorphism effect and hierarchical management cards transition flawlessly into a vertical flow on mobile devices (especially narrow screens).</li>
+                    <li><strong>Responsive Design Balance:</strong> CSS Grid and Flexbox combinations were meticulously adjusted so the futuristic glassmorphism effect and hierarchical management cards transition flawlessly into a vertical flow on mobile devices.</li>
                 </ul>
             </div>
 
             <div class="project-bottom-nav-container">
-                <h3 class="cta-title content-tr">Canlı Platformu İnceleyin</h3>
-                <h3 class="cta-title content-en" style="display:none;">Review the Live Platform</h3>
+                <h3 class="cta-title">
+    <span class="content-tr">Canlı Platformu İnceleyin</span>
+    <span class="content-en" style="display:none;">Review the Live Platform</span>
+</h3>
                 <a href="https://marmaracyber.com" target="_blank" class="neon-btn cta-btn">
                     <i class="fa-solid fa-globe"></i> Marmara Cyber Web Sitesi
                 </a>

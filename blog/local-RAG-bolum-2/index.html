@@ -9,6 +9,22 @@
     <link rel="stylesheet" href="../../style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- YENİ EKLENDİ: Canonical URL -->
+    <link rel="canonical" href="https://mburakmentese.dev/blog/local-RAG-bolum-2" />
+
+    <!-- YENİ EKLENDİ: SEO Schema Markup (Article/Project) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "author": {
+        "@type": "Person",
+        "name": "Mehmet Burak Menteşe"
+      },
+      "url": "https://mburakmentese.dev/blog/local-RAG-bolum-2"
+    }
+    </script>
 </head>
 <body>
     <header>
@@ -21,11 +37,9 @@
             <a href="../../hakkimda.html" class="nav-link" data-translate="about">Hakkımda</a>
             <a href="../../projeler.html" class="nav-link" data-translate="projects">Projeler</a>
             <a href="../../blog.html" class="nav-link active" data-translate="blog">Blog</a>
-            <div class="lang-toggle">
-                <span id="lang-tr" class="lang-btn active">TR</span>
-                <span class="lang-separator">/</span>
-                <span id="lang-en" class="lang-btn">EN</span>
-            </div>
+            <button id="lang-toggle-btn" class="lang-toggle-btn">
+                <i class="fa-solid fa-globe"></i> EN
+            </button>
         </nav>
     </header>
 
@@ -38,8 +52,10 @@
 
         <div class="project-hero blog-content-width hero-left-aligned">
             <div class="hero-title-wrapper fixed-underline">
-                <h1 class="project-main-title content-tr">Local RAG Asistanı Geliştirmek: Microsoft Foundry ile Bölüm 2</h1>
-                <h1 class="project-main-title content-en" style="display:none;">Developing a Local RAG Assistant: Part 2 with Microsoft Foundry</h1>
+                <h1 class="project-main-title">
+    <span class="content-tr">Local RAG Asistanı Geliştirmek: Microsoft Foundry ile Bölüm 2</span>
+    <span class="content-en" style="display:none;">Developing a Local RAG Assistant: Part 2 with Microsoft Foundry</span>
+</h1>
             </div>
             
             <div class="blog-meta-info">
@@ -77,8 +93,10 @@
 
             <article class="blog-article-content reading-optimized">
                 
-                <h2 id="on-soz" class="content-tr"><i class="fa-solid fa-hand-spock" style="color: var(--neon-blue);"></i> Yazı Hakkında Ön Söz</h2>
-                <h2 id="on-soz-en" class="content-en" style="display:none;"><i class="fa-solid fa-hand-spock" style="color: var(--neon-blue);"></i> Preface to the Article</h2>
+                <h2>
+    <span class="content-tr"><i class="fa-solid fa-hand-spock" style="color: var(--neon-blue);"></i> Yazı Hakkında Ön Söz</span>
+    <span class="content-en" style="display:none;"><i class="fa-solid fa-hand-spock" style="color: var(--neon-blue);"></i> Preface to the Article</span>
+</h2>
                 
                 <p class="lead-text content-tr">Tekrardan selam dostum, yazı serimizin ilk bölümünde “Yapay zeka uydurmasın (halüsinasyon görmesin) ve verilerim cihazımdan dışarı çıkmasın” diyerek Local RAG mimarisine sağlam bir giriş yapmıştık.</p>
                 <p class="lead-text content-en" style="display:none;">Hello again my friend, in the first part of our article series, we made a solid entry into the Local RAG architecture with the mindset: "The AI shouldn't make things up (hallucinate) and my data shouldn't leave my device."</p>
@@ -91,8 +109,10 @@
 
                 <div class="about-divider" style="margin: 3rem 0; width: 60px;"></div>
 
-                <h2 id="phase-2" class="content-tr"><i class="fa-solid fa-network-wired" style="color: var(--neon-blue);"></i> Phase 2: Koca Bir Dosyayı Yapay Zekaya Neden Doğrudan Fırlatmıyoruz?</h2>
-                <h2 id="phase-2-en" class="content-en" style="display:none;"><i class="fa-solid fa-network-wired" style="color: var(--neon-blue);"></i> Phase 2: Why Don't We Throw a Whole File Directly at the AI?</h2>
+                <h2>
+    <span class="content-tr"><i class="fa-solid fa-network-wired" style="color: var(--neon-blue);"></i> Phase 2: Koca Bir Dosyayı Yapay Zekaya Neden Doğrudan Fırlatmıyoruz?</span>
+    <span class="content-en" style="display:none;"><i class="fa-solid fa-network-wired" style="color: var(--neon-blue);"></i> Phase 2: Why Don't We Throw a Whole File Directly at the AI?</span>
+</h2>
                 
                 <p class="content-tr">Kodların içine dalmadan önce durup bir düşünelim. Elimizde Siber Güvenlik Kulübü’nün tüm yıllık planlarını, CTF yarışmalarının detaylarını ve toplantı notlarını içeren koca bir metin dosyası var. Aklınıza ilk olarak şu gelebilir: <em>“Eee madem local modelimiz çalışıyor, vereyim metnin tamamını (Prompt olarak), içinden okuyup cevaplasın.”</em></p>
                 <p class="content-en" style="display:none;">Let's stop and think before diving into the code. We have a massive text file containing all the annual plans of the Cyber Security Club, details of CTF competitions, and meeting notes. The first thing that might come to mind is: <em>"Well, since our local model is working, let me just give it the whole text (as a Prompt) and let it read through and answer."</em></p>
@@ -111,8 +131,10 @@
 
                 <div class="about-divider" style="margin: 3rem 0; width: 60px;"></div>
 
-                <h2 id="adim-1" class="content-tr"><i class="fa-solid fa-scissors" style="color: var(--neon-blue);"></i> Adım 1: Chunking (Veriyi Küçülterek Verme)</h2>
-                <h2 id="adim-1-en" class="content-en" style="display:none;"><i class="fa-solid fa-scissors" style="color: var(--neon-blue);"></i> Step 1: Chunking (Downsizing the Data)</h2>
+                <h2>
+    <span class="content-tr"><i class="fa-solid fa-scissors" style="color: var(--neon-blue);"></i> Adım 1: Chunking (Veriyi Küçülterek Verme)</span>
+    <span class="content-en" style="display:none;"><i class="fa-solid fa-scissors" style="color: var(--neon-blue);"></i> Step 1: Chunking (Downsizing the Data)</span>
+</h2>
                 
                 <p class="content-tr">Yapay zekanın bilgiyi sindirebilmesi için onu anlamlı ve küçük parçalara (chunk) bölmemiz gerekir.</p>
                 <p class="content-en" style="display:none;">For the AI to digest the information, we need to divide it into meaningful, small pieces (chunks).</p>
@@ -162,8 +184,10 @@ def chunk_text(text):
                     </div>
                 </div>
 
-                <h2 id="adim-2" class="content-tr"><i class="fa-solid fa-compass-drafting" style="color: var(--neon-blue);"></i> Adım 2: Kosinüs Benzerliği ve Arama Motoru Yapmak (Retrieval)</h2>
-                <h2 id="adim-2-en" class="content-en" style="display:none;"><i class="fa-solid fa-compass-drafting" style="color: var(--neon-blue);"></i> Step 2: Cosine Similarity and Building a Search Engine (Retrieval)</h2>
+                <h2>
+    <span class="content-tr"><i class="fa-solid fa-compass-drafting" style="color: var(--neon-blue);"></i> Adım 2: Kosinüs Benzerliği ve Arama Motoru Yapmak (Retrieval)</span>
+    <span class="content-en" style="display:none;"><i class="fa-solid fa-compass-drafting" style="color: var(--neon-blue);"></i> Step 2: Cosine Similarity and Building a Search Engine (Retrieval)</span>
+</h2>
                 
                 <p class="content-tr">Verileri küçük parçalar halinde kaydettik ama ben asistana <em>“Eğitimler nerede yapılıyor?”</em> diye sorduğumda, sistem o veritabanından doğru paragrafı nasıl bulacak?</p>
                 <p class="content-en" style="display:none;">We saved the data in small chunks, but when I ask the assistant, <em>"Where are the trainings held?"</em> how will the system find the correct paragraph from that database?</p>
@@ -197,8 +221,10 @@ def chunk_text(text):
                     </div>
                 </div>
 
-                <h2 id="adim-3" class="content-tr"><i class="fa-solid fa-robot" style="color: var(--neon-blue);"></i> Adım 3: Tüm Adımları Birleştirme ve Agent’imiz ile Sohbet</h2>
-                <h2 id="adim-3-en" class="content-en" style="display:none;"><i class="fa-solid fa-robot" style="color: var(--neon-blue);"></i> Step 3: Combining All Steps and Chatting with Our Agent</h2>
+                <h2>
+    <span class="content-tr"><i class="fa-solid fa-robot" style="color: var(--neon-blue);"></i> Adım 3: Tüm Adımları Birleştirme ve Agent’imiz ile Sohbet</span>
+    <span class="content-en" style="display:none;"><i class="fa-solid fa-robot" style="color: var(--neon-blue);"></i> Step 3: Combining All Steps and Chatting with Our Agent</span>
+</h2>
                 
                 <p class="content-tr">Elimizde harika çalışan iki ayrı modül var:</p>
                 <p class="content-en" style="display:none;">We have two excellently working modules on hand:</p>
@@ -237,8 +263,10 @@ def chunk_text(text):
 
                 <div class="about-divider" style="margin: 4rem 0; width: 60px;"></div>
 
-                <h2 class="content-tr"><i class="fa-solid fa-flag-checkered" style="color: var(--neon-blue);"></i> İkinci Phase’in Sonu ve Sırada Ne Var?</h2>
-                <h2 class="content-en" style="display:none;"><i class="fa-solid fa-flag-checkered" style="color: var(--neon-blue);"></i> End of Phase 2 and What's Next?</h2>
+                <h2>
+    <span class="content-tr"><i class="fa-solid fa-flag-checkered" style="color: var(--neon-blue);"></i> İkinci Phase’in Sonu ve Sırada Ne Var?</span>
+    <span class="content-en" style="display:none;"><i class="fa-solid fa-flag-checkered" style="color: var(--neon-blue);"></i> End of Phase 2 and What's Next?</span>
+</h2>
                 
                 <p class="content-tr">Gördüğünüz gibi, hiçbir bulut servisine veri göndermeden, tamamen cihazımızın kaynaklarıyla kendi kişisel notlarımızı okuyan ve sorularımıza mantıklı cevaplar veren bir Offline AI Agent geliştirmeyi başardık! Üstelik bu “parçalama ve bulma” taktiği sayesinde sistemi inanılmaz hızlı ve kararlı hale getirdik.</p>
                 <p class="content-en" style="display:none;">As you can see, without sending any data to cloud services, we succeeded in developing an Offline AI Agent that reads our personal notes and gives logical answers to our questions entirely using our device's resources! Moreover, thanks to this "chunking and retrieving" tactic, we made the system incredibly fast and stable.</p>

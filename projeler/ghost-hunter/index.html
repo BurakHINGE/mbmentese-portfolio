@@ -8,6 +8,22 @@
     <link rel="stylesheet" href="../../style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- YENİ EKLENDİ: Canonical URL -->
+    <link rel="canonical" href="https://mburakmentese.dev/projeler/ghost-hunter" />
+
+    <!-- YENİ EKLENDİ: SEO Schema Markup (Article/Project) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "author": {
+        "@type": "Person",
+        "name": "Mehmet Burak Menteşe"
+      },
+      "url": "https://mburakmentese.dev/projeler/ghost-hunter"
+    }
+    </script>
 </head>
 <body>
     <header>
@@ -20,11 +36,9 @@
             <a href="../../hakkimda.html" class="nav-link" data-translate="about">Hakkımda</a>
             <a href="../../projeler.html" class="nav-link active" data-translate="projects">Projeler</a>
             <a href="../../blog.html" class="nav-link" data-translate="blog">Blog</a>
-            <div class="lang-toggle">
-                <span id="lang-tr" class="lang-btn active">TR</span>
-                <span class="lang-separator">/</span>
-                <span id="lang-en" class="lang-btn">EN</span>
-            </div>
+            <button id="lang-toggle-btn" class="lang-toggle-btn">
+                <i class="fa-solid fa-globe"></i> EN
+            </button>
         </nav>
     </header>
 
@@ -67,11 +81,13 @@
                 <div class="bento-card full-width">
                     <div class="bento-header">
                         <i class="fa-solid fa-ghost"></i>
-                        <h3 class="content-tr">Çıkış Noktası ve Kapsam</h3>
-                        <h3 class="content-en" style="display:none;">Starting Point and Scope</h3>
+                        <h3>
+    <span class="content-tr">Çıkış Noktası ve Kapsam</span>
+    <span class="content-en" style="display:none;">Starting Point and Scope</span>
+</h3>
                     </div>
-                    <p class="bento-text content-tr">Bir üniversite projesi olarak temelleri atılan GhostHunter, zamanla orijinal kapsamını aşarak uzun soluklu bir oyun geliştirme serüvenine dönüştü. Amacımız sadece eğlenceli bir oyun yapmak değil; OOP (Nesne Yönelimli Programlama) prensiplerini kullanarak, dışarıdan hazır bir oyun motoruna bağımlı kalmadan kendi oyun mekaniklerimizi sıfırdan inşa etmekti.</p>
-                    <p class="bento-text content-en" style="display:none;">Starting as a university project, GhostHunter eventually exceeded its original scope and turned into a long-term game development adventure. Our goal was not just to make a fun game, but to build our own game mechanics from scratch using OOP (Object-Oriented Programming) principles, without depending on an external game engine.</p>
+                    <p class="bento-text content-tr">Bir üniversite projesi olarak temelleri atılan GhostHunter, zamanla orijinal kapsamını aşarak uzun soluklu bir oyun geliştirme serüvenine dönüştü. Amacımız sadece eğlenceli bir oyun yapmak değil; OOP prensiplerini kullanarak, dışarıdan hazır bir oyun motoruna bağımlı kalmadan kendi oyun mekaniklerimizi sıfırdan inşa etmekti.</p>
+                    <p class="bento-text content-en" style="display:none;">Starting as a university project, GhostHunter eventually exceeded its original scope and turned into a long-term game development adventure. Our goal was not just to make a fun game, but to build our own game mechanics from scratch using OOP principles, without depending on an external game engine.</p>
                 </div>
                 
                 <div class="feature-grid full-width">
@@ -85,7 +101,7 @@
                     
                     <div class="bento-card" style="padding: 1.5rem; text-align: center;">
                         <i class="fa-solid fa-gun" style="font-size: 2rem; color: var(--neon-blue); margin-bottom: 1rem;"></i>
-                        <h4 class="bento-card-title content-tr">Tarayıcı Silah (Scan Gun)</h4>
+                        <h4 class="bento-card-title content-tr">Tarayıcı Silah</h4>
                         <h4 class="bento-card-title content-en" style="display:none;">Scanner Gun</h4>
                         <p class="bento-text content-tr" style="font-size: 0.9rem;">Hayaletleri tarayıp silahın içine çekerek yok etmeye dayalı özel bir savaş (combat) sistemi.</p>
                         <p class="bento-text content-en" style="display:none; font-size: 0.9rem;">A unique combat system based on scanning and sucking ghosts into the gun to destroy them.</p>
@@ -103,15 +119,17 @@
                         <i class="fa-solid fa-users-gear" style="font-size: 2rem; color: var(--neon-blue); margin-bottom: 1rem;"></i>
                         <h4 class="bento-card-title content-tr">Takım Çalışması</h4>
                         <h4 class="bento-card-title content-en" style="display:none;">Teamwork</h4>
-                        <p class="bento-text content-tr" style="font-size: 0.9rem;">Çoklu geliştirici ortamında (Co-op Dev) task ve branch yönetimi ile profesyonel ilerleme.</p>
+                        <p class="bento-text content-tr" style="font-size: 0.9rem;">Çoklu geliştirici ortamında task ve branch yönetimi ile profesyonel ilerleme.</p>
                         <p class="bento-text content-en" style="display:none; font-size: 0.9rem;">Professional progression with task and branch management in a Co-op Dev environment.</p>
                     </div>
                 </div>
             </div>
 
             <div class="bento-section-title">
-                <h2 class="content-tr"><i class="fa-solid fa-microchip" style="color: var(--neon-blue);"></i> Teknik Altyapı</h2>
-                <h2 class="content-en" style="display:none;"><i class="fa-solid fa-microchip" style="color: var(--neon-blue);"></i> Technical Infrastructure</h2>
+                <h2>
+    <span class="content-tr"><i class="fa-solid fa-microchip" style="color: var(--neon-blue);"></i> Teknik Altyapı</span>
+    <span class="content-en" style="display:none;"><i class="fa-solid fa-microchip" style="color: var(--neon-blue);"></i> Technical Infrastructure</span>
+</h2>
             </div>
             
             <div class="zigzag-row" style="margin-bottom: 5rem; display: flex; align-items: center;">
@@ -120,7 +138,7 @@
                         <div class="mini-card">
                             <i class="fa-solid fa-rotate"></i>
                             <div class="mini-card-content">
-                                <h4 class="content-tr">Oyun Döngüsü (Game Loop)</h4>
+                                <h4 class="content-tr">Oyun Döngüsü</h4>
                                 <h4 class="content-en" style="display:none;">Game Loop</h4>
                                 <p class="content-tr">Fizik güncellemelerini ve kare hızını (FPS) senkronize eden özel bir Thread mimarisi yazıldı.</p>
                                 <p class="content-en" style="display:none;">A custom Thread architecture was written to synchronize physics updates and framerate (FPS).</p>
@@ -140,7 +158,7 @@
                         <div class="mini-card">
                             <i class="fa-solid fa-expand"></i>
                             <div class="mini-card-content">
-                                <h4 class="content-tr">Çarpışma Tespiti (Collision)</h4>
+                                <h4 class="content-tr">Çarpışma Tespiti</h4>
                                 <h4 class="content-en" style="display:none;">Collision Detection</h4>
                                 <p class="content-tr">2D uzayda karakter, silah atışları ve çevre etkileşimleri için bounding-box algoritmaları sıfırdan geliştirildi.</p>
                                 <p class="content-en" style="display:none;">Bounding-box algorithms were developed from scratch for character, projectile, and environment interactions in 2D space.</p>
@@ -170,8 +188,10 @@
             <div class="bento-card full-width" style="margin-bottom: 5rem;">
                 <div class="bento-header">
                     <i class="fa-solid fa-users"></i>
-                    <h3 class="content-tr">Geliştirici Ekip (Core Developers)</h3>
-                    <h3 class="content-en" style="display:none;">Core Developers</h3>
+                    <h3>
+    <span class="content-tr">Geliştirici Ekip</span>
+    <span class="content-en" style="display:none;">Core Developers</span>
+</h3>
                 </div>
                 <p class="bento-text content-tr" style="margin-bottom: 2rem;">Projenin mimarisi, tasarımı ve kodlanması sürecinde birlikte çalıştığım, oyunun büyümesinde kilit rol oynayan ekip arkadaşlarım:</p>
                 <p class="bento-text content-en" style="display:none; margin-bottom: 2rem;">My teammates who I worked with during the architecture, design, and coding process, and who played a key role in the game's growth:</p>
@@ -195,22 +215,26 @@
             <div class="bento-card full-width" style="margin-bottom: 5rem;">
                 <div class="bento-header">
                     <i class="fa-solid fa-lightbulb"></i>
-                    <h3 class="content-tr">Karşılaşılan Zorluklar ve Kararlar</h3>
-                    <h3 class="content-en" style="display:none;">Challenges and Decisions</h3>
+                    <h3>
+    <span class="content-tr">Karşılaşılan Zorluklar ve Kararlar</span>
+    <span class="content-en" style="display:none;">Challenges and Decisions</span>
+</h3>
                 </div>
                 <ul class="styled-list content-tr">
-                    <li><strong>Motor Kullanmama Kararı:</strong> Sahneler arası geçiş, sprite yönetimi ve düşman (hayalet) yapay zekasının arka plandaki mantığını kavramak için standart editörlerde Java/JavaFX kullanmayı tercih ettik. Bu durum, geliştirme süresini uzatsa da temel programlama ve OOP mantığını kavramak adına çok değerli bir deneyim oldu.</li>
-                    <li><strong>Performans Optimizasyonu:</strong> JavaFX esasen masaüstü form uygulamaları için tasarlandığından, ekranı sürekli yenileyen bir oyun döngüsünde bellek yönetimini (Garbage Collection) sızıntısız bir şekilde ayarlamak, objeleri anlık oluşturmak yerine havuzlama (object pooling) mantığına yaklaşmak teknik olarak öğretici bir meydan okumaydı.</li>
+                    <li><strong>Motor Kullanmama Kararı:</strong> Sahneler arası geçiş, sprite yönetimi ve düşman yapay zekasının arka plandaki mantığını kavramak için standart editörlerde Java/JavaFX kullanmayı tercih ettik. Bu durum, geliştirme süresini uzatsa da temel programlama ve OOP mantığını kavramak adına çok değerli bir deneyim oldu.</li>
+                    <li><strong>Performans Optimizasyonu:</strong> JavaFX esasen masaüstü form uygulamaları için tasarlandığından, ekranı sürekli yenileyen bir oyun döngüsünde bellek yönetimini sızıntısız bir şekilde ayarlamak, objeleri anlık oluşturmak yerine havuzlama (object pooling) mantığına yaklaşmak teknik olarak öğretici bir meydan okumaydı.</li>
                 </ul>
                 <ul class="styled-list content-en" style="display:none;">
-                    <li><strong>Decision Not to Use an Engine:</strong> We preferred using Java/JavaFX in standard editors to grasp the background logic of scene transitions, sprite management, and enemy (ghost) AI. Although this prolonged the development time, it was a highly valuable experience for understanding fundamental programming and OOP concepts.</li>
-                    <li><strong>Performance Optimization:</strong> Since JavaFX is primarily designed for desktop form applications, adjusting memory management (Garbage Collection) without leaks in a continuously refreshing game loop, and adopting an object pooling approach instead of instantiating objects on the fly, was a technically instructive challenge.</li>
+                    <li><strong>Decision Not to Use an Engine:</strong> We preferred using Java/JavaFX in standard editors to grasp the background logic of scene transitions, sprite management, and enemy AI. Although this prolonged the development time, it was a highly valuable experience for understanding fundamental programming and OOP concepts.</li>
+                    <li><strong>Performance Optimization:</strong> Since JavaFX is primarily designed for desktop form applications, adjusting memory management without leaks in a continuously refreshing game loop, and adopting an object pooling approach instead of instantiating objects on the fly, was a technically instructive challenge.</li>
                 </ul>
             </div>
 
             <div class="project-bottom-nav-container">
-                <h3 class="cta-title content-tr">Hayalet Avına Hazır Mısınız?</h3>
-                <h3 class="cta-title content-en" style="display:none;">Ready for Ghost Hunting?</h3>
+                <h3 class="cta-title">
+    <span class="content-tr">Hayalet Avına Hazır Mısınız?</span>
+    <span class="content-en" style="display:none;">Ready for Ghost Hunting?</span>
+</h3>
                 <a href="https://github.com/BurakHINGE" target="_blank" class="neon-btn cta-btn">
                     <i class="fa-brands fa-github"></i> <span class="content-tr">Kaynak Kodları İncele</span><span class="content-en" style="display:none;">View Source Code</span>
                 </a>

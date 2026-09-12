@@ -10,6 +10,22 @@
     <link rel="stylesheet" href="../../style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- YENİ EKLENDİ: Canonical URL -->
+    <link rel="canonical" href="https://mburakmentese.dev/blog/guvenlik-modelleri" />
+
+    <!-- YENİ EKLENDİ: SEO Schema Markup (Article/Project) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "author": {
+        "@type": "Person",
+        "name": "Mehmet Burak Menteşe"
+      },
+      "url": "https://mburakmentese.dev/blog/guvenlik-modelleri"
+    }
+    </script>
 </head>
 <body>
     <header>
@@ -22,11 +38,9 @@
             <a href="../../hakkimda.html" class="nav-link" data-translate="about">Hakkımda</a>
             <a href="../../projeler.html" class="nav-link" data-translate="projects">Projeler</a>
             <a href="../../blog.html" class="nav-link active" data-translate="blog">Blog</a>
-            <div class="lang-toggle">
-                <span id="lang-tr" class="lang-btn active">TR</span>
-                <span class="lang-separator">/</span>
-                <span id="lang-en" class="lang-btn">EN</span>
-            </div>
+            <button id="lang-toggle-btn" class="lang-toggle-btn">
+                <i class="fa-solid fa-globe"></i> EN
+            </button>
         </nav>
     </header>
 
@@ -39,8 +53,10 @@
 
         <div class="project-hero blog-content-width hero-left-aligned">
             <div class="hero-title-wrapper fixed-underline">
-                <h1 class="project-main-title content-tr">Bilgi Güvenliği Modelleri ve CIA Üçlüsü</h1>
-                <h1 class="project-main-title content-en" style="display:none;">Information Security Models and the CIA Triad</h1>
+                <h1 class="project-main-title">
+    <span class="content-tr">Bilgi Güvenliği Modelleri ve CIA Üçlüsü</span>
+    <span class="content-en" style="display:none;">Information Security Models and the CIA Triad</span>
+</h1>
             </div>
             
             <div class="blog-meta-info">
@@ -80,8 +96,10 @@
             <!-- MAKALENİN KENDİSİ -->
             <article class="blog-article-content reading-optimized">
                 
-                <h2 id="on-soz" class="content-tr"><i class="fa-solid fa-pen-nib" style="color: var(--neon-blue);"></i> Yazı Hakkında Ön Söz</h2>
-                <h2 id="on-soz-en" class="content-en" style="display:none;"><i class="fa-solid fa-pen-nib" style="color: var(--neon-blue);"></i> Preface to the Article</h2>
+                <h2>
+    <span class="content-tr"><i class="fa-solid fa-pen-nib" style="color: var(--neon-blue);"></i> Yazı Hakkında Ön Söz</span>
+    <span class="content-en" style="display:none;"><i class="fa-solid fa-pen-nib" style="color: var(--neon-blue);"></i> Preface to the Article</span>
+</h2>
                 
                 <p class="lead-text content-tr">Güvenlik üçlüsü olarak adlandırılan Confidentiality (Gizlilik), Integrity (Bütünlük) ve Availability (Erişilebilirlik) yani diğer adıyla <strong>CIA</strong>; bir veya birden fazla güvenlik işlevini garanti eden bir sistemde kullanılabilir. Bu kullanımlara da güvenlik modelleri denir.</p>
                 <p class="lead-text content-en" style="display:none;">The security triad known as Confidentiality, Integrity, and Availability, commonly referred to as <strong>CIA</strong>, can be applied in a system that guarantees one or more security functions. These applications are called security models.</p>
@@ -116,8 +134,10 @@
 
                 <div class="about-divider" style="margin: 3rem 0; width: 60px;"></div>
 
-                <h2 id="bell-lapadula" class="content-tr"><i class="fa-solid fa-user-secret" style="color: var(--neon-blue);"></i> 1. Bell-LaPadula Modeli</h2>
-                <h2 id="bell-lapadula-en" class="content-en" style="display:none;"><i class="fa-solid fa-user-secret" style="color: var(--neon-blue);"></i> 1. Bell-LaPadula Model</h2>
+                <h2>
+    <span class="content-tr"><i class="fa-solid fa-user-secret" style="color: var(--neon-blue);"></i> 1. Bell-LaPadula Modeli</span>
+    <span class="content-en" style="display:none;"><i class="fa-solid fa-user-secret" style="color: var(--neon-blue);"></i> 1. Bell-LaPadula Model</span>
+</h2>
                 
                 <p class="content-tr">Bell-LaPadula Modeli, üç özelliği belirleyerek <strong>gizliliği (Confidentiality)</strong> sağlamayı amaçlamaktadır. Daha yüksek güvenlik iznine sahip kişilerle gizli bilgileri paylaşabilirsiniz ve daha düşük güvenlik iznine sahip kişilerden gizli bilgiler alabilirsiniz.</p>
                 <p class="content-en" style="display:none;">The Bell-LaPadula Model aims to ensure <strong>Confidentiality</strong> by defining three properties. You can share confidential information with individuals possessing higher security clearances and receive confidential information from individuals with lower clearances.</p>
@@ -145,8 +165,10 @@
 
                 <div class="about-divider" style="margin: 3rem 0; width: 60px;"></div>
 
-                <h2 id="biba-integrity" class="content-tr"><i class="fa-solid fa-file-shield" style="color: var(--neon-blue);"></i> 2. The Biba Integrity Modeli</h2>
-                <h2 id="biba-integrity-en" class="content-en" style="display:none;"><i class="fa-solid fa-file-shield" style="color: var(--neon-blue);"></i> 2. The Biba Integrity Model</h2>
+                <h2>
+    <span class="content-tr"><i class="fa-solid fa-file-shield" style="color: var(--neon-blue);"></i> 2. The Biba Integrity Modeli</span>
+    <span class="content-en" style="display:none;"><i class="fa-solid fa-file-shield" style="color: var(--neon-blue);"></i> 2. The Biba Integrity Model</span>
+</h2>
                 
                 <p class="content-tr">Biba Modeli, iki temel özelliği belirleyerek <strong>bütünlüğe (Integrity)</strong> ulaşmayı hedefler. Bu kural Bell-LaPadula Modeli ile çelişir fakat biri gizlilikle ilgiliyken diğeri bütünlükle ilgilidir.</p>
                 <p class="content-en" style="display:none;">The Biba Model aims to achieve <strong>Integrity</strong> by defining two core properties. These rules contrast with the Bell-LaPadula Model, but one is concerned with confidentiality while the other focuses on integrity.</p>
@@ -171,8 +193,10 @@
 
                 <div class="about-divider" style="margin: 3rem 0; width: 60px;"></div>
 
-                <h2 id="clark-wilson" class="content-tr"><i class="fa-solid fa-network-wired" style="color: var(--neon-blue);"></i> 3. The Clark-Wilson Modeli</h2>
-                <h2 id="clark-wilson-en" class="content-en" style="display:none;"><i class="fa-solid fa-network-wired" style="color: var(--neon-blue);"></i> 3. The Clark-Wilson Model</h2>
+                <h2>
+    <span class="content-tr"><i class="fa-solid fa-network-wired" style="color: var(--neon-blue);"></i> 3. The Clark-Wilson Modeli</span>
+    <span class="content-en" style="display:none;"><i class="fa-solid fa-network-wired" style="color: var(--neon-blue);"></i> 3. The Clark-Wilson Model</span>
+</h2>
                 
                 <p class="content-tr">Bazı spesifik kavramları kullanarak <strong>bütünlüğe (Integrity)</strong> ulaşmayı hedefler.</p>
                 <p class="content-en" style="display:none;">It aims to achieve <strong>Integrity</strong> by utilizing certain specific concepts.</p>
@@ -193,8 +217,10 @@
                     <li><strong style="color: var(--neon-blue);">Integrity Verification Procedures (IVPs):</strong> Procedures that check and ensure the validity of CDIs.</li>
                 </ul>
 
-                <h2 id="diger-modeller" class="content-tr"><i class="fa-solid fa-folder-tree" style="color: var(--neon-blue);"></i> Diğer Güvenlik Modelleri</h2>
-                <h2 id="diger-modeller-en" class="content-en" style="display:none;"><i class="fa-solid fa-folder-tree" style="color: var(--neon-blue);"></i> Other Security Models</h2>
+                <h2>
+    <span class="content-tr"><i class="fa-solid fa-folder-tree" style="color: var(--neon-blue);"></i> Diğer Güvenlik Modelleri</span>
+    <span class="content-en" style="display:none;"><i class="fa-solid fa-folder-tree" style="color: var(--neon-blue);"></i> Other Security Models</span>
+</h2>
                 
                 <p class="content-tr">Burada detaylıca bahsetmediğim ancak siber güvenlik mimarilerinde sıkça karşımıza çıkan diğer bazı modeller de bulunmaktadır. Örneğin:</p>
                 <p class="content-en" style="display:none;">There are several other models frequently encountered in cybersecurity architectures that I haven't discussed in detail here. For example:</p>

@@ -8,6 +8,22 @@
     <link rel="stylesheet" href="../../style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- YENİ EKLENDİ: Canonical URL -->
+    <link rel="canonical" href="https://mburakmentese.dev/projeler/library-management-system" />
+
+    <!-- YENİ EKLENDİ: SEO Schema Markup (Article/Project) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "author": {
+        "@type": "Person",
+        "name": "Mehmet Burak Menteşe"
+      },
+      "url": "https://mburakmentese.dev/projeler/library-management-system"
+    }
+    </script>
 </head>
 <body>
     <header>
@@ -20,11 +36,9 @@
             <a href="../../hakkimda.html" class="nav-link" data-translate="about">Hakkımda</a>
             <a href="../../projeler.html" class="nav-link active" data-translate="projects">Projeler</a>
             <a href="../../blog.html" class="nav-link" data-translate="blog">Blog</a>
-            <div class="lang-toggle">
-                <span id="lang-tr" class="lang-btn active">TR</span>
-                <span class="lang-separator">/</span>
-                <span id="lang-en" class="lang-btn">EN</span>
-            </div>
+            <button id="lang-toggle-btn" class="lang-toggle-btn">
+                <i class="fa-solid fa-globe"></i> EN
+            </button>
         </nav>
     </header>
 
@@ -36,7 +50,7 @@
 
         <div class="project-hero">
             <div class="hero-title-wrapper">
-                <h1 class="project-main-title">LIBRARY OOP SYSTEM</h1>
+                <h1 class="project-main-title">LIBRARY MANAGEMENT SYSTEM</h1>
             </div>
             
             <!-- YENİ: Etiketler ve Tooltip Yapısı -->
@@ -67,11 +81,13 @@
                 <div class="bento-card full-width">
                     <div class="bento-header">
                         <i class="fa-solid fa-book-bookmark"></i>
-                        <h3 class="content-tr">Çıkış Noktası ve Kapsam</h3>
-                        <h3 class="content-en" style="display:none;">Starting Point and Scope</h3>
+                        <h3>
+    <span class="content-tr">Çıkış Noktası ve Kapsam</span>
+    <span class="content-en" style="display:none;">Starting Point and Scope</span>
+</h3>
                     </div>
-                    <p class="bento-text content-tr">Bu proje başlangıçta kullanıcıların okudukları kitapları not edip saklayabileceği kişisel bir "kitaplık/raf" uygulaması olarak tasarlandı. Zamanla kapsamı genişletilerek mevcut kod yapısı silinmeden tam teşekküllü bir **Kütüphane Sistemine** dönüştürüldü. Artık kullanıcılar sadece kendi raflarını yönetmekle kalmıyor; merkezi kütüphaneden kitap aratabiliyor, kopya sayılarıyla birlikte kitap ödünç alabiliyor ve ödünç alınan bu kitaplar otomatik olarak kişisel raflarına "Okunuyor" statüsüyle ekleniyor.</p>
-                    <p class="bento-text content-en" style="display:none;">This project was initially designed as a personal "bookshelf" application where users could note and store books they read. Over time, its scope was expanded and transformed into a full-fledged **Library System** without discarding the existing code structure. Users can now not only manage their own shelves but also search for books in the central library, borrow books with copy counts, and have these borrowed books automatically added to their personal shelves with a "Reading" status.</p>
+                    <p class="bento-text content-tr">Bu proje başlangıçta kullanıcıların okudukları kitapları not edip saklayabileceği kişisel bir "kitaplık/raf" uygulaması olarak tasarlandı. Zamanla kapsamı genişletilerek mevcut kod yapısı silinmeden tam teşekküllü bir Kütüphane Sistemine dönüştürüldü. Artık kullanıcılar sadece kendi raflarını yönetmekle kalmıyor; merkezi kütüphaneden kitap aratabiliyor, kopya sayılarıyla birlikte kitap ödünç alabiliyor ve ödünç alınan bu kitaplar otomatik olarak kişisel raflarına "Okunuyor" statüsüyle ekleniyor.</p>
+                    <p class="bento-text content-en" style="display:none;">This project was initially designed as a personal "bookshelf" application where users could note and store books they read. Over time, its scope was expanded and transformed into a full-fledged Library System without discarding the existing code structure. Users can now not only manage their own shelves but also search for books in the central library, borrow books with copy counts, and have these borrowed books automatically added to their personal shelves with a "Reading" status.</p>
                 </div>
                 
                 <div class="feature-grid full-width">
@@ -107,8 +123,10 @@
             </div>
 
             <div class="bento-section-title">
-                <h2 class="content-tr"><i class="fa-solid fa-microchip" style="color: var(--neon-blue);"></i> Teknik Altyapı ve Sınıf Mimarisi</h2>
-                <h2 class="content-en" style="display:none;"><i class="fa-solid fa-microchip" style="color: var(--neon-blue);"></i> Tech Infrastructure & Class Architecture</h2>
+                <h2>
+    <span class="content-tr"><i class="fa-solid fa-microchip" style="color: var(--neon-blue);"></i> Teknik Altyapı ve Sınıf Mimarisi</span>
+    <span class="content-en" style="display:none;"><i class="fa-solid fa-microchip" style="color: var(--neon-blue);"></i> Tech Infrastructure & Class Architecture</span>
+</h2>
             </div>
             
             <div class="zigzag-row" style="margin-bottom: 5rem; display: flex; align-items: center;">
@@ -119,7 +137,7 @@
                             <div class="mini-card-content">
                                 <h4 class="content-tr">OOP Prensipleri</h4>
                                 <h4 class="content-en" style="display:none;">OOP Principles</h4>
-                                <p class="content-tr">Sistem; <code>Library</code>, <code>User</code> ve <code>Book</code> sınıfları arasında sıkı sorumluluk ayrımı (separation of concerns) gözetilerek tasarlandı.</p>
+                                <p class="content-tr">Sistem; <code>Library</code>, <code>User</code> ve <code>Book</code> sınıfları arasında sıkı sorumluluk ayrımı gözetilerek tasarlandı.</p>
                                 <p class="content-en" style="display:none;">The system was designed with strict separation of concerns among <code>Library</code>, <code>User</code>, and <code>Book</code> classes.</p>
                             </div>
                         </div>
@@ -137,7 +155,7 @@
                             <div class="mini-card-content">
                                 <h4 class="content-tr">Güvenlik & Doğrulama</h4>
                                 <h4 class="content-en" style="display:none;">Security & Authentication</h4>
-                                <p class="content-tr">Kullanıcı kayıt mekanizması, güvenli giriş (secure login) ve özel parola kısıtlamalarıyla desteklenmiştir.</p>
+                                <p class="content-tr">Kullanıcı kayıt mekanizması, güvenli giriş ve özel parola kısıtlamalarıyla desteklenmiştir.</p>
                                 <p class="content-en" style="display:none;">Supported by user registration mechanics, secure login, and custom password constraints.</p>
                             </div>
                         </div>
@@ -169,22 +187,26 @@
             <div class="bento-card full-width" style="margin-bottom: 5rem;">
                 <div class="bento-header">
                     <i class="fa-solid fa-lightbulb"></i>
-                    <h3 class="content-tr">Mimari Kararlar ve Zorluklar</h3>
-                    <h3 class="content-en" style="display:none;">Architectural Decisions & Challenges</h3>
+                    <h3>
+    <span class="content-tr">Mimari Kararlar ve Zorluklar</span>
+    <span class="content-en" style="display:none;">Architectural Decisions & Challenges</span>
+</h3>
                 </div>
                 <ul class="styled-list content-tr">
-                    <li><strong>Mevcut Kodu Korumak (Refactoring):</strong> Uygulamayı sıfırdan yazmak yerine, eski "Kişisel Raf" yapısını bozmadan üstüne "Merkezi Kütüphane ve Admin" katmanını entegre etmek OOP kalıtım ve kapsülleme (encapsulation) mantığını test etmek adına harika bir pratik oldu.</li>
-                    <li><strong>Kopya Sayısı Senkronizasyonu:</strong> Bir kullanıcı kütüphaneden kitap ödünç aldığında kütüphanedeki stok (copy count) miktarının güvenli bir şekilde azalması ve bu değişikliğin anlık olarak JSON dosyasına yansıtılması veri tutarlılığı açısından kritik bir süreçti.</li>
+                    <li><strong>Mevcut Kodu Korumak:</strong> Uygulamayı sıfırdan yazmak yerine, eski "Kişisel Raf" yapısını bozmadan üstüne "Merkezi Kütüphane ve Admin" katmanını entegre etmek OOP kalıtım ve kapsülleme mantığını test etmek adına harika bir pratik oldu.</li>
+                    <li><strong>Kopya Sayısı Senkronizasyonu:</strong> Bir kullanıcı kütüphaneden kitap ödünç aldığında kütüphanedeki stok miktarının güvenli bir şekilde azalması ve bu değişikliğin anlık olarak JSON dosyasına yansıtılması veri tutarlılığı açısından kritik bir süreçti.</li>
                 </ul>
                 <ul class="styled-list content-en" style="display:none;">
-                    <li><strong>Preserving Existing Code (Refactoring):</strong> Instead of rewriting from scratch, integrating the "Central Library and Admin" layer over the old "Personal Shelf" structure without breaking it was a great practice to test OOP inheritance and encapsulation logic.</li>
-                    <li><strong>Copy Count Synchronization:</strong> When a user borrows a book, safely decrementing the library stock (copy count) and reflecting this change instantly in the JSON file was a critical process for data consistency.</li>
+                    <li><strong>Preserving Existing Code:</strong> Instead of rewriting from scratch, integrating the "Central Library and Admin" layer over the old "Personal Shelf" structure without breaking it was a great practice to test OOP inheritance and encapsulation logic.</li>
+                    <li><strong>Copy Count Synchronization:</strong> When a user borrows a book, safely decrementing the library stock and reflecting this change instantly in the JSON file was a critical process for data consistency.</li>
                 </ul>
             </div>
 
             <div class="bento-section-title">
-                <h2 class="content-tr"><i class="fa-solid fa-code" style="color: var(--neon-blue);"></i> Kurulum ve Çalıştırma</h2>
-                <h2 class="content-en" style="display:none;"><i class="fa-solid fa-code" style="color: var(--neon-blue);"></i> Installation and Execution</h2>
+                <h2>
+    <span class="content-tr"><i class="fa-solid fa-code" style="color: var(--neon-blue);"></i> Kurulum ve Çalıştırma</span>
+    <span class="content-en" style="display:none;"><i class="fa-solid fa-code" style="color: var(--neon-blue);"></i> Installation and Execution</span>
+</h2>
             </div>
             
             <div class="terminal-code-block" style="margin-bottom: 5rem;">
@@ -211,8 +233,10 @@ java -cp ".;lib/json.jar;Codes" MainLibrary</code></pre>
             </div>
 
             <div class="project-bottom-nav-container">
-                <h3 class="cta-title content-tr">Sistemi İncelemeye Hazır Mısınız?</h3>
-                <h3 class="cta-title content-en" style="display:none;">Ready to Review the System?</h3>
+                <h3 class="cta-title">
+    <span class="content-tr">Sistemi İncelemeye Hazır Mısınız?</span>
+    <span class="content-en" style="display:none;">Ready to Review the System?</span>
+</h3>
                 <a href="https://github.com/BurakHINGE" target="_blank" class="neon-btn cta-btn">
                     <i class="fa-brands fa-github"></i> <span class="content-tr">Kaynak Kodları İncele</span><span class="content-en" style="display:none;">View Source Code</span>
                 </a>

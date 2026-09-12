@@ -8,6 +8,22 @@
     <link rel="stylesheet" href="../../style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- YENİ EKLENDİ: Canonical URL -->
+    <link rel="canonical" href="https://mburakmentese.dev/projeler/local-RAG-assistant" />
+
+    <!-- YENİ EKLENDİ: SEO Schema Markup (Article/Project) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "author": {
+        "@type": "Person",
+        "name": "Mehmet Burak Menteşe"
+      },
+      "url": "https://mburakmentese.dev/projeler/local-RAG-assistant"
+    }
+    </script>
 </head>
 <body>
     <header>
@@ -20,11 +36,9 @@
             <a href="../../hakkimda.html" class="nav-link" data-translate="about">Hakkımda</a>
             <a href="../../projeler.html" class="nav-link active" data-translate="projects">Projeler</a>
             <a href="../../blog.html" class="nav-link" data-translate="blog">Blog</a>
-            <div class="lang-toggle">
-                <span id="lang-tr" class="lang-btn active">TR</span>
-                <span class="lang-separator">/</span>
-                <span id="lang-en" class="lang-btn">EN</span>
-            </div>
+            <button id="lang-toggle-btn" class="lang-toggle-btn">
+                <i class="fa-solid fa-globe"></i> EN
+            </button>
         </nav>
     </header>
 
@@ -36,8 +50,10 @@
 
         <div class="project-hero">
             <div class="hero-title-wrapper">
-                <h1 class="project-main-title content-tr">YEREL RAG ASİSTANI</h1>
-                <h1 class="project-main-title content-en" style="display:none;">LOCAL RAG ASSISTANT</h1>
+                <h1 class="project-main-title">
+    <span class="content-tr">YEREL RAG ASİSTANI</span>
+    <span class="content-en" style="display:none;">LOCAL RAG ASSISTANT</span>
+</h1>
             </div>
             
             <div class="skill-tags justify-center">
@@ -73,8 +89,10 @@
                 <div class="bento-card full-width">
                     <div class="bento-header">
                         <i class="fa-solid fa-crosshairs"></i>
-                        <h3 class="content-tr">Çıkış Noktası ve Kapsam</h3>
-                        <h3 class="content-en" style="display:none;">Starting Point and Scope</h3>
+                        <h3>
+    <span class="content-tr">Çıkış Noktası ve Kapsam</span>
+    <span class="content-en" style="display:none;">Starting Point and Scope</span>
+</h3>
                     </div>
                     <p class="bento-text content-tr">Microsoft AI Innovators Yaz Stajı programı sürecinde geliştirdiğim bu proje, tamamen yerel donanım üzerinde çalışan otonom bir asistan oluşturma fikriyle doğdu. Dış servislere (API) veri göndermeden, kullanıcının kendi bilgisayarındaki belgeler üzerinde sorgulama yapabilmesini sağlıyor.</p>
                     <p class="bento-text content-en" style="display:none;">Developed during the Microsoft AI Innovators Summer Internship program, this project originated from the idea of creating an autonomous assistant running entirely on local hardware. It allows users to query their own documents on their computers without sending data to external services (APIs).</p>
@@ -113,8 +131,10 @@
             </div>
 
             <div class="bento-section-title">
-                <h2 class="content-tr"><i class="fa-solid fa-sitemap" style="color: var(--neon-blue);"></i> Veri Akışı ve Mimari</h2>
-                <h2 class="content-en" style="display:none;"><i class="fa-solid fa-sitemap" style="color: var(--neon-blue);"></i> Data Flow & Architecture</h2>
+                <h2>
+    <span class="content-tr"><i class="fa-solid fa-sitemap" style="color: var(--neon-blue);"></i> Veri Akışı ve Mimari</span>
+    <span class="content-en" style="display:none;"><i class="fa-solid fa-sitemap" style="color: var(--neon-blue);"></i> Data Flow & Architecture</span>
+</h2>
             </div>
             
             <div class="image-container" style="margin-bottom: 5rem; padding: 0 !important; background: transparent; border: 1px solid var(--neon-blue);">
@@ -126,8 +146,10 @@
             </div>
 
             <div class="bento-section-title">
-                <h2 class="content-tr"><i class="fa-solid fa-microchip" style="color: var(--neon-blue);"></i> Teknik Altyapı</h2>
-                <h2 class="content-en" style="display:none;"><i class="fa-solid fa-microchip" style="color: var(--neon-blue);"></i> Technical Infrastructure</h2>
+                <h2>
+    <span class="content-tr"><i class="fa-solid fa-microchip" style="color: var(--neon-blue);"></i> Teknik Altyapı</span>
+    <span class="content-en" style="display:none;"><i class="fa-solid fa-microchip" style="color: var(--neon-blue);"></i> Technical Infrastructure</span>
+</h2>
             </div>
             
             <div class="zigzag-row" style="margin-bottom: 5rem; display: flex; align-items: center;">
@@ -138,7 +160,7 @@
                             <div class="mini-card-content">
                                 <h4 class="content-tr">Model Seçimi & Üretim</h4>
                                 <h4 class="content-en" style="display:none;">Model Selection & Generation</h4>
-                                <p class="content-tr">Sohbet (Chat) üretiminde <strong>phi-3.5-mini</strong>, metinleri vektörlere çevirme (Embedding) işleminde ise <strong>qwen3-embedding-0.6b</strong> kullanıldı.</p>
+                                <p class="content-tr">Sohbet üretiminde <strong>phi-3.5-mini</strong>, metinleri vektörlere çevirme (Embedding) işleminde ise <strong>qwen3-embedding-0.6b</strong> kullanıldı.</p>
                                 <p class="content-en" style="display:none;"><strong>phi-3.5-mini</strong> was used for chat generation, and <strong>qwen3-embedding-0.6b</strong> was used for converting texts into vectors (Embedding).</p>
                             </div>
                         </div>
@@ -156,7 +178,7 @@
                             <div class="mini-card-content">
                                 <h4 class="content-tr">Veri İşleme (Ingestion)</h4>
                                 <h4 class="content-en" style="display:none;">Data Ingestion</h4>
-                                <p class="content-tr">Belgeler önce parçalara (chunk) ayrılır, qwen3 ile vektörize edilir ve sorgulanmaya hazır şekilde SQLite tablosuna indekslenir.</p>
+                                <p class="content-tr">Belgeler önce parçalara ayrılır, qwen3 ile vektörize edilir ve sorgulanmaya hazır şekilde SQLite tablosuna indekslenir.</p>
                                 <p class="content-en" style="display:none;">Documents are first chunked, vectorized with qwen3, and indexed into the SQLite table ready to be queried.</p>
                             </div>
                         </div>
@@ -184,10 +206,12 @@
                 <div class="zigzag-text bento-card" style="margin: 0; flex: 0.8;">
                     <div class="bento-header">
                         <i class="fa-solid fa-stopwatch"></i>
-                        <h3 class="content-tr">Performans Metrikleri</h3>
-                        <h3 class="content-en" style="display:none;">Performance Metrics</h3>
+                        <h3>
+    <span class="content-tr">Performans Metrikleri</span>
+    <span class="content-en" style="display:none;">Performance Metrics</span>
+</h3>
                     </div>
-                    <p class="bento-text content-tr" style="margin-bottom: 1rem;">Apple Silicon çipleri üzerinde yapılan canlı CLI testlerinde, farklı sorgu tipleri için elde edilen ortalama çıkarım (inference) süreleri:</p>
+                    <p class="bento-text content-tr" style="margin-bottom: 1rem;">Apple Silicon çipleri üzerinde yapılan canlı CLI testlerinde, farklı sorgu tipleri için elde edilen ortalama çıkarım süreleri:</p>
                     <p class="bento-text content-en" style="display:none; margin-bottom: 1rem;">Average inference times obtained for different query types during live CLI tests on Apple Silicon chips:</p>
                     
                     <ul class="styled-list content-tr">
@@ -217,22 +241,26 @@
             <div class="bento-card full-width" style="margin-bottom: 5rem;">
                 <div class="bento-header">
                     <i class="fa-solid fa-lightbulb"></i>
-                    <h3 class="content-tr">Karşılaşılan Zorluklar ve Trade-off'lar</h3>
-                    <h3 class="content-en" style="display:none;">Challenges and Decisions</h3>
+                    <h3>
+    <span class="content-tr">Karşılaşılan Zorluklar ve Trade-off'lar</span>
+    <span class="content-en" style="display:none;">Challenges and Decisions</span>
+</h3>
                 </div>
                 <ul class="styled-list content-tr">
-                    <li><strong>Neden SQLite?</strong> ChromaDB veya Milvus gibi çözümler yerine SQLite kullanmak, sistemin sadece standart kütüphanelerle "tak-çalıştır" (plug & play) seviyesinde hafif olmasını sağladı. Ancak bu, çok büyük ölçekli vektör aramalarında hızdan bir miktar feragat etmek (trade-off) anlamına geliyordu. Lokal kullanım için bu denge idealdi.</li>
-                    <li><strong>Model Kısıtlamaları:</strong> phi-3.5-mini gibi küçük dil modelleri (SLM) karmaşık promptlara bazen halüsinasyonla yanıt verebiliyordu. Context pencerelerini daraltarak ve RAG promptlarını çok daha spesifik hale getirerek bu sorunu aştım.</li>
+                    <li><strong>Neden SQLite?</strong> ChromaDB veya Milvus gibi çözümler yerine SQLite kullanmak, sistemin sadece standart kütüphanelerle "tak-çalıştır" seviyesinde hafif olmasını sağladı. Ancak bu, çok büyük ölçekli vektör aramalarında hızdan bir miktar feragat etmek anlamına geliyordu. Lokal kullanım için bu denge idealdi.</li>
+                    <li><strong>Model Kısıtlamaları:</strong> phi-3.5-mini gibi küçük dil modelleri karmaşık promptlara bazen halüsinasyonla yanıt verebiliyordu. Context pencerelerini daraltarak ve RAG promptlarını çok daha spesifik hale getirerek bu sorunu aştım.</li>
                 </ul>
                 <ul class="styled-list content-en" style="display:none;">
                     <li><strong>Why SQLite?</strong> Using SQLite instead of solutions like ChromaDB or Milvus ensured the system remained lightweight and "plug & play" using only standard libraries. However, this meant slightly trading off speed for very large-scale vector searches. For local use, this balance was ideal.</li>
-                    <li><strong>Model Limitations:</strong> Small language models (SLM) like phi-3.5-mini could sometimes respond to complex prompts with hallucinations. I overcame this issue by narrowing context windows and making RAG prompts much more specific.</li>
+                    <li><strong>Model Limitations:</strong> Small language models like phi-3.5-mini could sometimes respond to complex prompts with hallucinations. I overcame this issue by narrowing context windows and making RAG prompts much more specific.</li>
                 </ul>
             </div>
 
             <div class="bento-section-title">
-                <h2 class="content-tr"><i class="fa-solid fa-code" style="color: var(--neon-blue);"></i> Kurulum ve Çalıştırma</h2>
-                <h2 class="content-en" style="display:none;"><i class="fa-solid fa-code" style="color: var(--neon-blue);"></i> Installation and Execution</h2>
+                <h2>
+    <span class="content-tr"><i class="fa-solid fa-code" style="color: var(--neon-blue);"></i> Kurulum ve Çalıştırma</span>
+    <span class="content-en" style="display:none;"><i class="fa-solid fa-code" style="color: var(--neon-blue);"></i> Installation and Execution</span>
+</h2>
             </div>
             
             <div class="terminal-code-block" style="margin-bottom: 5rem;">
@@ -277,8 +305,10 @@ python3 app.py</code></pre>
             </div>
 
             <div class="project-bottom-nav-container">
-                <h3 class="cta-title content-tr">Projeyi İncelemeye Hazır Mısınız?</h3>
-                <h3 class="cta-title content-en" style="display:none;">Ready to Review the Project?</h3>
+                <h3 class="cta-title">
+    <span class="content-tr">Projeyi İncelemeye Hazır Mısınız?</span>
+    <span class="content-en" style="display:none;">Ready to Review the Project?</span>
+</h3>
                 <a href="https://github.com/BurakHINGE" target="_blank" class="neon-btn cta-btn">
                     <i class="fa-brands fa-github"></i> <span class="content-tr">Kaynak Kodları İncele</span><span class="content-en" style="display:none;">View Source Code</span>
                 </a>

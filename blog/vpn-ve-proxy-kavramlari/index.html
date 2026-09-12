@@ -9,6 +9,22 @@
     <link rel="stylesheet" href="../../style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- YENİ EKLENDİ: Canonical URL -->
+    <link rel="canonical" href="https://mburakmentese.dev/blog/vpn-ve-proxy-kavramlari" />
+
+    <!-- YENİ EKLENDİ: SEO Schema Markup (Article/Project) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "author": {
+        "@type": "Person",
+        "name": "Mehmet Burak Menteşe"
+      },
+      "url": "https://mburakmentese.dev/blog/vpn-ve-proxy-kavramlari"
+    }
+    </script>
 </head>
 <body>
     <header>
@@ -21,11 +37,9 @@
             <a href="../../hakkimda.html" class="nav-link" data-translate="about">Hakkımda</a>
             <a href="../../projeler.html" class="nav-link" data-translate="projects">Projeler</a>
             <a href="../../blog.html" class="nav-link active" data-translate="blog">Blog</a>
-            <div class="lang-toggle">
-                <span id="lang-tr" class="lang-btn active">TR</span>
-                <span class="lang-separator">/</span>
-                <span id="lang-en" class="lang-btn">EN</span>
-            </div>
+            <button id="lang-toggle-btn" class="lang-toggle-btn">
+                <i class="fa-solid fa-globe"></i> EN
+            </button>
         </nav>
     </header>
 
@@ -37,8 +51,10 @@
 
         <div class="project-hero blog-content-width hero-left-aligned">
             <div class="hero-title-wrapper fixed-underline">
-                <h1 class="project-main-title content-tr">VPN ve Proxy Kavramları</h1>
-                <h1 class="project-main-title content-en" style="display:none;">VPN and Proxy Concepts</h1>
+                <h1 class="project-main-title">
+    <span class="content-tr">VPN ve Proxy Kavramları</span>
+    <span class="content-en" style="display:none;">VPN and Proxy Concepts</span>
+</h1>
             </div>
             
             <div class="blog-meta-info">
@@ -74,8 +90,10 @@
 
             <article class="blog-article-content reading-optimized">
                 
-                <h2 id="on-soz" class="content-tr"><i class="fa-solid fa-pen-nib" style="color: var(--neon-blue);"></i> Yazı Hakkında Ön Söz</h2>
-                <h2 id="on-soz-en" class="content-en" style="display:none;"><i class="fa-solid fa-pen-nib" style="color: var(--neon-blue);"></i> Preface to the Article</h2>
+                <h2>
+    <span class="content-tr"><i class="fa-solid fa-pen-nib" style="color: var(--neon-blue);"></i> Yazı Hakkında Ön Söz</span>
+    <span class="content-en" style="display:none;"><i class="fa-solid fa-pen-nib" style="color: var(--neon-blue);"></i> Preface to the Article</span>
+</h2>
                 
                 <p class="lead-text content-tr">VPN ve Proxy çoğu zaman birbiriyle karıştırılabiliyor. Aralarında benzerlikler olsa da temel işlevleri ve güvenlik seviyeleri açısından belirgin farkları bulunmaktadır.</p>
                 <p class="lead-text content-en" style="display:none;">VPN and Proxy are often confused with each other. Even though they share similarities, they have distinct differences in terms of their core functions and security levels.</p>
@@ -85,8 +103,10 @@
 
                 <div class="about-divider" style="margin: 3rem 0; width: 60px;"></div>
 
-                <h2 id="vpn" class="content-tr"><i class="fa-solid fa-shield-halved" style="color: var(--neon-blue);"></i> VPN Nedir?</h2>
-                <h2 id="vpn-en" class="content-en" style="display:none;"><i class="fa-solid fa-shield-halved" style="color: var(--neon-blue);"></i> What is a VPN?</h2>
+                <h2>
+    <span class="content-tr"><i class="fa-solid fa-shield-halved" style="color: var(--neon-blue);"></i> VPN Nedir?</span>
+    <span class="content-en" style="display:none;"><i class="fa-solid fa-shield-halved" style="color: var(--neon-blue);"></i> What is a VPN?</span>
+</h2>
                 
                 <ul class="styled-list content-tr" style="margin-bottom: 2.5rem;">
                     <li>İki tarafın arasındaki iletişimin şifrelendirildiği bir servistir. Bu şifrelendirilmiş özel hatta <strong>tünel</strong> adı verilir.</li>
@@ -97,8 +117,10 @@
                     <li>VPN traffic is completely encrypted up to the VPN server and is <strong>unreadable</strong> by external observers (including ISPs).</li>
                 </ul>
 
-                <h2 id="proxy" class="content-tr"><i class="fa-solid fa-server" style="color: var(--neon-blue);"></i> Proxy Nedir?</h2>
-                <h2 id="proxy-en" class="content-en" style="display:none;"><i class="fa-solid fa-server" style="color: var(--neon-blue);"></i> What is a Proxy?</h2>
+                <h2>
+    <span class="content-tr"><i class="fa-solid fa-server" style="color: var(--neon-blue);"></i> Proxy Nedir?</span>
+    <span class="content-en" style="display:none;"><i class="fa-solid fa-server" style="color: var(--neon-blue);"></i> What is a Proxy?</span>
+</h2>
                 
                 <ul class="styled-list content-tr">
                     <li>Çevrimiçi bir kaynağa erişmek için aracı görevi gören bir servistir. Temelde sadece internet erişimine aracılık eder.</li>
@@ -134,8 +156,10 @@
 
                 <div class="about-divider" style="margin: 3rem 0; width: 60px;"></div>
 
-                <h2 id="ortak-noktalar" class="content-tr"><i class="fa-solid fa-handshake" style="color: var(--neon-blue);"></i> VPN ve Proxy’nin Ortak Noktaları</h2>
-                <h2 id="ortak-noktalar-en" class="content-en" style="display:none;"><i class="fa-solid fa-handshake" style="color: var(--neon-blue);"></i> Common Points of VPN and Proxy</h2>
+                <h2>
+    <span class="content-tr"><i class="fa-solid fa-handshake" style="color: var(--neon-blue);"></i> VPN ve Proxy’nin Ortak Noktaları</span>
+    <span class="content-en" style="display:none;"><i class="fa-solid fa-handshake" style="color: var(--neon-blue);"></i> Common Points of VPN and Proxy</span>
+</h2>
                 
                 <div class="blog-quote-box content-tr" style="margin: 2rem 0; padding: 2rem;">
                     <i class="fa-solid fa-circle-nodes quote-icon"></i>
