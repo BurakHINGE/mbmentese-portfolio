@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Sayfa Bulunamadı | Mehmet Burak Menteşe</title>
+    
+    <link rel="icon" type="image/png" href="./Assets/favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        .error-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+        .error-code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 8rem;
+            font-weight: 700;
+            color: var(--neon-blue);
+            text-shadow: 0 0 20px rgba(0, 242, 254, 0.5);
+            margin-bottom: 1rem;
+            line-height: 1;
+        }
+        .error-text {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            color: #ffffff;
+        }
+        .error-desc {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            max-width: 600px;
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <div class="about-card" style="text-align: center; padding: 4rem; width: auto; max-width: 800px;">
+            <div class="corner top-left"></div>
+            <div class="corner top-right"></div>
+            <div class="corner bottom-left"></div>
+            <div class="corner bottom-right"></div>
+
+            <div class="terminal-status-bar" style="margin-bottom: 2rem; justify-content: center;">
+                <div class="terminal-dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                </div>
+            </div>
+            
+            <h1 class="error-code">404</h1>
+            <h2 class="error-text">HEDEF SİSTEM BULUNAMADI</h2>
+            <p class="error-desc">> Sunucu ile bağlantı kurulamadı. İstediğiniz sayfa taşınmış veya silinmiş olabilir. Lütfen güvenli ağa geri dönün.</p>
+            
+            <a href="index.html" class="neon-btn" style="margin-top: 1rem;">
+                <i class="fa-solid fa-house"></i> ANA SAYFAYA DÖN
+            </a>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
