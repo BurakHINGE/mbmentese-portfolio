@@ -124,6 +124,7 @@ nav {
 
 /* Navbar Section*/
 .nav-link {
+        white-space: nowrap;
     color: var(--text-secondary);
     text-decoration: none;
     font-family: 'JetBrains Mono', monospace;
@@ -1935,6 +1936,7 @@ h1 {
     }
     
     .nav-link {
+        white-space: nowrap;
         font-size: 0.85rem;
     }
     
