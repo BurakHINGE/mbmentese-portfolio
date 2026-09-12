@@ -1964,3 +1964,13 @@ h1 {
         gap: 1.5rem;
     }
 }
+
+/* =========================================
+   MOBİLDE YASLAMA (JUSTIFY) DÜZELTMESİ
+   ========================================= */
+@media (max-width: 768px) {
+    .about-text,
+    .blog-article-content p {
+        text-align: left !important;
+    }
+}
