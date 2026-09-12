@@ -4,6 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hakkımda | Mehmet Burak Menteşe</title>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mburakmentese.dev/hakkimda.html">
+    <meta property="og:title" content="Hakkımda | Mehmet Burak Menteşe">
+    <meta property="og:description" content="Mehmet Burak Menteşe - Bilgisayar Mühendisliği öğrencisi, yapay zeka ve siber güvenlik meraklısı.">
+    <meta property="og:image" content="https://mburakmentese.dev/Assets/favicon.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:url" content="https://mburakmentese.dev/hakkimda.html">
+    <meta property="twitter:title" content="Hakkımda | Mehmet Burak Menteşe">
+    <meta property="twitter:description" content="Mehmet Burak Menteşe - Bilgisayar Mühendisliği öğrencisi, yapay zeka ve siber güvenlik meraklısı.">
+    <meta property="twitter:image" content="https://mburakmentese.dev/Assets/favicon.png">
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="./Assets/favicon.png">
@@ -17,11 +30,31 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="style.css">
+
+    <!-- YENİ EKLENDİ: Canonical URL -->
+    <link rel="canonical" href="https://mburakmentese.dev/hakkimda" />
+
+    <!-- YENİ EKLENDİ: SEO Schema Markup (Person) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Mehmet Burak Menteşe",
+      "url": "https://mburakmentese.dev",
+      "jobTitle": "Computer Engineering Student & Developer",
+      "alumniOf": "Marmara University",
+      "sameAs": [
+        "https://github.com/BurakHINGE",
+        "https://www.linkedin.com/in/mehmetburakmentese/",
+        "https://medium.com/@burakmentese16"
+      ]
+    }
+    </script>
 </head>
 <body>
     <header>
         <a href="index.html" class="nav-logo-container">
-            <img src="Assets/favicon.png" alt="Website Logo" class="nav-logo">
+            <img src="./Assets/favicon.png" alt="Website Logo" class="nav-logo">
             <span class="nav-brand">Mehmet Burak Menteşe</span>
         </a>
         <nav>
@@ -29,39 +62,43 @@
             <a href="hakkimda.html" class="nav-link active" data-translate="about">Hakkımda</a>
             <a href="projeler.html" class="nav-link" data-translate="projects">Projeler</a>
             <a href="blog.html" class="nav-link" data-translate="blog">Blog</a>
-            <div class="lang-toggle">
-                <span id="lang-tr" class="lang-btn active">TR</span>
-                <span class="lang-separator">/</span>
-                <span id="lang-en" class="lang-btn">EN</span>
-            </div>
+            <button id="lang-toggle-btn" class="lang-toggle-btn">
+                <i class="fa-solid fa-globe"></i> EN
+            </button>
         </nav>
     </header>
 
     <section id="hakkimda" class="multi-card-layout">
+        <div class="section-title-wrapper" style="margin-bottom: 0;">
+            <span class="title-bracket">&lt;&lt;</span>
+            <h1 class="cv-title centered-title">
+    <span class="content-tr">HAKKIMDA</span>
+    <span class="content-en" style="display:none;">ABOUT ME</span>
+</h1>
+            <span class="title-bracket">&gt;&gt;</span>
+        </div>
+
         <!-- HİKAYE VE HEDEFLER -->
         <div class="about-card narrative-card">
             <div class="corner top-left"></div>
             <div class="corner top-right"></div>
             <div class="corner bottom-left"></div>
             <div class="corner bottom-right"></div>
-
-            <h2 data-translate="aboutTitle">Hakkımda</h2>
-            <div class="about-divider"></div>
             
             <!-- Türkçe Paragraflar -->
             <p class="about-text content-tr">
-                Marmara Üniversitesi Bilgisayar Mühendisliği öğrencisi olarak, özellikle yapay zeka ve makine öğrenmesi alanlarında yenilikçi çözümler üretmeye odaklanıyorum. Yerel tabanlı RAG sistemleri geliştirmekten, veri mimarileri kurmaya kadar yapay zekanın arka planındaki mimariyle ilgileniyorum.
+                Marmara Üniversitesi Bilgisayar Mühendisliği öğrencisi olarak, özellikle yapay zekâ ve güvenlik odaklı yazılım geliştirmeye yoğunlaşıyorum. Sıfırdan geliştirdiğim, tamamen offline çalışan RAG tabanlı bir AI asistanıyla veri mimarisinden model entegrasyonuna kadar yapay zekânın arka planındaki mühendislikle ilgileniyorum.
             </p>
             <p class="about-text content-tr">
-                Amacım, karmaşık problemleri çözen otonom asistanlar ve akıllı yazılımlar tasarlamak. Teorik altyapımı hackathonlar ve sektör odaklı projelerle pratiğe dökmeye, öğrendiklerimle somut ürünler ortaya koymaya devam ediyorum.
+                Amacım, güvenlik bilinciyle tasarlanmış akıllı sistemler geliştirmek. Bu vizyonu Microsoft AI Innovators bünyesindeki stajım ve siber güvenlik alanındaki pratik deneyimimle somutlaştırıyor; öğrendiklerimi gerçek projelere dönüştürmeye devam ediyorum.
             </p>
 
             <!-- İngilizce Paragraflar -->
             <p class="about-text content-en" style="display:none;">
-                As a Computer Engineering student at Marmara University, I focus on creating innovative solutions, particularly in the fields of artificial intelligence and machine learning. I am interested in the underlying architecture of AI, ranging from developing local-based RAG systems to building data architectures.
+                As a Computer Engineering student at Marmara University, I focus primarily on developing AI and security-oriented software. From data architecture to model integration, I am involved in the backend engineering of AI, demonstrated by the fully offline RAG-based AI assistant I built from scratch.
             </p>
             <p class="about-text content-en" style="display:none;">
-                My goal is to design autonomous assistants and smart software that solve complex problems. I continue to put my theoretical background into practice through hackathons and industry-focused projects, creating concrete products with what I've learned.
+                My goal is to develop smart systems designed with a security mindset. I materialize this vision through my internship at Microsoft AI Innovators and my practical experience in cybersecurity, continually transforming what I learn into real-world projects.
             </p>
         </div>
 
@@ -70,8 +107,10 @@
 
             <!-- EĞİTİM BÖLÜMÜ -->
             <div class="cv-section">
-                <h3 class="cv-title content-tr">EĞİTİM</h3>
-                <h3 class="cv-title content-en" style="display:none;">EDUCATION</h3>
+                <h3 class="cv-title">
+    <span class="content-tr">EĞİTİM</span>
+    <span class="content-en" style="display:none;">EDUCATION</span>
+</h3>
                 
                 <div class="cv-item">
                     <div class="cv-item-header">
@@ -88,8 +127,10 @@
 
             <!-- TEKNİK BECERİLER BÖLÜMÜ -->
             <div class="cv-section">
-                <h3 class="cv-title content-tr">TEKNİK BECERİLER</h3>
-                <h3 class="cv-title content-en" style="display:none;">TECHNICAL SKILLS</h3>
+                <h3 class="cv-title">
+    <span class="content-tr">TEKNİK BECERİLER</span>
+    <span class="content-en" style="display:none;">TECHNICAL SKILLS</span>
+</h3>
                 
                 <div class="skill-category">
                     <h4 class="content-tr">Yapay Zeka & Veri</h4>
@@ -141,8 +182,10 @@
 
             <!-- Deneyimler -->
             <div class="cv-section">
-                <h3 class="cv-title content-tr">Deneyim</h3>
-                <h3 class="cv-title content-en" style="display:none;">Experience</h3>
+                <h3 class="cv-title">
+    <span class="content-tr">Deneyim</span>
+    <span class="content-en" style="display:none;">Experience</span>
+</h3>
                 
                 <div class="cv-item">
                     <div class="cv-item-header">
@@ -191,8 +234,10 @@
 
             <!-- KURSLAR VE BOOTCAMP BÖLÜMÜ -->
             <div class="cv-section">
-                <h3 class="cv-title content-tr">BOOTCAMP & KURSLAR</h3>
-                <h3 class="cv-title content-en" style="display:none;">BOOTCAMPS & COURSES</h3>
+                <h3 class="cv-title">
+    <span class="content-tr">BOOTCAMP & KURSLAR</span>
+    <span class="content-en" style="display:none;">BOOTCAMPS & COURSES</span>
+</h3>
                 
                 <div class="cv-item">
                     <div class="cv-item-header">
@@ -200,8 +245,8 @@
                     </div>
                     <div class="cv-meta content-tr">Temmuz - Ağustos 2026 · Uzaktan</div>
                     <div class="cv-meta content-en" style="display:none;">July - August 2026 · Remote</div>
-                    <p class="cv-desc content-tr">KOMTAS ve İstanbul Data Science Academy iş birliğiyle düzenlenen AI Explorer Summer Bootcamp'26 programına katıldım.<br>Bu yoğun eğitim sürecinde üretken yapay zeka, büyük dil modelleri (LLM), agentic ai ve makine öğrenmesinin temelleri üzerine hem teorik hem uygulamalı çalışmalar gerçekleştirdim.<br>Bootcamp, yapay zeka alanındaki güncel yaklaşımları pratik projelerle pekiştirme fırsatı sundu.</p>
-                    <p class="cv-desc content-en" style="display:none;">I participated in the AI Explorer Summer Bootcamp'26 program organized in collaboration with KOMTAS and Istanbul Data Science Academy.<br>During this intensive training period, I carried out both theoretical and practical studies on the fundamentals of generative AI, large language models (LLM), agentic AI, and machine learning.<br>The bootcamp provided an opportunity to reinforce current approaches in the field of AI with practical projects.</p>
+                    <p class="cv-desc content-tr">KOMTAS ve İstanbul Data Science Academy iş birliğiyle düzenlenen AI Explorer Summer Bootcamp'26 programına katıldım.<br>Bu yoğun eğitim sürecinde üretken yapay zeka, büyük dil modelleri, agentic ai ve makine öğrenmesinin temelleri üzerine hem teorik hem uygulamalı çalışmalar gerçekleştirdim.<br>Bootcamp, yapay zeka alanındaki güncel yaklaşımları pratik projelerle pekiştirme fırsatı sundu.</p>
+                    <p class="cv-desc content-en" style="display:none;">I participated in the AI Explorer Summer Bootcamp'26 program organized in collaboration with KOMTAS and Istanbul Data Science Academy.<br>During this intensive training period, I carried out both theoretical and practical studies on the fundamentals of generative AI, large language models, agentic AI, and machine learning.<br>The bootcamp provided an opportunity to reinforce current approaches in the field of AI with practical projects.</p>
                 </div>
 
                 <div class="cv-item">
@@ -217,8 +262,10 @@
 
             <!-- SERTİFİKALAR BÖLÜMÜ -->
             <div class="cv-section">
-                <h3 class="cv-title content-tr">Sertifikalar</h3>
-                <h3 class="cv-title content-en" style="display:none;">Certificates</h3>
+                <h3 class="cv-title">
+    <span class="content-tr">Sertifikalar</span>
+    <span class="content-en" style="display:none;">Certificates</span>
+</h3>
                 
                 <div class="cv-item">
                     <div class="cv-item-header">
@@ -354,7 +401,7 @@
                     <a href="https://medium.com/@burakmentese16" target="_blank" title="Medium"><span class="classic-medium">M</span></a>
                 </div>
                 <p class="copyright" data-translate="allRightsReserved">
-                    © 2026 Mehmet Burak Menteşe.<br>
+                    © <span id="current-year">2026</span> Mehmet Burak Menteşe.<br>
                     Tüm Hakları Saklıdır.<br>
                     <span class="designed-by">Designed by MBM</span>
                 </p>

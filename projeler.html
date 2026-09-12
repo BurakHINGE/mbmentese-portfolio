@@ -4,16 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projeler | Mehmet Burak Menteşe</title>
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mburakmentese.dev/projeler.html">
+    <meta property="og:title" content="Projeler | Mehmet Burak Menteşe">
+    <meta property="og:description" content="Mehmet Burak Menteşe'nin geliştirdiği projeler ve yazılım çalışmaları.">
+    <meta property="og:image" content="https://mburakmentese.dev/Assets/favicon.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:url" content="https://mburakmentese.dev/projeler.html">
+    <meta property="twitter:title" content="Projeler | Mehmet Burak Menteşe">
+    <meta property="twitter:description" content="Mehmet Burak Menteşe'nin geliştirdiği projeler ve yazılım çalışmaları.">
+    <meta property="twitter:image" content="https://mburakmentese.dev/Assets/favicon.png">
+
     <link rel="icon" type="image/png" href="./Assets/favicon.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- YENİ EKLENDİ: Canonical URL -->
+    <link rel="canonical" href="https://mburakmentese.dev/projeler" />
+
 </head>
 <body>
     <!-- Navbar -->
     <header>
         <a href="index.html" class="nav-logo-container">
-            <img src="Assets/favicon.png" alt="Website Logo" class="nav-logo">
+            <img src="./Assets/favicon.png" alt="Website Logo" class="nav-logo">
             <span class="nav-brand">Mehmet Burak Menteşe</span>
         </a>
         <nav>
@@ -21,11 +39,9 @@
             <a href="hakkimda.html" class="nav-link" data-translate="about">Hakkımda</a>
             <a href="projeler.html" class="nav-link active" data-translate="projects">Projeler</a>
             <a href="blog.html" class="nav-link" data-translate="blog">Blog</a>
-            <div class="lang-toggle">
-                <span id="lang-tr" class="lang-btn active">TR</span>
-                <span class="lang-separator">/</span>
-                <span id="lang-en" class="lang-btn">EN</span>
-            </div>
+            <button id="lang-toggle-btn" class="lang-toggle-btn">
+                <i class="fa-solid fa-globe"></i> EN
+            </button>
         </nav>
     </header>
 
@@ -33,8 +49,10 @@
         <div class="projects-container">
             <div class="section-title-wrapper">
                 <span class="title-bracket">&lt;&lt;</span>
-                <h1 class="cv-title centered-title content-tr">PROJELER</h1>
-                <h1 class="cv-title centered-title content-en" style="display:none;">PROJECTS</h1>
+                <h1 class="cv-title centered-title">
+    <span class="content-tr">PROJELER</span>
+    <span class="content-en" style="display:none;">PROJECTS</span>
+</h1>
                 <span class="title-bracket">&gt;&gt;</span>
             </div>            
     
@@ -44,8 +62,10 @@
                 <!-- Proje 1: Local RAG -->
                 <a href="projeler/local-RAG-assistant/index.html" class="project-card">
                     <div class="project-header">
-                        <h3 class="content-tr">Yerel RAG Asistanı</h3>
-                        <h3 class="content-en" style="display:none;">Local RAG Assistant</h3>
+                        <h3>
+    <span class="content-tr">Yerel RAG Asistanı</span>
+    <span class="content-en" style="display:none;">Local RAG Assistant</span>
+</h3>
                         <i class="fa-solid fa-microchip"></i> 
                     </div>
                     <p class="project-desc content-tr">Kişisel belgelerden bilgi çıkaran, harici API kullanmadan tamamen cihazda çalışan CLI tabanlı yapay zeka asistanı.</p>
@@ -119,7 +139,7 @@
                     <div class="skill-tags" style="margin-bottom: 1.5rem; gap: 8px;">
                         <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">Java</span>
                         <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">OOP</span>
-                        <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">JSON Persistence</span>
+                        <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">JSON</span>
                         <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">Auth & Roles</span>
                         
                         <!-- GİZLİ ETİKETLER (TOOLTIP) -->
@@ -140,8 +160,10 @@
                 <!-- Proje 4: Marmara Cyber -->
                 <a href="projeler/marmara-cyber-website/index.html" class="project-card">
                     <div class="project-header">
-                        <h3 class="content-tr">Marmara Siber Web Arayüzü</h3>
-                        <h3 class="content-en" style="display:none;">Marmara Cyber Web Interface</h3>
+                        <h3>
+    <span class="content-tr">Marmara Siber Web Arayüzü</span>
+    <span class="content-en" style="display:none;">Marmara Cyber Web Interface</span>
+</h3>
                         <i class="fa-solid fa-globe"></i>
                     </div>
                     <p class="project-desc content-tr">Marmara Siber web sitesi için akordeon tarzı dinamik SSS bölümü ve i18n altyapısına sahip fütüristik arayüz geliştirmeleri.</p>
@@ -151,7 +173,6 @@
                     <div class="skill-tags" style="margin-bottom: 1.5rem; gap: 8px;">
                         <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">Vanilla JS</span>
                         <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">HTML5/CSS3</span>
-                        <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">i18n</span>
                         <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">UI/UX Design</span>
                         
                         <!-- GİZLİ ETİKETLER (TOOLTIP) -->
@@ -208,7 +229,7 @@
                     <a href="https://medium.com/@burakmentese16" target="_blank" title="Medium"><span class="classic-medium">M</span></a>
                 </div>
                 <p class="copyright" data-translate="allRightsReserved">
-                    © 2026 Mehmet Burak Menteşe.<br>
+                    © <span id="current-year">2026</span> Mehmet Burak Menteşe.<br>
                     Tüm Hakları Saklıdır.<br>
                     <span class="designed-by">Designed by MBM</span>
                 </p>

@@ -9,14 +9,16 @@
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://mbmentese.dev">
+    <meta property="og:url" content="https://mburakmentese.dev">
     <meta property="og:title" content="Mehmet Burak Menteşe">
     <meta property="og:description" content="Mehmet Burak Menteşe resmi portfolyo web sitesi.">
+    <meta property="og:image" content="https://mburakmentese.dev/Assets/favicon.png">
 
     <!-- Twitter -->
-    <meta property="twitter:url" content="https://mbmentese.dev">
+    <meta property="twitter:url" content="https://mburakmentese.dev">
     <meta property="twitter:title" content="Mehmet Burak Menteşe">
     <meta property="twitter:description" content="Mehmet Burak Menteşe resmi portfolyo web sitesi.">
+    <meta property="twitter:image" content="https://mburakmentese.dev/Assets/favicon.png">
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="./Assets/favicon.png">
@@ -73,6 +75,26 @@
             }
         }
     </style>
+
+    <!-- YENİ EKLENDİ: Canonical URL -->
+    <link rel="canonical" href="https://mburakmentese.dev" />
+
+    <!-- YENİ EKLENDİ: SEO Schema Markup (Person) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Mehmet Burak Menteşe",
+      "url": "https://mburakmentese.dev",
+      "jobTitle": "Computer Engineering Student & Developer",
+      "alumniOf": "Marmara University",
+      "sameAs": [
+        "https://github.com/BurakHINGE",
+        "https://www.linkedin.com/in/mehmetburakmentese/",
+        "https://medium.com/@burakmentese16"
+      ]
+    }
+    </script>
 </head>
 <body>
     <!-- Header-Navbar -->
@@ -88,48 +110,64 @@
             <a href="projeler.html" class="nav-link" data-translate="projects">Projeler</a>
             <a href="blog.html" class="nav-link" data-translate="blog">Blog</a>
             
-            <div class="lang-toggle">
-                <span id="lang-tr" class="lang-btn active">TR</span>
-                <span class="lang-separator">/</span>
-                <span id="lang-en" class="lang-btn">EN</span>
-            </div>
+            <button id="lang-toggle-btn" class="lang-toggle-btn">
+                <i class="fa-solid fa-globe"></i> EN
+            </button>
         </nav>
     </header>
 
-    <!-- ANA SAYFA BÖLÜMÜ -->
-    <section id="hero" style="flex-direction: column; padding-bottom: 100px;">
-        
-        <main id="landing-card" style="margin-bottom: 2rem;">
-            <div class="corner top-left"></div>
-            <div class="corner top-right"></div>
-            <div class="corner bottom-left"></div>
-            <div class="corner bottom-right"></div>
+    <main>
+        <!-- ANA SAYFA BÖLÜMÜ -->
+        <section id="hero" style="flex-direction: column; padding-bottom: 100px;">
+            
+            <div id="landing-card" class="landing-card" style="margin-bottom: 2rem; text-align: center;">
+                <div class="corner top-left"></div>
+                <div class="corner top-right"></div>
+                <div class="corner bottom-left"></div>
+                <div class="corner bottom-right"></div>
 
-            <div class="terminal-status-bar">
-                <div class="terminal-dots">
-                    <span class="dot red"></span>
-                    <span class="dot yellow"></span>
-                    <span class="dot green"></span>
+                <div class="terminal-status-bar">
+                    <div class="terminal-dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                </div>
+
+                <p class="subtitle" id="site-subtitle">
+                    <span data-translate="subtitle">Kişisel Portfolyo ve Blog</span>
+                </p>
+                <h1 id="club-title" data-translate="title">Merhaba, ben Mehmet Burak Menteşe</h1>
+                
+                <!-- Typewriter Efekti Buraya Taşındı -->
+                <div id="typewriter-target" style="margin-top: -10px; margin-bottom: 25px; font-family: 'JetBrains Mono', monospace; font-size: 1.2rem;"></div>
+
+                <div class="social-links">
+                    <a href="https://github.com/BurakHINGE" target="_blank" rel="noopener noreferrer" title="GitHub">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/mehmetburakmentese/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://medium.com/@burakmentese16" target="_blank" rel="noopener noreferrer" title="Medium">
+                        <span class="classic-medium">M</span>
+                    </a>
+                </div>
+
+                <!-- Ana Sayfa CTA Butonları -->
+                <div class="cta-buttons" style="display: flex; gap: 20px; justify-content: center; margin-top: 35px; flex-wrap: wrap;">
+                    <a href="projeler.html" class="neon-btn">
+                        <i class="fa-solid fa-code"></i> 
+                        <span class="content-tr">Projelere Göz At</span>
+                        <span class="content-en" style="display:none;">View Projects</span>
+                    </a>
+                    <a href="blog.html" class="neon-btn">
+                        <i class="fa-solid fa-pen-nib"></i> 
+                        <span class="content-tr">Yazılarımı İncele</span>
+                        <span class="content-en" style="display:none;">Read My Articles</span>
+                    </a>
                 </div>
             </div>
-
-            <p class="subtitle" id="site-subtitle">
-                <span data-translate="subtitle">Kişisel Portfolyo ve Blog</span><span class="domain-highlight" id="typewriter-target"></span><span class="cursor"></span>
-            </p>
-            <h1 id="club-title" data-translate="title">Merhaba, ben Mehmet Burak Menteşe</h1>
-
-            <div class="social-links">
-                <a href="https://github.com/BurakHINGE" target="_blank" rel="noopener noreferrer" title="GitHub">
-                    <i class="fa-brands fa-github"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/mehmetburakmentese/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
-                    <i class="fa-brands fa-linkedin-in"></i>
-                </a>
-                <a href="https://medium.com/@burakmentese16" target="_blank" rel="noopener noreferrer" title="Medium">
-                    <span class="classic-medium">M</span>
-                </a>
-            </div>
-        </main>
 
         <div class="github-card" style="margin-bottom: 5rem;">
             <div class="corner top-left"></div>
@@ -164,6 +202,24 @@
                                 <i class="fa-solid fa-microchip"></i> 
                             </div>
                             <p class="project-desc" data-translate="ragDesc">Kişisel belgelerden bilgi çıkaran, harici API kullanmadan tamamen cihazda çalışan CLI tabanlı yapay zeka asistanı.</p>
+                            
+                            <div class="skill-tags" style="margin-bottom: 1.5rem; gap: 8px;">
+                                <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">Python</span>
+                                <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">SQLite</span>
+                                <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">RAG</span>
+                                <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">Foundry Local</span>
+                                <div class="more-tags-container">
+                                    <span class="skill-tag more-btn" style="padding: 4px 10px; font-size: 0.75rem;">+5</span>
+                                    <div class="tags-tooltip">
+                                        <span class="skill-tag" style="padding: 4px 8px; font-size: 0.7rem;">phi-3.5-mini</span>
+                                        <span class="skill-tag" style="padding: 4px 8px; font-size: 0.7rem;">qwen3</span>
+                                        <span class="skill-tag" style="padding: 4px 8px; font-size: 0.7rem;">Embeddings</span>
+                                        <span class="skill-tag" style="padding: 4px 8px; font-size: 0.7rem;">Chunking</span>
+                                        <span class="skill-tag" style="padding: 4px 8px; font-size: 0.7rem;">Cosine Similarity</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
                             <span class="project-link-text" data-translate="inspectProject">Projeyi İncele ➔</span>
                         </a>
 
@@ -175,6 +231,22 @@
                                 <i class="fa-solid fa-book-bookmark"></i>
                             </div>
                             <p class="project-desc" data-translate="libraryDesc">Kitapların raflara dizilmesinden genel kütüphane organizasyonuna kadar tüm süreçleri modelleyen, OOP tabanlı Java uygulaması.</p>
+                            
+                            <div class="skill-tags" style="margin-bottom: 1.5rem; gap: 8px;">
+                                <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">Java</span>
+                                <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">OOP</span>
+                                <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">JSON</span>
+                                <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">Auth & Roles</span>
+                                <div class="more-tags-container">
+                                    <span class="skill-tag more-btn" style="padding: 4px 10px; font-size: 0.75rem;">+3</span>
+                                    <div class="tags-tooltip">
+                                        <span class="skill-tag" style="padding: 4px 8px; font-size: 0.7rem;">Inheritance</span>
+                                        <span class="skill-tag" style="padding: 4px 8px; font-size: 0.7rem;">Polymorphism</span>
+                                        <span class="skill-tag" style="padding: 4px 8px; font-size: 0.7rem;">Exception Handling</span>
+                                    </div>
+                                </div>
+                            </div>
+
                             <span class="project-link-text" data-translate="inspectProject">Projeyi İncele ➔</span>
                         </a>
                     </div>
@@ -193,6 +265,21 @@
                                 <i class="fa-solid fa-rocket"></i> 
                             </div>
                             <p class="project-desc" data-translate="ragBlogDesc">Yapay zeka uydurmalarını engelleyen Local RAG mimarisine giriş; Embeddings işlemleri ve sunucusuz SQLite entegrasyonu.</p>
+                            
+                            <div class="skill-tags" style="margin-bottom: 1.5rem; gap: 8px;">
+                                <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">AI</span>
+                                <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">Local RAG</span>
+                                <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">SQLite</span>
+                                <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">Embeddings</span>
+                                <div class="more-tags-container">
+                                    <span class="skill-tag more-btn" style="padding: 4px 10px; font-size: 0.75rem;">+2</span>
+                                    <div class="tags-tooltip">
+                                        <span class="skill-tag" style="padding: 4px 8px; font-size: 0.7rem;">phi-3.5</span>
+                                        <span class="skill-tag" style="padding: 4px 8px; font-size: 0.7rem;">qwen3</span>
+                                    </div>
+                                </div>
+                            </div>
+
                             <span class="project-link-text" data-translate="startReading">Okumaya Başla ➔</span>
                         </a>
 
@@ -202,6 +289,21 @@
                                 <i class="fa-solid fa-network-wired"></i>
                             </div>
                             <p class="project-desc" data-translate="macBlogDesc">Bilgisayarların ağda birbirini nasıl bulduğunu anlatan rehber; OSI katmanları, NIC, Private IP farkları ve ARP protokolü.</p>
+                            
+                            <div class="skill-tags" style="margin-bottom: 1.5rem; gap: 8px;">
+                                <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">Network</span>
+                                <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">ARP Protocol</span>
+                                <span class="skill-tag" style="padding: 4px 10px; font-size: 0.75rem;">OSI Layers</span>
+                                <div class="more-tags-container">
+                                    <span class="skill-tag more-btn" style="padding: 4px 10px; font-size: 0.75rem;">+3</span>
+                                    <div class="tags-tooltip">
+                                        <span class="skill-tag" style="padding: 4px 8px; font-size: 0.7rem;">Cybersecurity</span>
+                                        <span class="skill-tag" style="padding: 4px 8px; font-size: 0.7rem;">MAC Address</span>
+                                        <span class="skill-tag" style="padding: 4px 8px; font-size: 0.7rem;">Private IP</span>
+                                    </div>
+                                </div>
+                            </div>
+
                             <span class="project-link-text" data-translate="startReading">Okumaya Başla ➔</span>
                         </a>
                     </div>
@@ -209,6 +311,7 @@
             </div>
         </div>
     </section>
+    </main>
 
     <!-- FOOTER BÖLÜMÜ -->
     <footer class="site-footer">

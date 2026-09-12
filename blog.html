@@ -4,15 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog | Mehmet Burak Menteşe</title>
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mburakmentese.dev/blog.html">
+    <meta property="og:title" content="Blog | Mehmet Burak Menteşe">
+    <meta property="og:description" content="Mehmet Burak Menteşe'nin yapay zeka, siber güvenlik ve yazılım üzerine yazdığı blog yazıları.">
+    <meta property="og:image" content="https://mburakmentese.dev/Assets/favicon.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:url" content="https://mburakmentese.dev/blog.html">
+    <meta property="twitter:title" content="Blog | Mehmet Burak Menteşe">
+    <meta property="twitter:description" content="Mehmet Burak Menteşe'nin yapay zeka, siber güvenlik ve yazılım üzerine yazdığı blog yazıları.">
+    <meta property="twitter:image" content="https://mburakmentese.dev/Assets/favicon.png">
+
     <link rel="icon" type="image/png" href="./Assets/favicon.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- YENİ EKLENDİ: Canonical URL -->
+    <link rel="canonical" href="https://mburakmentese.dev/blog" />
+
 </head>
 <body>
     <header>
         <a href="index.html" class="nav-logo-container">
-            <img src="Assets/favicon.png" alt="Website Logo" class="nav-logo">
+            <img src="./Assets/favicon.png" alt="Website Logo" class="nav-logo">
             <span class="nav-brand">Mehmet Burak Menteşe</span>
         </a>
         <nav>
@@ -20,11 +38,9 @@
             <a href="hakkimda.html" class="nav-link" data-translate="about">Hakkımda</a>
             <a href="projeler.html" class="nav-link" data-translate="projects">Projeler</a>
             <a href="blog.html" class="nav-link active" data-translate="blog">Blog</a>
-            <div class="lang-toggle">
-                <span id="lang-tr" class="lang-btn active">TR</span>
-                <span class="lang-separator">/</span>
-                <span id="lang-en" class="lang-btn">EN</span>
-            </div>
+            <button id="lang-toggle-btn" class="lang-toggle-btn">
+                <i class="fa-solid fa-globe"></i> EN
+            </button>
         </nav>
     </header>
 
@@ -43,8 +59,10 @@
                 <!-- Blog Yazısı 1 -->
                 <a href="blog/local-RAG-bolum-1/index.html" class="project-card">
                     <div class="project-header">
-                        <h3 class="content-tr">Local RAG Asistanı (Bölüm 1)</h3>
-                        <h3 class="content-en" style="display:none;">Local RAG Assistant (Part 1)</h3>
+                        <h3>
+    <span class="content-tr">Local RAG Asistanı (Bölüm 1)</span>
+    <span class="content-en" style="display:none;">Local RAG Assistant (Part 1)</span>
+</h3>
                         <i class="fa-solid fa-rocket"></i> 
                     </div>
                     <p class="project-desc content-tr">Yapay zeka uydurmalarını engelleyen Local RAG mimarisine giriş; Embeddings işlemleri ve sunucusuz SQLite entegrasyonu.</p>
@@ -71,8 +89,10 @@
                 <!-- Blog Yazısı 2 -->
                 <a href="blog/local-RAG-bolum-2/index.html" class="project-card">
                     <div class="project-header">
-                        <h3 class="content-tr">Local RAG Asistanı (Bölüm 2)</h3>
-                        <h3 class="content-en" style="display:none;">Local RAG Assistant (Part 2)</h3>
+                        <h3>
+    <span class="content-tr">Local RAG Asistanı (Bölüm 2)</span>
+    <span class="content-en" style="display:none;">Local RAG Assistant (Part 2)</span>
+</h3>
                         <i class="fa-solid fa-magnifying-glass-chart"></i>
                     </div>
                     <p class="project-desc content-tr">Dokümanları parçalara ayırma mantığı, Kosinüs Benzerliği ile arama motoru kurma aşamaları.</p>
@@ -99,8 +119,10 @@
                 <!-- Blog Yazısı 3 -->
                 <a href="blog/local-RAG-bolum-3/index.html" class="project-card">
                     <div class="project-header">
-                        <h3 class="content-tr">Local RAG Asistanı (Final)</h3>
-                        <h3 class="content-en" style="display:none;">Local RAG Assistant (Final)</h3>
+                        <h3>
+    <span class="content-tr">Local RAG Asistanı (Final)</span>
+    <span class="content-en" style="display:none;">Local RAG Assistant (Final)</span>
+</h3>
                         <i class="fa-solid fa-shield-virus"></i>
                     </div>
                     <p class="project-desc content-tr">Sistemi terleten dayanıklılık testleri: Boşluk girdilerine karşı koruma, halüsinasyon direnci ve Apple Silicon üzerinde hız testleri.</p>
@@ -127,8 +149,10 @@
                 <!-- Blog Yazısı 4 -->
                 <a href="blog/mac-adresi-ve-arp/index.html" class="project-card">
                     <div class="project-header">
-                        <h3 class="content-tr">MAC Adresi ve ARP</h3>
-                        <h3 class="content-en" style="display:none;">MAC Address and ARP</h3>
+                        <h3>
+    <span class="content-tr">MAC Adresi ve ARP</span>
+    <span class="content-en" style="display:none;">MAC Address and ARP</span>
+</h3>
                         <i class="fa-solid fa-network-wired"></i>
                     </div>
                     <p class="project-desc content-tr">Bilgisayarların ağda birbirini nasıl bulduğunu anlatan rehber; OSI katmanları, NIC, Private IP farkları ve ARP protokolünün anatomisi.</p>
@@ -155,8 +179,10 @@
                 <!-- Blog Yazısı 5 -->
                 <a href="blog/guvenlik-modelleri/index.html" class="project-card">
                     <div class="project-header">
-                        <h3 class="content-tr">Güvenlik Modelleri ve CIA</h3>
-                        <h3 class="content-en" style="display:none;">Security Models and CIA</h3>
+                        <h3>
+    <span class="content-tr">Güvenlik Modelleri ve CIA</span>
+    <span class="content-en" style="display:none;">Security Models and CIA</span>
+</h3>
                         <i class="fa-solid fa-shield-halved"></i>
                     </div>
                     <p class="project-desc content-tr">Bilgi güvenliğinin temeli olan CIA üçlüsü ile Bell-LaPadula, Biba ve Clark-Wilson gibi güvenlik modellerinin analizi.</p>
@@ -183,8 +209,10 @@
                 <!-- Blog Yazısı 6 -->
                 <a href="blog/vpn-ve-proxy-kavramlari/index.html" class="project-card">
                     <div class="project-header">
-                        <h3 class="content-tr">VPN ve Proxy Kavramları</h3>
-                        <h3 class="content-en" style="display:none;">VPN and Proxy Concepts</h3>
+                        <h3>
+    <span class="content-tr">VPN ve Proxy Kavramları</span>
+    <span class="content-en" style="display:none;">VPN and Proxy Concepts</span>
+</h3>
                         <i class="fa-solid fa-network-wired"></i>
                     </div>
                     <p class="project-desc content-tr">Birbiriyle sıkça karıştırılan VPN ve Proxy servislerinin arasındaki farklar, gizlilik seviyeleri ve çalışma mimarileri.</p>
@@ -239,7 +267,7 @@
                     <a href="https://medium.com/@burakmentese16" target="_blank" title="Medium"><span class="classic-medium">M</span></a>
                 </div>
                 <p class="copyright" data-translate="allRightsReserved">
-                    © 2026 Mehmet Burak Menteşe.<br>
+                    © <span id="current-year">2026</span> Mehmet Burak Menteşe.<br>
                     Tüm Hakları Saklıdır.<br>
                     <span class="designed-by">Designed by MBM</span>
                 </p>
