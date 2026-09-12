@@ -1,34 +1,7 @@
-// Toggle Language function
-function toggleLanguage(event) {
-    event.preventDefault();
-    currentLang = currentLang === 'tr' ? 'en' : 'tr';
-    document.documentElement.lang = currentLang;
-    
-    // Translate all elements with data-translate attribute
-    document.querySelectorAll('[data-translate]').forEach(element => {
-        const key = element.getAttribute('data-translate');
-        if (translations[currentLang][key]) {
-            if (key === 'modalText' || key === 'contactHeroText') {
-                element.innerHTML = translations[currentLang][key];
-            } else {
-                element.textContent = translations[currentLang][key];
-            }
-        }
-    });
-
-    // Update Active Language Indicators
-    if (currentLang === 'tr') {
-        document.getElementById('lang-tr').classList.add('lang-active');
-        document.getElementById('lang-en').classList.remove('lang-active');
-    } else {
-        document.getElementById('lang-tr').classList.remove('lang-active');
-        document.getElementById('lang-en').classList.add('lang-active');
-    }
-}
 
 // Typewriter Effect for the Domain Highlight
 function initTypewriter() {
-    const text = "marmaracyber.com";
+    const text = "mburakmentese.dev";
     const target = document.getElementById('typewriter-target');
     if (!target) return;
     target.textContent = '';
@@ -94,8 +67,26 @@ function createEnhancedStarfield() {
     }
 
     const shootingStars = [];
+    let isAnimating = true;
+
+    // Sadece görünür olduğunda çalışması için Observer
+    const observer = new IntersectionObserver((entries) => {
+        // Eğer ekranda herhangi bir section görünüyorsa animasyonu çalıştır
+        const isVisible = entries.some(entry => entry.isIntersecting);
+        if (isVisible && !isAnimating) {
+            isAnimating = true;
+            animate();
+        } else if (!isVisible && isAnimating) {
+            isAnimating = false;
+        }
+    }, { threshold: 0.05 });
+
+    // Sayfadaki ana bölümleri gözlemle
+    document.querySelectorAll('section, main').forEach(el => observer.observe(el));
 
     function animate() {
+        if (!isAnimating) return; // Görünmüyorsa hesaplama yapma (Performans tasarrufu)
+
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         
         // Farenin merkeze olan uzaklığını hesapla
@@ -225,7 +216,7 @@ const translations = {
         "quickMenu": "Hızlı Menü",
         "followMe": "Beni Takip Edin",
         "footerDesc": "Marmara Üniversitesi Bilgisayar Mühendisliği.<br>Yapay Zeka, Yazılım Geliştirme ve Siber Güvenlik.",
-        "allRightsReserved": "© 2026 Mehmet Burak Menteşe.<br>Tüm Hakları Saklıdır.<br><span class='designed-by'>Designed by MBM</span>"
+        "allRightsReserved": "© <span id='current-year'>2026</span> Mehmet Burak Menteşe.<br>Tüm Hakları Saklıdır.<br><span class='designed-by'>Designed by MBM</span>"
     },
     "en": {
         "home": "Home",
@@ -252,41 +243,42 @@ const translations = {
         "quickMenu": "Quick Links",
         "followMe": "Follow Me",
         "footerDesc": "Marmara University Computer Engineering.<br>Artificial Intelligence, Software Development, and Cyber Security.",
-        "allRightsReserved": "© 2026 Mehmet Burak Menteşe.<br>All Rights Reserved.<br><span class='designed-by'>Designed by MBM</span>"
+        "allRightsReserved": "© <span id='current-year'>2026</span> Mehmet Burak Menteşe.<br>All Rights Reserved.<br><span class='designed-by'>Designed by MBM</span>"
     }
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-    const btnTr = document.getElementById('lang-tr');
-    const btnEn = document.getElementById('lang-en');
+    // 1. Dil Ayarları (Tek Buton)
+    const langBtn = document.getElementById('lang-toggle-btn');
     
     let currentLang = localStorage.getItem('siteLang') || 'tr';
     setLanguage(currentLang);
 
-    if(btnTr && btnEn) {
-        btnTr.addEventListener('click', () => {
-            setLanguage('tr');
-            localStorage.setItem('siteLang', 'tr');
+    if (langBtn) {
+        langBtn.addEventListener('click', () => {
+            currentLang = currentLang === 'tr' ? 'en' : 'tr';
+            setLanguage(currentLang);
+            localStorage.setItem('siteLang', currentLang);
         });
-        btnEn.addEventListener('click', () => {
-            setLanguage('en');
-            localStorage.setItem('siteLang', 'en');
-        });
+    }
+
+    // 2. Typewriter Efekti Başlatma
+    initTypewriter();
+
+    // 3. Footer Dinamik Telif Hakkı Yılı
+    const currentYearSpan = document.getElementById('current-year');
+    if (currentYearSpan) {
+        currentYearSpan.textContent = new Date().getFullYear();
     }
 });
 
 function setLanguage(lang) {
-    const btnTr = document.getElementById('lang-tr');
-    const btnEn = document.getElementById('lang-en');
+    const langBtn = document.getElementById('lang-toggle-btn');
     
-    if (btnTr && btnEn) {
-        if(lang === 'tr') {
-            btnTr.classList.add('active');
-            btnEn.classList.remove('active');
-        } else {
-            btnEn.classList.add('active');
-            btnTr.classList.remove('active');
-        }
+    // Butonda aktif DİLİ (veya diğer dili) gösterelim.
+    // Şık durması için bir dünya ikonu ekliyoruz.
+    if (langBtn) {
+        langBtn.innerHTML = `<i class="fa-solid fa-globe"></i> ${lang.toUpperCase()}`;
     }
 
     document.querySelectorAll('[data-translate]').forEach(el => {
@@ -295,6 +287,11 @@ function setLanguage(lang) {
             el.innerHTML = translations[lang][key]; 
         }
     });
+
+    const currentYearSpan = document.getElementById('current-year');
+    if (currentYearSpan) {
+        currentYearSpan.textContent = new Date().getFullYear();
+    }
 
     document.querySelectorAll('.content-tr').forEach(el => {
         el.style.display = lang === 'tr' ? '' : 'none';
@@ -338,32 +335,23 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // --- LIGHTBOX (RESİM BÜYÜTME) İŞLEMLERİ ---
+// Slider içindeki çoklu resimler için
 function openLightbox() {
-    // Slider içindeki o an aktif (görünen) resmi bul
     const activeSlide = document.querySelector('.slide.active');
     if (activeSlide) {
         const lightbox = document.getElementById('lightbox-overlay');
         const lightboxImg = document.getElementById('lightbox-img');
         
         if (lightbox && lightboxImg) {
-            lightboxImg.src = activeSlide.src; // Resmi lightbox'a kopyala
-            lightbox.classList.add('active'); // Lightbox'ı görünür yap
+            lightbox.classList.remove('single-image'); // Önceki tekli resim sınıfını temizle
+            lightboxImg.src = activeSlide.src; 
+            lightbox.classList.add('active'); 
         }
     }
 }
 
-function closeLightbox(event) {
-    // Sadece siyah arka plana tıklanırsa kapat (resmin kendisine tıklanırsa kapatma)
-    if (event.target.id === 'lightbox-overlay') {
-        document.getElementById('lightbox-overlay').classList.remove('active');
-    }
-}
-
-// script.js'deki mevcut LIGHTBOX işlevlerinin altına ekliyorum
-
-// YENİ: Tekli resimler için büyütme işlevi
+// Tekli resimler için büyütme işlevi
 function openSingleLightbox(buttonElement) {
-    // Tıklanan butonun ebeveynindeki resmi bul
     const container = buttonElement.closest('.image-container');
     if (container) {
         const img = container.querySelector('img');
@@ -380,25 +368,8 @@ function openSingleLightbox(buttonElement) {
     }
 }
 
-// openLightbox işlevini de güncelleyerek bu sınıfı temizlemesini sağlamalıyım
-// Mevcut openLightbox işlevini bulup değiştiriyorum
-function openLightbox() {
-    const activeSlide = document.querySelector('.slide.active');
-    if (activeSlide) {
-        const lightbox = document.getElementById('lightbox-overlay');
-        const lightboxImg = document.getElementById('lightbox-img');
-        
-        if (lightbox && lightboxImg) {
-            lightbox.classList.remove('single-image'); // Önceki tekli resim sınıfını temizle
-            lightboxImg.src = activeSlide.src; 
-            lightbox.classList.add('active'); 
-        }
-    }
-}
-
-// closeLightbox işlevini de güncelleyerek bu sınıfı temizlemesini sağlamalıyım
-// Mevcut closeLightbox işlevini bulup değiştiriyorum
 function closeLightbox(event) {
+    // Sadece siyah arka plana tıklanırsa kapat (resmin kendisine tıklanırsa kapatma)
     if (event.target.id === 'lightbox-overlay') {
         const lightbox = document.getElementById('lightbox-overlay');
         lightbox.classList.remove('active');
