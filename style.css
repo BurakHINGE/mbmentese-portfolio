@@ -1908,3 +1908,57 @@ h1 {
     visibility: visible;
     bottom: 145%; /* Hafif yukarı kayarak çıkma efekti */
 }
+
+/* =========================================
+   NAVBAR (HEADER) MOBİL UYUM VE DÜZENLEMESİ
+   ========================================= */
+@media (max-width: 900px) {
+    header {
+        padding: 0 1rem;
+        flex-direction: column;
+        justify-content: center;
+        height: auto;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        gap: 10px;
+    }
+    
+    .nav-brand {
+        display: none; /* Mobilde yerden tasarruf için ismi gizle, sadece logo kalsın */
+    }
+    
+    nav {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .nav-link {
+        font-size: 0.85rem;
+    }
+    
+    .lang-toggle-btn {
+        padding: 4px 10px;
+        font-size: 0.8rem;
+    }
+}
+
+/* =========================================
+   NAVBAR AKTİF LİNK STİLİ (SEÇİLİ SAYFA)
+   ========================================= */
+.nav-link.active {
+    color: var(--neon-blue);
+    border-bottom: 2px solid var(--neon-blue);
+    text-shadow: 0 0 8px rgba(0, 242, 254, 0.4);
+}
+
+/* =========================================
+   PROJELER VE BLOG KARTLARI İÇİN MOBİL HİZALAMA
+   ========================================= */
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}

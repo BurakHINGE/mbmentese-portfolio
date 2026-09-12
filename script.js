@@ -379,3 +379,4 @@ function closeLightbox(event) {
 
 
 document.addEventListener('DOMContentLoaded', createEnhancedStarfield);
+
