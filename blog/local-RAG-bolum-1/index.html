@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Local RAG Asistanı Geliştirmek (Bölüm 1) | Blog | Mehmet Burak Menteşe</title>
-    <link rel="icon" type="image/png" href="../../Assets/favicon.png">
-    <link rel="stylesheet" href="../../style.css?v=3">
+    <link rel="icon" type="image/png" href="/Assets/favicon.png">
+    <link rel="stylesheet" href="/style.css?v=3">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 
@@ -27,15 +27,15 @@
 </head>
 <body>
     <header>
-        <a href="../../index.html" class="nav-logo-container">
-            <img src="../../Assets/favicon.png" alt="Website Logo" class="nav-logo">
+        <a href="/" class="nav-logo-container">
+            <img src="/Assets/favicon.png" alt="Website Logo" class="nav-logo">
             <span class="nav-brand">Mehmet Burak Menteşe</span>
         </a>
         <nav>
-            <a href="../../index.html" class="nav-link" data-translate="home">Ana Sayfa</a>
-            <a href="../../hakkimda.html" class="nav-link" data-translate="about">Hakkımda</a>
-            <a href="../../projeler.html" class="nav-link" data-translate="projects">Projeler</a>
-            <a href="../../blog.html" class="nav-link active" data-translate="blog">Blog</a>
+            <a href="/" class="nav-link" data-translate="home">Ana Sayfa</a>
+            <a href="/hakkimda" class="nav-link" data-translate="about">Hakkımda</a>
+            <a href="/projeler" class="nav-link" data-translate="projects">Projeler</a>
+            <a href="/blog" class="nav-link active" data-translate="blog">Blog</a>
             <button id="lang-toggle-btn" class="lang-toggle-btn">
                 <i class="fa-solid fa-globe"></i> EN
             </button>
@@ -45,8 +45,8 @@
     <section id="blog-detail" class="project-single-layout">
         
         <div class="project-top-nav blog-content-width">
-            <a href="../../blog.html" class="back-link content-tr"><i class="fa-solid fa-arrow-left-long"></i> Blog'a Dön</a>
-            <a href="../../blog.html" class="back-link content-en" style="display:none;"><i class="fa-solid fa-arrow-left-long"></i> Back to Blog</a>
+            <a href="/blog" class="back-link content-tr"><i class="fa-solid fa-arrow-left-long"></i> Blog'a Dön</a>
+            <a href="/blog" class="back-link content-en" style="display:none;"><i class="fa-solid fa-arrow-left-long"></i> Back to Blog</a>
         </div>
 
         <div class="project-hero blog-content-width hero-left-aligned">
@@ -223,7 +223,7 @@ print(f"Vektör Uzunluğu: {len(vector)} boyutlu")</code></pre>
                         
                         <button class="enlarge-btn" onclick="openSingleLightbox(this)" title="Resmi Büyüt"><i class="fa-solid fa-expand"></i></button>
 
-                        <img src="../../Assets/blog/LocalRAG-Embedding.png" alt="Embedding Test Output" class="project-img">
+                        <img src="/Assets/blog/LocalRAG-Embedding.png" alt="Embedding Test Output" class="project-img">
                     </div>
                     <div style="text-align: center; color: var(--text-secondary); font-family: 'JetBrains Mono'; font-size: 0.85rem; margin-top: 10px;">
                         <i class="fa-solid fa-expand"></i> <span class="content-tr">Büyütmek için tıklayın</span><span class="content-en" style="display:none;">Press enter or click to view image in full size</span>
@@ -282,7 +282,7 @@ conn.commit()</code></pre>
                         
                         <button class="enlarge-btn" onclick="openSingleLightbox(this)" title="Resmi Büyüt"><i class="fa-solid fa-expand"></i></button>
 
-                        <img src="../../Assets/blog/LocalRAG-Vectors.png" alt="SQLite Setup Output" class="project-img">
+                        <img src="/Assets/blog/LocalRAG-Vectors.png" alt="SQLite Setup Output" class="project-img">
                     </div>
                     <div style="text-align: center; color: var(--text-secondary); font-family: 'JetBrains Mono'; font-size: 0.85rem; margin-top: 10px;">
                         <i class="fa-solid fa-expand"></i> <span class="content-tr">Büyütmek için tıklayın</span><span class="content-en" style="display:none;">Press enter or click to view image in full size</span>
@@ -337,7 +337,7 @@ Context: {retrieved_context}
                         
                         <button class="enlarge-btn" onclick="openSingleLightbox(this)" title="Resmi Büyüt"><i class="fa-solid fa-expand"></i></button>
 
-                        <img src="../../Assets/blog/LocalRAG-Prompt.png" alt="Prompt Engineering Output" class="project-img">
+                        <img src="/Assets/blog/LocalRAG-Prompt.png" alt="Prompt Engineering Output" class="project-img">
                     </div>
                     <div style="text-align: center; color: var(--text-secondary); font-family: 'JetBrains Mono'; font-size: 0.85rem; margin-top: 10px;">
                         <i class="fa-solid fa-expand"></i> <span class="content-tr">Büyütmek için tıklayın</span><span class="content-en" style="display:none;">Press enter or click to view image in full size</span>
@@ -363,7 +363,7 @@ Context: {retrieved_context}
 
         <div class="project-bottom-nav-container blog-content-width" style="margin-top: 4rem;">
             <div class="project-pagination">
-                <a href="../../blog.html" class="pagination-link prev">
+                <a href="/blog" class="pagination-link prev">
                     <i class="fa-solid fa-arrow-left"></i>
                     <span class="pagination-text">
                         <span class="pagination-label content-tr">Geri Dön</span>
@@ -372,7 +372,7 @@ Context: {retrieved_context}
                         <span class="pagination-title content-en" style="display:none;">All Articles</span>
                     </span>
                 </a>
-                <a href="../local-rag-bolum-2/index.html" class="pagination-link next">
+                <a href="/blog/local-RAG-bolum-2" class="pagination-link next">
                     <span class="pagination-text">
                         <span class="pagination-label content-tr">Sonraki Yazı</span>
                         <span class="pagination-label content-en" style="display:none;">Next Post</span>
@@ -390,7 +390,7 @@ Context: {retrieved_context}
         <div class="footer-container">
             <div class="footer-brand">
                 <div class="footer-logo-wrapper">
-                    <img src="../../Assets/favicon.png" alt="MBM Logo" class="footer-logo">
+                    <img src="/Assets/favicon.png" alt="MBM Logo" class="footer-logo">
                     <span class="footer-name">MEHMET BURAK MENTEŞE</span>
                 </div>
                 <p class="footer-desc" data-translate="footerDesc">Marmara Üniversitesi Bilgisayar Mühendisliği.<br>Yapay Zeka, Yazılım Geliştirme ve Siber Güvenlik.</p>
@@ -399,10 +399,10 @@ Context: {retrieved_context}
             <div class="footer-links">
                 <h4 class="footer-title" data-translate="quickMenu">Hızlı Menü</h4>
                 <nav class="footer-nav">
-                    <a href="../../index.html" data-translate="home">Ana Sayfa</a>
-                    <a href="../../hakkimda.html" data-translate="about">Hakkımda</a>
-                    <a href="../../projeler.html" data-translate="projects">Projeler</a>
-                    <a href="../../blog.html" data-translate="blog">Blog</a>
+                    <a href="/" data-translate="home">Ana Sayfa</a>
+                    <a href="/hakkimda" data-translate="about">Hakkımda</a>
+                    <a href="/projeler" data-translate="projects">Projeler</a>
+                    <a href="/blog" data-translate="blog">Blog</a>
                 </nav>
             </div>
             <div class="footer-social">
@@ -424,6 +424,6 @@ Context: {retrieved_context}
         <span class="lightbox-hint content-en" style="display:none;">Click outside to close.</span>
     </div>
 
-    <script src="../../script.js"></script>
+    <script src="/script.js"></script>
 </body>
 </html>
