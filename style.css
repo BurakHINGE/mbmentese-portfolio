@@ -30,30 +30,34 @@ body {
 
 
 /* Dil Butonu Stilleri */
-.lang-toggle {
-    cursor: pointer; /* Mouse elementin üstüne gelince el işaretine dönüşür */
+.lang-toggle-btn {
+    cursor: pointer;
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.9rem;
+    font-weight: 700;
     display: inline-flex;
-    gap: 4px;
+    align-items: center;
+    gap: 6px;
     user-select: none;
     text-decoration: none;
-    color: var(--text-secondary);
-}
-.lang-toggle span:not(.lang-active):not(.lang-separator) {
-    color: var(--text-secondary);
-}
-.lang-active {
     color: var(--neon-blue);
+    background: rgba(0, 242, 254, 0.05);
+    border: 1px solid rgba(0, 242, 254, 0.2);
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
     text-shadow: 0 0 8px rgba(0, 242, 254, 0.4);
-    font-weight: 700;
-}
-.lang-separator {
-    color: rgba(255, 255, 255, 0.2);
-    font-size: 0.85rem;
 }
 
-.lang-active {
+.lang-toggle-btn:hover {
+    background: rgba(0, 242, 254, 0.15);
+    border-color: rgba(0, 242, 254, 0.6);
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
+    transform: translateY(-2px);
+    color: #ffffff;
+}
+
+#typewriter-target {
     color: var(--neon-blue);
     text-shadow: 0 0 8px rgba(0, 242, 254, 0.4);
     font-weight: 700;
@@ -174,7 +178,7 @@ section {
 }
 
 /* Cards Layout */
-main {
+.landing-card {
     position: relative;
     width: 90%;
     max-width: 950px;
@@ -499,7 +503,7 @@ h1 {
     flex-direction: column;
     align-items: center;
     gap: 4rem; 
-    padding-top: 140px; 
+    padding-top: 185px; 
     padding-bottom: 80px;
 }
 
@@ -1662,49 +1666,6 @@ h1 {
     .footer-social-icons {
         justify-content: center;
     }
-}
-
-/* TR / EN Buton Stilleri */
-.lang-toggle {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    margin-left: 1rem;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.95rem;
-    color: var(--text-secondary);
-}
-
-.lang-btn {
-    cursor: pointer;
-    transition: all 0.3s ease;
-    padding: 4px 2px;
-    color: var(--text-secondary);
-}
-
-.lang-btn:hover {
-    color: #ffffff;
-}
-
-/* Aktif olan dilin neon turkuaz yanması */
-.lang-btn.active {
-    color: #00f2fe !important; 
-    text-shadow: 0 0 10px rgba(0, 242, 254, 0.8) !important;
-    font-weight: 700 !important;
-}
-
-.lang-separator {
-    opacity: 0.4;
-    cursor: default;
-}
-
-.nav-link.active,
-.lang-btn.active {
-    color: #00f2fe !important; 
-    text-shadow: 0 0 10px rgba(0, 242, 254, 0.8) !important;
-    font-weight: 700 !important;
-    border-bottom: 2px solid #00f2fe; /* Turkuaz alt çizgi */
-    padding-bottom: 4px; /* Çizgiyle yazı arasına nefes payı */
 }
 
 /* =========================================
