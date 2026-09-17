@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library Management System | Projeler | Mehmet Burak Menteşe</title>
-    <link rel="icon" type="image/png" href="/Assets/favicon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/Assets/favicon.png">
+    <link rel="apple-touch-icon" href="/Assets/favicon.png">
     <link rel="stylesheet" href="/style.css?v=3">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
@@ -65,13 +66,15 @@
                     <div class="tags-tooltip">
                         <span class="skill-tag" style="padding: 4px 8px; font-size: 0.75rem;">Inheritance</span>
                         <span class="skill-tag" style="padding: 4px 8px; font-size: 0.75rem;">Polymorphism</span>
-                        <span class="skill-tag" style="padding: 4px 8px; font-size: 0.75rem;">Exception Handling</span>
+                                                <span class="skill-tag" style="padding: 4px 8px; font-size: 0.75rem;">Exception Handling</span>
+                        <span class="skill-tag" style="padding: 4px 8px; font-size: 0.75rem;">JavaFX</span>
+                        <span class="skill-tag" style="padding: 4px 8px; font-size: 0.75rem;">GUI Design</span>
                     </div>
                 </div>
             </div>
 
-            <p class="project-hero-desc content-tr">Kişisel kitaplık (raf) yönetimini ortak kütüphane, kopya takibi, ödünç alma mekanizması ve admin paneliyle harmanlayan konsol tabanlı otomasyon sistemi.</p>
-            <p class="project-hero-desc content-en" style="display:none;">A console-based automation system that blends personal library (shelf) management with a shared library, copy tracking, borrowing mechanics, and an admin panel.</p>
+            <p class="project-hero-desc content-tr">Kişisel kitaplık (raf) yönetimini ortak kütüphane, kopya takibi, ödünç alma mekanizması ve admin paneliyle harmanlayan <strong>JavaFX tabanlı modern masaüstü (GUI) uygulaması.</strong></p>
+            <p class="project-hero-desc content-en" style="display:none;">A <strong>JavaFX-based modern desktop (GUI) application</strong> that blends personal library management with a shared library, copy tracking, borrowing mechanics, and an admin panel.</p>
         </div>
 
         <div class="about-divider" style="margin: 3rem 0 4rem 0;"></div>
@@ -86,8 +89,8 @@
     <span class="content-en" style="display:none;">Starting Point and Scope</span>
 </h3>
                     </div>
-                    <p class="bento-text content-tr">Bu proje başlangıçta kullanıcıların okudukları kitapları not edip saklayabileceği kişisel bir "kitaplık/raf" uygulaması olarak tasarlandı. Zamanla kapsamı genişletilerek mevcut kod yapısı silinmeden tam teşekküllü bir Kütüphane Sistemine dönüştürüldü. Artık kullanıcılar sadece kendi raflarını yönetmekle kalmıyor; merkezi kütüphaneden kitap aratabiliyor, kopya sayılarıyla birlikte kitap ödünç alabiliyor ve ödünç alınan bu kitaplar otomatik olarak kişisel raflarına "Okunuyor" statüsüyle ekleniyor.</p>
-                    <p class="bento-text content-en" style="display:none;">This project was initially designed as a personal "bookshelf" application where users could note and store books they read. Over time, its scope was expanded and transformed into a full-fledged Library System without discarding the existing code structure. Users can now not only manage their own shelves but also search for books in the central library, borrow books with copy counts, and have these borrowed books automatically added to their personal shelves with a "Reading" status.</p>
+                    <p class="bento-text content-tr">Bu proje başlangıçta kullanıcıların okudukları kitapları not edip saklayabileceği kişisel bir "kitaplık/raf" uygulaması olarak tasarlandı. Zamanla kapsamı genişletilerek mevcut kod yapısı silinmeden tam teşekküllü bir Kütüphane Sistemine dönüştürüldü. Artık kullanıcılar sadece kendi raflarını yönetmekle kalmıyor; merkezi kütüphaneden kitap aratabiliyor, kopya sayılarıyla birlikte kitap ödünç alabiliyor ve ödünç alınan bu kitaplar otomatik olarak kişisel raflarına "Okunuyor" statüsüyle ekleniyor.<br><br><strong>Büyük Güncelleme:</strong> Proje, başlangıçtaki basit siyah-beyaz konsol (terminal) yapısından tamamen kurtarılarak, <strong>JavaFX</strong> teknolojisi ile geliştirilmiş, kullanıcı dostu butonlar, dinamik tablolar (TableView) ve interaktif bir arayüze (GUI) sahip tam teşekküllü bir masaüstü yazılımına evrimleştirilmiştir.</p>
+                    <p class="bento-text content-en" style="display:none;">This project was initially designed as a personal "bookshelf" application where users could note and store books they read. Over time, its scope was expanded and transformed into a full-fledged Library System without discarding the existing code structure. Users can now not only manage their own shelves but also search for books in the central library, borrow books with copy counts, and have these borrowed books automatically added to their personal shelves with a "Reading" status.<br><br><strong>Major Update:</strong> The project has completely evolved from its initial simple black-and-white console (terminal) structure into a fully fledged desktop software featuring a modern GUI, user-friendly buttons, and dynamic tables (TableView), entirely developed using <strong>JavaFX</strong> technology.</p>
                 </div>
                 
                 <div class="feature-grid full-width">
@@ -162,13 +165,14 @@
                     </div>
                 </div>
 
-                <div class="zigzag-image slider-container local-rag-terminal-slider" style="flex: 1.2; margin-top: 0;">
+                <div class="zigzag-image slider-container local-rag-terminal-slider" style="flex: 1.2; margin-top: 0; aspect-ratio: 3024/1896;">
                     <div class="corner top-left"></div>
                     <div class="corner top-right"></div>
                     <div class="corner bottom-left"></div>
                     <div class="corner bottom-right"></div>
                     
                     <button class="enlarge-btn" onclick="openLightbox()" title="Resmi Büyüt"><i class="fa-solid fa-expand"></i></button>
+                    
                     
                     <img src="/Assets/library-demo.png" alt="Library System Demo 1" class="slide active" style="object-fit: contain !important;">
                     <img src="/Assets/library-demo-2.png" alt="Library System Demo 2" class="slide" style="object-fit: contain !important;">
@@ -178,6 +182,16 @@
                     <img src="/Assets/library-demo-6.png" alt="Library System Demo 6" class="slide" style="object-fit: contain !important;">
                     <img src="/Assets/library-demo-7.png" alt="Library System Demo 7" class="slide" style="object-fit: contain !important;">
                     <img src="/Assets/library-demo-8.png" alt="Library System Demo 8" class="slide" style="object-fit: contain !important;">
+                    <img src="/Assets/library-demo-9.png" alt="Library System Demo 9" class="slide" style="object-fit: contain !important;">
+                    <img src="/Assets/library-demo-10.png" alt="Library System Demo 10" class="slide" style="object-fit: contain !important;">
+                    <img src="/Assets/library-demo-11.png" alt="Library System Demo 11" class="slide" style="object-fit: contain !important;">
+                    <img src="/Assets/library-demo-12.png" alt="Library System Demo 12" class="slide" style="object-fit: contain !important;">
+                    <img src="/Assets/library-demo-13.png" alt="Library System Demo 13" class="slide" style="object-fit: contain !important;">
+                    <img src="/Assets/library-demo-14.png" alt="Library System Demo 14" class="slide" style="object-fit: contain !important;">
+                    <img src="/Assets/library-demo-15.png" alt="Library System Demo 15" class="slide" style="object-fit: contain !important;">
+                    <img src="/Assets/library-demo-16.png" alt="Library System Demo 16" class="slide" style="object-fit: contain !important;">
+                    <img src="/Assets/library-demo-17.png" alt="Library System Demo 17" class="slide" style="object-fit: contain !important;">
+
 
                     <button class="slider-btn prev-btn" onclick="moveSlide(-1)"><i class="fa-solid fa-chevron-left"></i></button>
                     <button class="slider-btn next-btn" onclick="moveSlide(1)"><i class="fa-solid fa-chevron-right"></i></button>
