@@ -33,7 +33,7 @@ BİLGİLER:
 """
 
     model_name = "phi-3.5-mini"
-    model = manager.catalog.get_model(model_name)
+    model = manager.catalog.get_model_variant("Phi-3.5-mini-instruct-generic-cpu:2")
     
     if model is None:
         print(f"HATA: '{model_name}' kataloğda bulunamadı. Lütfen ismi kontrol edin.")

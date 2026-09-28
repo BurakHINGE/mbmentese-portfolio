@@ -18,13 +18,27 @@ def main():
     
     # Metinleri vektöre çevireceğimiz modeli yüklüyoruz
     model_name = "qwen3-embedding-0.6b"
-    model = manager.catalog.get_model(model_name)
+    model = manager.catalog.get_model_variant(model_name + '-generic-cpu:1')
+    model.download()
+
     model.load()
     client = model.get_embedding_client()
     
     # SQLite veritabanımıza bağlanıyoruz
     conn = sqlite3.connect('knowledge_base.db')
     cursor = conn.cursor()
+    
+    # Tabloyu olustur (Eger yoksa)
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS documents (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            content TEXT NOT NULL,
+            embedding TEXT NOT NULL
+        )
+    """)
+    # Eski kayitlari temizle ki ust uste binmesin
+    cursor.execute("DELETE FROM documents")
+
     
     docs_dir = "docs"
 
