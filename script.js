@@ -403,7 +403,7 @@ function initRagChatbot() {
                 <span>Local RAG Asistanı</span>
                 <span class="rag-status-dot" title="Çevrimiçi"></span>
             </div>
-            <button class="rag-chat-close" title="Kapat"><i class="fa-solid fa-xmark"></i></button>
+            <button class="rag-chat-close" type="button" title="Kapat"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <div class="rag-chat-messages">
             <div class="rag-message assistant">
@@ -412,7 +412,7 @@ function initRagChatbot() {
         </div>
         <div class="rag-chat-input-area">
             <input type="text" class="rag-chat-input" placeholder="Bir soru sorun..." />
-            <button class="rag-chat-send-btn" title="Gönder"><i class="fa-solid fa-paper-plane"></i></button>
+            <button class="rag-chat-send-btn" type="button" title="Gönder"><i class="fa-solid fa-paper-plane"></i></button>
         </div>
     `;
 
@@ -486,10 +486,14 @@ function initRagChatbot() {
         messagesContainer.scrollTop = messagesContainer.scrollHeight;
     }
 
-    sendBtn.addEventListener('click', sendMessage);
+    sendBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        sendMessage();
+    });
     input.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') {
             e.preventDefault();
+            e.stopPropagation();
             sendMessage();
         }
     });
