@@ -38,10 +38,8 @@ def startup_event():
         
     model.load()
     chat_client = model.get_chat_client()
-    # Düşük temperature modelin Türkçe uydurma/çarpık kelimeler üretmesini engeller
     chat_client.settings.temperature = 0.1
     chat_client.settings.top_p = 0.9
-    chat_client.settings.presence_penalty = 0.3
     print("✅ Model başarıyla yüklendi! API istekleri dinlemeye hazır.")
 
 class ChatRequest(BaseModel):
@@ -50,6 +48,14 @@ class ChatRequest(BaseModel):
 @app.get("/")
 def root():
     return {"status": "ok", "message": "Local RAG Assistant API calisiyor!"}
+
+import re
+
+GREETINGS = {
+    "selam", "merhaba", "selamlar", "merhabalar", "hey", "hi", "hello",
+    "gunaydin", "günaydın", "iyi gunler", "iyi günler", "iyi aksamlar",
+    "iyi akşamlar", "naber", "nasılsın", "nasilsin", "slm", "mrb"
+}
 
 @app.post("/api/chat")
 def chat_endpoint(request: ChatRequest):
@@ -61,8 +67,26 @@ def chat_endpoint(request: ChatRequest):
         
     print(f"\n📩 Gelen Soru: {user_query}")
     
-    # 1. RAG: Veritabanından alakalı paragrafları bul ve mükerrer parçaları temizle
+    # 1. Selamlaşma / Hatır sorma yakalayıcı (Modeli ve veritabanını boşuna yormadan anında doğal Türkçe cevap)
+    clean_query = re.sub(r'[^\w\s]', '', user_query.lower()).strip()
+    if clean_query in GREETINGS:
+        greeting_reply = "Merhaba! Ben Mehmet Burak Menteşe'nin portfolyo yapay zeka asistanıyım. Projeler, blog yazıları, teknik yetenekler veya eğitim geçmişi hakkında sorularınızı yanıtlayabilirim. Size nasıl yardımcı olabilirim? 😊"
+        print(f"🤖 Cevap: {greeting_reply}\n")
+        return {"response": greeting_reply}
+    
+    # 2. RAG: Veritabanından alakalı paragrafları bul
     top_chunks = get_top_chunks(user_query, top_k=3)
+    
+    for idx, (score, txt) in enumerate(top_chunks):
+        print(f"  [Chunk {idx+1}] Skor: {score:.4f} | Başlık: {txt[:80]}...")
+
+    # Eşik Değeri (Threshold): Eğer bulunan en iyi belgenin benzerliği 0.35'in altındaysa veritabanında bu bilgi kesinlikle yoktur!
+    if not top_chunks or top_chunks[0][0] < 0.35:
+        no_info_reply = "Bu konuda veritabanımda bir bilgi bulunmuyor. Mehmet Burak Menteşe'nin projeleri, eğitim geçmişi, teknik yetenekleri veya blog yazıları hakkında sorular sorabilirsiniz."
+        print(f"🤖 Cevap (Düşük benzerlik skoru {top_chunks[0][0] if top_chunks else 0:.3f}): {no_info_reply}\n")
+        return {"response": no_info_reply}
+        
+    # Mükerrer parçaları temizle
     seen_chunks = set()
     unique_texts = []
     for score, text in top_chunks:
@@ -73,23 +97,23 @@ def chat_endpoint(request: ChatRequest):
             
     context = "\n\n".join(unique_texts)
         
-    # 2. Sistem Prompt'u
-    system_prompt = f"""Sen Mehmet Burak Menteşe'nin kişisel portfolyo web sitesindeki resmi yapay zeka asistanısın.
-Ziyaretçilere Mehmet Burak Menteşe'nin projeleri, blog yazıları, teknik yetenekleri ve sitedeki terimler hakkında bilgi vermekle görevlisin.
+    # 3. Prompt Yapısı
+    user_prompt = f"""You are the official AI assistant for Mehmet Burak Menteşe's personal portfolio.
 
-KESİN KURALLAR:
-1. ASLA TEKRARA DÜŞME: Bir bilgi (örneğin LinkedIn veya GitHub bağlantısı, okul adı veya bir özellik) BİLGİLER kısmında birden fazla kez yer alsa dahi, cevabında onu YALNIZCA BİR KEZ belirt. Aynı cümleyi, bağlantıyı veya ifadeyi iki kez art arda tekrarlama.
-2. DİL VE DÜZGÜN TÜRKÇE: Uydurma, yapay, bozuk veya çarpıtılmış kelimeler kullanma. Dil bilgisi kurallarına tam uyarak, sade, anlaşılır, net ve temiz bir Türkçe ile cevap ver. Cümleleri gereksiz yere uzatma.
-3. KANITA DAYALI CEVAP VER: Yalnızca aşağıdaki 'BİLGİLER' bölümündeki gerçek detaylara dayanarak cevap ver. Eğer kullanıcının sorduğu detay metinde açıkça yoksa, bilgi uydurmak yerine kesinlikle "Bu konuda veritabanımda bir bilgi bulunmuyor." de.
-4. DOĞRUDAN YANIT: Düşünce sürecini veya 'Kibarca:' gibi ifadeleri yazma; doğrudan sorunun cevabını ver.
-
-BİLGİLER:
+Context:
 {context}
-"""
+
+Question: {user_query}
+
+Instructions:
+- If the Context does not contain the factual answer to the Question, your entire response must be simply: "Bu konuda veritabanımda bir bilgi bulunmuyor."
+- If the Context contains the answer, answer warmly, politely, and factually in fluent Turkish.
+- Keep the answer concise, direct, and to the point. Stop generating once the question is answered.
+- Provide links, emails, and factual information directly without describing website UI layouts.
+- Do not mention other unrelated facts, do not hallucinate, and do not include disclaimers or notes."""
 
     messages = [
-        {"role": "system", "content": system_prompt},
-        {"role": "user", "content": user_query}
+        {"role": "user", "content": user_prompt}
     ]
     
     try:
@@ -98,7 +122,26 @@ BİLGİLER:
             answer = response.choices[0].message.content.strip()
         else:
             answer = str(response)
-            
+
+        print(f"--- RAW MODEL OUTPUT ---\n{answer}\n------------------------")
+
+        raw_debug = answer
+        # 1. Modelin ürettiği olası kuyruk meta-yorumları, özür/not bloklarını temizle
+        for delimiter in [
+            "\n\nÖzür dilerim", "\nÖzür dilerim",
+            "\n\nBu konuda veritabanımda", "\nBu konuda veritabanımda",
+            "\n\nAlternatif", "\nAlternatif", 
+            "\n\n(Not:", "\n(Not:", "(Not:",
+            "\n\nNote:", "\nNote:", "(Note:"
+        ]:
+            if delimiter in answer:
+                answer = answer.split(delimiter)[0].strip()
+
+        # 2. Eğer temizlendikten sonra kalan metin "bilgi bulunmuyor" diyorsa veya boşsa standart mesaja dönüştür
+        lower_ans = answer.lower()
+        if not answer or lower_ans.startswith("bu konuda veritabanımda") or "bilgi yer almıyor" in lower_ans:
+            answer = "Bu konuda veritabanımda bir bilgi bulunmuyor."
+
         print(f"🤖 Cevap: {answer}\n")
         return {"response": answer}
     except Exception as e:
