@@ -75,7 +75,7 @@ def chat_endpoint(request: ChatRequest):
         return {"response": greeting_reply}
     
     # 2. RAG: Veritabanından alakalı paragrafları bul
-    top_chunks = get_top_chunks(user_query, top_k=3)
+    top_chunks = get_top_chunks(user_query, top_k=5)
     
     for idx, (score, txt) in enumerate(top_chunks):
         print(f"  [Chunk {idx+1}] Skor: {score:.4f} | Başlık: {txt[:80]}...")
@@ -86,10 +86,16 @@ def chat_endpoint(request: ChatRequest):
         print(f"🤖 Cevap (Düşük benzerlik skoru {top_chunks[0][0] if top_chunks else 0:.3f}): {no_info_reply}\n")
         return {"response": no_info_reply}
         
+    best_score = top_chunks[0][0]
+    # Sadece en iyi sonuca yakın ve alaka düzeyi yüksek parçaları seç (çapraz doküman kirliliğini engeller)
+    relevant_chunks = [c for c in top_chunks if c[0] >= 0.38 and (best_score - c[0]) <= 0.15]
+    if not relevant_chunks:
+        relevant_chunks = [top_chunks[0]]
+
     # Mükerrer parçaları temizle
     seen_chunks = set()
     unique_texts = []
-    for score, text in top_chunks:
+    for score, text in relevant_chunks:
         cleaned = text.strip()
         if cleaned not in seen_chunks:
             seen_chunks.add(cleaned)
@@ -106,11 +112,12 @@ Context:
 Question: {user_query}
 
 Instructions:
-- If the Context does not contain the factual answer to the Question, your entire response must be simply: "Bu konuda veritabanımda bir bilgi bulunmuyor."
-- If the Context contains the answer, answer warmly, politely, and factually in fluent Turkish.
-- Keep the answer concise, direct, and to the point. Stop generating once the question is answered.
-- Provide links, emails, and factual information directly without describing website UI layouts.
-- Do not mention other unrelated facts, do not hallucinate, and do not include disclaimers or notes."""
+1. Answer the question directly, politely, and factually in fluent Turkish using ONLY the facts provided in the Context above.
+2. If the Context does not contain the factual answer to the Question, reply ONLY:
+Bu konuda veritabanımda bir bilgi bulunmuyor.
+3. Keep the answer concise, direct, and to the point.
+4. Provide links, emails, and factual information directly without describing website UI layouts.
+5. Do not mention other unrelated facts, do not hallucinate, and do not include disclaimers or notes."""
 
     messages = [
         {"role": "user", "content": user_prompt}
@@ -123,23 +130,55 @@ Instructions:
         else:
             answer = str(response)
 
+        raw_model_output = answer
         print(f"--- RAW MODEL OUTPUT ---\n{answer}\n------------------------")
 
-        raw_debug = answer
-        # 1. Modelin ürettiği olası kuyruk meta-yorumları, özür/not bloklarını temizle
-        for delimiter in [
-            "\n\nÖzür dilerim", "\nÖzür dilerim",
-            "\n\nBu konuda veritabanımda", "\nBu konuda veritabanımda",
-            "\n\nAlternatif", "\nAlternatif", 
-            "\n\n(Not:", "\n(Not:", "(Not:",
-            "\n\nNote:", "\nNote:", "(Note:"
-        ]:
-            if delimiter in answer:
-                answer = answer.split(delimiter)[0].strip()
+        # 1. Modelin ürettiği olası ret meta-yorumlarını temizle
+        refusal_phrases = [
+            "Bu konuda veritabanımda bir bilgi bulunmuyor",
+            "Bu konuda veritabanımda bilgi bulunmuyor",
+            "Bu konuda veritabanında bilgi bulunmuyor",
+            "bu konuda veritabanımda bir bilgi bulunmuyor",
+            "bu konuda veritabanımda bilgi bulunmuyor",
+            "veritabanımda bir bilgi bulunmuyor",
+            "veritabanımda bilgi bulunmuyor"
+        ]
+        
+        # Eğer cevap tek başına bir ret cümlesi ise standart formata dönüştür
+        if any(answer.strip().lower().startswith(r.lower()) for r in refusal_phrases):
+            answer = "Bu konuda veritabanımda bir bilgi bulunmuyor."
+        else:
+            # Trailing ret veya meta-yorum paragraflarını temizle
+            if "\n\n" in answer:
+                parts = answer.split("\n\n")
+                cleaned_parts = [parts[0]]
+                for part in parts[1:]:
+                    p_lower = part.strip().lower()
+                    if any(p_lower.startswith(prefix) for prefix in [
+                        "bu konu", "bu soru", "bu bilgi", "veritabanı", "özür", "(not", "note:", "not:", "i do not"
+                    ]):
+                        break
+                    cleaned_parts.append(part)
+                answer = "\n\n".join(cleaned_parts).strip()
 
-        # 2. Eğer temizlendikten sonra kalan metin "bilgi bulunmuyor" diyorsa veya boşsa standart mesaja dönüştür
-        lower_ans = answer.lower()
-        if not answer or lower_ans.startswith("bu konuda veritabanımda") or "bilgi yer almıyor" in lower_ans:
+            for delimiter in refusal_phrases + [
+                "(Veritabanımda bilgi bulunmuyor",
+                "(veritabanımda bilgi bulunmuyor",
+                "\n\nÖzür dilerim", "\nÖzür dilerim",
+                "\n\nAlternatif", "\nAlternatif", 
+                "\n\n(Not:", "\n(Not:", "(Not:",
+                "\n\nNote:", "\nNote:", "(Note:"
+            ]:
+                if delimiter.lower() in answer.lower() and not answer.strip().lower().startswith(delimiter.lower()):
+                    idx = answer.lower().find(delimiter.lower())
+                    if idx > 0:
+                        answer = answer[:idx].strip()
+
+        # 2. Eğer temizlendikten sonra boş kaldıysa standart mesaja dönüştür
+        # Trailing tek harf veya yarım kalan satır temizliği (örn: \n\nB)
+        answer = re.sub(r'\n+[A-Za-zÇĞİÖŞÜçğıöşü\s]{1,3}$', '', answer).strip()
+
+        if not answer:
             answer = "Bu konuda veritabanımda bir bilgi bulunmuyor."
 
         print(f"🤖 Cevap: {answer}\n")
