@@ -1,7 +1,43 @@
-# Blog: Local RAG Asistanı Bölüm 1 - Amacımız ve Temeller
+## Local RAG Asistanı (Bölüm 1) Blog Yazısı Genel Bakış ve Ön Söz
+Soru: Mehmet Burak Menteşe'nin Local RAG Asistanı (Bölüm 1 / Part 1) blog yazısı neyi anlatıyor, ne zaman yazıldı ve çıkış noktası nedir?
+Cevap: Mehmet Burak Menteşe'nin 14 Temmuz 2026 tarihinde kaleme aldığı **"Local RAG Asistanı Geliştirmek: Microsoft Foundry ile Bölüm 1"** (İngilizce: **"Developing a Local RAG Assistant: Part 1 with Microsoft Foundry"**, sitedeki kart adıyla **Local RAG Asistanı (Bölüm 1)** / **Local RAG Assistant (Part 1)**, bağlantı: `https://mburakmentese.dev/blog/local-RAG-bolum-1`) başlıklı teknik makale, **Microsoft AI Innovators Summer Program (Yaz Stajı)** kapsamında geliştirilen yerel yapay zeka asistanının çıkış noktasını ve temel mimari altyapısını anlatır.
+6 haftalık geliştirme serüveninin ilk fazını (**Phase 1**) ele alan ve 6 dakikalık okuma süresine sahip olan yazı (Etiketler: `AI`, `Local RAG`, `SQLite`, `Embeddings`, `phi-3.5`, `qwen3`); kullanıcıların kendi cihazlarında harici bulut API'lerine ihtiyaç duymadan tamamen çevrimdışı (offline) ve güvenli çalışan bir RAG asistanı inşa etme adımlarını aktarır.
 
-Bu yazıda Mehmet Burak Menteşe, Microsoft AI Innovators programında geliştirdiği Local RAG asistanının temellerini anlatıyor.
-Yapay zeka modellerinin spesifik bilgiler sorulduğunda yalan uydurma eğilimine 'Halüsinasyon' denir.
-Bunu çözmek için modeli baştan eğitmek çok maliyetlidir. Bunun yerine RAG (Bulup Getirme, Harmanlama, Üretme) yöntemi kullanılır.
-Asistanın bilgileri hatırlaması için kelimeler Vektör denilen sayı dizilerine çevrilir. (Embeddings)
-Bu vektörler SQLite veri tabanında saklanır.
+## Local RAG Bölüm 1 (Phase 1): Neden Bulut API Yerine Local (Yerel) Model ve CPU/NPU Tercih Edildi?
+Soru: Mehmet Burak Menteşe'nin Local RAG (Bölüm 1) blog yazısında neden OpenAI gibi hazır bulut API'leri yerine yerel (local) model tercih edildi ve NPU nedir?
+Cevap: Mehmet Burak Menteşe'nin Local RAG Asistanı (Bölüm 1 / Phase 1) yazısında vurguladığı üzere projenin temel felsefesi **"Local" (Yerel)** çalışma prensibidir. Yerel model; cihazın kendi donanım kaynaklarını (**CPU** veya **NPU — Neural Processing Unit / Yapay Zeka ve Sinirsel İşlem Birimi**) kullanarak internete bağlanmadan (offline) çalışır. Bu sayede kişisel notlar, kulüp planları ve özel belgeler internete veya üçüncü taraf bulut sunucularına sızdırılmaz; **%100 veri gizliliği, sıfır API kullanım maliyeti ve tam internet bağımsızlığı** sağlanır.
+
+## Local RAG Sisteminde Halüsinasyon (Hallucination) Problemi, Fine-Tuning Zorluğu ve RAG İhtiyacı
+Soru: Yapay zekada halüsinasyon (uydurma) nedir, Fine-Tuning (ince ayar) ile RAG arasındaki fark nedir ve Local RAG bu sorunu nasıl çözer?
+Cevap: Mehmet Burak Menteşe'nin Local RAG Asistanı (Bölüm 1 / Phase 1) blog yazısında açıklandığı üzere; büyük dil modelleri (LLM) geniş bir genel kültür havuzuna sahip olsalar da kullanıcının kişisel ders notlarını, şirket projelerini veya özel kulüp belgelerini bilmezler. Bilmedikleri spesifik bir konu sorulduğunda "bilmiyorum" demek yerine özgüvenli bir şekilde yanlış ve uydurma (**halüsinasyon / hallucination**) yanıtlar üretirler.
+- **Fine-Tuning (İnce Ayar) vs RAG Farkı:** Modeli her yeni PDF veya belge için baştan eğitmek (**Fine-Tuning** — modelin iç ağırlıklarını yeni verilerle yeniden eğitme süreci) aylar sürer ve devasa GPU donanımı gerektirir. **RAG (Retrieval-Augmented Generation)** mimarisi ise yapay zekaya adeta bir **"açık kitap sınavı"** yaptırarak modeli baştan eğitmeye gerek kalmadan gerçek ve güncel belgelere doğrudan bağlar.
+
+## Local RAG Mimarisi Çalışma Adımları: Retrieve, Augment ve Generate Nedir?
+Soru: Mehmet Burak Menteşe'nin Local RAG (Bölüm 1) yazısına göre RAG mimarisi hangi 3 temel adımdan (Retrieve, Augment, Generate) oluşur?
+Cevap: Mehmet Burak Menteşe'nin Local RAG Asistanı (Bölüm 1 / Phase 1) blog yazısında detaylandırıldığı üzere Local RAG mimarisi şu 3 temel adımdan oluşur:
+1. **Retrieve (Bulup Getirme / Erişim):** Kullanıcının sorduğu soruyla anlamsal olarak en alakalı olan bilgi parçacıkları yerel belgelerin (PDF, Markdown, ders notları vb.) içinden taranarak bulunur.
+2. **Augment (Zenginleştirme / Harmanlama):** Bulunan bu güvenilir bilgi parçacıkları kullanıcının sorusuyla birleştirilip yapay zekaya bağlam (**Context** — açık kitap sınavındaki kaynak kopya kağıdı) olarak sunulur.
+3. **Generate (Yanıt Üretme):** Yapay zeka modeli (`phi-3.5-mini`) kendi genel ezberine değil, yalnızca kendisine sağlanan bu spesifik bağlam metnine bakarak doğru, kanıtlara dayalı ve net bir cevap üretir.
+
+## Local RAG Bölüm 1: Microsoft Foundry Local Nedir ve Projedeki Rolü Nedir?
+Soru: Local RAG (Bölüm 1) blogunda kullanılan Microsoft Foundry Local nedir ve projede ne işe yarar?
+Cevap: Mehmet Burak Menteşe'nin Local RAG Asistanı (Bölüm 1 / Phase 1) yazısında tanıttığı **Microsoft Foundry Local**, büyük/küçük dil modellerini (LLM/SLM) ve embedding modellerini hiçbir bulut hesabına, internet bağlantısına veya ücretli API anahtarına gerek duymadan doğrudan yerel cihazda çalıştırmayı sağlayan bir SDK ve çalışma ortamıdır (runtime). Modellerin doğrudan cihazın **CPU veya NPU** birimi üzerinden optimize şekilde çalışmasını sağlayarak pahalı ekran kartı (GPU) zorunluluğunu ortadan kaldırır.
+
+## Local RAG Bölüm 1 (1. Adım): Embeddings (Kelimeleri Matematiğe Dönüştürme) ve `qwen3-embedding-0.6b` Modeli
+Soru: Local RAG (Bölüm 1) yazısının 1. adımında Embeddings (vektörleştirme) işlemi nasıl yapıldı, `qwen3-embedding-0.6b` modeli metni kaç boyutlu vektöre çeviriyor?
+Cevap: Mehmet Burak Menteşe'nin Local RAG Asistanı (Bölüm 1 / Phase 1) blog yazısının 1. uygulama adımında (`embedding_test.py`) anlatıldığı üzere; yapay zeka kelimeleri doğrudan harf olarak değil, matematiksel vektörler olarak anlar ve karşılaştırır. Projede Microsoft Foundry Local SDK üzerinden **`qwen3-embedding-0.6b`** modeli indirilip yerel olarak yüklenmiştir. Bu model, girilen bir cümleyi veya metin parçasını tam **1024 boyutlu** çok boyutlu bir sayı dizisine (vektör koordinatına) dönüştürerek metnin anlamsal özetini matematiksel olarak çıkarır.
+
+## Local RAG Bölüm 1 (2. Adım): SQLite (`knowledge_base.db`) ile 1024 Boyutlu Vektörlerin Depolanması
+Soru: Local RAG (Bölüm 1) yazısının 2. adımında üretilen 1024 boyutlu vektörler nerede ve nasıl saklandı, `knowledge_base.db` tablo yapısı ve `json.dumps` kullanımı nasıldır?
+Cevap: Mehmet Burak Menteşe, Local RAG Asistanı (Bölüm 1 / Phase 1) yazısının 2. adımında (`db_setup.py`) üretilen 1024 boyutlu vektörleri depolamak için karmaşık veritabanı sunucuları yerine sunucusuz (**serverless**), ek kurulum gerektirmeyen ve tüm veriyi tek bir yerel dosyada tutan **SQLite** veritabanını seçmiştir.
+- **Tablo ve Kayıt Yapısı (`json.dumps`):** Python'un yerleşik `sqlite3` kütüphanesiyle **`knowledge_base.db`** adlı veritabanı dosyası oluşturulmuş ve içinde **`documents`** tablosu (`id`, `content`, `embedding`) tanımlanmıştır. Standart SQLite 1024 boyutlu vektör dizilerini doğrudan yerel bir vektör veri tipinde tutup benzerlik araması yapamadığı için; metnin kendisi **`content`** sütununda, `qwen3-embedding-0.6b` tarafından üretilen 1024 boyutlu ondalıklı sayı dizisi ise Python'un `json` kütüphanesiyle (**`json.dumps`**) JSON metin formatına serileştirilerek **`embedding`** sütununda saklanmıştır.
+
+## Local RAG Bölüm 1 (3. Adım): Prompt Mühendisliği ve SLM (`phi-3.5-mini`) İçin Sistem Promptunun Neden İngilizce Yazıldığı
+Soru: Local RAG (Bölüm 1) yazısının 3. adımında sistem promptu (system prompt) neden İngilizce yazıldı ve `phi-3.5-mini` modelinde halüsinasyon nasıl engellendi?
+Cevap: Mehmet Burak Menteşe'nin Local RAG Asistanı (Bölüm 1 / Phase 1) yazısının 3. adımında (`system_prompt.py`) açıkladığı üzere; **`phi-3.5-mini`** gibi küçük dil modelleri (**SLM - Small Language Models**) İngilizce komutlara ve kural sınırlarına çok daha sadık kalmakta, karmaşık Türkçe sistem kuralları verildiğinde ise kural dışına çıkma veya gramer/kafa karışıklığı yaşama eğilimi gösterebilmektedir.
+Bu nedenle modelin davranış sınırlarını çizen **sistem promptu (system prompt)** açık ve katı bir İngilizceyle yazılmıştır: *"You are a precise AI assistant. Use ONLY the information provided in the 'Context' below to answer questions. If the answer is not contained in the context, do not guess, do not explain why, and do not hallucinate. Simply say: 'I do not have this information.'"*
+Bu katı prompt mühendisliği (Prompt Engineering) talimatı sayesinde model, kendisine verilen bağlamda (Context) yer almayan konularda tahmin yürütmek veya uydurmak yerine doğrudan `"I do not have this information."` yanıtını vererek halüsinasyon problemini çözmektedir.
+
+## Local RAG Bölüm 1 (Phase 1) Sonucu ve 2. Bölüm (Phase 2) Hazırlığı
+Soru: Mehmet Burak Menteşe'nin Local RAG blog serisinin 1. bölümünün (Phase 1) sonunda neler tamamlandı ve 2. bölümde ne anlatılıyor?
+Cevap: Mehmet Burak Menteşe'nin Local RAG Asistanı blog serisinin 1. bölümünde (**Phase 1**); RAG mimarisinin teorik temelleri atılmış, Microsoft Foundry Local ortamı kurulmuş, metinler `qwen3-embedding-0.6b` ile 1024 boyutlu vektörlere dönüştürülüp SQLite (`knowledge_base.db`) içine kaydedilmiş ve `phi-3.5-mini` modelinin katı İngilizce sistem promptu ile halüsinasyon görmesi engellenmiştir. Serinin **2. bölümünde (Phase 2: Data Ingestion & Retrieval)** ise gerçek dokümanların okunup parçalara (**chunking**) bölünmesi, **kosinüs benzerliği (cosine similarity)** ile semantik arama motorunun yazılması ve terminal üzerinden asistanla canlı sohbet (**CLI**) adımları ele alınmaktadır.
