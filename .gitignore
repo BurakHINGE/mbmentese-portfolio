@@ -1,0 +1,28 @@
+# Gizli Ortam Değişkenleri ve API Anahtarları
+.env
+.env.*
+.dev.vars
+backend/.env
+backend/.dev.vars
+
+# Python Sanal Ortamı ve Önbellek Dosyaları
+backend/venv/
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Yerel Vektör Veritabanı
+backend/knowledge_base.db
+*.db
+*.sqlite
+*.sqlite3
+
+# Node.js / Cloudflare Wrangler Geçici Klasörleri
+node_modules/
+.wrangler/
+dist/
+
+# macOS ve Editör Sistem Dosyaları
+.DS_Store
+.vscode/
