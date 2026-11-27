@@ -1,9 +1,12 @@
-# Gizli Ortam Değişkenleri ve API Anahtarları
+# Gizli Ortam Değişkenleri ve API Anahtarları (Asla GitHub'a yüklenmez)
 .env
 .env.*
 .dev.vars
 backend/.env
 backend/.dev.vars
+
+# Cloudflare Worker Arka Plan Kodu ve Güvenlik Kuralları (Sadece Yerelde ve Cloudflare Panelinde Tutulur)
+cloudflare-worker/
 
 # Python Sanal Ortamı ve Önbellek Dosyaları
 backend/venv/
@@ -14,6 +17,7 @@ __pycache__/
 
 # Yerel Vektör Veritabanı
 backend/knowledge_base.db
+knowledge_base.db
 *.db
 *.sqlite
 *.sqlite3
