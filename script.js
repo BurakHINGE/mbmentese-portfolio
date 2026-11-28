@@ -380,3 +380,215 @@ function closeLightbox(event) {
 
 document.addEventListener('DOMContentLoaded', createEnhancedStarfield);
 
+
+// =========================================
+// LOCAL RAG ASİSTANI (CHATBOT WIDGET)
+// =========================================
+function initRagChatbot() {
+    if (document.querySelector('.rag-chat-btn')) return;
+
+    // Chatbot Açma/Kapama Butonu
+    const chatBtn = document.createElement('button');
+    chatBtn.className = 'rag-chat-btn';
+    chatBtn.title = 'Local RAG Asistanı ile Sohbet Et';
+    chatBtn.innerHTML = '<i class="fa-solid fa-robot"></i>';
+
+    // Chatbot Penceresi
+    const chatWindow = document.createElement('div');
+    chatWindow.className = 'rag-chat-window';
+    chatWindow.innerHTML = `
+        <div class="rag-chat-header">
+            <div class="rag-chat-header-title">
+                <i class="fa-solid fa-robot"></i>
+                <span>Local RAG Asistanı</span>
+                <span class="rag-status-dot" title="Çevrimiçi"></span>
+            </div>
+            <button class="rag-chat-close" type="button" title="Kapat"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="rag-chat-messages">
+            <div class="rag-message assistant">
+                Merhaba! Ben Mehmet Burak Menteşe'nin kişisel yapay zeka asistanıyım. Projeler, blog yazıları veya sitede anlamadığın teknik terimler hakkında bana dilediğini sorabilirsin! 🤖
+            </div>
+        </div>
+        <div class="rag-chat-input-area">
+            <input type="text" class="rag-chat-input" placeholder="Bir soru sorun (maks. 300 karakter)..." maxlength="300" autocomplete="off" spellcheck="false" />
+            <button class="rag-chat-send-btn" type="button" title="Gönder"><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+    `;
+
+    document.body.appendChild(chatBtn);
+    document.body.appendChild(chatWindow);
+
+    const closeBtn = chatWindow.querySelector('.rag-chat-close');
+    const input = chatWindow.querySelector('.rag-chat-input');
+    const sendBtn = chatWindow.querySelector('.rag-chat-send-btn');
+    const messagesContainer = chatWindow.querySelector('.rag-chat-messages');
+
+    const RAG_API_URL = 'https://mbm-rag-assistant.mbmentese-portfolio.workers.dev/api/chat';
+    const MAX_INPUT_CHARS = 300;
+    let isSending = false;
+
+    // Girdi Temizleme (Görünmez karakterler, Null byte, HTML etiketleri ve Data-URI engeli)
+    function sanitizeClientInput(raw) {
+        if (typeof raw !== 'string') return '';
+        return raw
+            .normalize('NFKC')
+            .replace(/\0/g, '')
+            .replace(/[\u200B-\u200F\u202A-\u202E\u2060-\u206F\uFEFF]/g, '')
+            .replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g, '')
+            .replace(/[<>]/g, '')
+            .slice(0, MAX_INPUT_CHARS);
+    }
+
+    // 1. GÜVENLİK: Sohbet penceresine ve input kutusuna dosya/görsel sürükle-bırak (Drag & Drop) engeli
+    ['dragenter', 'dragover', 'dragleave', 'drop'].forEach((eventName) => {
+        chatWindow.addEventListener(eventName, (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+        });
+    });
+
+    // 2. GÜVENLİK: Panodan (Clipboard) dosya, ekran görüntüsü veya zararlı HTML yapıştırma (Paste) engeli
+    input.addEventListener('paste', (e) => {
+        e.preventDefault();
+        if (isSending) return;
+
+        const clipboardData = e.clipboardData || window.clipboardData;
+        if (!clipboardData) return;
+
+        // Eğer panoda dosya veya görsel varsa tamamen reddet
+        if (clipboardData.files && clipboardData.files.length > 0) {
+            return;
+        }
+        if (clipboardData.items) {
+            for (let i = 0; i < clipboardData.items.length; i++) {
+                if (clipboardData.items[i].kind === 'file') {
+                    return;
+                }
+            }
+        }
+
+        // Yalnızca düz metni (text/plain) al ve temizle
+        const pastedText = clipboardData.getData('text/plain') || '';
+        if (/data:(image|application|audio|video)\//i.test(pastedText) || /;base64,/i.test(pastedText)) {
+            return;
+        }
+
+        const cleanPaste = sanitizeClientInput(pastedText);
+        const start = input.selectionStart || 0;
+        const end = input.selectionEnd || 0;
+        const currentVal = input.value;
+        const combined = (currentVal.slice(0, start) + cleanPaste + currentVal.slice(end)).slice(0, MAX_INPUT_CHARS);
+        input.value = combined;
+    });
+
+    // 3. GÜVENLİK: Yazarken canlı karakter ve etiket kontrolü
+    input.addEventListener('input', () => {
+        const cleaned = sanitizeClientInput(input.value);
+        if (input.value !== cleaned) {
+            input.value = cleaned;
+        }
+    });
+
+    // Pencereyi Aç/Kapat
+    function toggleChat() {
+        const isOpen = chatWindow.classList.toggle('open');
+        chatBtn.classList.toggle('active', isOpen);
+        if (isOpen) {
+            chatBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+            setTimeout(() => input.focus(), 150);
+        } else {
+            chatBtn.innerHTML = '<i class="fa-solid fa-robot"></i>';
+        }
+    }
+
+    chatBtn.addEventListener('click', toggleChat);
+    closeBtn.addEventListener('click', toggleChat);
+
+    // Mesaj Gönderme
+    async function sendMessage() {
+        if (isSending) return;
+
+        const messageText = sanitizeClientInput(input.value).trim();
+        if (!messageText) return;
+
+        isSending = true;
+        input.disabled = true;
+        sendBtn.disabled = true;
+
+        // Kullanıcı mesajını güvenli textContent ile ekle
+        appendMessage('user', messageText);
+        input.value = '';
+
+        // Yazıyor... göstergesini ekle
+        const typingIndicator = document.createElement('div');
+        typingIndicator.className = 'rag-typing';
+        typingIndicator.innerHTML = '<span></span><span></span><span></span>';
+        messagesContainer.appendChild(typingIndicator);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 15000);
+
+        try {
+            const response = await fetch(RAG_API_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ message: messageText }),
+                signal: controller.signal
+            });
+
+            clearTimeout(timeoutId);
+            typingIndicator.remove();
+
+            const data = await response.json().catch(() => null);
+
+            if (response.ok && data && typeof data.response === 'string') {
+                appendMessage('assistant', data.response);
+            } else if (response.status === 429) {
+                appendMessage('assistant', (data && data.response) || 'Çok hızlı soru gönderdiniz. Lütfen biraz bekleyip tekrar deneyin.');
+            } else {
+                appendMessage('assistant', (data && data.response) || 'Üzgünüm, cevap üretilirken bir hata oluştu.');
+            }
+        } catch (error) {
+            clearTimeout(timeoutId);
+            typingIndicator.remove();
+            appendMessage('assistant', '⚠️ Bağlantı zaman aşımına uğradı veya sunucuya ulaşılamadı. Lütfen internet bağlantınızı kontrol edip tekrar deneyin.');
+        } finally {
+            // Spam koruması için 1.2 saniye bekleme (cooldown) süresi
+            setTimeout(() => {
+                isSending = false;
+                input.disabled = false;
+                sendBtn.disabled = false;
+                if (chatWindow.classList.contains('open')) {
+                    input.focus();
+                }
+            }, 1200);
+        }
+    }
+
+    function appendMessage(sender, text) {
+        const msgDiv = document.createElement('div');
+        msgDiv.className = `rag-message ${sender === 'user' ? 'user' : 'assistant'}`;
+        // XSS Koruması: Asla innerHTML kullanılmaz, yalnızca textContent kullanılır
+        msgDiv.textContent = typeof text === 'string' ? text : '';
+        messagesContainer.appendChild(msgDiv);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+
+    sendBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        sendMessage();
+    });
+    input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            e.stopPropagation();
+            sendMessage();
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', initRagChatbot);
